@@ -1,0 +1,15 @@
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.deps.json
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.runtimeconfig.json
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.runtimeconfig.dev.json
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\bin\Debug\net5.0\ref\DAL_DataAccessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.pdb
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.csproj.AssemblyReference.cache
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.AssemblyInfoInputs.cache
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.AssemblyInfo.cs
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\ref\DAL_DataAccessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.pdb
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.genruntimeconfig.cache

@@ -1,0 +1,15 @@
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.deps.json
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\bin\Debug\net5.0\ref\BUS_BussinessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.pdb
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.pdb
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.AssemblyReference.cache
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.AssemblyInfoInputs.cache
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.AssemblyInfo.cs
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.CoreCompileInputs.cache
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.CopyComplete
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\ref\BUS_BussinessLayer.dll
+D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.pdb
