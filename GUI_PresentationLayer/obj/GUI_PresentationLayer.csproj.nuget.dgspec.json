@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {}
   },
   "projects": {
-    "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
+    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
         "projectName": "BUS_BussinessLayer",
-        "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\BUS_BussinessLayer\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
-                "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj"
+              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj"
               },
-              "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj": {
-                "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj"
+              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj"
               }
             }
           }
@@ -61,21 +61,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
+    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
         "projectName": "DAL_DataAccessLayer",
-        "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DAL_DataAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -89,8 +89,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj": {
-                "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj"
+              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj"
               }
             }
           }
@@ -135,21 +135,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj": {
+    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -189,21 +189,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {
+    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
         "projectName": "GUI_PresentationLayer",
-        "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\GUI_PresentationLayer\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -217,11 +217,11 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
-                "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj"
+              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj"
               },
-              "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj": {
-                "projectPath": "D:\\hk1 - nam 4\\Phân lớp\\test\\3_layer_test\\DTO\\DTO.csproj"
+              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj"
               }
             }
           }
@@ -253,7 +253,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

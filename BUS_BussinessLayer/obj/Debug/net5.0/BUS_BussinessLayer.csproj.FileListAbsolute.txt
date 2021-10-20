@@ -13,3 +13,20 @@ D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0
 D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.dll
 D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\ref\BUS_BussinessLayer.dll
 D:\hk1 - nam 4\Phân lớp\test\3_layer_test\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.deps.json
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\ref\BUS_BussinessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.AssemblyInfo.cs
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.CopyComplete
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\ref\BUS_BussinessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\DTO.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\DTO.pdb

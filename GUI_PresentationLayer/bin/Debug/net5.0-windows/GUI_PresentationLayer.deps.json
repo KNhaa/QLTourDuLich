@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v5.0": {
       "GUI_PresentationLayer/1.0.0": {
         "dependencies": {
-          "BUS_BussinessLayer": "1.0.0"
+          "BUS_BussinessLayer": "1.0.0",
+          "DTO": "1.0.0"
         },
         "runtime": {
           "GUI_PresentationLayer.dll": {}
@@ -959,7 +960,8 @@
       },
       "BUS_BussinessLayer/1.0.0": {
         "dependencies": {
-          "DAL_DataAccessLayer": "1.0.0"
+          "DAL_DataAccessLayer": "1.0.0",
+          "DTO": "1.0.0"
         },
         "runtime": {
           "BUS_BussinessLayer.dll": {}
@@ -967,11 +969,17 @@
       },
       "DAL_DataAccessLayer/1.0.0": {
         "dependencies": {
+          "DTO": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0"
         },
         "runtime": {
           "DAL_DataAccessLayer.dll": {}
+        }
+      },
+      "DTO/1.0.0": {
+        "runtime": {
+          "DTO.dll": {}
         }
       }
     }
@@ -1646,6 +1654,11 @@
       "sha512": ""
     },
     "DAL_DataAccessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DTO/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

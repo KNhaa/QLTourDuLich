@@ -1,0 +1,12 @@
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\bin\Debug\net5.0\DTO.deps.json
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\bin\Debug\net5.0\DTO.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\bin\Debug\net5.0\ref\DTO.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\bin\Debug\net5.0\DTO.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\DTO.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\DTO.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\DTO.AssemblyInfo.cs
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\DTO.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\DTO.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\ref\DTO.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DTO\obj\Debug\net5.0\DTO.pdb

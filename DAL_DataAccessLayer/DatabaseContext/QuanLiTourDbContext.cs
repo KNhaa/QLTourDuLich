@@ -1,4 +1,4 @@
-﻿using DAL_DataAccessLayer.Entities;
+﻿
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,8 @@ namespace DAL_DataAccessLayer.DatabaseContext
     {
        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Data Source=DESKTOP-3VADESK\KIMNHA;Initial Catalog=EFExample; Integrated Security=True");
+            // thay đổi thành .\SQLEXPRESS để có thể tạo database trong SQL Server của mình
+            options.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=EFExample; Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {

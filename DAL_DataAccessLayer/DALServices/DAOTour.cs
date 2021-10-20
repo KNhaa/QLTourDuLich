@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using DAL_DataAccessLayer.DatabaseContext;
+using DAL_DataAccessLayer.Migrations;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,8 +10,20 @@ using System.Threading.Tasks;
 
 namespace DAL_DataAccessLayer.DALServices
 {
-    class DAOTour : DbConect
+    public class DAOTour
     {
-      
+        DataTable dt = new DataTable();
+        public DAOTour()
+        {
+            
+        }
+
+        public ICollection<Tour> GetTours()
+        {
+            using(QuanLiTourDbContext context = new QuanLiTourDbContext())
+            {
+                return context.Tours.ToList();
+            }
+        }
     }
 }

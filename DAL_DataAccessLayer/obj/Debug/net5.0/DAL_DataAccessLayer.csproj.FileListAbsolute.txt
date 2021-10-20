@@ -13,3 +13,21 @@ D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.
 D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\ref\DAL_DataAccessLayer.dll
 D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.pdb
 D:\hk1 - nam 4\Phân lớp\test\3_layer_test\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.genruntimeconfig.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.deps.json
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.runtimeconfig.json
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.runtimeconfig.dev.json
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\ref\DAL_DataAccessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DAL_DataAccessLayer.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.AssemblyInfo.cs
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\ref\DAL_DataAccessLayer.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.genruntimeconfig.cache
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DTO.dll
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DTO.pdb
+C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.csproj.CopyComplete
