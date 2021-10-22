@@ -13,10 +13,10 @@ namespace GUI_PresentationLayer
 {
     public partial class Form_DSTour : Form
     {
-        BUSTour tour;
+        BUSTour tourBUS;
         public Form_DSTour()
         {
-            tour = new BUSTour();
+            tourBUS = new BUSTour();
             InitializeComponent();
         }
 
@@ -34,13 +34,21 @@ namespace GUI_PresentationLayer
             {
                 dataGridView1.Columns[index].DataPropertyName = propertyName.ToArray().GetValue(index).ToString();
             }
-            dataGridView1.DataSource = tour.GetTour();
+            dataGridView1.DataSource = tourBUS.GetTours();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
+            dataGridView1.CurrentRow.Selected = true;
+            // lấy ra ID
+            // col_1 là tên của cột Mã Tour
+            int tourID = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells["col_1"].Value.ToString());
+            // gọi xuống bus để lấy thông tin tour
+            var tour = tourBUS.GetTour(tourID);
+            // khởi tạo form chi tiết và truyền vào tuor vừa tìm được
+            Form_ChiTietTour formChiTietTour = new Form_ChiTietTour(tour);
+            formChiTietTour.Show();
+        }   
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {

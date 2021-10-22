@@ -1,4 +1,5 @@
 ﻿
+using DAL_DataAccessLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,30 @@ namespace DAL_DataAccessLayer.DatabaseContext
                 table.maDiaDiem,
                 table.maTour
             });
+        }
+
+        public void SeedData(QuanLiTourDbContext context)
+        {
+            if (!context.LoaiHinhDuLichs.Any())
+            {
+                var dsloaihinh = new List<LoaiHinhDuLich>
+                {
+                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch tham quan"},
+                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch văn hóa"},
+                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch ẩm thực"},
+                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch xanh"}
+                };
+            }
+
+            
+
+            if (!context.Tours.Any())
+            {
+                var tours = new List<Tour>
+                {
+                    new Tour {tenTour="Tên Tour 1",khachSan="Khách Sạn 1", noiDungTour="Nội dung tour",dacDiem="Đặc điểm",maLoaiHinh=1,maDoan=1}
+                };
+            }
         }
 
         public DbSet<Doan> Doans { get; set; }

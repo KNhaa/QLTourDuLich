@@ -28,6 +28,3 @@ C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\ne
 C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\ref\DAL_DataAccessLayer.dll
 C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.pdb
 C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.genruntimeconfig.cache
-C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DTO.dll
-C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\bin\Debug\net5.0\DTO.pdb
-C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\DAL_DataAccessLayer\obj\Debug\net5.0\DAL_DataAccessLayer.csproj.CopyComplete

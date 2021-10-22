@@ -1486,8 +1486,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "DAL_DataAccessLayer": "1.0.0",
-          "DTO": "1.0.0"
+          "DAL_DataAccessLayer": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BUS_BussinessLayer.dll": {}
@@ -1500,7 +1499,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
-          "DTO": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0"
         },
@@ -1509,16 +1507,6 @@
         },
         "runtime": {
           "bin/placeholder/DAL_DataAccessLayer.dll": {}
-        }
-      },
-      "DTO/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v5.0",
-        "compile": {
-          "bin/placeholder/DTO.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DTO.dll": {}
         }
       }
     }
@@ -5742,17 +5730,11 @@
       "type": "project",
       "path": "../DAL_DataAccessLayer/DAL_DataAccessLayer.csproj",
       "msbuildProject": "../DAL_DataAccessLayer/DAL_DataAccessLayer.csproj"
-    },
-    "DTO/1.0.0": {
-      "type": "project",
-      "path": "../DTO/DTO.csproj",
-      "msbuildProject": "../DTO/DTO.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
-      "BUS_BussinessLayer >= 1.0.0",
-      "DTO >= 1.0.0"
+      "BUS_BussinessLayer >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -5784,9 +5766,6 @@
           "projectReferences": {
             "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
               "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj"
-            },
-            "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj": {
-              "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DTO\\DTO.csproj"
             }
           }
         }

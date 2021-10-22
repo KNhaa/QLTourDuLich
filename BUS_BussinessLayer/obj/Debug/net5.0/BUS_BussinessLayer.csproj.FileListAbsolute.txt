@@ -28,5 +28,3 @@ C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net
 C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.dll
 C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\ref\BUS_BussinessLayer.dll
 C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.pdb
-C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\DTO.dll
-C:\Users\Admin\Desktop\DoanPhanLop\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\DTO.pdb

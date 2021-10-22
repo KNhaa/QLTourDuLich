@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL_DataAccessLayer;
 using DAL_DataAccessLayer.DALServices;
+using DAL_DataAccessLayer.Entities;
 
 namespace BUS_BussinessLayer.BUSServices
 {
@@ -15,9 +16,14 @@ namespace BUS_BussinessLayer.BUSServices
         {
             tour = new DAOTour();
         }
-        public ICollection<Tour> GetTour()
+        public ICollection<Tour> GetTours()
         {
             return tour.GetTours().ToList();
+        }
+
+        public Tour GetTour(int ID)
+        {
+            return tour.GetTour(ID);
         }
     }
 }

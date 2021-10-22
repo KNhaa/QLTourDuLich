@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DAL_DataAccessLayer\DAL_DataAccessLayer.csproj" />
-    <ProjectReference Include="..\DTO\DTO.csproj" />
   </ItemGroup>
 
 </Project>
