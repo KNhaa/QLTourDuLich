@@ -9,5 +9,6 @@ namespace DAL_DataAccessLayer.Entities
         public int maDiaDiem { get; set; }
         public string tenDiaDiem { get; set; }
         public virtual ICollection<ThamQuan> ThamQuans { get; set; }
+
     }
 }

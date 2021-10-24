@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {}
+    "D:\\QuanLyTourDuLich\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
+    "D:\\QuanLyTourDuLich\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
+        "projectUniqueName": "D:\\QuanLyTourDuLich\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
         "projectName": "BUS_BussinessLayer",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\obj\\",
+        "projectPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\BUS_BussinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj"
+              "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
+                "projectPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj"
               }
             }
           }
@@ -58,21 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
+    "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+        "projectUniqueName": "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
         "projectName": "DAL_DataAccessLayer",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\obj\\",
+        "projectPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,21 +128,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {
+    "D:\\QuanLyTourDuLich\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
+        "projectUniqueName": "D:\\QuanLyTourDuLich\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
         "projectName": "GUI_PresentationLayer",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\obj\\",
+        "projectPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
+        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+        "outputPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\GUI_PresentationLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -156,8 +156,8 @@
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj"
+              "D:\\QuanLyTourDuLich\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
+                "projectPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj"
               }
             }
           }
@@ -189,7 +189,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -5797,19 +5797,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "C:\\Users\\ASUS\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+      "projectUniqueName": "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
       "projectName": "DAL_DataAccessLayer",
-      "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\obj\\",
+      "projectPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
+      "outputPath": "D:\\QuanLyTourDuLich\\QLTourDuLich\\DAL_DataAccessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5865,7 +5865,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
