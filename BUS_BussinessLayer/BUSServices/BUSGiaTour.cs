@@ -22,6 +22,7 @@ namespace BUS_BussinessLayer.BUSServices
             var result =_dao.GetListItemByTourId(ID);
             return result;
         }
+        /////Day la function 
     }
 }
   
