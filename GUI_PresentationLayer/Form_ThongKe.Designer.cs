@@ -39,13 +39,13 @@ namespace GUI_PresentationLayer
             this.label1.Location = new System.Drawing.Point(344, 77);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 30);
+            this.label1.Size = new System.Drawing.Size(174, 45);
             this.label1.TabIndex = 0;
             this.label1.Text = "THỐNG KÊ";
             // 
             // Form_ThongKe
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 30F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(18F, 45F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
@@ -53,6 +53,7 @@ namespace GUI_PresentationLayer
             this.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.Name = "Form_ThongKe";
             this.Text = "Form_ThongKe";
+            this.Load += new System.EventHandler(this.Form_ThongKe_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
