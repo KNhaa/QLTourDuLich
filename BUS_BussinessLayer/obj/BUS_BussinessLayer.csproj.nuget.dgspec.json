@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {}
+    "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
+    "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
+        "projectUniqueName": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
         "projectName": "BUS_BussinessLayer",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\obj\\",
+        "projectPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\BUS_BussinessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj"
+              "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
+                "projectPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj"
               }
             }
           }
@@ -58,21 +58,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
+    "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+        "projectUniqueName": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
         "projectName": "DAL_DataAccessLayer",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\DAL_DataAccessLayer\\obj\\",
+        "projectPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\DAL_DataAccessLayer\\DAL_DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+        "outputPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\DAL_DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -128,7 +128,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }
