@@ -5738,19 +5738,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
       "projectName": "GUI_PresentationLayer",
-      "projectPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\GUI_PresentationLayer\\obj\\",
+      "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\GUI_PresentationLayer.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\GUI_PresentationLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5764,8 +5764,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
-              "projectPath": "E:\\University\\NAM4_HK1\\PhanLop\\BaiTap\\Windows_Form\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj"
+            "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj": {
+              "projectPath": "C:\\Users\\Admin\\Desktop\\DoanPhanLop\\QLTourDuLich\\BUS_BussinessLayer\\BUS_BussinessLayer.csproj"
             }
           }
         }
@@ -5797,7 +5797,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
