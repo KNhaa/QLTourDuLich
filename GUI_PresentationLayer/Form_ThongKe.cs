@@ -16,5 +16,10 @@ namespace GUI_PresentationLayer
         {
             InitializeComponent();
         }
+
+        private void Form_ThongKe_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
