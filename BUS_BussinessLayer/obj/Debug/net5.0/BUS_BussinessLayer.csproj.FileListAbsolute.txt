@@ -45,3 +45,4 @@ D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_Bussine
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.runtimeconfig.json
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.runtimeconfig.dev.json
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.genruntimeconfig.cache
+D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.CopyComplete
