@@ -57,7 +57,7 @@ namespace GUI_PresentationLayer
         //xử lý sự kiện nút KHÁCH HÀNG
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form_DSKhachHang());
+         //   openChildForm(new Form_DSKhachHang());
         }
 
         //xử lý sự kiện nút THỐNG KÊ
