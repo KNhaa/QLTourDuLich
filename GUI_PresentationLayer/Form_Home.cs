@@ -57,7 +57,7 @@ namespace GUI_PresentationLayer
         //xử lý sự kiện nút KHÁCH HÀNG
         private void btnKhachHang_Click(object sender, EventArgs e)
         {
-            openChildForm(new Form_KhachHang());
+            openChildForm(new Form_DSKhachHang());
         }
 
         //xử lý sự kiện nút THỐNG KÊ
@@ -67,6 +67,16 @@ namespace GUI_PresentationLayer
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelContent_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -173,3 +173,4 @@ E:\University\NAM4_HK1\PhanLop\BaiTap\Windows_Form\QLTourDuLich\GUI_Presentation
 E:\University\NAM4_HK1\PhanLop\BaiTap\Windows_Form\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\GUI_PresentationLayer.Form_Doan.resources
 E:\University\NAM4_HK1\PhanLop\BaiTap\Windows_Form\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\GUI_PresentationLayer.Form_KhachHang.resources
 E:\University\NAM4_HK1\PhanLop\BaiTap\Windows_Form\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\GUI_PresentationLayer.Form_ThongKe.resources
+E:\University\NAM4_HK1\PhanLop\BaiTap\Windows_Form\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\GUI_PresentationLayer.Form_DSKhachHang.resources
