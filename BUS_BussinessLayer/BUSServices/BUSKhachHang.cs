@@ -19,6 +19,7 @@ namespace BUS_BussinessLayer.BUSServices
         {
             return DAOKhachHang.getListKhachHang();
         }
+        // day la function them khach hang
         public static void themKhachHang(String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
         {
             DAOKhachHang.themKhachHang(tenKH,  diaChi,  cMND, gioiTinh,  SDT, quocTich);
