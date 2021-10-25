@@ -169,3 +169,5 @@ D:\QuanLyTourDuLich\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\
 D:\QuanLyTourDuLich\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\GUI_PresentationLayer.pdb
 D:\QuanLyTourDuLich\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\GUI_PresentationLayer.genruntimeconfig.cache
 D:\QuanLyTourDuLich\QLTourDuLich\GUI_PresentationLayer\obj\Debug\net5.0-windows\GUI_PresentationLayer.Form_DSKhachHang.resources
+D:\QuanLyTourDuLich\QLTourDuLich\GUI_PresentationLayer\bin\Debug\net5.0-windows\Humanizer.dll
+D:\QuanLyTourDuLich\QLTourDuLich\GUI_PresentationLayer\bin\Debug\net5.0-windows\Microsoft.EntityFrameworkCore.Design.dll

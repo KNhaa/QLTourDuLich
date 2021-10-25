@@ -35,13 +35,14 @@ namespace GUI_PresentationLayer
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGVKhachHang = new System.Windows.Forms.DataGridView();
-            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.QuocTich = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chitiets = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbHoTen = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -58,6 +59,8 @@ namespace GUI_PresentationLayer
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVKhachHang)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,13 +79,14 @@ namespace GUI_PresentationLayer
             this.dataGVKhachHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGVKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGVKhachHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MaKH,
             this.HoTen,
             this.DiaChi,
             this.CMND,
             this.GioiTinh,
             this.SDT,
-            this.QuocTich});
+            this.QuocTich,
+            this.MaKH,
+            this.chitiets});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.InactiveCaption;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -92,7 +96,7 @@ namespace GUI_PresentationLayer
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGVKhachHang.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGVKhachHang.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGVKhachHang.Location = new System.Drawing.Point(464, 27);
+            this.dataGVKhachHang.Location = new System.Drawing.Point(463, 122);
             this.dataGVKhachHang.Name = "dataGVKhachHang";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -110,20 +114,6 @@ namespace GUI_PresentationLayer
             this.dataGVKhachHang.Size = new System.Drawing.Size(1134, 429);
             this.dataGVKhachHang.TabIndex = 0;
             this.dataGVKhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGVKhachHang_CellContentClick);
-            // 
-            // MaKH
-            // 
-            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.MaKH.DataPropertyName = "maKh";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
-            this.MaKH.DefaultCellStyle = dataGridViewCellStyle2;
-            this.MaKH.HeaderText = "Mã Khách Hàng";
-            this.MaKH.MinimumWidth = 8;
-            this.MaKH.Name = "MaKH";
-            this.MaKH.ReadOnly = true;
-            this.MaKH.Visible = false;
-            this.MaKH.Width = 150;
             // 
             // HoTen
             // 
@@ -185,26 +175,49 @@ namespace GUI_PresentationLayer
             this.QuocTich.ReadOnly = true;
             this.QuocTich.Width = 124;
             // 
+            // MaKH
+            // 
+            this.MaKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.MaKH.DataPropertyName = "maKh";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Teal;
+            this.MaKH.DefaultCellStyle = dataGridViewCellStyle2;
+            this.MaKH.HeaderText = "Mã Khách Hàng";
+            this.MaKH.MinimumWidth = 8;
+            this.MaKH.Name = "MaKH";
+            this.MaKH.ReadOnly = true;
+            this.MaKH.Visible = false;
+            this.MaKH.Width = 150;
+            // 
+            // chitiets
+            // 
+            this.chitiets.DataPropertyName = "ChiTiets";
+            this.chitiets.HeaderText = "Chi tiết ";
+            this.chitiets.MinimumWidth = 8;
+            this.chitiets.Name = "chitiets";
+            this.chitiets.Visible = false;
+            this.chitiets.Width = 150;
+            // 
             // lbHoTen
             // 
-            this.lbHoTen.Location = new System.Drawing.Point(12, 30);
+            this.lbHoTen.Location = new System.Drawing.Point(12, 122);
             this.lbHoTen.Name = "lbHoTen";
-            this.lbHoTen.Size = new System.Drawing.Size(103, 38);
+            this.lbHoTen.Size = new System.Drawing.Size(103, 46);
             this.lbHoTen.TabIndex = 1;
             this.lbHoTen.Text = "Họ và tên";
             this.lbHoTen.Click += new System.EventHandler(this.lbHoTen_Click);
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(12, 103);
+            this.label1.Location = new System.Drawing.Point(12, 204);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 46);
+            this.label1.Size = new System.Drawing.Size(103, 43);
             this.label1.TabIndex = 2;
             this.label1.Text = "Địa chỉ";
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(12, 172);
+            this.label2.Location = new System.Drawing.Point(12, 275);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 46);
             this.label2.TabIndex = 3;
@@ -212,7 +225,7 @@ namespace GUI_PresentationLayer
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(12, 258);
+            this.label3.Location = new System.Drawing.Point(12, 356);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(103, 43);
             this.label3.TabIndex = 4;
@@ -220,7 +233,7 @@ namespace GUI_PresentationLayer
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(12, 332);
+            this.label4.Location = new System.Drawing.Point(12, 432);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 46);
             this.label4.TabIndex = 5;
@@ -229,15 +242,16 @@ namespace GUI_PresentationLayer
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(12, 410);
+            this.label5.Location = new System.Drawing.Point(12, 505);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 46);
             this.label5.TabIndex = 6;
             this.label5.Text = "Quốc tịch";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtHoTen
             // 
-            this.txtHoTen.Location = new System.Drawing.Point(136, 27);
+            this.txtHoTen.Location = new System.Drawing.Point(151, 122);
             this.txtHoTen.Multiline = true;
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(306, 46);
@@ -245,7 +259,7 @@ namespace GUI_PresentationLayer
             // 
             // txtDiaChi
             // 
-            this.txtDiaChi.Location = new System.Drawing.Point(136, 103);
+            this.txtDiaChi.Location = new System.Drawing.Point(151, 201);
             this.txtDiaChi.Multiline = true;
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(306, 46);
@@ -253,7 +267,7 @@ namespace GUI_PresentationLayer
             // 
             // txtCMND
             // 
-            this.txtCMND.Location = new System.Drawing.Point(136, 172);
+            this.txtCMND.Location = new System.Drawing.Point(151, 275);
             this.txtCMND.Multiline = true;
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(306, 46);
@@ -262,7 +276,7 @@ namespace GUI_PresentationLayer
             // 
             // txtGioiTinh
             // 
-            this.txtGioiTinh.Location = new System.Drawing.Point(136, 255);
+            this.txtGioiTinh.Location = new System.Drawing.Point(151, 353);
             this.txtGioiTinh.Multiline = true;
             this.txtGioiTinh.Name = "txtGioiTinh";
             this.txtGioiTinh.Size = new System.Drawing.Size(306, 46);
@@ -270,7 +284,7 @@ namespace GUI_PresentationLayer
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(136, 332);
+            this.txtSDT.Location = new System.Drawing.Point(151, 429);
             this.txtSDT.Multiline = true;
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(306, 46);
@@ -278,7 +292,7 @@ namespace GUI_PresentationLayer
             // 
             // txtQuocTich
             // 
-            this.txtQuocTich.Location = new System.Drawing.Point(136, 410);
+            this.txtQuocTich.Location = new System.Drawing.Point(151, 505);
             this.txtQuocTich.Multiline = true;
             this.txtQuocTich.Name = "txtQuocTich";
             this.txtQuocTich.Size = new System.Drawing.Size(306, 46);
@@ -286,7 +300,7 @@ namespace GUI_PresentationLayer
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(477, 509);
+            this.btnAdd.Location = new System.Drawing.Point(477, 578);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(112, 49);
             this.btnAdd.TabIndex = 13;
@@ -296,7 +310,7 @@ namespace GUI_PresentationLayer
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(704, 509);
+            this.btnEdit.Location = new System.Drawing.Point(701, 578);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(112, 49);
             this.btnEdit.TabIndex = 14;
@@ -306,7 +320,7 @@ namespace GUI_PresentationLayer
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(1112, 509);
+            this.btnReset.Location = new System.Drawing.Point(1128, 578);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(112, 49);
             this.btnReset.TabIndex = 15;
@@ -316,12 +330,30 @@ namespace GUI_PresentationLayer
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(919, 509);
+            this.btnDelete.Location = new System.Drawing.Point(921, 578);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 49);
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "Xóa";
             this.btnDelete.UseVisualStyleBackColor = true;
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Location = new System.Drawing.Point(761, 38);
+            this.txtTimKiem.Multiline = true;
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(393, 46);
+            this.txtTimKiem.TabIndex = 17;
+            // 
+            // btnTimKiem
+            // 
+            this.btnTimKiem.AutoSize = true;
+            this.btnTimKiem.Location = new System.Drawing.Point(1245, 38);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(160, 46);
+            this.btnTimKiem.TabIndex = 18;
+            this.btnTimKiem.Text = "Tìm kiếm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
             // 
             // Form_DSKhachHang
             // 
@@ -329,7 +361,9 @@ namespace GUI_PresentationLayer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1600, 585);
+            this.ClientSize = new System.Drawing.Size(1600, 639);
+            this.Controls.Add(this.btnTimKiem);
+            this.Controls.Add(this.txtTimKiem);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnEdit);
@@ -360,13 +394,6 @@ namespace GUI_PresentationLayer
         #endregion
 
         private System.Windows.Forms.DataGridView dataGVKhachHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuocTich;
         private System.Windows.Forms.Label lbHoTen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -383,5 +410,15 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HoTen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QuocTich;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn chitiets;
+        private System.Windows.Forms.TextBox txtTimKiem;
+        private System.Windows.Forms.Button btnTimKiem;
     }
 }

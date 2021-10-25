@@ -39,7 +39,9 @@ D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_Bussine
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.AssemblyInfoInputs.cache
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.AssemblyInfo.cs
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.CoreCompileInputs.cache
-D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.csproj.CopyComplete
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.dll
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\ref\BUS_BussinessLayer.dll
 D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.pdb
+D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.runtimeconfig.json
+D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\bin\Debug\net5.0\BUS_BussinessLayer.runtimeconfig.dev.json
+D:\QuanLyTourDuLich\QLTourDuLich\BUS_BussinessLayer\obj\Debug\net5.0\BUS_BussinessLayer.genruntimeconfig.cache

@@ -48,6 +48,10 @@ namespace GUI_PresentationLayer
         public void themKhachHang()
         {
             BUSKhachHang.themKhachHang(txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, txtGioiTinh.Text, txtSDT.Text, txtQuocTich.Text);
+            // hiển thị lại ds sau khi thêm lên dataGridview
+            getListKhachHang();
+            // reset lại tất cả textbox về null sau khi thêm xong
+            resetAllTextBoxs();
         }
         private void Form_DSKhachHang_Load(object sender, EventArgs e)
         {
@@ -87,6 +91,11 @@ namespace GUI_PresentationLayer
         private void btnEdit_Click(object sender, EventArgs e)
         {
             addBinding();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
