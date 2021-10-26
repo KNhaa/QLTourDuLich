@@ -4,14 +4,16 @@ using DAL_DataAccessLayer.DatabaseContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAL_DataAccessLayer.Migrations
 {
     [DbContext(typeof(QuanLiTourDbContext))]
-    partial class QuanLiTourDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211026093512_updateFK")]
+    partial class updateFK
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

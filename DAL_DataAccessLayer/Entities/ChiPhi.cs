@@ -10,8 +10,11 @@ namespace DAL_DataAccessLayer.Entities
         public int maChiPhi { get; set; }
         public decimal soTien { get; set; }
 
-        // khai bao khoa ngoai ben n trong moi ket hop 1-n
-        public virtual ICollection<Doan> Doans { get; set; }
+        public int maDoan { get; set; }
+
+        // khai bao khoa ngoai ben 1 trong moi ket hop 1-n
+        [ForeignKey(nameof(maDoan))]
+        public virtual Doan Doan { get; set; }
 
         public int maLoaiCP { get; set; }
 

@@ -12,12 +12,8 @@ namespace DAL_DataAccessLayer.Entities
         public DateTime ngayKhoiHanh { get; set; }
         public DateTime ngayKetThuc { get; set; }
         public float doanhThu { get; set; }
-        
-        public int maChiPhi { get; set; }
 
-        // khai bao khoa ngoai ben 1 trong moi ket hop 1-n
-        [ForeignKey(nameof(maChiPhi))]
-        public virtual ChiPhi ChiPhi { get; set; }
+        public virtual ICollection<ChiPhi> ChiPhis { get; set; }
 
         public virtual ICollection<ChiTiet> ChiTiets { get; set; }
 
