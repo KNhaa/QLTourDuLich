@@ -14,7 +14,7 @@ namespace DAL_DataAccessLayer.DatabaseContext
        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             // thay đổi thành .\SQLEXPRESS để có thể tạo database trong SQL Server của mình
-            options.UseSqlServer(@"Data Source=.\SQLEXPRESS;Initial Catalog=EFExample; Integrated Security=True");
+            options.UseSqlServer(@"Data Source=localhost ;Initial Catalog=EFExample; Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -33,7 +33,7 @@ namespace DAL_DataAccessLayer.DatabaseContext
             });
         }
 
-        public void SeedData(QuanLiTourDbContext context)
+       /* public void SeedData(QuanLiTourDbContext context)
         {
             if (!context.LoaiHinhDuLichs.Any())
             {
@@ -55,7 +55,7 @@ namespace DAL_DataAccessLayer.DatabaseContext
                     new Tour {tenTour="Tên Tour 1",khachSan="Khách Sạn 1", noiDungTour="Nội dung tour",dacDiem="Đặc điểm",maLoaiHinh=1,maDoan=1}
                 };
             }
-        }
+        }*/
 
         public DbSet<Doan> Doans { get; set; }
         public DbSet<Khach> Khachs { get; set; }

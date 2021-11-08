@@ -13,11 +13,7 @@ namespace DAL_DataAccessLayer.Entities
         public string dacDiem { get; set; }
         public bool trangThai { get; set; }
 
-        public int maDoan { get; set; }
-
-        // khai bao khoa ngoai ben 1 trong moi ket hop 1-n
-        [ForeignKey(nameof(maDoan))]
-        public virtual Doan Doan { get; set; }
+        public virtual ICollection<Doan> Doans { get; set; }
 
         public virtual ICollection<GiaTour> GiaTours { get; set; }
 
