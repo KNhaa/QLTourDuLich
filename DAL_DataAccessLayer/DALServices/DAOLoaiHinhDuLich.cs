@@ -10,6 +10,14 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAOLoaiHinhDuLich
     {
+        public static ICollection<LoaiHinhDuLich> GetAll()
+        {
+            using(QuanLiTourDbContext context = new QuanLiTourDbContext())
+            {
+                return context.LoaiHinhDuLichs.ToList();
+            }
+        }
+
         public LoaiHinhDuLich GetItemById(int ID)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())

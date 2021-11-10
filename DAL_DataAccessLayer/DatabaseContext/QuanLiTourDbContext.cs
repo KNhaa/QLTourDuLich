@@ -13,11 +13,14 @@ namespace DAL_DataAccessLayer.DatabaseContext
     {
        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            // thay đổi thành .\SQLEXPRESS để có thể tạo database trong SQL Server của mình
+            //thay đổi thành .\SQLEXPRESS để có thể tạo database trong SQL Server của mình
             options.UseSqlServer(@"Data Source=localhost ;Initial Catalog=EFExample; Integrated Security=True");
+
+           
         }
         protected override void OnModelCreating(ModelBuilder builder)
-        {
+        { 
+
             builder.Entity<ChiTiet>().HasKey(table => new {
                 table.maDoan,
                 table.maKh
@@ -31,31 +34,64 @@ namespace DAL_DataAccessLayer.DatabaseContext
                 table.maDiaDiem,
                 table.maTour
             });
+
+            //seed data
+            builder.Entity<Doan>().HasData(
+                new Doan { maDoan = 1, ngayKhoiHanh = new DateTime(2021,11,1), ngayKetThuc = new DateTime(2021,11,6), maTour = 4 },
+                new Doan { maDoan = 2, ngayKhoiHanh = new DateTime(2021, 11, 1), ngayKetThuc = new DateTime(2021, 11, 6), maTour = 1 },
+                new Doan { maDoan = 3, ngayKhoiHanh = new DateTime(2021, 11, 1), ngayKetThuc = new DateTime(2021, 11, 6), maTour = 2 },
+                new Doan { maDoan = 4, ngayKhoiHanh = new DateTime(2021, 11, 1), ngayKetThuc = new DateTime(2021, 11, 6), maTour = 3 }
+
+            );
+
+            builder.Entity<LoaiHinhDuLich>().HasData(
+                    new LoaiHinhDuLich { maLoaiHinh = 1, tenLoaiHinh = "Du lịch tham quan" },
+                    new LoaiHinhDuLich { maLoaiHinh = 2, tenLoaiHinh = "Du lịch văn hóa" },
+                    new LoaiHinhDuLich { maLoaiHinh = 3, tenLoaiHinh = "Du lịch ẩm thực" },
+                    new LoaiHinhDuLich { maLoaiHinh = 4, tenLoaiHinh = "Du lịch xanh" }
+            );
+
+            builder.Entity<Tour>().HasData(
+                    new Tour
+                    {
+                        maTour = 1,
+                        tenTour = "Tên Tour 1",
+                        khachSan = "Khách Sạn 1",
+                        noiDungTour = "Nội dung tour",
+                        dacDiem = "Đặc điểm 1",
+                        maLoaiHinh = 1,
+                    },
+                    new Tour
+                    {
+                        maTour = 2,
+                        tenTour = "Tên Tour 2",
+                        khachSan = "Khách Sạn 2",
+                        noiDungTour = "Nội dung tour",
+                        dacDiem = "Đặc điểm 1",
+                        maLoaiHinh = 2
+                    },
+                    new Tour
+                    {
+                        maTour = 3,
+                        tenTour = "Tên Tour 3",
+                        khachSan = "Khách Sạn 3",
+                        noiDungTour = "Nội dung tour",
+                        dacDiem = "Đặc điểm 3",
+                        maLoaiHinh = 2
+                    },
+                    new Tour
+                    {
+                        maTour = 4,
+                        tenTour = "Tên Tour 2",
+                        khachSan = "Khách Sạn 2",
+                        noiDungTour = "Nội dung tour",
+                        dacDiem = "Đặc điểm 1",
+                        maLoaiHinh = 2
+                    }
+
+            );
         }
 
-       /* public void SeedData(QuanLiTourDbContext context)
-        {
-            if (!context.LoaiHinhDuLichs.Any())
-            {
-                var dsloaihinh = new List<LoaiHinhDuLich>
-                {
-                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch tham quan"},
-                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch văn hóa"},
-                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch ẩm thực"},
-                    new LoaiHinhDuLich{tenLoaiHinh="Du lịch xanh"}
-                };
-            }
-
-            
-
-            if (!context.Tours.Any())
-            {
-                var tours = new List<Tour>
-                {
-                    new Tour {tenTour="Tên Tour 1",khachSan="Khách Sạn 1", noiDungTour="Nội dung tour",dacDiem="Đặc điểm",maLoaiHinh=1,maDoan=1}
-                };
-            }
-        }*/
 
         public DbSet<Doan> Doans { get; set; }
         public DbSet<Khach> Khachs { get; set; }

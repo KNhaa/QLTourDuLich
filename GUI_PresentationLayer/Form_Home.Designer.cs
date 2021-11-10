@@ -51,8 +51,9 @@ namespace GUI_PresentationLayer
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(150, 561);
+            this.panelMenu.Size = new System.Drawing.Size(171, 748);
             this.panelMenu.TabIndex = 0;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
@@ -65,10 +66,11 @@ namespace GUI_PresentationLayer
             this.btnThongKe.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnThongKe.Image = global::GUI_PresentationLayer.Properties.Resources.thongke2;
             this.btnThongKe.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnThongKe.Location = new System.Drawing.Point(0, 250);
+            this.btnThongKe.Location = new System.Drawing.Point(0, 333);
+            this.btnThongKe.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnThongKe.Size = new System.Drawing.Size(150, 60);
+            this.btnThongKe.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.btnThongKe.Size = new System.Drawing.Size(171, 80);
             this.btnThongKe.TabIndex = 4;
             this.btnThongKe.Text = "Thống Kê";
             this.btnThongKe.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -85,10 +87,11 @@ namespace GUI_PresentationLayer
             this.btnKhachHang.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnKhachHang.Image = global::GUI_PresentationLayer.Properties.Resources.khach;
             this.btnKhachHang.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKhachHang.Location = new System.Drawing.Point(0, 190);
+            this.btnKhachHang.Location = new System.Drawing.Point(0, 253);
+            this.btnKhachHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnKhachHang.Name = "btnKhachHang";
-            this.btnKhachHang.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnKhachHang.Size = new System.Drawing.Size(150, 60);
+            this.btnKhachHang.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.btnKhachHang.Size = new System.Drawing.Size(171, 80);
             this.btnKhachHang.TabIndex = 3;
             this.btnKhachHang.Text = "Khách Hàng";
             this.btnKhachHang.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -105,10 +108,11 @@ namespace GUI_PresentationLayer
             this.btnDoan.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnDoan.Image = global::GUI_PresentationLayer.Properties.Resources.doan;
             this.btnDoan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDoan.Location = new System.Drawing.Point(0, 130);
+            this.btnDoan.Location = new System.Drawing.Point(0, 173);
+            this.btnDoan.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDoan.Name = "btnDoan";
-            this.btnDoan.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnDoan.Size = new System.Drawing.Size(150, 60);
+            this.btnDoan.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.btnDoan.Size = new System.Drawing.Size(171, 80);
             this.btnDoan.TabIndex = 2;
             this.btnDoan.Text = "Đoàn";
             this.btnDoan.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -125,10 +129,11 @@ namespace GUI_PresentationLayer
             this.btnTour.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnTour.Image = global::GUI_PresentationLayer.Properties.Resources.icon1;
             this.btnTour.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTour.Location = new System.Drawing.Point(0, 70);
+            this.btnTour.Location = new System.Drawing.Point(0, 93);
+            this.btnTour.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTour.Name = "btnTour";
-            this.btnTour.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.btnTour.Size = new System.Drawing.Size(150, 60);
+            this.btnTour.Padding = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.btnTour.Size = new System.Drawing.Size(171, 80);
             this.btnTour.TabIndex = 1;
             this.btnTour.Text = "Tour";
             this.btnTour.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -142,8 +147,9 @@ namespace GUI_PresentationLayer
             this.panelLogo.Controls.Add(this.label1);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(150, 70);
+            this.panelLogo.Size = new System.Drawing.Size(171, 93);
             this.panelLogo.TabIndex = 1;
             // 
             // label1
@@ -151,9 +157,9 @@ namespace GUI_PresentationLayer
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(12, 24);
+            this.label1.Location = new System.Drawing.Point(14, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 30);
+            this.label1.Size = new System.Drawing.Size(165, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Du lịch ABC";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -162,21 +168,25 @@ namespace GUI_PresentationLayer
             // 
             this.panelContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContent.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.panelContent.Location = new System.Drawing.Point(150, 0);
+            this.panelContent.Location = new System.Drawing.Point(171, 0);
+            this.panelContent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelContent.Name = "panelContent";
-            this.panelContent.Size = new System.Drawing.Size(834, 561);
+            this.panelContent.Size = new System.Drawing.Size(954, 748);
             this.panelContent.TabIndex = 1;
             this.panelContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContent_Paint);
             // 
             // Form_Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(984, 561);
+            this.ClientSize = new System.Drawing.Size(1125, 748);
             this.Controls.Add(this.panelContent);
             this.Controls.Add(this.panelMenu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_Home";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Du lich ABC";
             this.Load += new System.EventHandler(this.Form_Home_Load);
             this.panelMenu.ResumeLayout(false);

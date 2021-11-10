@@ -98,6 +98,40 @@ namespace DAL_DataAccessLayer.Migrations
                     b.HasIndex("maTour");
 
                     b.ToTable("Doans");
+
+                    b.HasData(
+                        new
+                        {
+                            maDoan = 1,
+                            doanhThu = 0f,
+                            maTour = 4,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            maDoan = 2,
+                            doanhThu = 0f,
+                            maTour = 1,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            maDoan = 3,
+                            doanhThu = 0f,
+                            maTour = 2,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            maDoan = 4,
+                            doanhThu = 0f,
+                            maTour = 3,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("DAL_DataAccessLayer.Entities.GiaTour", b =>
@@ -185,6 +219,28 @@ namespace DAL_DataAccessLayer.Migrations
                     b.HasKey("maLoaiHinh");
 
                     b.ToTable("LoaiHinhDuLichs");
+
+                    b.HasData(
+                        new
+                        {
+                            maLoaiHinh = 1,
+                            tenLoaiHinh = "Du lịch tham quan"
+                        },
+                        new
+                        {
+                            maLoaiHinh = 2,
+                            tenLoaiHinh = "Du lịch văn hóa"
+                        },
+                        new
+                        {
+                            maLoaiHinh = 3,
+                            tenLoaiHinh = "Du lịch ẩm thực"
+                        },
+                        new
+                        {
+                            maLoaiHinh = 4,
+                            tenLoaiHinh = "Du lịch xanh"
+                        });
                 });
 
             modelBuilder.Entity("DAL_DataAccessLayer.Entities.NhanVien", b =>
@@ -249,15 +305,18 @@ namespace DAL_DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("khachSan")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("maLoaiHinh")
                         .HasColumnType("int");
 
                     b.Property<string>("noiDungTour")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tenTour")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("trangThai")
@@ -268,6 +327,48 @@ namespace DAL_DataAccessLayer.Migrations
                     b.HasIndex("maLoaiHinh");
 
                     b.ToTable("Tours");
+
+                    b.HasData(
+                        new
+                        {
+                            maTour = 1,
+                            dacDiem = "Đặc điểm 1",
+                            khachSan = "Khách Sạn 1",
+                            maLoaiHinh = 1,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 1",
+                            trangThai = false
+                        },
+                        new
+                        {
+                            maTour = 2,
+                            dacDiem = "Đặc điểm 1",
+                            khachSan = "Khách Sạn 2",
+                            maLoaiHinh = 2,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 2",
+                            trangThai = false
+                        },
+                        new
+                        {
+                            maTour = 3,
+                            dacDiem = "Đặc điểm 3",
+                            khachSan = "Khách Sạn 3",
+                            maLoaiHinh = 2,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 3",
+                            trangThai = false
+                        },
+                        new
+                        {
+                            maTour = 4,
+                            dacDiem = "Đặc điểm 1",
+                            khachSan = "Khách Sạn 2",
+                            maLoaiHinh = 2,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 2",
+                            trangThai = false
+                        });
                 });
 
             modelBuilder.Entity("DAL_DataAccessLayer.Entities.ChiPhi", b =>

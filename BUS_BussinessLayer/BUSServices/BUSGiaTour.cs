@@ -11,18 +11,28 @@ namespace BUS_BussinessLayer.BUSServices
 {
     public class BUSGiaTour
     {
-        public DAOGiaTour _dao;
-        public BUSGiaTour()
+       
+        public static ICollection<GiaTour> GetByTourId(int ID)
         {
-            _dao = new DAOGiaTour();
-        }
-
-        public  ICollection<GiaTour> GetListItemByTourId(int ID)
-        {
-            var result =_dao.GetListItemByTourId(ID);
+            var result = DAOGiaTour.GetByTourId(ID);
             return result;
         }
-        /////Day la function 
+        
+        public static void Create(GiaTour giaTour)
+        {
+            
+                DAOGiaTour.Create(giaTour);
+        }
+
+        public static void Delete(int ID)
+        {
+            DAOGiaTour.Delete(ID);
+        }
+
+        public static void Update(GiaTour giaTour)
+        {
+            DAOGiaTour.Update(giaTour);
+        }
     }
 }
   

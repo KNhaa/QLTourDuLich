@@ -14,5 +14,7 @@ namespace DAL_DataAccessLayer.Entities
         public int thuTuThamQuan { get; set; }
         public virtual DiaDiem DiaDiem { get; set; }
         public virtual Tour Tour { get; set; }
+
+        
     }
 }

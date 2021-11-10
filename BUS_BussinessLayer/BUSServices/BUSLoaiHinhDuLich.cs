@@ -11,16 +11,9 @@ namespace BUS_BussinessLayer.BUSServices
 {
     public class BUSLoaiHinhDuLich
     {
-        DAOLoaiHinhDuLich dao;
-
-        public BUSLoaiHinhDuLich()
+        public static ICollection<LoaiHinhDuLich> GetAll()
         {
-            dao = new DAOLoaiHinhDuLich()
-;        }
-
-        public LoaiHinhDuLich GetItemById(int ID)
-        {
-            return dao.GetItemById(ID);
+            return DAOLoaiHinhDuLich.GetAll();
         }
     }
 }

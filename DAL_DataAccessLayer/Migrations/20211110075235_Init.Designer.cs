@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL_DataAccessLayer.Migrations
 {
     [DbContext(typeof(QuanLiTourDbContext))]
-    [Migration("20211019172057_Init")]
+    [Migration("20211110075235_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,12 +21,15 @@ namespace DAL_DataAccessLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.0");
 
-            modelBuilder.Entity("DAL_DataAccessLayer.ChiPhi", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.ChiPhi", b =>
                 {
                     b.Property<int>("maChiPhi")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
+
+                    b.Property<int>("maDoan")
+                        .HasColumnType("int");
 
                     b.Property<int>("maLoaiCP")
                         .HasColumnType("int");
@@ -36,12 +39,14 @@ namespace DAL_DataAccessLayer.Migrations
 
                     b.HasKey("maChiPhi");
 
+                    b.HasIndex("maDoan");
+
                     b.HasIndex("maLoaiCP");
 
                     b.ToTable("ChiPhis");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.ChiTiet", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.ChiTiet", b =>
                 {
                     b.Property<int>("maDoan")
                         .HasColumnType("int");
@@ -56,7 +61,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("ChiTiets");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.DiaDiem", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.DiaDiem", b =>
                 {
                     b.Property<int>("maDiaDiem")
                         .ValueGeneratedOnAdd()
@@ -71,7 +76,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("DiaDiems");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Doan", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Doan", b =>
                 {
                     b.Property<int>("maDoan")
                         .ValueGeneratedOnAdd()
@@ -81,7 +86,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.Property<float>("doanhThu")
                         .HasColumnType("real");
 
-                    b.Property<int>("maChiPhi")
+                    b.Property<int>("maTour")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ngayKetThuc")
@@ -92,12 +97,46 @@ namespace DAL_DataAccessLayer.Migrations
 
                     b.HasKey("maDoan");
 
-                    b.HasIndex("maChiPhi");
+                    b.HasIndex("maTour");
 
                     b.ToTable("Doans");
+
+                    b.HasData(
+                        new
+                        {
+                            maDoan = 1,
+                            doanhThu = 0f,
+                            maTour = 4,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            maDoan = 2,
+                            doanhThu = 0f,
+                            maTour = 1,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            maDoan = 3,
+                            doanhThu = 0f,
+                            maTour = 2,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            maDoan = 4,
+                            doanhThu = 0f,
+                            maTour = 3,
+                            ngayKetThuc = new DateTime(2021, 11, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ngayKhoiHanh = new DateTime(2021, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.GiaTour", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.GiaTour", b =>
                 {
                     b.Property<int>("maGiaTour")
                         .ValueGeneratedOnAdd()
@@ -123,7 +162,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("GiaTours");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Khach", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Khach", b =>
                 {
                     b.Property<int>("maKh")
                         .ValueGeneratedOnAdd()
@@ -154,7 +193,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("Khachs");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.LoaiChiPhi", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.LoaiChiPhi", b =>
                 {
                     b.Property<int>("maLoaiCP")
                         .ValueGeneratedOnAdd()
@@ -169,7 +208,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("LoaiChiPhis");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.LoaiHinhDuLich", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.LoaiHinhDuLich", b =>
                 {
                     b.Property<int>("maLoaiHinh")
                         .ValueGeneratedOnAdd()
@@ -182,9 +221,31 @@ namespace DAL_DataAccessLayer.Migrations
                     b.HasKey("maLoaiHinh");
 
                     b.ToTable("LoaiHinhDuLichs");
+
+                    b.HasData(
+                        new
+                        {
+                            maLoaiHinh = 1,
+                            tenLoaiHinh = "Du lịch tham quan"
+                        },
+                        new
+                        {
+                            maLoaiHinh = 2,
+                            tenLoaiHinh = "Du lịch văn hóa"
+                        },
+                        new
+                        {
+                            maLoaiHinh = 3,
+                            tenLoaiHinh = "Du lịch ẩm thực"
+                        },
+                        new
+                        {
+                            maLoaiHinh = 4,
+                            tenLoaiHinh = "Du lịch xanh"
+                        });
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.NhanVien", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.NhanVien", b =>
                 {
                     b.Property<int>("maNv")
                         .ValueGeneratedOnAdd()
@@ -199,7 +260,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("NhanViens");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.PhanBo", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.PhanBo", b =>
                 {
                     b.Property<int>("maNv")
                         .HasColumnType("int");
@@ -217,7 +278,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("PhanBos");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.ThamQuan", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.ThamQuan", b =>
                 {
                     b.Property<int>("maDiaDiem")
                         .HasColumnType("int");
@@ -235,7 +296,7 @@ namespace DAL_DataAccessLayer.Migrations
                     b.ToTable("ThamQuans");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Tour", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Tour", b =>
                 {
                     b.Property<int>("maTour")
                         .ValueGeneratedOnAdd()
@@ -246,18 +307,18 @@ namespace DAL_DataAccessLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("khachSan")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("maDoan")
-                        .HasColumnType("int");
 
                     b.Property<int>("maLoaiHinh")
                         .HasColumnType("int");
 
                     b.Property<string>("noiDungTour")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("tenTour")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("trangThai")
@@ -265,33 +326,81 @@ namespace DAL_DataAccessLayer.Migrations
 
                     b.HasKey("maTour");
 
-                    b.HasIndex("maDoan");
-
                     b.HasIndex("maLoaiHinh");
 
                     b.ToTable("Tours");
+
+                    b.HasData(
+                        new
+                        {
+                            maTour = 1,
+                            dacDiem = "Đặc điểm 1",
+                            khachSan = "Khách Sạn 1",
+                            maLoaiHinh = 1,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 1",
+                            trangThai = false
+                        },
+                        new
+                        {
+                            maTour = 2,
+                            dacDiem = "Đặc điểm 1",
+                            khachSan = "Khách Sạn 2",
+                            maLoaiHinh = 2,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 2",
+                            trangThai = false
+                        },
+                        new
+                        {
+                            maTour = 3,
+                            dacDiem = "Đặc điểm 3",
+                            khachSan = "Khách Sạn 3",
+                            maLoaiHinh = 2,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 3",
+                            trangThai = false
+                        },
+                        new
+                        {
+                            maTour = 4,
+                            dacDiem = "Đặc điểm 1",
+                            khachSan = "Khách Sạn 2",
+                            maLoaiHinh = 2,
+                            noiDungTour = "Nội dung tour",
+                            tenTour = "Tên Tour 2",
+                            trangThai = false
+                        });
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.ChiPhi", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.ChiPhi", b =>
                 {
-                    b.HasOne("DAL_DataAccessLayer.LoaiChiPhi", "LoaiChiPhi")
+                    b.HasOne("DAL_DataAccessLayer.Entities.Doan", "Doan")
+                        .WithMany("ChiPhis")
+                        .HasForeignKey("maDoan")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DAL_DataAccessLayer.Entities.LoaiChiPhi", "LoaiChiPhi")
                         .WithMany("ChiPhis")
                         .HasForeignKey("maLoaiCP")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Doan");
+
                     b.Navigation("LoaiChiPhi");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.ChiTiet", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.ChiTiet", b =>
                 {
-                    b.HasOne("DAL_DataAccessLayer.Doan", "Doan")
+                    b.HasOne("DAL_DataAccessLayer.Entities.Doan", "Doan")
                         .WithMany("ChiTiets")
                         .HasForeignKey("maDoan")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DAL_DataAccessLayer.Khach", "Khach")
+                    b.HasOne("DAL_DataAccessLayer.Entities.Khach", "Khach")
                         .WithMany("ChiTiets")
                         .HasForeignKey("maKh")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -302,20 +411,20 @@ namespace DAL_DataAccessLayer.Migrations
                     b.Navigation("Khach");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Doan", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Doan", b =>
                 {
-                    b.HasOne("DAL_DataAccessLayer.ChiPhi", "ChiPhi")
+                    b.HasOne("DAL_DataAccessLayer.Entities.Tour", "Tour")
                         .WithMany("Doans")
-                        .HasForeignKey("maChiPhi")
+                        .HasForeignKey("maTour")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ChiPhi");
+                    b.Navigation("Tour");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.GiaTour", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.GiaTour", b =>
                 {
-                    b.HasOne("DAL_DataAccessLayer.Tour", "Tour")
+                    b.HasOne("DAL_DataAccessLayer.Entities.Tour", "Tour")
                         .WithMany("GiaTours")
                         .HasForeignKey("maTour")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -324,15 +433,15 @@ namespace DAL_DataAccessLayer.Migrations
                     b.Navigation("Tour");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.PhanBo", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.PhanBo", b =>
                 {
-                    b.HasOne("DAL_DataAccessLayer.Doan", "Doan")
+                    b.HasOne("DAL_DataAccessLayer.Entities.Doan", "Doan")
                         .WithMany("PhanBos")
                         .HasForeignKey("maDoan")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DAL_DataAccessLayer.NhanVien", "NhanVien")
+                    b.HasOne("DAL_DataAccessLayer.Entities.NhanVien", "NhanVien")
                         .WithMany("PhanBos")
                         .HasForeignKey("maNv")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -343,15 +452,15 @@ namespace DAL_DataAccessLayer.Migrations
                     b.Navigation("NhanVien");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.ThamQuan", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.ThamQuan", b =>
                 {
-                    b.HasOne("DAL_DataAccessLayer.DiaDiem", "DiaDiem")
+                    b.HasOne("DAL_DataAccessLayer.Entities.DiaDiem", "DiaDiem")
                         .WithMany("ThamQuans")
                         .HasForeignKey("maDiaDiem")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DAL_DataAccessLayer.Tour", "Tour")
+                    b.HasOne("DAL_DataAccessLayer.Entities.Tour", "Tour")
                         .WithMany("ThamQuans")
                         .HasForeignKey("maTour")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -362,66 +471,55 @@ namespace DAL_DataAccessLayer.Migrations
                     b.Navigation("Tour");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Tour", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Tour", b =>
                 {
-                    b.HasOne("DAL_DataAccessLayer.Doan", "Doan")
-                        .WithMany("Tours")
-                        .HasForeignKey("maDoan")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("DAL_DataAccessLayer.LoaiHinhDuLich", "LoaiHinhDuLich")
+                    b.HasOne("DAL_DataAccessLayer.Entities.LoaiHinhDuLich", "LoaiHinhDuLich")
                         .WithMany("Tours")
                         .HasForeignKey("maLoaiHinh")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Doan");
-
                     b.Navigation("LoaiHinhDuLich");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.ChiPhi", b =>
-                {
-                    b.Navigation("Doans");
-                });
-
-            modelBuilder.Entity("DAL_DataAccessLayer.DiaDiem", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.DiaDiem", b =>
                 {
                     b.Navigation("ThamQuans");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Doan", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Doan", b =>
                 {
+                    b.Navigation("ChiPhis");
+
                     b.Navigation("ChiTiets");
 
                     b.Navigation("PhanBos");
-
-                    b.Navigation("Tours");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Khach", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Khach", b =>
                 {
                     b.Navigation("ChiTiets");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.LoaiChiPhi", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.LoaiChiPhi", b =>
                 {
                     b.Navigation("ChiPhis");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.LoaiHinhDuLich", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.LoaiHinhDuLich", b =>
                 {
                     b.Navigation("Tours");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.NhanVien", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.NhanVien", b =>
                 {
                     b.Navigation("PhanBos");
                 });
 
-            modelBuilder.Entity("DAL_DataAccessLayer.Tour", b =>
+            modelBuilder.Entity("DAL_DataAccessLayer.Entities.Tour", b =>
                 {
+                    b.Navigation("Doans");
+
                     b.Navigation("GiaTours");
 
                     b.Navigation("ThamQuans");

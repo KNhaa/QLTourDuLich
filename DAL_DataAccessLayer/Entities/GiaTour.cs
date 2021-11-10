@@ -7,8 +7,11 @@ namespace DAL_DataAccessLayer.Entities
     public class GiaTour { 
         [Key]
         public int maGiaTour { get; set; }
+        
         public DateTime ngayKhoiHanh { get; set; }
         public DateTime ngayKetThuc { get; set; }
+        [Required(ErrorMessage ="Giá không được bỏ trống")]
+        
         public decimal thanhTien { get; set; }
 
         public int maTour { get; set; }

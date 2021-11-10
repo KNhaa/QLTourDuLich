@@ -21,7 +21,7 @@ namespace GUI_PresentationLayer
 
         private void Form_Home_Load(object sender, EventArgs e)
         {
-
+            openChildForm(new Form_DSTour());
         }
 
         // Load form ứng với nút
