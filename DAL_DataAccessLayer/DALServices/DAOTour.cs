@@ -25,8 +25,7 @@ namespace DAL_DataAccessLayer.DALServices
             {
                 return context.Tours
                     .Include("LoaiHinhDuLich")
-                    .Include("GiaTours")
-                   
+                    .Include("GiaTours")           
                     .Include("ThamQuans.DiaDiem") 
                     .ToList();
             }
@@ -37,9 +36,10 @@ namespace DAL_DataAccessLayer.DALServices
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
                 var tour = context.Tours
-                                  
-                                  .Include(tour => tour.ThamQuans)
-                                   .Single(tour => tour.maTour == ID);
+                                  .Include("LoaiHinhDuLich")
+                                  .Include("GiaTours")
+                                  .Include("ThamQuans.DiaDiem")
+                                  .Single(tour => tour.maTour == ID);
                 
                 return tour;
             }
@@ -58,40 +58,9 @@ namespace DAL_DataAccessLayer.DALServices
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
-                //context.Entry(tour).State = EntityState.Unchanged;
-                context.Attach(tour);
-               
-
-                context.SaveChanges();
-            }
-           // UpdateThamQuan(tour);
-        }
-
-        public static void UpdateThamQuan(Tour tour)
-        {
-           using(QuanLiTourDbContext context = new QuanLiTourDbContext())
-            {
-                var list = context.ThamQuans.Where(item => item.maTour == tour.maTour).Select(thamquan => thamquan).ToList();
-                foreach(var item in tour.ThamQuans)
-                {
-                    if(list.Any(x =>x.maDiaDiem == item.maDiaDiem))
-                    {
-                        var tmp = list.FirstOrDefault(x => x.maDiaDiem == item.maDiaDiem);
-                        tmp.thuTuThamQuan = item.thuTuThamQuan;
-                        context.ThamQuans.Update(tmp);
-                    }
-                }
-                foreach(var item in list)
-                {
-                    if(list.Any(x => x.maDiaDiem == item.maDiaDiem) && !tour.ThamQuans.Any(x => x.maDiaDiem == item.maDiaDiem))
-                    {
-                        context.ThamQuans.Remove(item);
-                    }
-                }
-                
+                context.Attach(tour);   
                 context.SaveChanges();
             }
         }
-       
     }
 }

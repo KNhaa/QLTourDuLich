@@ -247,6 +247,19 @@ namespace DAL_DataAccessLayer.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "DiaDiems",
+                columns: new[] { "maDiaDiem", "tenDiaDiem" },
+                values: new object[,]
+                {
+                    { 1, "Địa Điểm 1" },
+                    { 2, "Địa Điểm 2" },
+                    { 3, "Địa Điểm 3" },
+                    { 4, "Địa Điểm 4" },
+                    { 5, "Địa Điểm 5" },
+                    { 6, "Địa Điểm 6" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "LoaiHinhDuLichs",
                 columns: new[] { "maLoaiHinh", "tenLoaiHinh" },
                 values: new object[,]

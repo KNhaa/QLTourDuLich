@@ -26,7 +26,7 @@ namespace GUI_PresentationLayer
 
         public Form_ChiTietTour(Tour tour)
         {
-            _tour = tour;
+            _tour = BUSTour.GetTour(tour.maTour);
             InitializeComponent();
         }
 

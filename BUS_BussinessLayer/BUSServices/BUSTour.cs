@@ -11,11 +11,6 @@ namespace BUS_BussinessLayer.BUSServices
 {
     public class BUSTour
     {
-         DAOTour tourDAO;
-        public BUSTour()
-        {
-            tourDAO= new DAOTour();
-        }
         public static  ICollection<Tour> GetTours()
         {
             return DAOTour.GetTours().ToList();
@@ -34,11 +29,28 @@ namespace BUS_BussinessLayer.BUSServices
         public static void Update(Tour tour)
         {
             DAOTour.Update(tour);
+            
         }
 
         public static void UpdateData(Tour tour)
         {
-            DAOTour.UpdateThamQuan(tour);
+            var DSThamQuan = DAOThamQuan.GetDSThamQuan(tour);
+            foreach (var item in tour.ThamQuans)
+            {
+                if (DSThamQuan.Any(x => x.maDiaDiem == item.maDiaDiem))
+                {
+                    var tmp = DSThamQuan.FirstOrDefault(x => x.maDiaDiem == item.maDiaDiem);
+                    tmp.thuTuThamQuan = item.thuTuThamQuan;
+                    DAOThamQuan.UpdateDSThamQuan(tmp);
+                }
+            }
+            foreach (var item in DSThamQuan)
+            {
+                if (DSThamQuan.Any(x => x.maDiaDiem == item.maDiaDiem) && !tour.ThamQuans.Any(x => x.maDiaDiem == item.maDiaDiem))
+                {
+                    DAOThamQuan.RemoveItemDSThamQuan(item);
+                }
+            }
         }
     }
 }

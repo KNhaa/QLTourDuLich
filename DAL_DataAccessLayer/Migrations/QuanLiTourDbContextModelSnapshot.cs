@@ -72,6 +72,38 @@ namespace DAL_DataAccessLayer.Migrations
                     b.HasKey("maDiaDiem");
 
                     b.ToTable("DiaDiems");
+
+                    b.HasData(
+                        new
+                        {
+                            maDiaDiem = 1,
+                            tenDiaDiem = "Địa Điểm 1"
+                        },
+                        new
+                        {
+                            maDiaDiem = 2,
+                            tenDiaDiem = "Địa Điểm 2"
+                        },
+                        new
+                        {
+                            maDiaDiem = 3,
+                            tenDiaDiem = "Địa Điểm 3"
+                        },
+                        new
+                        {
+                            maDiaDiem = 4,
+                            tenDiaDiem = "Địa Điểm 4"
+                        },
+                        new
+                        {
+                            maDiaDiem = 5,
+                            tenDiaDiem = "Địa Điểm 5"
+                        },
+                        new
+                        {
+                            maDiaDiem = 6,
+                            tenDiaDiem = "Địa Điểm 6"
+                        });
                 });
 
             modelBuilder.Entity("DAL_DataAccessLayer.Entities.Doan", b =>

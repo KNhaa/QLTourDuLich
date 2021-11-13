@@ -36,6 +36,15 @@ namespace DAL_DataAccessLayer.DatabaseContext
             });
 
             //seed data
+            builder.Entity<DiaDiem>().HasData(
+                new DiaDiem { maDiaDiem = 1, tenDiaDiem = "Địa Điểm 1"},
+                new DiaDiem { maDiaDiem = 2, tenDiaDiem = "Địa Điểm 2" },
+                new DiaDiem { maDiaDiem = 3, tenDiaDiem = "Địa Điểm 3" },
+                new DiaDiem { maDiaDiem = 4, tenDiaDiem = "Địa Điểm 4" },
+                new DiaDiem { maDiaDiem = 5, tenDiaDiem = "Địa Điểm 5" },
+                new DiaDiem { maDiaDiem = 6, tenDiaDiem = "Địa Điểm 6" }
+            );
+
             builder.Entity<Doan>().HasData(
                 new Doan { maDoan = 1, ngayKhoiHanh = new DateTime(2021,11,1), ngayKetThuc = new DateTime(2021,11,6), maTour = 4 },
                 new Doan { maDoan = 2, ngayKhoiHanh = new DateTime(2021, 11, 1), ngayKetThuc = new DateTime(2021, 11, 6), maTour = 1 },
