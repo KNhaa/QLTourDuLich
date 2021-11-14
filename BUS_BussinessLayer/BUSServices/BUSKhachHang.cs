@@ -24,5 +24,18 @@ namespace BUS_BussinessLayer.BUSServices
         {
             DAOKhachHang.themKhachHang(tenKH,  diaChi,  cMND, gioiTinh,  SDT, quocTich);
         }
+        public static void updateKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        {
+
+            DAOKhachHang.updateKhachHang( idKH, tenKH , diaChi , cMND , gioiTinh, SDT, quocTich);
+        }
+        public static void deleteKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        {
+            DAOKhachHang.deletKhachHang(idKH, tenKH, diaChi, cMND, gioiTinh, SDT, quocTich);
+        }
+        public static List<Khach> searchKhachHang(String keyword)
+        {
+            return DAOKhachHang.searchKhachHang(keyword);
+        }
     }
 }

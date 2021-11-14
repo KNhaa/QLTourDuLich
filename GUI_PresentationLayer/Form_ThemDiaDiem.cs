@@ -37,7 +37,6 @@ namespace GUI_PresentationLayer
                 if (_form._tour.ThamQuans.Count == 0)
                 {
                     _form._tour.ThamQuans = new List<ThamQuan>();
-
                 }
                 var thamQuan = new ThamQuan { maDiaDiem = diaDiem.maDiaDiem, thuTuThamQuan = nextItem + 1 };
                 //thamQuan.DiaDiem = diaDiem;
