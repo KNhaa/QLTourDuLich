@@ -26,7 +26,6 @@ namespace DAL_DataAccessLayer.DALServices
                 return context.Tours
                     .Include("LoaiHinhDuLich")
                     .Include("GiaTours")
-                   
                     .Include("ThamQuans.DiaDiem") 
                     .ToList();
             }

@@ -120,7 +120,7 @@ namespace GUI_PresentationLayer
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
     }
 }
