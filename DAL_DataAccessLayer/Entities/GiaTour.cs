@@ -10,8 +10,8 @@ namespace DAL_DataAccessLayer.Entities
         
         public DateTime ngayKhoiHanh { get; set; }
         public DateTime ngayKetThuc { get; set; }
+
         [Required(ErrorMessage ="Giá không được bỏ trống")]
-        
         public decimal thanhTien { get; set; }
 
         public int maTour { get; set; }

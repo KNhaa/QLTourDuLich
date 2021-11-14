@@ -13,7 +13,6 @@ namespace DAL_DataAccessLayer.DatabaseContext
     {
        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            //thay đổi thành .\SQLEXPRESS để có thể tạo database trong SQL Server của mình
             options.UseSqlServer(@"Data Source=localhost ;Initial Catalog=EFExample; Integrated Security=True");
 
            
