@@ -11,7 +11,6 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAO_TK_Tour
     {
-
         public DAO_TK_Tour(){}
         public static ICollection<T> GetTours()
         {

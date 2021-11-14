@@ -250,7 +250,7 @@ namespace GUI_PresentationLayer
             }
         }
 
-        //nut reset trong tab tour
+        //nut reset trong tab Tour
         private void button3_Click(object sender, EventArgs e)
         {
             comboBox1.Text = " ";
