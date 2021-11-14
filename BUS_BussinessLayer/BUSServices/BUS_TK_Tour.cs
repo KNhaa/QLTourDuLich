@@ -12,6 +12,7 @@ namespace BUS_BussinessLayer.BUSServices
     public class BUS_TK_Tour
     {
         DAO_TK_Tour DAO_TK_Tour;
+
         public BUS_TK_Tour()
         {
             DAO_TK_Tour = new DAO_TK_Tour();
