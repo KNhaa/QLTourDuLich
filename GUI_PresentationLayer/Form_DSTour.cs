@@ -122,7 +122,7 @@ namespace GUI_PresentationLayer
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
