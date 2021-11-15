@@ -87,14 +87,16 @@ namespace GUI_PresentationLayer
             var dacDiem = tb_DacDiem.Text;
             var loaiHinh = DSLoaiHinh[cb_LoaiHinh.SelectedIndex].maLoaiHinh;
             var noiDung = tb_NoiDung.Text;
-       
+           
+
             var tour = new Tour
             {
                 tenTour = tenTour,
                 khachSan = tenKhachSan,
                 dacDiem = dacDiem,
                 maLoaiHinh = loaiHinh,
-                noiDungTour = noiDung
+                noiDungTour = noiDung,
+                trangThai = true
             };
             ValidationContext context = new ValidationContext(tour, null, null);
             IList<ValidationResult> errors = new List<ValidationResult>();
@@ -113,7 +115,7 @@ namespace GUI_PresentationLayer
                 dataGridView1.DataSource = Tours;
                 dataGridView1.Update();
                 dataGridView1.Refresh();
-               
+              
             }
             
         }
