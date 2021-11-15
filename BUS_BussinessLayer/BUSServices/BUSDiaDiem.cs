@@ -18,5 +18,9 @@ namespace BUS_BussinessLayer.BUSServices
         {
             return DAODiaDiem.GetById(Id);
         }
+        public static void Create(DiaDiem diaDiem)
+        {
+            DAODiaDiem.Create(diaDiem);
+        }
     }
 }

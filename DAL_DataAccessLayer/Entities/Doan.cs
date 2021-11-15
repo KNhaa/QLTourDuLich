@@ -24,6 +24,5 @@ namespace DAL_DataAccessLayer.Entities
 
         public virtual ICollection<PhanBo> PhanBos { get; set; }
         
-        
     }
 }

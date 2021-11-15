@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL_DataAccessLayer.Migrations
 {
     [DbContext(typeof(QuanLiTourDbContext))]
-    [Migration("20211112200552_Init")]
+    [Migration("20211115075607_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -371,7 +371,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 1,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 1",
-                            trangThai = false
+                            trangThai = true
                         },
                         new
                         {
@@ -381,7 +381,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 2,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 2",
-                            trangThai = false
+                            trangThai = true
                         },
                         new
                         {
@@ -391,7 +391,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 2,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 3",
-                            trangThai = false
+                            trangThai = true
                         },
                         new
                         {
@@ -401,7 +401,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 2,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 2",
-                            trangThai = false
+                            trangThai = true
                         });
                 });
 

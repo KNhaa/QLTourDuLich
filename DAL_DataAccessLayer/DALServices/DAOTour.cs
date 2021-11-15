@@ -13,12 +13,6 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAOTour
     {
-        
-        public DAOTour()
-        {
-            
-        }
-
         public static ICollection<Tour> GetTours()
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
@@ -26,7 +20,8 @@ namespace DAL_DataAccessLayer.DALServices
                 return context.Tours
                     .Include("LoaiHinhDuLich")
                     .Include("GiaTours")           
-                    .Include("ThamQuans.DiaDiem") 
+                    .Include("ThamQuans.DiaDiem")
+                    .Where(item => item.trangThai==true)
                     .ToList();
             }
         }
@@ -39,6 +34,7 @@ namespace DAL_DataAccessLayer.DALServices
                                   .Include("LoaiHinhDuLich")
                                   .Include("GiaTours")
                                   .Include("ThamQuans.DiaDiem")
+                                  
                                   .Single(tour => tour.maTour == ID);
                 
                 return tour;

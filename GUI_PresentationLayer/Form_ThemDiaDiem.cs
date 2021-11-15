@@ -35,7 +35,7 @@ namespace GUI_PresentationLayer
             if (!dictionary.ContainsKey(diaDiem.tenDiaDiem))
             {
                 var thamQuan = new ThamQuan { maDiaDiem = diaDiem.maDiaDiem, thuTuThamQuan = nextItem + 1 };
-                var temp = _form._tour.ThamQuans.Any(item => item.maDiaDiem == thamQuan.maDiaDiem);
+                var temp = _tour.ThamQuans.Any(item => item.maDiaDiem == thamQuan.maDiaDiem);
                 if (temp == false)
                 {
                     dictionary.Add(diaDiem.tenDiaDiem, nextItem + 1);
@@ -61,7 +61,7 @@ namespace GUI_PresentationLayer
                 dataGridView1.Columns[index].DataPropertyName = propertyName.ToArray().GetValue(index).ToString();
             }
             LoadData();
-
+            
         }
 
         private void lb_ThemMoiDiaDiem_Click(object sender, EventArgs e)
@@ -72,29 +72,35 @@ namespace GUI_PresentationLayer
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             currentIndex = dataGridView1.CurrentCell.RowIndex;
-            btn_Up.Enabled = currentIndex!=-1;
+            btn_Up.Enabled = currentIndex != -1;
             btn_Down.Enabled = currentIndex != -1;
         }
 
         private void btn_Up_Click(object sender, EventArgs e)
         {
+           
             var firstIndex = 1;
             var lastIndex = dictionary.FirstOrDefault(x => x.Value == dictionary.Values.Max()).Value;
-            var obj = dataGridView1.Rows[currentIndex].Cells["col_TenDiaDiem"].Value.ToString();
-            var objIndex = dictionary[obj];
-            if (objIndex == firstIndex)
+            if (currentIndex != -1)
             {
-                MessageBox.Show("Địa điểm đang ở vị trí đầu tiên");
+                var obj = dataGridView1.Rows[currentIndex].Cells["col_TenDiaDiem"].Value.ToString();
+                var objIndex = dictionary[obj];
+
+                if (objIndex == firstIndex)
+                {
+                    MessageBox.Show("Địa điểm đang ở vị trí đầu tiên");
+                }
+                else
+                {
+                    var beforeObj = dictionary.FirstOrDefault(x => x.Value == objIndex - 1).Key;
+                    dictionary[obj] = objIndex - 1;
+                    dictionary[beforeObj] = dictionary[beforeObj] + 1;
+                    dataGridView1.DataSource = dictionary;
+                    UpdateData();
+                    LoadData();
+                }
             }
-            else
-            {   
-                var beforeObj = dictionary.FirstOrDefault(x => x.Value ==objIndex-1).Key;
-                dictionary[obj] = objIndex - 1;
-                dictionary[beforeObj] = dictionary[beforeObj] + 1;
-                dataGridView1.DataSource = dictionary;
-                UpdateData();
-                LoadData();
-            }
+          
         }
         private void btn_Down_Click(object sender, EventArgs e)
         {
@@ -127,7 +133,20 @@ namespace GUI_PresentationLayer
                 if (dataGridView1.RowCount != 0)
                 {
                     var col = dataGridView1.Rows[currentIndex].Cells["col_TenDiaDiem"].Value.ToString();
+                    //var list = dictionary.OrderBy(item=>item.Value).Select(item => item).ToList();
+                    //var maxValue = dictionary.OrderBy(item => item.Value == dictionary.Values.Max()).FirstOrDefault().Value;
+                    //var itemValue = dictionary[col];
+                    //foreach(var item in list)
+                    //{
+                    //    if (itemValue == item.Value)
+                    //    {
+                    //        list.Remove(item);
+                    //    }
+                       
+                    //}
+                    
                     dictionary.Remove(col);
+                    currentIndex = -1;
                     UpdateData();
                     LoadData();
                     
@@ -156,6 +175,7 @@ namespace GUI_PresentationLayer
             _form.Refresh();
             dataGridView1.DataSource = dataGridView.DataSource;
             dataGridView1.Refresh();
+            dataGridView1.ClearSelection();
         }
 
         public void UpdateData()   
@@ -174,5 +194,7 @@ namespace GUI_PresentationLayer
             }
             BUSTour.UpdateData(_tour);
         }
+
+       
     }
 }

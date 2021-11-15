@@ -42,10 +42,10 @@ namespace GUI_PresentationLayer
             this.lb_GiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lb_DiaDiem = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btn_ThemGia = new System.Windows.Forms.Button();
-            this.lb_ThemDiaDiem = new System.Windows.Forms.Button();
             this.col_DiaDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_ThuTu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_ThemGia = new System.Windows.Forms.Button();
+            this.lb_ThemDiaDiem = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.data_GiaTour)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -179,6 +179,20 @@ namespace GUI_PresentationLayer
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // col_DiaDiem
+            // 
+            this.col_DiaDiem.HeaderText = "Tên Địa Điểm";
+            this.col_DiaDiem.MinimumWidth = 6;
+            this.col_DiaDiem.Name = "col_DiaDiem";
+            this.col_DiaDiem.Width = 615;
+            // 
+            // col_ThuTu
+            // 
+            this.col_ThuTu.HeaderText = "Thứ Tự Tham Quan";
+            this.col_ThuTu.MinimumWidth = 6;
+            this.col_ThuTu.Name = "col_ThuTu";
+            this.col_ThuTu.Width = 223;
+            // 
             // btn_ThemGia
             // 
             this.btn_ThemGia.Location = new System.Drawing.Point(899, 209);
@@ -199,25 +213,11 @@ namespace GUI_PresentationLayer
             this.lb_ThemDiaDiem.UseVisualStyleBackColor = true;
             this.lb_ThemDiaDiem.Click += new System.EventHandler(this.lb_ThemDiaDiem_Click);
             // 
-            // col_DiaDiem
-            // 
-            this.col_DiaDiem.HeaderText = "Tên Địa Điểm";
-            this.col_DiaDiem.MinimumWidth = 6;
-            this.col_DiaDiem.Name = "col_DiaDiem";
-            this.col_DiaDiem.Width = 615;
-            // 
-            // col_ThuTu
-            // 
-            this.col_ThuTu.HeaderText = "Thứ Tự Tham Quan";
-            this.col_ThuTu.MinimumWidth = 6;
-            this.col_ThuTu.Name = "col_ThuTu";
-            this.col_ThuTu.Width = 223;
-            // 
             // Form_ChiTietTour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(964, 744);
+            this.ClientSize = new System.Drawing.Size(964, 649);
             this.Controls.Add(this.lb_ThemDiaDiem);
             this.Controls.Add(this.btn_ThemGia);
             this.Controls.Add(this.dataGridView1);

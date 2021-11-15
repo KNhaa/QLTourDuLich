@@ -69,6 +69,7 @@ namespace DAL_DataAccessLayer.DatabaseContext
                         noiDungTour = "Nội dung tour",
                         dacDiem = "Đặc điểm 1",
                         maLoaiHinh = 1,
+                        trangThai = true
                     },
                     new Tour
                     {
@@ -77,7 +78,9 @@ namespace DAL_DataAccessLayer.DatabaseContext
                         khachSan = "Khách Sạn 2",
                         noiDungTour = "Nội dung tour",
                         dacDiem = "Đặc điểm 1",
-                        maLoaiHinh = 2
+                        maLoaiHinh = 2,
+                        trangThai = true
+
                     },
                     new Tour
                     {
@@ -86,7 +89,9 @@ namespace DAL_DataAccessLayer.DatabaseContext
                         khachSan = "Khách Sạn 3",
                         noiDungTour = "Nội dung tour",
                         dacDiem = "Đặc điểm 3",
-                        maLoaiHinh = 2
+                        maLoaiHinh = 2,
+                        trangThai = true
+
                     },
                     new Tour
                     {
@@ -95,10 +100,12 @@ namespace DAL_DataAccessLayer.DatabaseContext
                         khachSan = "Khách Sạn 2",
                         noiDungTour = "Nội dung tour",
                         dacDiem = "Đặc điểm 1",
-                        maLoaiHinh = 2
+                        maLoaiHinh = 2,
+                        trangThai = true
+
                     }
 
-            );
+            ); ;
         }
 
 

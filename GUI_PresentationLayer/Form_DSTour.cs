@@ -122,5 +122,10 @@ namespace GUI_PresentationLayer
         {
 
         }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

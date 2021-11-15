@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace DAL_DataAccessLayer.Entities
@@ -10,5 +11,6 @@ namespace DAL_DataAccessLayer.Entities
         public string tenDiaDiem { get; set; }
         public virtual ICollection<ThamQuan> ThamQuans { get; set; }
 
+      
     }
 }

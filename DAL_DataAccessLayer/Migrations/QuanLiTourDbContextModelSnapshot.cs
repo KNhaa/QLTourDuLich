@@ -369,7 +369,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 1,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 1",
-                            trangThai = false
+                            trangThai = true
                         },
                         new
                         {
@@ -379,7 +379,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 2,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 2",
-                            trangThai = false
+                            trangThai = true
                         },
                         new
                         {
@@ -389,7 +389,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 2,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 3",
-                            trangThai = false
+                            trangThai = true
                         },
                         new
                         {
@@ -399,7 +399,7 @@ namespace DAL_DataAccessLayer.Migrations
                             maLoaiHinh = 2,
                             noiDungTour = "Nội dung tour",
                             tenTour = "Tên Tour 2",
-                            trangThai = false
+                            trangThai = true
                         });
                 });
 

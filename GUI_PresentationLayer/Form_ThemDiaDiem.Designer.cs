@@ -36,7 +36,6 @@ namespace GUI_PresentationLayer
             this.col_TenDiaDiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_ThuTu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_Them = new System.Windows.Forms.Button();
-            this.btn_ThemGia = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.btn_Up = new System.Windows.Forms.Button();
             this.btn_Down = new System.Windows.Forms.Button();
@@ -67,7 +66,7 @@ namespace GUI_PresentationLayer
             this.cb_DiaChi.FormattingEnabled = true;
             this.cb_DiaChi.Location = new System.Drawing.Point(36, 275);
             this.cb_DiaChi.Name = "cb_DiaChi";
-            this.cb_DiaChi.Size = new System.Drawing.Size(228, 28);
+            this.cb_DiaChi.Size = new System.Drawing.Size(264, 28);
             this.cb_DiaChi.TabIndex = 9;
             // 
             // dataGridView1
@@ -109,15 +108,6 @@ namespace GUI_PresentationLayer
             this.btn_Them.UseVisualStyleBackColor = true;
             this.btn_Them.Click += new System.EventHandler(this.btn_Them_Click);
             // 
-            // btn_ThemGia
-            // 
-            this.btn_ThemGia.Location = new System.Drawing.Point(270, 275);
-            this.btn_ThemGia.Name = "btn_ThemGia";
-            this.btn_ThemGia.Size = new System.Drawing.Size(30, 30);
-            this.btn_ThemGia.TabIndex = 12;
-            this.btn_ThemGia.Text = "+";
-            this.btn_ThemGia.UseVisualStyleBackColor = true;
-            // 
             // btn_Xoa
             // 
             this.btn_Xoa.Location = new System.Drawing.Point(406, 178);
@@ -158,7 +148,6 @@ namespace GUI_PresentationLayer
             this.Controls.Add(this.btn_Down);
             this.Controls.Add(this.btn_Up);
             this.Controls.Add(this.btn_Xoa);
-            this.Controls.Add(this.btn_ThemGia);
             this.Controls.Add(this.btn_Them);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cb_DiaChi);
@@ -181,7 +170,6 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.ComboBox cb_DiaChi;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btn_Them;
-        private System.Windows.Forms.Button btn_ThemGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_TenDiaDiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_ThuTu;
         private System.Windows.Forms.Button btn_Xoa;

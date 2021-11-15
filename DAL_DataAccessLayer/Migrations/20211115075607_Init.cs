@@ -275,10 +275,10 @@ namespace DAL_DataAccessLayer.Migrations
                 columns: new[] { "maTour", "dacDiem", "khachSan", "maLoaiHinh", "noiDungTour", "tenTour", "trangThai" },
                 values: new object[,]
                 {
-                    { 1, "Đặc điểm 1", "Khách Sạn 1", 1, "Nội dung tour", "Tên Tour 1", false },
-                    { 2, "Đặc điểm 1", "Khách Sạn 2", 2, "Nội dung tour", "Tên Tour 2", false },
-                    { 3, "Đặc điểm 3", "Khách Sạn 3", 2, "Nội dung tour", "Tên Tour 3", false },
-                    { 4, "Đặc điểm 1", "Khách Sạn 2", 2, "Nội dung tour", "Tên Tour 2", false }
+                    { 1, "Đặc điểm 1", "Khách Sạn 1", 1, "Nội dung tour", "Tên Tour 1", true },
+                    { 2, "Đặc điểm 1", "Khách Sạn 2", 2, "Nội dung tour", "Tên Tour 2", true },
+                    { 3, "Đặc điểm 3", "Khách Sạn 3", 2, "Nội dung tour", "Tên Tour 3", true },
+                    { 4, "Đặc điểm 1", "Khách Sạn 2", 2, "Nội dung tour", "Tên Tour 2", true }
                 });
 
             migrationBuilder.InsertData(

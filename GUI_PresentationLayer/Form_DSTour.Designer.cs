@@ -112,19 +112,19 @@ namespace GUI_PresentationLayer
             // 
             // tb_TiemKiem
             // 
-            this.tb_TiemKiem.Location = new System.Drawing.Point(643, 262);
+            this.tb_TiemKiem.Location = new System.Drawing.Point(643, 259);
             this.tb_TiemKiem.Margin = new System.Windows.Forms.Padding(2);
             this.tb_TiemKiem.Multiline = true;
             this.tb_TiemKiem.Name = "tb_TiemKiem";
-            this.tb_TiemKiem.Size = new System.Drawing.Size(269, 27);
+            this.tb_TiemKiem.Size = new System.Drawing.Size(269, 30);
             this.tb_TiemKiem.TabIndex = 18;
             this.tb_TiemKiem.TextChanged += new System.EventHandler(this.tb_TiemKiem_TextChanged);
             // 
             // btn_Them
             // 
-            this.btn_Them.Location = new System.Drawing.Point(36, 249);
+            this.btn_Them.Location = new System.Drawing.Point(36, 259);
             this.btn_Them.Name = "btn_Them";
-            this.btn_Them.Size = new System.Drawing.Size(130, 40);
+            this.btn_Them.Size = new System.Drawing.Size(130, 30);
             this.btn_Them.TabIndex = 20;
             this.btn_Them.Text = "Thêm";
             this.btn_Them.UseVisualStyleBackColor = true;
