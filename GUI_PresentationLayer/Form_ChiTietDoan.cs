@@ -192,14 +192,21 @@ namespace GUI_PresentationLayer
 
         private void btnThemnhanvien_Click(object sender, EventArgs e)
         {
-            int index = cbxNhanvien.SelectedIndex;
-            NhanVien nv = nhanVien[index];
-            PhanBo pb = new PhanBo();
-            pb.maDoan = doan.maDoan;
-            pb.maNv = nv.maNv;
-            pb.nhiemVu = txtNhiemVu.Text;
-            BUSChiTietDoan.addNhanVienDoan(pb);
-            tabNhanVien_Show();
+            if (txtNhiemVu.Text != "")
+            {
+                int index = cbxNhanvien.SelectedIndex;
+                NhanVien nv = nhanVien[index];
+                PhanBo pb = new PhanBo();
+                pb.maDoan = doan.maDoan;
+                pb.maNv = nv.maNv;
+                pb.nhiemVu = txtNhiemVu.Text;
+                BUSChiTietDoan.addNhanVienDoan(pb);
+                tabNhanVien_Show();
+            }
+            else
+            {
+                MessageBox.Show("Nhiệm vụ không được để trống.", "Cảnh báo");
+            }
         }
 
         private void btnNewnhanvien_Click(object sender, EventArgs e)
