@@ -40,8 +40,8 @@ namespace GUI_PresentationLayer
             this.ChiTiet = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhanBo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dtNgayKhoiHanh = new System.Windows.Forms.DateTimePicker();
             this.dtNgayKetThuc = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVKhachDoan)).BeginInit();
@@ -60,11 +60,11 @@ namespace GUI_PresentationLayer
             this.ChiPhis,
             this.ChiTiet,
             this.PhanBo});
-            this.dataGVKhachDoan.Location = new System.Drawing.Point(409, 341);
+            this.dataGVKhachDoan.Location = new System.Drawing.Point(189, 224);
             this.dataGVKhachDoan.Name = "dataGVKhachDoan";
             this.dataGVKhachDoan.RowHeadersWidth = 62;
             this.dataGVKhachDoan.RowTemplate.Height = 33;
-            this.dataGVKhachDoan.Size = new System.Drawing.Size(667, 375);
+            this.dataGVKhachDoan.Size = new System.Drawing.Size(814, 375);
             this.dataGVKhachDoan.TabIndex = 0;
             this.dataGVKhachDoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGVKhachDoan_CellClick);
             this.dataGVKhachDoan.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -160,19 +160,10 @@ namespace GUI_PresentationLayer
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // label1
-            // 
-            this.label1.AllowDrop = true;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(208, 80);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 38);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Ngày Khởi hành";
-            // 
             // label2
             // 
             this.label2.AllowDrop = true;
+            this.label2.Enabled = false;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Location = new System.Drawing.Point(208, 152);
             this.label2.Name = "label2";
@@ -180,8 +171,20 @@ namespace GUI_PresentationLayer
             this.label2.TabIndex = 4;
             this.label2.Text = "Ngày kết thúc";
             // 
+            // label1
+            // 
+            this.label1.AllowDrop = true;
+            this.label1.Enabled = false;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label1.Location = new System.Drawing.Point(208, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 38);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Ngày Khởi hành";
+            // 
             // dtNgayKhoiHanh
             // 
+            this.dtNgayKhoiHanh.Enabled = false;
             this.dtNgayKhoiHanh.Location = new System.Drawing.Point(513, 80);
             this.dtNgayKhoiHanh.Name = "dtNgayKhoiHanh";
             this.dtNgayKhoiHanh.Size = new System.Drawing.Size(334, 31);
@@ -189,6 +192,7 @@ namespace GUI_PresentationLayer
             // 
             // dtNgayKetThuc
             // 
+            this.dtNgayKetThuc.Enabled = false;
             this.dtNgayKetThuc.Location = new System.Drawing.Point(513, 159);
             this.dtNgayKetThuc.Name = "dtNgayKetThuc";
             this.dtNgayKetThuc.Size = new System.Drawing.Size(334, 31);
@@ -198,7 +202,7 @@ namespace GUI_PresentationLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 871);
+            this.ClientSize = new System.Drawing.Size(1109, 614);
             this.Controls.Add(this.dtNgayKetThuc);
             this.Controls.Add(this.dtNgayKhoiHanh);
             this.Controls.Add(this.label2);
@@ -227,8 +231,8 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn ChiTiet;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhanBo;
         private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dtNgayKhoiHanh;
         private System.Windows.Forms.DateTimePicker dtNgayKetThuc;
     }
