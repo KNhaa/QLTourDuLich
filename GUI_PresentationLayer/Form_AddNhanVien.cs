@@ -21,10 +21,17 @@ namespace GUI_PresentationLayer
 
         private void btnThemNV_Click(object sender, EventArgs e)
         {
-            NhanVien nv = new NhanVien();
-            nv.tenNv = txtTenNV.Text;
-            BUSChiTietDoan.addNhanVien(nv);
-            MessageBox.Show("Thêm thành công", "Thông báo");
+            if(txtTenNV.Text != "")
+            {
+                NhanVien nv = new NhanVien();
+                nv.tenNv = txtTenNV.Text;
+                BUSChiTietDoan.addNhanVien(nv);
+                MessageBox.Show("Thêm thành công", "Thông báo");
+            } else
+            {
+                MessageBox.Show("Tên nhân viên không được để trống", "Cảnh báo");
+            }
+            
         }
     }
 }
