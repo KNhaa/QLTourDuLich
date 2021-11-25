@@ -1,0 +1,140 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using DAL_DataAccessLayer.Entities;
+@model TourViewModel
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+<div style="margin-top:60px;">
+    <div class="row" style="display:flex;">
+        <div class="col col-xl-3">
+            <h3>Thông tin tour</h3>
+            <table class="table table-striped">
+                <tr class="row">
+                    <th>Mã Tour</th>
+                    <td>@Model.tour.maTour</td>
+                </tr>
+                <tr class="row">
+                    <th>Tên Tour</th>
+                    <td>@Model.tour.tenTour</td>
+                </tr>
+                <tr class="row">
+                    <th>Tên Khách Sạn</th>
+                    <td>@Model.tour.khachSan</td>
+                </tr>
+                <tr class="row">
+                    <th>Đặc Điểm</th>
+                    <td>@Model.tour.dacDiem</td>
+                </tr>
+                <tr class="row">
+                    <th>Loại Hình</th>
+                    <td>@Model.tour.LoaiHinhDuLich.tenLoaiHinh</td>
+                </tr>
+                <tr class="row">
+                    <th>Nội Dung</th>
+                    <td>@Model.tour.noiDungTour</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col col-xl-9">
+            <button class="btn btn-xl btn-success" >Thêm Giá Tour</button>
+            <table class="table table-bordered">
+                <thead class="thread bg-success" style="color:aliceblue;">
+                    <tr>
+                        <th>Ngày Khởi Hành</th>
+                        <th>Ngày Kết Thúc</th>
+                        <td>Giá Tiền</td>
+                        <td>Điều Khiển</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.tour.GiaTours)
+                    {
+                        <tr>
+                            <td>@item.ngayKhoiHanh</td>
+                            <td>@item.ngayKetThuc</td>
+                            <td>@item.thanhTien</td>
+                            <td style="width:  5%">
+                                <a href='@Url.Action("DeleteGiaTour", "Tours",new { id=Model.tour.maTour, maGiaTour = item.maGiaTour})'>
+                                    <input type='button' class="btn btn-danger" value="Xóa" />
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <hr />
+            <button class="btn btn-success btn-xl" data-toggle="modal" data-target="#modalDiaDiem">Thêm Địa Điểm</button>
+            <table class="table table-bordered">
+                <thead class="thread bg-success" style="color:aliceblue;">
+                    <tr>
+                        <th>Tên Địa Điểm</th>
+                        <th>Thứ tự tham quan</th>
+                        <th>Điều Khiển</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.tour.ThamQuans)
+                    {
+                        <tr>
+                            <td>@item.DiaDiem.tenDiaDiem</td>
+                            <td>@item.thuTuThamQuan</td>
+                            <td style="width:  26%">
+
+
+
+                                <a href='@Url.Action("Up", "Tours",new { id=Model.tour.maTour, thuTu=item.thuTuThamQuan})'>
+                                    <input type='button' class="btn btn-primary" value="Di chuyển lên" />
+                                </a>
+                                <a href='@Url.Action("Down", "Tours",new { id=Model.tour.maTour, thuTu=item.thuTuThamQuan})'>
+                                    <input type='button' class="btn btn-warning" value="Di chuyển xuống" />
+                                </a>
+                                <a href='@Url.Action("DeleteDiaChi", "Tours",new { id=Model.tour.maTour, maDiaDiem = item.maDiaDiem})'>
+                                    <input type='button' class="btn btn-danger" value="Xóa" />
+                                </a>                            
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalDiaDiem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Địa Điểm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Tours" asp-action="ThemDiaDiem" method="post">
+                    <div class="col col-xl-6 form-group" hidden>
+                        <label for="tenTour">Tên Tour</label>
+                        <input type="text" asp-for="tour.maTour" class="form-control" hi />
+                    </div>
+                    <div class="form-group">
+
+                        <select class="selectpicker form-control" data-selected-text-format="value" asp-for="@Model.MaDiaDiem"
+                                asp-items=@(new SelectList(ViewBag.DSDiaDiem,"maDiaDiem","tenDiaDiem"))>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                    <button class="btn btn-primary" type="submit">Save changes</button>
+                </form>
+                
+            </div>
+         
+        </div>
+    </div>
+</div>
