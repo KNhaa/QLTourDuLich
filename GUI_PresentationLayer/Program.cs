@@ -14,7 +14,7 @@ namespace GUI_PresentationLayer
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form_Home());
+            Application.Run(new Form_Home());          
         }
     }
 }

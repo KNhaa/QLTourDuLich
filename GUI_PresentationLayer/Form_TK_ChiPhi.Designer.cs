@@ -30,6 +30,10 @@ namespace GUI_PresentationLayer
         private void InitializeComponent()
         {
             this.dataViewTKCP = new System.Windows.Forms.DataGridView();
+            this.maTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenLoaiChiPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tongChiPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.datePickerStart = new System.Windows.Forms.DateTimePicker();
@@ -39,10 +43,6 @@ namespace GUI_PresentationLayer
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbTongTien = new System.Windows.Forms.Label();
-            this.maTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenTour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenLoaiChiPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tongChiPhi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewTKCP)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +61,30 @@ namespace GUI_PresentationLayer
             this.dataViewTKCP.Size = new System.Drawing.Size(503, 209);
             this.dataViewTKCP.TabIndex = 0;
             this.dataViewTKCP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataViewTKCP_CellContentClick);
+            // 
+            // maTour
+            // 
+            this.maTour.DataPropertyName = "maTour";
+            this.maTour.HeaderText = "Mã Tour";
+            this.maTour.Name = "maTour";
+            // 
+            // tenTour
+            // 
+            this.tenTour.DataPropertyName = "tenTour";
+            this.tenTour.HeaderText = "Tên Tour";
+            this.tenTour.Name = "tenTour";
+            // 
+            // tenLoaiChiPhi
+            // 
+            this.tenLoaiChiPhi.DataPropertyName = "tenLoaiChiPhi";
+            this.tenLoaiChiPhi.HeaderText = "Tên loại chi phí";
+            this.tenLoaiChiPhi.Name = "tenLoaiChiPhi";
+            // 
+            // tongChiPhi
+            // 
+            this.tongChiPhi.DataPropertyName = "tongChiPhi";
+            this.tongChiPhi.HeaderText = "Chi phí";
+            this.tongChiPhi.Name = "tongChiPhi";
             // 
             // label1
             // 
@@ -146,35 +170,12 @@ namespace GUI_PresentationLayer
             this.lbTongTien.Size = new System.Drawing.Size(0, 21);
             this.lbTongTien.TabIndex = 9;
             // 
-            // maTour
-            // 
-            this.maTour.DataPropertyName = "maTour";
-            this.maTour.HeaderText = "Mã Tour";
-            this.maTour.Name = "maTour";
-            // 
-            // tenTour
-            // 
-            this.tenTour.DataPropertyName = "tenTour";
-            this.tenTour.HeaderText = "Tên Tour";
-            this.tenTour.Name = "tenTour";
-            // 
-            // tenLoaiChiPhi
-            // 
-            this.tenLoaiChiPhi.DataPropertyName = "tenLoaiChiPhi";
-            this.tenLoaiChiPhi.HeaderText = "Tên loại chi phí";
-            this.tenLoaiChiPhi.Name = "tenLoaiChiPhi";
-            // 
-            // tongChiPhi
-            // 
-            this.tongChiPhi.DataPropertyName = "tongChiPhi";
-            this.tongChiPhi.HeaderText = "Chi phí";
-            this.tongChiPhi.Name = "tongChiPhi";
-            // 
             // Form_TK_ChiPhi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataViewTKCP);
             this.Controls.Add(this.lbTongTien);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -184,7 +185,6 @@ namespace GUI_PresentationLayer
             this.Controls.Add(this.datePickerStart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataViewTKCP);
             this.Name = "Form_TK_ChiPhi";
             this.Text = "Form_TK_ChiPhi";
             this.Load += new System.EventHandler(this.Form_TK_ChiPhi_Load);
