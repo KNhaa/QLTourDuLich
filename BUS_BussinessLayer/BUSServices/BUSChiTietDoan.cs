@@ -38,6 +38,10 @@ namespace BUS_BussinessLayer.BUSServices
             DAOChiTietDoan.addKhach(ct);
         }
 
+        public static void delKhach(ChiTiet ct)
+        {
+            DAOChiTietDoan.delKhach(ct);
+        }
         public static List<newChiPhi> GetDsChiPhi(Doan doan)
         {
             return DAOChiTietDoan.GetDsChiPhi(doan);
@@ -53,6 +57,11 @@ namespace BUS_BussinessLayer.BUSServices
             DAOChiTietDoan.addChiPhi(cp);
         }
 
+        public static void delChiPhi(ChiPhi cp)
+        {
+            DAOChiTietDoan.delChiPhi(cp);
+        }
+
         public static List<newNhanVien> GetDsNhanVien(Doan doan)
         {
             return DAOChiTietDoan.GetDsNhanVien(doan);
@@ -66,6 +75,11 @@ namespace BUS_BussinessLayer.BUSServices
         public static void addNhanVienDoan(PhanBo pb)
         {
             DAOChiTietDoan.addNhanVienDoan(pb);
+        }
+
+        public static void delNhanVien(PhanBo pb)
+        {
+            DAOChiTietDoan.delNhanVien(pb);
         }
 
         public static void addNhanVien(NhanVien nv)
