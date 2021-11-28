@@ -126,7 +126,7 @@ namespace GUI_PresentationLayer
             indexDgv = dgvDsdoan.CurrentRow.Index;
             var doan = doans[indexDgv];
             DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa không.", "Cảnh báo", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.Yes)
+            if (result == DialogResult.OK)
             {
                 BUSDoan.Delete(doan);
                 doans = BUSDoan.GetDoan().ToList();

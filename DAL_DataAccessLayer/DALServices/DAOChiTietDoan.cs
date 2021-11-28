@@ -63,6 +63,13 @@ namespace DAL_DataAccessLayer.DALServices
             context.SaveChanges();
         }
 
+        public static void delKhach(ChiTiet ct)
+        {
+            ChiTiet chitiet = context.ChiTiets.Single(chitiet => chitiet.maKh == ct.maKh && chitiet.maDoan == ct.maDoan);
+            context.ChiTiets.Remove(chitiet);
+            context.SaveChanges();
+        }
+
         public static List<newChiPhi> GetDsChiPhi(Doan doan)
         {
             var dsChiPhi = (from lcp in context.LoaiChiPhis
@@ -89,6 +96,13 @@ namespace DAL_DataAccessLayer.DALServices
             context.SaveChanges();
         }
 
+        public static void delChiPhi(ChiPhi cp)
+        {
+            ChiPhi chiphi = context.ChiPhis.Single(chiphi => chiphi.maDoan == cp.maDoan && chiphi.maChiPhi == cp.maChiPhi);
+            context.ChiPhis.Remove(chiphi);
+            context.SaveChanges();
+        }
+
         public static List<newNhanVien> GetDsNhanVien(Doan doan)
         {
             var dsNhanVien = (from nv in context.NhanViens
@@ -97,6 +111,7 @@ namespace DAL_DataAccessLayer.DALServices
                                 where d.maDoan == doan.maDoan
                                 select new newNhanVien
                                 {
+                                    maNV = nv.maNv,
                                     tenNV = nv.tenNv,
                                     nhiemVu = pb.nhiemVu
                                 });
@@ -117,6 +132,13 @@ namespace DAL_DataAccessLayer.DALServices
         public static void addNhanVien(NhanVien nv)
         {
             context.Add(nv);
+            context.SaveChanges();
+        }
+
+        public static void delNhanVien(PhanBo pb)
+        {
+            PhanBo phanbo = context.PhanBos.Single(nv => nv.maDoan == pb.maDoan && nv.maNv == pb.maNv);
+            context.PhanBos.Remove(phanbo);
             context.SaveChanges();
         }
 
@@ -142,6 +164,7 @@ namespace DAL_DataAccessLayer.DALServices
         //tao moi nha vien theo doan
         public class newNhanVien
         {
+            public int maNV { get; set; }
             public String tenNV { get; set; }
             public String nhiemVu { get; set; }
         }
