@@ -18,17 +18,17 @@ namespace WEBAplication.Controllers
 
         BUSTour _busTour;
         BUSDiaDiem _busDiaDiem;
-        BUSLoaiHinhDuLich _busLoaiHinhDuLich;
-        public ToursController(BUSTour busTour, BUSDiaDiem busDiaDiem, BUSLoaiHinhDuLich busLoaiHinhDuLich)
+        BUSLoaiHinhDuLich _loaiHinhDuLich;
+        public ToursController()
         {
-            _busTour = busTour;
-            _busDiaDiem = busDiaDiem;
-            _busLoaiHinhDuLich = busLoaiHinhDuLich;
+            _busTour = new BUSTour();
+            _busDiaDiem = new BUSDiaDiem();
+            _loaiHinhDuLich = new BUSLoaiHinhDuLich();
         }
         public ActionResult Index(string? searchString, int? page)
         {
             ViewBag.DSDiaDiem = _busDiaDiem.GetAll().ToList();
-            ViewBag.DSLoaiHinh = _busLoaiHinhDuLich.GetAll().ToList();
+            ViewBag.DSLoaiHinh = _loaiHinhDuLich.GetAll().ToList();
             int pageSize = 10;
             int pageNumber = (page ?? 1);
             if (String.IsNullOrEmpty(searchString))
