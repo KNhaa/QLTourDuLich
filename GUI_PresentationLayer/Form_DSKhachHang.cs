@@ -15,19 +15,22 @@ namespace GUI_PresentationLayer
     public  partial class Form_DSKhachHang : Form
     {
         public static int IdKH = 0;  // lưu lại id khách hàng khi click vào dòng
+        BUSKhachHang _busKhachHang;
         public  Form_DSKhachHang()
         {
            
             InitializeComponent();
-          
+            _busKhachHang = new BUSKhachHang();
             getListKhachHang();          
             resetAllTextBoxs();
+          
            
         }
         // load data lên cho dataGridView
         public void getListKhachHang()
         {
-            dataGVKhachHang.DataSource = BUSKhachHang.getListKhachHang();
+            dataGVKhachHang.DataSource = _busKhachHang.getListKhachHang();
+
         }
         // khi nhấn vào từng dòng nó sẽ hiện lên trên textbox
         public void addBinding()
@@ -59,7 +62,7 @@ namespace GUI_PresentationLayer
         }
         public void themKhachHang()
         {
-            BUSKhachHang.themKhachHang(txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
+            _busKhachHang.themKhachHang(txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
             // hiển thị lại ds sau khi thêm lên dataGridview
             getListKhachHang();
             // reset lại tất cả textbox về null sau khi thêm xong
@@ -102,7 +105,7 @@ namespace GUI_PresentationLayer
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            BUSKhachHang.updateKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
+            _busKhachHang.updateKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
             getListKhachHang();
             resetAllTextBoxs();
         }
@@ -122,7 +125,7 @@ namespace GUI_PresentationLayer
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Delete ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                BUSKhachHang.deleteKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.Text, txtSDT.Text, txtQuocTich.Text);
+                _busKhachHang.deleteKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.Text, txtSDT.Text, txtQuocTich.Text);
                 getListKhachHang();
                 resetAllTextBoxs();
                 MessageBox.Show("Xóa thành công!");
@@ -133,7 +136,7 @@ namespace GUI_PresentationLayer
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             String keyWord = txtTimKiem.Text.Trim();
-          dataGVKhachHang.DataSource =  BUSKhachHang.searchKhachHang(keyWord);
+          dataGVKhachHang.DataSource = _busKhachHang.searchKhachHang(keyWord);
 
         }
 

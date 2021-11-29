@@ -11,7 +11,7 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAOGiaTour
     {
-        public static ICollection<GiaTour> GetByTourId(int ID)
+        public ICollection<GiaTour> GetByTourId(int ID)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -20,7 +20,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static GiaTour GetById(int ID)
+        public GiaTour GetById(int ID)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -28,7 +28,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static void Create(GiaTour giaTour)
+        public void Create(GiaTour giaTour)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -37,7 +37,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static void Delete(int ID)
+        public void Delete(int ID)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -47,7 +47,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static void Update(GiaTour giaTour)
+        public void Update(GiaTour giaTour)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {

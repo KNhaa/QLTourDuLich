@@ -18,73 +18,73 @@ namespace BUS_BussinessLayer.BUSServices
             DAOctDoan = new DAOChiTietDoan();
         }
 
-        public static ChiTietDoan GetChiTietDoan(Doan doan)
+        public ChiTietDoan GetChiTietDoan(Doan doan)
         {
-            return DAOChiTietDoan.GetChiTietDoan(doan);
+            return DAOctDoan.GetChiTietDoan(doan);
         }
 
-        public static List<newDiaDiem> GetDiaDiem(Doan doan)
+        public List<newDiaDiem> GetDiaDiem(Doan doan)
         {
-            return DAOChiTietDoan.GetDiaDiem(doan);
+            return DAOctDoan.GetDiaDiem(doan);
         }
 
-        public static List<Khach> GetDsKhach(Doan doan)
+        public List<Khach> GetDsKhach(Doan doan)
         {
-            return DAOChiTietDoan.GetDsKhach(doan);
+            return DAOctDoan.GetDsKhach(doan);
         }
 
-        public static void addKhach(ChiTiet ct)
+        public void addKhach(ChiTiet ct)
         {
-            DAOChiTietDoan.addKhach(ct);
+            DAOctDoan.addKhach(ct);
         }
 
-        public static void delKhach(ChiTiet ct)
+        public void delKhach(ChiTiet ct)
         {
-            DAOChiTietDoan.delKhach(ct);
+            DAOctDoan.delKhach(ct);
         }
-        public static List<newChiPhi> GetDsChiPhi(Doan doan)
+        public List<newChiPhi> GetDsChiPhi(Doan doan)
         {
-            return DAOChiTietDoan.GetDsChiPhi(doan);
-        }
-
-        public static ICollection<LoaiChiPhi> GetLoaiChiPhi()
-        {
-            return DAOChiTietDoan.GetLoaiChiPhi().ToList();
+            return DAOctDoan.GetDsChiPhi(doan);
         }
 
-        public static void addChiPhi(ChiPhi cp)
+        public ICollection<LoaiChiPhi> GetLoaiChiPhi()
         {
-            DAOChiTietDoan.addChiPhi(cp);
+            return DAOctDoan.GetLoaiChiPhi().ToList();
         }
 
-        public static void delChiPhi(ChiPhi cp)
+        public void addChiPhi(ChiPhi cp)
         {
-            DAOChiTietDoan.delChiPhi(cp);
+            DAOctDoan.addChiPhi(cp);
         }
 
-        public static List<newNhanVien> GetDsNhanVien(Doan doan)
+        public void delChiPhi(ChiPhi cp)
         {
-            return DAOChiTietDoan.GetDsNhanVien(doan);
+            DAOctDoan.delChiPhi(cp);
         }
 
-        public static ICollection<NhanVien> GetNhanVien()
+        public List<newNhanVien> GetDsNhanVien(Doan doan)
         {
-            return context.NhanViens.ToList();
+            return DAOctDoan.GetDsNhanVien(doan);
         }
 
-        public static void addNhanVienDoan(PhanBo pb)
+        public ICollection<NhanVien> GetNhanVien()
         {
-            DAOChiTietDoan.addNhanVienDoan(pb);
+            return DAOctDoan.GetNhanVien();
         }
 
-        public static void delNhanVien(PhanBo pb)
+        public void addNhanVienDoan(PhanBo pb)
         {
-            DAOChiTietDoan.delNhanVien(pb);
+            DAOctDoan.addNhanVienDoan(pb);
         }
 
-        public static void addNhanVien(NhanVien nv)
+        public void delNhanVien(PhanBo pb)
         {
-            DAOChiTietDoan.addNhanVien(nv);
+            DAOctDoan.delNhanVien(pb);
+        }
+
+        public void addNhanVien(NhanVien nv)
+        {
+            DAOctDoan.addNhanVien(nv);
         }
     }
 }

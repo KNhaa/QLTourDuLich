@@ -12,11 +12,12 @@ namespace BUS_BussinessLayer.BUSServices
     {
         //DAOThongKeNhanVien daoTKNV = new DAOThongKeNhanVien();
         List<DataThongKe> dataThongKeNV;
-
+        DAOThongKeNhanVien _daoThongKeNhanVien;
         
         public BUSThongKeNhanVien()
         {
-            dataThongKeNV = DAOThongKeNhanVien.layDuLieuThongKe().ToList();
+            _daoThongKeNhanVien = new DAOThongKeNhanVien();
+            dataThongKeNV = _daoThongKeNhanVien.layDuLieuThongKe().ToList();
         }
 
         

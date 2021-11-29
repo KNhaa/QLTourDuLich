@@ -19,16 +19,20 @@ namespace GUI_PresentationLayer
     {
         List<Doan> Doans;
         List<T> Tours;
+        BUSTour _busTour;
 
-        List<Tour> listTour = BUSTour.GetTours().ToList(); //dùng để thống kê chi phí
+        List<Tour> listTour;
         BUSThongKeChiPhi busTKCPhi = new BUSThongKeChiPhi(); // dùng để thống kê chi phí
         BUSThongKeNhanVien busTKNV = new BUSThongKeNhanVien(); // dùng để thống kê nhân viên
-
+        BUS_TK_DoanhThu busTKDT = new BUS_TK_DoanhThu();
+        BUS_TK_Tour busTKT = new BUS_TK_Tour();
         public Form_ThongKe()
         {
             InitializeComponent();
-            Doans = BUS_TK_DoanhThu.GetDoans().ToList();
-            Tours = BUS_TK_Tour.GetTours().ToList();
+            _busTour = new BUSTour();
+            listTour = _busTour.GetTours().ToList(); //dùng để thống kê chi phí
+            Doans = busTKDT.GetDoans().ToList();
+            Tours = busTKT.GetTours().ToList();
             
         }
 
@@ -124,7 +128,7 @@ namespace GUI_PresentationLayer
                 var tungay = dateTimePicker1.Value.Date;
                 var denngay = dateTimePicker2.Value.Date;
 
-                var ketqua = BUS_TK_DoanhThu.GetDoansFrom(tungay, denngay).ToList();
+                var ketqua = busTKDT.GetDoansFrom(tungay, denngay).ToList();
                 dataGridViewTK.DataSource = ketqua;
                 dataGridViewTK.Refresh();
 
@@ -141,7 +145,7 @@ namespace GUI_PresentationLayer
 
                 // MessageBox.Show(tungay + " -> " + denngay,"Thông báo");
 
-                var ketqua = BUS_TK_DoanhThu.tkMaDoan(tungay, denngay, madoan).ToList();
+                var ketqua = busTKDT.tkMaDoan(tungay, denngay, madoan).ToList();
 
                 dataGridViewTK.DataSource = ketqua;
                 dataGridViewTK.Refresh();
@@ -227,7 +231,7 @@ namespace GUI_PresentationLayer
             {
                 var tungay = dateTimePicker3.Value.Date;
                 var denngay = dateTimePicker4.Value.Date;
-                var ketqua = BUS_TK_Tour.GetToursFrom(tungay, denngay).ToList();
+                var ketqua = busTKT.GetToursFrom(tungay, denngay).ToList();
 
                 dtgvTK_Tour.DataSource = ketqua;
                 dtgvTK_Tour.Refresh();
@@ -247,7 +251,7 @@ namespace GUI_PresentationLayer
                 var denngay = dateTimePicker4.Value.Date;
                 string matour = comboBox1.Text;
 
-                var ketqua = BUS_TK_Tour.tkMaTour(tungay, denngay,matour).ToList();
+                var ketqua = busTKT.tkMaTour(tungay, denngay,matour).ToList();
                 dtgvTK_Tour.DataSource = ketqua;
                 dtgvTK_Tour.Refresh();
 

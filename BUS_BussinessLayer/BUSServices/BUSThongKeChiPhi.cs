@@ -11,11 +11,12 @@ namespace BUS_BussinessLayer.BUSServices
    public class BUSThongKeChiPhi
     {
         List<DataThongKeCP> dataThongKeCP;
-        
+        DAOThongKeChiPhi _daoThongKeChiPhi;
 
         public BUSThongKeChiPhi()
         {
-            dataThongKeCP = DAOThongKeChiPhi.laydulieuThongKe();
+            _daoThongKeChiPhi = new DAOThongKeChiPhi();
+            dataThongKeCP = _daoThongKeChiPhi.laydulieuThongKe();
         }
         public List<KetQuaTKCP> loadChiPhiTatCa()
         {

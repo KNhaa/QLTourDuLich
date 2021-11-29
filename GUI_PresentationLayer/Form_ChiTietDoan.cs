@@ -23,6 +23,8 @@ namespace GUI_PresentationLayer
         List<Khach> dsKhach, khachOfDoan;
         List<LoaiChiPhi> loaiCP;
         List<NhanVien> dsNhanVien;
+        BUSChiTietDoan _busChiTietDoan;
+        BUSKhachHang _busKhachHang;
         public Form_ChiTietDoan()
         {
             InitializeComponent();
@@ -31,8 +33,11 @@ namespace GUI_PresentationLayer
         public Form_ChiTietDoan(Doan doan)
         {
             this.doan = doan;
-            ctDoan = BUSChiTietDoan.GetChiTietDoan(doan);
-            loaiCP = BUSChiTietDoan.GetLoaiChiPhi().ToList();
+            _busChiTietDoan = new BUSChiTietDoan();
+            _busKhachHang = new BUSKhachHang();
+            ctDoan = _busChiTietDoan.GetChiTietDoan(doan);
+            loaiCP = _busChiTietDoan.GetLoaiChiPhi().ToList();
+           
             InitializeComponent();
         }
 
@@ -68,7 +73,7 @@ namespace GUI_PresentationLayer
         private void tabDiaDiam_Show()
         {
             dgvDiaDiem.DataSource = null;
-            dsDiaDiem = BUSChiTietDoan.GetDiaDiem(doan).ToList();
+            dsDiaDiem = _busChiTietDoan.GetDiaDiem(doan).ToList();
             dgvDiaDiem.AutoGenerateColumns = false;
             dgvDiaDiem.ColumnCount = 2;
 
@@ -84,7 +89,7 @@ namespace GUI_PresentationLayer
         private void tabKhach_Show()
         {
             dgvKhach.DataSource = null;
-            khachOfDoan = BUSChiTietDoan.GetDsKhach(doan).ToList();
+            khachOfDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
             dgvKhach.AutoGenerateColumns = false;
             dgvKhach.ColumnCount = 5;
 
@@ -95,7 +100,7 @@ namespace GUI_PresentationLayer
             }
             dgvKhach.DataSource = khachOfDoan;
 
-            dsKhach = BUSKhachHang.getListKhachHang().ToList();
+            dsKhach = _busKhachHang.getListKhachHang().ToList();
             List<String> ttKhach = new List<String>();
             foreach (Khach kh in dsKhach)
             {
@@ -108,7 +113,7 @@ namespace GUI_PresentationLayer
         private void tabChiPhi_Show()
         {
             dgvChiPhi.DataSource = null;
-            dsChiPhi = BUSChiTietDoan.GetDsChiPhi(doan).ToList();
+            dsChiPhi = _busChiTietDoan.GetDsChiPhi(doan).ToList();
             dgvChiPhi.AutoGenerateColumns = false;
             dgvChiPhi.ColumnCount = 3;
 
@@ -130,7 +135,7 @@ namespace GUI_PresentationLayer
         private void tabNhanVien_Show()
         {
             dgvNhanVien.DataSource = null;
-            nvOfDoan = BUSChiTietDoan.GetDsNhanVien(doan).ToList();
+            nvOfDoan = _busChiTietDoan.GetDsNhanVien(doan).ToList();
             dgvNhanVien.AutoGenerateColumns = false;
             dgvNhanVien.ColumnCount = 3;
 
@@ -143,7 +148,7 @@ namespace GUI_PresentationLayer
 
 
             dgvNhanVien.DataSource = nvOfDoan;
-            dsNhanVien = BUSChiTietDoan.GetNhanVien().ToList();
+            dsNhanVien = _busChiTietDoan.GetNhanVien().ToList();
             List<String> ttNV = new List<String>();
             foreach (NhanVien nv in dsNhanVien)
             {
@@ -174,7 +179,7 @@ namespace GUI_PresentationLayer
                 {
                     ct.maDoan = doan.maDoan;
                     ct.maKh = kh.maKh;
-                    BUSChiTietDoan.addKhach(ct);
+                    _busChiTietDoan.addKhach(ct);
                     tabKhach_Show();
                 }
                 else
@@ -201,7 +206,7 @@ namespace GUI_PresentationLayer
                     cp.soTien = soTien;
                     cp.maDoan = doan.maDoan;
                     cp.maLoaiCP = lcp.maLoaiCP;
-                    BUSChiTietDoan.addChiPhi(cp);
+                    _busChiTietDoan.addChiPhi(cp);
                     tabChiPhi_Show();
                 }
             }
@@ -230,7 +235,7 @@ namespace GUI_PresentationLayer
                         pb.maDoan = doan.maDoan;
                         pb.maNv = nv.maNv;
                         pb.nhiemVu = txtNhiemVu.Text;
-                        BUSChiTietDoan.addNhanVienDoan(pb);
+                        _busChiTietDoan.addNhanVienDoan(pb);
                         tabNhanVien_Show();
                     } else
                     {
@@ -254,8 +259,8 @@ namespace GUI_PresentationLayer
                 ChiTiet ct = new ChiTiet();
                 ct.maDoan = doan.maDoan;
                 ct.maKh = khach.maKh;
-                BUSChiTietDoan.delKhach(ct);
-                khachOfDoan = BUSChiTietDoan.GetDsKhach(doan).ToList();
+                _busChiTietDoan.delKhach(ct);
+                khachOfDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
                 dgvKhach.DataSource = khachOfDoan;
                 dgvKhach.Update();
                 dgvKhach.Refresh();
@@ -272,8 +277,8 @@ namespace GUI_PresentationLayer
                 ChiPhi cp = new ChiPhi();
                 cp.maDoan = doan.maDoan;
                 cp.maChiPhi = chiphi.chiPhi;
-                BUSChiTietDoan.delChiPhi(cp);
-                dsChiPhi = BUSChiTietDoan.GetDsChiPhi(doan).ToList();
+                _busChiTietDoan.delChiPhi(cp);
+                dsChiPhi = _busChiTietDoan.GetDsChiPhi(doan).ToList();
                 dgvChiPhi.DataSource = dsChiPhi;
                 dgvChiPhi.Update();
                 dgvChiPhi.Refresh();
@@ -290,8 +295,8 @@ namespace GUI_PresentationLayer
                 PhanBo pb = new PhanBo();
                 pb.maNv = nhanvien.maNV;
                 pb.maDoan = doan.maDoan;
-                BUSChiTietDoan.delNhanVien(pb);
-                nvOfDoan = BUSChiTietDoan.GetDsNhanVien(doan).ToList();
+                _busChiTietDoan.delNhanVien(pb);
+                nvOfDoan = _busChiTietDoan.GetDsNhanVien(doan).ToList();
                 dgvNhanVien.DataSource = nvOfDoan;
                 dgvNhanVien.Update();
                 dgvNhanVien.Refresh();

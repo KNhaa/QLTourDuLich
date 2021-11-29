@@ -17,7 +17,7 @@ namespace DAL_DataAccessLayer.DALServices
 
         }
 
-        public static List<DataThongKe> layDuLieuThongKe()
+        public List<DataThongKe> layDuLieuThongKe()
         {
             List<DataThongKe> list = new List<DataThongKe>();
             List<NhanVien> nhanvienList = context.NhanViens.ToList(); // có thể gọi lớp DAO cua NHANVIEN

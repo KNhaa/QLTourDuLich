@@ -18,10 +18,12 @@ namespace GUI_PresentationLayer
         //List<KetQuaTKCP> listThongKe;
         List<Tour> listTour;
         BUSThongKeChiPhi bus = new BUSThongKeChiPhi();
+        BUSTour _busTour;
         public Form_TK_ChiPhi()
         {
             InitializeComponent();
-            listTour = BUSTour.GetTours().ToList();
+            _busTour = new BUSTour();
+            listTour = _busTour.GetTours().ToList();
         }
 
         private void dataViewTKCP_CellContentClick(object sender, DataGridViewCellEventArgs e)

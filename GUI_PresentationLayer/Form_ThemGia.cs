@@ -17,11 +17,15 @@ namespace GUI_PresentationLayer
         public Form_ChiTietTour _form;
         int currentIndex = -1;
         Tour _tour;
+        BUSTour _busTour;
+        BUSGiaTour _busGiaTour;
         public Form_ThemGia(Form_ChiTietTour form)
         {
             InitializeComponent();
             _form = form;
-            _tour = BUSTour.GetTour(_form._tour.maTour);
+            _busTour = new BUSTour();
+            _busGiaTour = new BUSGiaTour();
+            _tour = _busTour.GetTour(_form._tour.maTour);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -49,9 +53,9 @@ namespace GUI_PresentationLayer
                     maTour = _tour.maTour
                 };
                 _tour.GiaTours.Add(giaTour);
-                BUSGiaTour.Create(giaTour);
+                _busGiaTour.Create(giaTour);
                 DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
-                dataGridView.DataSource = BUSGiaTour.GetByTourId(_tour.maTour);
+                dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
                 _form.Refresh();
                 data_GiaTour.DataSource = dataGridView.DataSource;
                 data_GiaTour.Refresh();
@@ -96,10 +100,10 @@ namespace GUI_PresentationLayer
                     var giaTour = _tour.GiaTours.ToArray()[currentIndex];
                     if (giaTour != null)
                     {
-                        BUSGiaTour.Delete(giaTour.maGiaTour);
+                        _busGiaTour.Delete(giaTour.maGiaTour);
                         _tour.GiaTours.Remove(giaTour);
                         DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
-                        dataGridView.DataSource = BUSGiaTour.GetByTourId(_tour.maTour);
+                        dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
                         _form.Refresh();
                         data_GiaTour.DataSource = dataGridView.DataSource;
                         data_GiaTour.Refresh();
@@ -129,9 +133,9 @@ namespace GUI_PresentationLayer
                 data_GiaTour.CurrentRow.Selected = true;
                 currentIndex = data_GiaTour.CurrentRow.Index;
                 var giaTour = _tour.GiaTours.ToArray()[currentIndex];
-                BUSGiaTour.Update(giaTour);
+                _busGiaTour.Update(giaTour);
                 DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
-                dataGridView.DataSource = BUSGiaTour.GetByTourId(_tour.maTour);
+                dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
                 _form.Refresh();
                 data_GiaTour.DataSource = dataGridView.DataSource;
             }

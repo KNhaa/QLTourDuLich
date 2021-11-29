@@ -19,13 +19,16 @@ namespace GUI_PresentationLayer
         Dictionary<string, int> dictionary = new Dictionary<string, int>();
         Form_ChiTietTour _form;
         Tour _tour;
-        
+        BUSDiaDiem _busDiaDiem;
+        BUSTour _busTour;
         public Form_ThemDiaDiem(Form_ChiTietTour form)
         {
             InitializeComponent();
             _form = form;
-            DSDiaDiem = BUSDiaDiem.GetAll().ToList();
-            _tour = BUSTour.GetTour(_form._tour.maTour);
+            _busDiaDiem = new BUSDiaDiem();
+            _busTour = new BUSTour();
+            DSDiaDiem = _busDiaDiem.GetAll().ToList();
+            _tour = _busTour.GetTour(_form._tour.maTour);
         }
 
         private void btn_Them_Click(object sender, EventArgs e)
@@ -40,7 +43,7 @@ namespace GUI_PresentationLayer
                 {
                     dictionary.Add(diaDiem.tenDiaDiem, nextItem + 1);
                     _tour.ThamQuans.Add(thamQuan);
-                    BUSTour.Update(_tour);
+                    _busTour.Update(_tour);
                     LoadData();
                 }
             }
@@ -161,8 +164,8 @@ namespace GUI_PresentationLayer
         public void LoadData()
         {
            
-            DSDiaDiem = BUSDiaDiem.GetAll().ToList();
-            _tour = BUSTour.GetTour(_tour.maTour);
+            DSDiaDiem = _busDiaDiem.GetAll().ToList();
+            _tour = _busTour.GetTour(_tour.maTour);
             DataGridView dataGridView = (DataGridView)_form.Controls["dataGridView1"];
             foreach (ThamQuan thamQuan in _tour.ThamQuans)
             {
@@ -192,7 +195,7 @@ namespace GUI_PresentationLayer
                     _tour.ThamQuans.Remove(item);
                }
             }
-            BUSTour.UpdateData(_tour);
+            _busTour.UpdateData(_tour);
         }
 
        
