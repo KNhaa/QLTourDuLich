@@ -17,7 +17,7 @@ namespace DAL_DataAccessLayer
         {
 
         }
-        public static List<Doan> getAllDoans(int maKH)
+        public List<Doan> getAllDoans(int maKH)
         {
             List<Doan> listDoans = new List<Doan>();
             var doans =( from d in dbContext.Doans
@@ -36,21 +36,21 @@ namespace DAL_DataAccessLayer
             return listDoans;
         }
         // khi thêm đoàn thì bắt buộc chi tiết đoàn khách cũng phải đc thêm nên ta có hàm thêm chi tiết đoàn khách
-        public static void themChiTietDoanKhach( int maDoan, int maKhach)
+        public void themChiTietDoanKhach( int maDoan, int maKhach)
         {
             ChiTiet chiTiet = new ChiTiet() { maDoan = maDoan, maKh = maKhach };
             dbContext.Add(chiTiet);
             dbContext.SaveChanges();
         }
         // khi thêm đoàn thì chi tiết đoàn cũng phải đc thêm nên ta gọi thêm hàm thêm chitieets đoàn sau khi thêm đoàn xong
-        public static void themDoan(DateTime ngayKhoiHanh, DateTime ngayKetThuc, int maDoan, int maKhach)
+        public void themDoan(DateTime ngayKhoiHanh, DateTime ngayKetThuc, int maDoan, int maKhach)
         {
             Doan doan = new Doan() { ngayKhoiHanh = ngayKhoiHanh, ngayKetThuc = ngayKetThuc };
             dbContext.Add(doan);
             dbContext.SaveChanges();
             themChiTietDoanKhach(maDoan, maKhach);
         }
-        public static void deleteDoanVaChiTiet(int maDoan)
+        public void deleteDoanVaChiTiet(int maDoan)
         {
             // lay thông tin khách hàng cần update theo id(Phải lấy được idKH thì mới update đc)
             var doanDelete = dbContext.Doans.SingleOrDefault

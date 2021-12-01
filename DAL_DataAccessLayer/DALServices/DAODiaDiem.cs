@@ -11,7 +11,7 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAODiaDiem
     {
-        public static ICollection<DiaDiem> GetAll()
+        public ICollection<DiaDiem> GetAll()
         {
             using (QuanLiTourDbContext _context = new QuanLiTourDbContext())
             {
@@ -20,14 +20,14 @@ namespace DAL_DataAccessLayer.DALServices
                     .ToList();
             }
         }
-        public static DiaDiem GetById(int Id)
+        public DiaDiem GetById(int Id)
         {
             using (QuanLiTourDbContext _context = new QuanLiTourDbContext())
             {
                 return _context.DiaDiems.Find(Id);
             }
         }
-        public static void Create(DiaDiem diaDiem)
+        public void Create(DiaDiem diaDiem)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {

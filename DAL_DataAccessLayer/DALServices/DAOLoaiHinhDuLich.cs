@@ -10,7 +10,7 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAOLoaiHinhDuLich
     {
-        public static ICollection<LoaiHinhDuLich> GetAll()
+        public ICollection<LoaiHinhDuLich> GetAll()
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {

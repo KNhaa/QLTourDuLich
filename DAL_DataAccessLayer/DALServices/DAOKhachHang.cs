@@ -11,17 +11,17 @@ namespace DAL_DataAccessLayer.DALServices
 {
    public class DAOKhachHang
     {
-       public static Khach khach = new Khach();
-        public static QuanLiTourDbContext dbContext = new QuanLiTourDbContext();
+       public Khach khach = new Khach();
+        public QuanLiTourDbContext dbContext ;
         public DAOKhachHang()
         {
-
+            dbContext = new QuanLiTourDbContext();
         }
        /* public static List<Khach> getListKhachHang()
         {                        
                 return dbContext.Khachs.ToList();        
         }*/
-        public static List<Khach> getListKhachHang()
+        public List<Khach> getListKhachHang()
         {
             List<Khach> listKhachs = new List<Khach>();
             var querys = dbContext.Khachs.
@@ -51,14 +51,14 @@ namespace DAL_DataAccessLayer.DALServices
         }
 
         //them khach hang
-        public static void themKhachHang(String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void themKhachHang(String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
         {
             Khach khach = new Khach() { tenKh = tenKH, diaChi = diaChi, cnmd = cMND, gioiTinh = gioiTinh, sdt = SDT, quocTich = quocTich};
             dbContext.Add(khach);
          dbContext.SaveChanges();
         }
         // update khách hàng
-        public static void updateKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void updateKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
         {
 
             khach.maKh = idKH;
@@ -84,7 +84,7 @@ namespace DAL_DataAccessLayer.DALServices
             dbContext.SaveChanges();
         }
         // xóa khách hàng
-        public static void deletKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void deletKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
         {
 
             khach.maKh = idKH;
@@ -104,7 +104,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
             dbContext.SaveChanges();
         }
-        public static List<Khach> searchKhachHang(String keyword) 
+        public List<Khach> searchKhachHang(String keyword) 
             {
 
             List<Khach> listKhachs = new List<Khach>();

@@ -43,6 +43,7 @@ namespace GUI_PresentationLayer
             this.col_Tendiadiem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Thutu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabKhach = new System.Windows.Forms.TabPage();
+            this.btnXoaK = new System.Windows.Forms.Button();
             this.btnThemkhach = new System.Windows.Forms.Button();
             this.btnNewkhach = new System.Windows.Forms.Button();
             this.cbxKhach = new System.Windows.Forms.ComboBox();
@@ -54,6 +55,7 @@ namespace GUI_PresentationLayer
             this.col_Gioitinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Sodienthoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabChiPhi = new System.Windows.Forms.TabPage();
+            this.btnXoaCP = new System.Windows.Forms.Button();
             this.lbLoaiCP = new System.Windows.Forms.Label();
             this.txtSoTien = new System.Windows.Forms.TextBox();
             this.btnThemchiphi = new System.Windows.Forms.Button();
@@ -64,6 +66,7 @@ namespace GUI_PresentationLayer
             this.col_Sotien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Loaichiphi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabNhanVien = new System.Windows.Forms.TabPage();
+            this.btnXoaNV = new System.Windows.Forms.Button();
             this.lbNhiemVu = new System.Windows.Forms.Label();
             this.txtNhiemVu = new System.Windows.Forms.TextBox();
             this.btnThemnhanvien = new System.Windows.Forms.Button();
@@ -71,8 +74,6 @@ namespace GUI_PresentationLayer
             this.cbxNhanvien = new System.Windows.Forms.ComboBox();
             this.lbThemnhanvien = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.col_Tennhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_Nhiemvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbtMadoan = new System.Windows.Forms.Label();
             this.lbtNgketthuc = new System.Windows.Forms.Label();
             this.lbtNgkhoihanh = new System.Windows.Forms.Label();
@@ -80,6 +81,9 @@ namespace GUI_PresentationLayer
             this.lbtDoanhthu = new System.Windows.Forms.Label();
             this.lbtSoluongkhach = new System.Windows.Forms.Label();
             this.lbtTenTour = new System.Windows.Forms.Label();
+            this.col_maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Tennhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_Nhiemvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabThongTin.SuspendLayout();
             this.tabDiaDiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiaDiem)).BeginInit();
@@ -220,6 +224,7 @@ namespace GUI_PresentationLayer
             // 
             // tabKhach
             // 
+            this.tabKhach.Controls.Add(this.btnXoaK);
             this.tabKhach.Controls.Add(this.btnThemkhach);
             this.tabKhach.Controls.Add(this.btnNewkhach);
             this.tabKhach.Controls.Add(this.cbxKhach);
@@ -232,6 +237,16 @@ namespace GUI_PresentationLayer
             this.tabKhach.TabIndex = 1;
             this.tabKhach.Text = "Khách";
             this.tabKhach.UseVisualStyleBackColor = true;
+            // 
+            // btnXoaK
+            // 
+            this.btnXoaK.Location = new System.Drawing.Point(639, 296);
+            this.btnXoaK.Name = "btnXoaK";
+            this.btnXoaK.Size = new System.Drawing.Size(82, 29);
+            this.btnXoaK.TabIndex = 9;
+            this.btnXoaK.Text = "Xóa";
+            this.btnXoaK.UseVisualStyleBackColor = true;
+            this.btnXoaK.Click += new System.EventHandler(this.btnXoaK_Click);
             // 
             // btnThemkhach
             // 
@@ -337,6 +352,7 @@ namespace GUI_PresentationLayer
             // 
             // tabChiPhi
             // 
+            this.tabChiPhi.Controls.Add(this.btnXoaCP);
             this.tabChiPhi.Controls.Add(this.lbLoaiCP);
             this.tabChiPhi.Controls.Add(this.txtSoTien);
             this.tabChiPhi.Controls.Add(this.btnThemchiphi);
@@ -351,10 +367,20 @@ namespace GUI_PresentationLayer
             this.tabChiPhi.Text = "Chi phí";
             this.tabChiPhi.UseVisualStyleBackColor = true;
             // 
+            // btnXoaCP
+            // 
+            this.btnXoaCP.Location = new System.Drawing.Point(866, 293);
+            this.btnXoaCP.Name = "btnXoaCP";
+            this.btnXoaCP.Size = new System.Drawing.Size(94, 29);
+            this.btnXoaCP.TabIndex = 11;
+            this.btnXoaCP.Text = "Xóa";
+            this.btnXoaCP.UseVisualStyleBackColor = true;
+            this.btnXoaCP.Click += new System.EventHandler(this.btnXoaCP_Click);
+            // 
             // lbLoaiCP
             // 
             this.lbLoaiCP.AutoSize = true;
-            this.lbLoaiCP.Location = new System.Drawing.Point(402, 298);
+            this.lbLoaiCP.Location = new System.Drawing.Point(373, 298);
             this.lbLoaiCP.Name = "lbLoaiCP";
             this.lbLoaiCP.Size = new System.Drawing.Size(92, 20);
             this.lbLoaiCP.TabIndex = 10;
@@ -369,7 +395,7 @@ namespace GUI_PresentationLayer
             // 
             // btnThemchiphi
             // 
-            this.btnThemchiphi.Location = new System.Drawing.Point(802, 294);
+            this.btnThemchiphi.Location = new System.Drawing.Point(753, 294);
             this.btnThemchiphi.Name = "btnThemchiphi";
             this.btnThemchiphi.Size = new System.Drawing.Size(94, 29);
             this.btnThemchiphi.TabIndex = 8;
@@ -383,7 +409,7 @@ namespace GUI_PresentationLayer
             this.cbxLoaiChiphi.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxLoaiChiphi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxLoaiChiphi.FormattingEnabled = true;
-            this.cbxLoaiChiphi.Location = new System.Drawing.Point(514, 295);
+            this.cbxLoaiChiphi.Location = new System.Drawing.Point(485, 295);
             this.cbxLoaiChiphi.Name = "cbxLoaiChiphi";
             this.cbxLoaiChiphi.Size = new System.Drawing.Size(233, 28);
             this.cbxLoaiChiphi.TabIndex = 6;
@@ -435,6 +461,7 @@ namespace GUI_PresentationLayer
             // 
             // tabNhanVien
             // 
+            this.tabNhanVien.Controls.Add(this.btnXoaNV);
             this.tabNhanVien.Controls.Add(this.lbNhiemVu);
             this.tabNhanVien.Controls.Add(this.txtNhiemVu);
             this.tabNhanVien.Controls.Add(this.btnThemnhanvien);
@@ -449,10 +476,20 @@ namespace GUI_PresentationLayer
             this.tabNhanVien.Text = "Nhân viên";
             this.tabNhanVien.UseVisualStyleBackColor = true;
             // 
+            // btnXoaNV
+            // 
+            this.btnXoaNV.Location = new System.Drawing.Point(884, 292);
+            this.btnXoaNV.Name = "btnXoaNV";
+            this.btnXoaNV.Size = new System.Drawing.Size(94, 29);
+            this.btnXoaNV.TabIndex = 26;
+            this.btnXoaNV.Text = "Xóa";
+            this.btnXoaNV.UseVisualStyleBackColor = true;
+            this.btnXoaNV.Click += new System.EventHandler(this.btnXoaNV_Click);
+            // 
             // lbNhiemVu
             // 
             this.lbNhiemVu.AutoSize = true;
-            this.lbNhiemVu.Location = new System.Drawing.Point(480, 296);
+            this.lbNhiemVu.Location = new System.Drawing.Point(457, 297);
             this.lbNhiemVu.Name = "lbNhiemVu";
             this.lbNhiemVu.Size = new System.Drawing.Size(79, 20);
             this.lbNhiemVu.TabIndex = 25;
@@ -460,14 +497,14 @@ namespace GUI_PresentationLayer
             // 
             // txtNhiemVu
             // 
-            this.txtNhiemVu.Location = new System.Drawing.Point(565, 292);
+            this.txtNhiemVu.Location = new System.Drawing.Point(542, 293);
             this.txtNhiemVu.Name = "txtNhiemVu";
-            this.txtNhiemVu.Size = new System.Drawing.Size(251, 27);
+            this.txtNhiemVu.Size = new System.Drawing.Size(210, 27);
             this.txtNhiemVu.TabIndex = 9;
             // 
             // btnThemnhanvien
             // 
-            this.btnThemnhanvien.Location = new System.Drawing.Point(835, 292);
+            this.btnThemnhanvien.Location = new System.Drawing.Point(784, 293);
             this.btnThemnhanvien.Name = "btnThemnhanvien";
             this.btnThemnhanvien.Size = new System.Drawing.Size(94, 29);
             this.btnThemnhanvien.TabIndex = 8;
@@ -511,6 +548,7 @@ namespace GUI_PresentationLayer
             this.dgvNhanVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_maNhanVien,
             this.col_Tennhanvien,
             this.col_Nhiemvu});
             this.dgvNhanVien.Location = new System.Drawing.Point(3, 3);
@@ -519,22 +557,6 @@ namespace GUI_PresentationLayer
             this.dgvNhanVien.RowTemplate.Height = 29;
             this.dgvNhanVien.Size = new System.Drawing.Size(990, 273);
             this.dgvNhanVien.TabIndex = 0;
-            // 
-            // col_Tennhanvien
-            // 
-            this.col_Tennhanvien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col_Tennhanvien.HeaderText = "Tên nhân viên";
-            this.col_Tennhanvien.MinimumWidth = 6;
-            this.col_Tennhanvien.Name = "col_Tennhanvien";
-            this.col_Tennhanvien.ReadOnly = true;
-            this.col_Tennhanvien.Width = 300;
-            // 
-            // col_Nhiemvu
-            // 
-            this.col_Nhiemvu.HeaderText = "Nhiệm vụ";
-            this.col_Nhiemvu.MinimumWidth = 6;
-            this.col_Nhiemvu.Name = "col_Nhiemvu";
-            this.col_Nhiemvu.ReadOnly = true;
             // 
             // lbtMadoan
             // 
@@ -591,6 +613,30 @@ namespace GUI_PresentationLayer
             this.lbtTenTour.Name = "lbtTenTour";
             this.lbtTenTour.Size = new System.Drawing.Size(400, 20);
             this.lbtTenTour.TabIndex = 24;
+            // 
+            // col_maNhanVien
+            // 
+            this.col_maNhanVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col_maNhanVien.HeaderText = "Mã nhân viên";
+            this.col_maNhanVien.MinimumWidth = 6;
+            this.col_maNhanVien.Name = "col_maNhanVien";
+            this.col_maNhanVien.Width = 150;
+            // 
+            // col_Tennhanvien
+            // 
+            this.col_Tennhanvien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col_Tennhanvien.HeaderText = "Tên nhân viên";
+            this.col_Tennhanvien.MinimumWidth = 6;
+            this.col_Tennhanvien.Name = "col_Tennhanvien";
+            this.col_Tennhanvien.ReadOnly = true;
+            this.col_Tennhanvien.Width = 300;
+            // 
+            // col_Nhiemvu
+            // 
+            this.col_Nhiemvu.HeaderText = "Nhiệm vụ";
+            this.col_Nhiemvu.MinimumWidth = 6;
+            this.col_Nhiemvu.Name = "col_Nhiemvu";
+            this.col_Nhiemvu.ReadOnly = true;
             // 
             // Form_ChiTietDoan
             // 
@@ -667,8 +713,6 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Sotien;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Loaichiphi;
         private System.Windows.Forms.DataGridView dgvNhanVien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Tennhanvien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn col_Nhiemvu;
         private System.Windows.Forms.Label lbtMadoan;
         private System.Windows.Forms.Label lbtNgketthuc;
         private System.Windows.Forms.Label lbtNgkhoihanh;
@@ -691,5 +735,11 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.Label lbSoTien;
         private System.Windows.Forms.Label lbNhiemVu;
         private System.Windows.Forms.TextBox txtNhiemVu;
+        private System.Windows.Forms.Button btnXoaK;
+        private System.Windows.Forms.Button btnXoaCP;
+        private System.Windows.Forms.Button btnXoaNV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_maNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Tennhanvien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_Nhiemvu;
     }
 }

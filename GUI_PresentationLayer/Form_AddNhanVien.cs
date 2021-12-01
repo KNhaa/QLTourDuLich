@@ -14,9 +14,11 @@ namespace GUI_PresentationLayer
 {
     public partial class Form_AddNhanVien : Form
     {
+        BUSChiTietDoan _busChiTietDoan;
         public Form_AddNhanVien()
         {
             InitializeComponent();
+            _busChiTietDoan = new BUSChiTietDoan();
         }
 
         private void btnThemNV_Click(object sender, EventArgs e)
@@ -25,7 +27,7 @@ namespace GUI_PresentationLayer
             {
                 NhanVien nv = new NhanVien();
                 nv.tenNv = txtTenNV.Text;
-                BUSChiTietDoan.addNhanVien(nv);
+                _busChiTietDoan.addNhanVien(nv);
                 MessageBox.Show("Thêm thành công", "Thông báo");
             } else
             {

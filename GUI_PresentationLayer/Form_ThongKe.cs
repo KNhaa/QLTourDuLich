@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DAL_DataAccessLayer.DALServices.DAO_TK_Tour;
+using static DAL_DataAccessLayer.DALServices.DAOThongKeNhanVien;
 
 namespace GUI_PresentationLayer
 {
@@ -18,24 +19,27 @@ namespace GUI_PresentationLayer
     {
         List<Doan> Doans;
         List<T> Tours;
+        BUSTour _busTour;
+
+        List<Tour> listTour;
+        BUSThongKeChiPhi busTKCPhi = new BUSThongKeChiPhi(); // dùng để thống kê chi phí
+        BUSThongKeNhanVien busTKNV = new BUSThongKeNhanVien(); // dùng để thống kê nhân viên
+        BUS_TK_DoanhThu busTKDT = new BUS_TK_DoanhThu();
+        BUS_TK_Tour busTKT = new BUS_TK_Tour();
         public Form_ThongKe()
         {
             InitializeComponent();
-            Doans = BUS_TK_DoanhThu.GetDoans().ToList();
-            Tours = BUS_TK_Tour.GetTours().ToList();
+            _busTour = new BUSTour();
+            listTour = _busTour.GetTours().ToList(); //dùng để thống kê chi phí
+            Doans = busTKDT.GetDoans().ToList();
+            Tours = busTKT.GetTours().ToList();
             
         }
 
         private void Form_ThongKe_Load(object sender, EventArgs e)
         {
-            
-        }
-
-        private void tabChiPhi_Click(object sender, EventArgs e)
-        {
-            
-
-        }
+            tabChiPhi_Click();
+        }      
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
@@ -62,9 +66,21 @@ namespace GUI_PresentationLayer
            if(tabControl1.SelectedTab==tabDoanhThu)
             {
                 tabDoanhThu_Click();
-            }    
-
+            }
            
+           if(tabControl1.SelectedTab == tabChiPhi)
+            {
+                tabChiPhi_Click();
+            }
+
+
+            if (tabControl1.SelectedTab == tabNhanVien)
+            {
+                tabNhanVien_Click();
+            }
+
+
+
         }
         private void tabDoanhThu_Click()
         {
@@ -112,7 +128,7 @@ namespace GUI_PresentationLayer
                 var tungay = dateTimePicker1.Value.Date;
                 var denngay = dateTimePicker2.Value.Date;
 
-                var ketqua = BUS_TK_DoanhThu.GetDoansFrom(tungay, denngay).ToList();
+                var ketqua = busTKDT.GetDoansFrom(tungay, denngay).ToList();
                 dataGridViewTK.DataSource = ketqua;
                 dataGridViewTK.Refresh();
 
@@ -129,7 +145,7 @@ namespace GUI_PresentationLayer
 
                 // MessageBox.Show(tungay + " -> " + denngay,"Thông báo");
 
-                var ketqua = BUS_TK_DoanhThu.tkMaDoan(tungay, denngay, madoan).ToList();
+                var ketqua = busTKDT.tkMaDoan(tungay, denngay, madoan).ToList();
 
                 dataGridViewTK.DataSource = ketqua;
                 dataGridViewTK.Refresh();
@@ -215,7 +231,7 @@ namespace GUI_PresentationLayer
             {
                 var tungay = dateTimePicker3.Value.Date;
                 var denngay = dateTimePicker4.Value.Date;
-                var ketqua = BUS_TK_Tour.GetToursFrom(tungay, denngay).ToList();
+                var ketqua = busTKT.GetToursFrom(tungay, denngay).ToList();
 
                 dtgvTK_Tour.DataSource = ketqua;
                 dtgvTK_Tour.Refresh();
@@ -235,7 +251,7 @@ namespace GUI_PresentationLayer
                 var denngay = dateTimePicker4.Value.Date;
                 string matour = comboBox1.Text;
 
-                var ketqua = BUS_TK_Tour.tkMaTour(tungay, denngay,matour).ToList();
+                var ketqua = busTKT.tkMaTour(tungay, denngay,matour).ToList();
                 dtgvTK_Tour.DataSource = ketqua;
                 dtgvTK_Tour.Refresh();
 
@@ -268,7 +284,131 @@ namespace GUI_PresentationLayer
 
         }
 
-      
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
+        //===================================THỐNG KÊ CHI PHÍ - NHÂN VIÊN===========================================
+        private void tabChiPhi_Click()
+        {
+
+            cbTour.DataSource = listTour.Select(x => x.maTour).ToList();
+            //dgv.DataSource = bus.loadChiPhiTatCa();
+            dgvTKChiPhi.DataSource = busTKCPhi.loadChiPhiTatCa();
+
+            //Clear the binding.
+            dgvTKChiPhi.DataSource = null;
+
+            //không cho nó tự generate
+            dgvTKChiPhi.AutoGenerateColumns = false;
+
+            //gắn cứng cho số cột của table là 4
+            dgvTKChiPhi.ColumnCount = 4;
+            //danh sách các thuộc tính cần hiển thị trên table
+            List<String> propertyName = new List<string> { "maTour", "tenTour", "tenLoaiChiPhi", "tongChiPhi" };
+
+            //thay đổi header
+            for (int index = 0; index < dgvTKChiPhi.ColumnCount; index++)
+            {
+                dgvTKChiPhi.Columns[index].DataPropertyName = propertyName.ToArray().GetValue(index).ToString();
+            }
+
+            dgvTKChiPhi.DataSource = busTKCPhi.loadChiPhiTatCa();
+            tinhTongTienChiPhi();
+            customizeDataView(dgvTKChiPhi);
+
+
+        }
+
+        private void btnTKChiPhi_Click(object sender, EventArgs e)
+        {
+            DateTime dateStart = datePickerStartChiPhi.Value.Date;
+            DateTime dateEnd = datePickerEndChiPhi.Value.Date;
+
+            if (dateEnd >= dateStart)
+            {
+                if (cbTour.SelectedValue != null)
+                {
+                    int idTourSelected = int.Parse(cbTour.SelectedItem.ToString());
+                    dgvTKChiPhi.DataSource = busTKCPhi.loadChiPhiTheoNgayMaTour(dateStart, dateEnd, idTourSelected);
+                    tinhTongTienChiPhi();
+                }
+                else
+                {
+                    //int selected = cbTour.SelectedItem.
+                    dgvTKChiPhi.DataSource = busTKCPhi.loadChiPhiTheoNgay(dateStart, dateEnd);
+                    tinhTongTienChiPhi();
+                }
+            }    
+                   
+            else
+                MessageBox.Show("Nhập sai. Ngày kết thúc phải lớn hơn Ngày khởi hành !!!", "Lưu ý");
+        }
+
+        private void tinhTongTienChiPhi()
+        {
+            decimal sum = 0;
+            for (int i = 0; i < dgvTKChiPhi.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(dgvTKChiPhi.Rows[i].Cells[3].Value);
+            }
+
+            lbTienChiPhi.Text = sum.ToString()+" VNĐ";
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabNhanVien_Click()
+        {
+            //Clear the binding.
+            dgvTKNV.DataSource = null;
+            //không cho nó tự generate
+            dgvTKNV.AutoGenerateColumns = false;
+            //gắn cứng cho số cột của table là 3
+            dgvTKNV.ColumnCount = 3;
+            //danh sách các thuộc tính cần hiển thị trên table
+            List<String> propertyName = new List<string> { "MaNV", "TenNV", "SoLuong" };
+
+            //thay đổi header
+            for (int index = 0; index < dgvTKNV.ColumnCount; index++)
+            {
+                dgvTKNV.Columns[index].DataPropertyName = propertyName.ToArray().GetValue(index).ToString();
+            }
+
+            dgvTKNV.DataSource = busTKNV.thongkeTatCaNgay();
+            customizeDataView(dgvTKNV);
+
+        }
+
+        private void btnTKNV_Click(object sender, EventArgs e)
+        {
+            DateTime dateStart = datePickerStartTKNV.Value.Date;
+            DateTime dateEnd = datePickerEndTKNV.Value.Date;
+
+            if (dateEnd >= dateStart)
+                dgvTKNV.DataSource = busTKNV.thongkeTheoNgay(dateStart, dateEnd);
+            else
+                MessageBox.Show("Nhập sai. Ngày kết thúc phải lớn hơn Ngày khởi hành !!!", "Lưu ý");
+        }
+
+        // hàm chỉnh giao diện data gridview
+        private void customizeDataView(DataGridView dgv)
+        {
+            dgv.BorderStyle = BorderStyle.None;           
+            dgv.BackgroundColor = Color.White;
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(238, 239, 249);
+            dgv.EnableHeadersVisualStyles = false;
+            dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(14, 42, 85);
+            dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+        }
+
     }
     
 }

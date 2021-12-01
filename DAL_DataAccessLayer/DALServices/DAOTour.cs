@@ -13,7 +13,7 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAOTour
     {
-        public static ICollection<Tour> GetTours()
+        public ICollection<Tour> GetTours()
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -26,7 +26,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static Tour GetTour(int ID)
+        public  Tour GetTour(int ID)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -41,7 +41,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static void Create(Tour tour)
+        public  void Create(Tour tour)
         {
             using (QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -50,7 +50,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static void Update(Tour tour)
+        public  void Update(Tour tour)
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {

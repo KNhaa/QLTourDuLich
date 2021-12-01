@@ -18,11 +18,13 @@ namespace GUI_PresentationLayer
         int indexDgv = 0;
         List<Doan>  doans;
         List<Tour> tours;
+        BUSDoan _busDoan;
         public Form_Doan()
         {
             InitializeComponent();
-            doans = BUSDoan.GetDoan().ToList();
-            tours = BUSDoan.GetTour().ToList();
+            _busDoan = new BUSDoan();
+            doans = _busDoan.GetDoan().ToList();
+            tours = _busDoan.GetTour().ToList();
 
         }
 
@@ -85,8 +87,8 @@ namespace GUI_PresentationLayer
                 doan.ngayKhoiHanh = newKhHanh;
                 doan.ngayKetThuc = newKThuc;
                 doan.doanhThu = newDThu;
-                BUSDoan.Create(doan);
-                doans = BUSDoan.GetDoan().ToList();
+                _busDoan.Create(doan);
+                doans = _busDoan.GetDoan().ToList();
                 dgvDsdoan.DataSource = doans;
                 dgvDsdoan.Update();
                 dgvDsdoan.Refresh();
@@ -110,8 +112,8 @@ namespace GUI_PresentationLayer
                 doan.ngayKetThuc = dtpNgketthuc.Value;
                 doan.doanhThu = newDThu;
                 doan.maTour = (int)cbMatour.SelectedItem;
-                BUSDoan.Update(doan);
-                doans = BUSDoan.GetDoan().ToList();
+                _busDoan.Update(doan);
+                doans = _busDoan.GetDoan().ToList();
                 dgvDsdoan.DataSource = doans;
                 cbxDoansearch.DataSource = doans.Select(doan => doan.maDoan).ToList();
                 cbxDoansearch.Update();
@@ -126,10 +128,10 @@ namespace GUI_PresentationLayer
             indexDgv = dgvDsdoan.CurrentRow.Index;
             var doan = doans[indexDgv];
             DialogResult result = MessageBox.Show("Bạn có chắc muốn xóa không.", "Cảnh báo", MessageBoxButtons.OKCancel);
-            if (result == DialogResult.Yes)
+            if (result == DialogResult.OK)
             {
-                BUSDoan.Delete(doan);
-                doans = BUSDoan.GetDoan().ToList();
+                _busDoan.Delete(doan);
+                doans = _busDoan.GetDoan().ToList();
                 dgvDsdoan.DataSource = doans;
                 dgvDsdoan.Update();
                 dgvDsdoan.Refresh();

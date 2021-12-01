@@ -12,7 +12,7 @@ namespace DAL_DataAccessLayer.DALServices
     public class DAO_TK_Tour
     {
         public DAO_TK_Tour(){}
-        public static ICollection<T> GetTours()
+        public ICollection<T> GetTours()
         {
             using var dbcontext = new QuanLiTourDbContext();
             {
@@ -31,7 +31,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
            
         }
-        public static ICollection<T> GetToursFrom(DateTime tungay, DateTime denngay)
+        public ICollection<T> GetToursFrom(DateTime tungay, DateTime denngay)
         {
             using var dbcontext = new QuanLiTourDbContext();
             {
@@ -50,7 +50,7 @@ namespace DAL_DataAccessLayer.DALServices
                         }).ToList();
             }
         }
-        public static ICollection<T> tkMaTour (DateTime tungay, DateTime denngay, string matour)
+        public ICollection<T> tkMaTour (DateTime tungay, DateTime denngay, string matour)
         {
             using var dbcontext = new QuanLiTourDbContext();
             {

@@ -31,5 +31,7 @@ namespace DAL_DataAccessLayer.Entities
         public virtual LoaiHinhDuLich LoaiHinhDuLich { get; set; }
 
         public virtual ICollection<ThamQuan> ThamQuans  { get; set; }
+
+        // methods here ...
     }
 }

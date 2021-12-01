@@ -19,7 +19,7 @@ namespace DAL_DataAccessLayer.DALServices
 
         }
 
-        public static List<DataThongKeCP> laydulieuThongKe()
+        public List<DataThongKeCP> laydulieuThongKe()
         {
             List<LoaiChiPhi> loaichiphiList = context.LoaiChiPhis.ToList();
             List<ChiPhi> chiphiList = context.ChiPhis.ToList();

@@ -10,32 +10,32 @@ namespace BUS_BussinessLayer.BUSServices
 {
   public class BUSKhachHang
     {
-
+        DAOKhachHang _daoKhachHang;
         public BUSKhachHang()
         {
-
+            _daoKhachHang = new DAOKhachHang();
         }
-        public static List<Khach> getListKhachHang()
+        public List<Khach> getListKhachHang()
         {
-            return DAOKhachHang.getListKhachHang();
+            return _daoKhachHang.getListKhachHang();
         }
         // day la function them khach hang
-        public static void themKhachHang(String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void themKhachHang(String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
         {
-            DAOKhachHang.themKhachHang(tenKH,  diaChi,  cMND, gioiTinh,  SDT, quocTich);
+            _daoKhachHang.themKhachHang(tenKH,  diaChi,  cMND, gioiTinh,  SDT, quocTich);
         }
-        public static void updateKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void updateKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
         {
 
-            DAOKhachHang.updateKhachHang( idKH, tenKH , diaChi , cMND , gioiTinh, SDT, quocTich);
+            _daoKhachHang.updateKhachHang( idKH, tenKH , diaChi , cMND , gioiTinh, SDT, quocTich);
         }
-        public static void deleteKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void deleteKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
         {
-            DAOKhachHang.deletKhachHang(idKH, tenKH, diaChi, cMND, gioiTinh, SDT, quocTich);
+            _daoKhachHang.deletKhachHang(idKH, tenKH, diaChi, cMND, gioiTinh, SDT, quocTich);
         }
-        public static List<Khach> searchKhachHang(String keyword)
+        public List<Khach> searchKhachHang(String keyword)
         {
-            return DAOKhachHang.searchKhachHang(keyword);
+            return _daoKhachHang.searchKhachHang(keyword);
         }
     }
 }
