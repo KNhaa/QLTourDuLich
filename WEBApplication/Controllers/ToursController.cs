@@ -38,9 +38,6 @@ namespace WEBAplication.Controllers
                 };
                 return View(model);
             }
-
-          
-            
         }
 
         // GET: TourController/Details/5
@@ -120,6 +117,7 @@ namespace WEBAplication.Controllers
         {
             ViewBag.DSDiaDiem = BUSDiaDiem.GetAll();
             var tour = BUSTour.GetTour(vm.tour.maTour);
+            
             var maxIndex = 0;
             if (tour.ThamQuans.Count != 0   )
             {
@@ -208,6 +206,7 @@ namespace WEBAplication.Controllers
         public ActionResult DeleteGiaTour(int id, int maGiaTour)
         {
             var tour = BUSTour.GetTour(id);
+            
             ViewBag.DSDiaDiem = BUSDiaDiem.GetAll();
             Console.WriteLine(tour.GiaTours.Count);
 
@@ -219,8 +218,6 @@ namespace WEBAplication.Controllers
                 tour = BUSTour.GetTour(id)
             };
             Console.WriteLine(model.tour.GiaTours.Count);
-
-
             return View("Details", model);
         }
     }

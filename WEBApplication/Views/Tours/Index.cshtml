@@ -1,10 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-
 @model TourViewModel
-
 @using PagedList;
 
 @using X.PagedList.Mvc.Core;
@@ -105,7 +102,6 @@
                 Page @(Model.Tours.PageCount < Model.Tours.PageNumber ? 0 : Model.Tours.PageNumber)
                 of @Model.Tours.PageCount
                 <span class="clearfix"> @Html.PagedListPager(Model.Tours, page => Url.Action("Index", new { page }))</span>
-
             </div>
         </div>
     </div>
