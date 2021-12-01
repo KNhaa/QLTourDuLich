@@ -18,7 +18,7 @@
                         <input class="form-control" asp-for="searchString" placeholder="Thông tin khách hàng cần tìm" />
                     </div>
                     <div class="col-xl-3">
-                        <button class="btn btn-xl btn-primary">Tìm kiếm</button>
+                        <button class="btn btn-xl-4 btn-primary">Tìm kiếm</button>
                     </div>
                 </div>
             </form>
@@ -33,29 +33,29 @@
                         <input type="text" asp-for="khach.tenKh" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
-                        <label for="diaChi">Tên Khách Sạn</label>
+                        <label for="diaChi">Địa chỉ </label>
                         <input type="text" asp-for="khach.diaChi" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
-                        <label for="cnmd">Đặc Điểm</label>
+                        <label for="cnmd">CMND</label>
                         <input type="text" asp-for="khach.cnmd" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
-                        <label for="gioiTinh">Loại Hình Du Lịch</label>
+                        <label for="gioiTinh">Giới tính</label>
                         <select class="selectpicker form-control" asp-for="khach.gioiTinh" data-selected-text-format="value"
                                 asp-items=@(new SelectList(ViewBag.gioiTinh,"gioiTinh"))>
                         </select>
                     </div>
                     <div class="col col-xl-6 form-group">
-                        <label for="sdt">Đặc Điểm</label>
+                        <label for="sdt">SĐT</label>
                         <input type="text" asp-for="khach.sdt" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
-                        <label for="quocTich">Đặc Điểm</label>
+                        <label for="quocTich">Quốc tịch</label>
                         <input type="text" asp-for="khach.quocTich" class="form-control" />
                     </div>
                     <div class="col col-xl-12 text-center">
-                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Thêm Tour</button>
+                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Thêm Khách Hàng</button>
                     </div>
                 </div>
             </form>
@@ -68,12 +68,12 @@
         <table class="table table-bordered table-striped">
             <thead class="thead bg-success text-center" style="color:aliceblue;">
                 <tr>
-                    <th>Tên Tour</th>
-                    <th>Tên Khách Sạn</th>
-                    <th>Đặc Điểm</th>
-                    <th>Loại Hình</th>
-                    <th>Nội Dung Tour</th>
-                    <th>Nội Dung Tour</th>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>CMND</th>
+                    <th>Giới tính</th>
+                    <th>SĐT</th>
+                    <th>Quốc tịch</th>
                     <th></th>
                 </tr>
             </thead>
@@ -93,18 +93,19 @@
 
                             <a href='@Url.Action("Delete","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
                              gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
-                                <input type='button' class="btn btn-danger" value='Xóa' />
+                                <input type='button' class="btn btn-xl btn-danger" value='Xóa' />
                             </a>
+                            <br />
                             <a href='@Url.Action("Edit","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
                              gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
                                 <input type='button' class="btn btn-danger" value='Cập nhật' />
                             </a>
-</td>
+                </td>
                 </tr>
                 }
             </tbody>
         </table>
-        <div id="container" style="margin-left: 20px">
+        <div id="container" style="margin-left: 10px">
             <p></p>
             <p></p>
             <div class="pagination" style="margin-left: 400px">

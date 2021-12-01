@@ -125,14 +125,10 @@ namespace WEBAplication.Controllers
         [HttpPost]
         public ActionResult ThemDiaDiem(TourViewModel vm)
         {
-<<<<<<< HEAD
-            ViewBag.DSDiaDiem = BUSDiaDiem.GetAll();
-            var tour = BUSTour.GetTour(vm.tour.maTour);
-            
-=======
+
             ViewBag.DSDiaDiem = _busDiaDiem.GetAll();
             var tour = _busTour.GetTour(vm.tour.maTour);
->>>>>>> 9d40e918099fd90192c6c11b3c410cde3fe8c8c6
+
             var maxIndex = 0;
             if (tour.ThamQuans.Count != 0   )
             {
@@ -220,14 +216,10 @@ namespace WEBAplication.Controllers
 
         public ActionResult DeleteGiaTour(int id, int maGiaTour)
         {
-<<<<<<< HEAD
-            var tour = BUSTour.GetTour(id);
-            
-            ViewBag.DSDiaDiem = BUSDiaDiem.GetAll();
-=======
+
             var tour = _busTour.GetTour(id);
             ViewBag.DSDiaDiem = _busDiaDiem.GetAll();
->>>>>>> 9d40e918099fd90192c6c11b3c410cde3fe8c8c6
+
             Console.WriteLine(tour.GiaTours.Count);
 
             var Obj = tour.GiaTours.Where(item => item.maGiaTour == maGiaTour).FirstOrDefault();
