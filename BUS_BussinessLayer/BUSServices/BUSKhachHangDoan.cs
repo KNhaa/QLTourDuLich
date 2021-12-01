@@ -11,7 +11,7 @@ namespace BUS_BussinessLayer.BUSServices
 {
   public  class BUSKhachHangDoan
     {
-        DAOKhachHangDoan _khachHangDoan;
+        DAOKhachHangDoan _khachHangDoan = null;
         public BUSKhachHangDoan()
         {
             _khachHangDoan = new DAOKhachHangDoan();

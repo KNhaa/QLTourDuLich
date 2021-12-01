@@ -12,10 +12,10 @@ namespace DAL_DataAccessLayer
   public  class DAOKhachHangDoan
     {
         public static QuanLiTourDbContext dbContext = new QuanLiTourDbContext();
-        public static Doan _doan = new Doan();
+        public static Doan _doan = null;
       public  DAOKhachHangDoan()
         {
-
+            _doan= new Doan();
         }
         public List<Doan> getAllDoans(int maKH)
         {

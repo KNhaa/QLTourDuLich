@@ -11,11 +11,12 @@ namespace DAL_DataAccessLayer.DALServices
 {
    public class DAOKhachHang
     {
-       public Khach khach = new Khach();
-        public QuanLiTourDbContext dbContext ;
+        public Khach khach = null;
+        public QuanLiTourDbContext dbContext = null ;
         public DAOKhachHang()
         {
             dbContext = new QuanLiTourDbContext();
+            khach=  new Khach();
         }
        /* public static List<Khach> getListKhachHang()
         {                        

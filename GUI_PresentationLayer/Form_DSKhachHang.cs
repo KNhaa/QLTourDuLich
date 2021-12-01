@@ -15,7 +15,7 @@ namespace GUI_PresentationLayer
     public  partial class Form_DSKhachHang : Form
     {
         public static int IdKH = 0;  // lưu lại id khách hàng khi click vào dòng
-        BUSKhachHang _busKhachHang;
+        BUSKhachHang _busKhachHang = null;
         public  Form_DSKhachHang()
         {
            
