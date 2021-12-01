@@ -29,7 +29,11 @@ namespace GUI_PresentationLayer
         // load data lên cho dataGridView
         public void getListKhachHang()
         {
-            dataGVKhachHang.DataSource = _busKhachHang.getListKhachHang();
+            if( _busKhachHang!= null)
+            {
+                dataGVKhachHang.DataSource = _busKhachHang.getListKhachHang();
+            }
+          
 
         }
         // khi nhấn vào từng dòng nó sẽ hiện lên trên textbox
@@ -62,11 +66,46 @@ namespace GUI_PresentationLayer
         }
         public void themKhachHang()
         {
-            _busKhachHang.themKhachHang(txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
-            // hiển thị lại ds sau khi thêm lên dataGridview
-            getListKhachHang();
-            // reset lại tất cả textbox về null sau khi thêm xong
-            resetAllTextBoxs();
+            if (String.IsNullOrEmpty(txtHoTen.Text))
+            {
+                MessageBox.Show("Vui lòng nhập họ tên!");
+                txtHoTen.Focus();
+            }
+            else if (String.IsNullOrEmpty(txtDiaChi.Text))
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ!");
+                txtDiaChi.Focus();
+            }
+            else if (String.IsNullOrEmpty(txtCMND.Text))
+            {
+                MessageBox.Show("Vui lòng nhập CMND!");
+                txtCMND.Focus();
+            }
+            else if (String.IsNullOrEmpty(cbGioiTinh.Text))
+            {
+                MessageBox.Show("Vui lòng nhập giới tính!");
+
+            }
+            else if (String.IsNullOrEmpty(txtSDT.Text))
+            {
+                MessageBox.Show("Vui lòng nhập số điện thoại!");
+                txtSDT.Focus();
+            }
+            else if (String.IsNullOrEmpty(txtQuocTich.Text))
+            {
+                MessageBox.Show("Vui lòng nhập quốc tịch!");
+                txtQuocTich.Focus();
+            }
+            else
+            {
+                _busKhachHang.themKhachHang(txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
+                // hiển thị lại ds sau khi thêm lên dataGridview
+                getListKhachHang();
+                // reset lại tất cả textbox về null sau khi thêm xong
+                resetAllTextBoxs();
+                MessageBox.Show("Thêm thành công!");
+            }
+          
         }
         private void Form_DSKhachHang_Load(object sender, EventArgs e)
         {
@@ -105,9 +144,39 @@ namespace GUI_PresentationLayer
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            _busKhachHang.updateKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
-            getListKhachHang();
-            resetAllTextBoxs();
+            if(String.IsNullOrEmpty(txtHoTen.Text))
+            {
+                MessageBox.Show("Vui lòng nhập họ tên!");
+                txtHoTen.Focus();
+            }else if( String.IsNullOrEmpty(txtDiaChi.Text))
+            {
+                MessageBox.Show("Vui lòng nhập địa chỉ!");
+                txtDiaChi.Focus();
+            }else if (String.IsNullOrEmpty(txtCMND.Text))
+            {
+                MessageBox.Show("Vui lòng nhập CMND!");
+                txtCMND.Focus();
+            }else if  (String.IsNullOrEmpty(cbGioiTinh.Text))
+            {
+                MessageBox.Show("Vui lòng nhập giới tính!");
+
+            }else if (String.IsNullOrEmpty(txtSDT.Text)){
+                MessageBox.Show("Vui lòng nhập số điện thoại!");
+                txtSDT.Focus();
+            }else if(String.IsNullOrEmpty(txtQuocTich.Text))
+            {
+                MessageBox.Show("Vui lòng nhập quốc tịch!");
+                txtQuocTich.Focus();
+            }
+            else
+            {
+                _busKhachHang.updateKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
+                getListKhachHang();
+                resetAllTextBoxs();
+                MessageBox.Show( "Cập nhật thành công!");
+            }
+           
+           
         }
 
         private void label5_Click(object sender, EventArgs e)
