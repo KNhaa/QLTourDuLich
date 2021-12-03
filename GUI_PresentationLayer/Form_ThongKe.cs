@@ -84,7 +84,7 @@ namespace GUI_PresentationLayer
         }
         private void tabDoanhThu_Click()
         {
-
+            
             //Clear the binding.
             dataGridViewTK.DataSource = null;
 
@@ -409,6 +409,7 @@ namespace GUI_PresentationLayer
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
+      
     }
     
 }
