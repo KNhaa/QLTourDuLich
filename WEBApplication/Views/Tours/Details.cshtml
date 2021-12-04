@@ -40,7 +40,7 @@
         </div>
 
         <div class="col col-xl-9">
-            <button class="btn btn-xl btn-success" >Thêm Giá Tour</button>
+            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalGiaTour">Thêm Giá Tour</button>
             <table class="table table-bordered">
                 <thead class="thread bg-success" style="color:aliceblue;">
                     <tr>
@@ -83,18 +83,17 @@
                             <td>@item.DiaDiem.tenDiaDiem</td>
                             <td>@item.thuTuThamQuan</td>
                             <td style="width:  26%">
-
-
-
+                               
                                 <a href='@Url.Action("Up", "Tours",new { id=Model.tour.maTour, thuTu=item.thuTuThamQuan})'>
                                     <input type='button' class="btn btn-primary" value="Di chuyển lên" />
                                 </a>
                                 <a href='@Url.Action("Down", "Tours",new { id=Model.tour.maTour, thuTu=item.thuTuThamQuan})'>
                                     <input type='button' class="btn btn-warning" value="Di chuyển xuống" />
                                 </a>
+                              
                                 <a href='@Url.Action("DeleteDiaChi", "Tours",new { id=Model.tour.maTour, maDiaDiem = item.maDiaDiem})'>
                                     <input type='button' class="btn btn-danger" value="Xóa" />
-                                </a>                            
+                                </a>
 
                             </td>
                         </tr>
@@ -129,12 +128,70 @@
                                 asp-items=@(new SelectList(ViewBag.DSDiaDiem,"maDiaDiem","tenDiaDiem"))>
                         </select>
                     </div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit">Save changes</button>
+                </form>
+               
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalGiaTour" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Địa Điểm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Tours" asp-action="ThemGiaTour" method="post">
+                    <div class="row">
+                        <div class="col col-xl-6 form-group" hidden>
+                            <label for="tenTour">Tên Tour</label>
+                            <input type="text" asp-for="tour.maTour" class="form-control" hi />
+                        </div>
+                        <div class="col col-lg-6">
+                            <div class="form-group">
+                                <label for="ngayKhoiHanh">Ngày Khởi Hành</label>
+                                <input type="date" asp-for="giaTour.ngayKhoiHanh" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col col-lg-6">
+                            <div class="form-group">
+                                <label for="ngayKetThuc">Ngày Kết Thúc</label>
+                                <input type="date" asp-for="giaTour.ngayKetThuc" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col col-lg-12">
+                            <div class="form-group">
+                                <label for="giaTien">Giá Tiền</label>
+                                <input type="number" asp-for="giaTour.thanhTien" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button class="btn btn-primary" type="submit">Save changes</button>
                 </form>
                 
             </div>
-         
+
         </div>
+      
     </div>
 </div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $("#click").click(function () {
+        $("#datepicker").datepicker({
+            format: 'dd-mm-yy'
+        });
+    });
+</script>

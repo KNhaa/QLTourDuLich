@@ -54,8 +54,10 @@ namespace DAL_DataAccessLayer.DALServices
         {
             using(QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
-                context.Attach(tour);   
+                
+                context.Attach(tour);
                 context.SaveChanges();
+               
             }
         }
     }
