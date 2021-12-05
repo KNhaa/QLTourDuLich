@@ -3,7 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 @model KhachHangViewModel
-@using PagedList;
+
 
 @using X.PagedList.Mvc.Core;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
@@ -30,29 +30,29 @@
                 <div class="row">
                     <div class="col col-xl-6 form-group">
                         <label for="tenKh">Tên khách hàng</label>
-                        <input type="text" asp-for="khach.tenKh" class="form-control" />
+                        <input type="text" asp-for="khach!.tenKh" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="diaChi">Địa chỉ </label>
-                        <input type="text" asp-for="khach.diaChi" class="form-control" />
+                        <input type="text" asp-for="khach!.diaChi" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="cnmd">CMND</label>
-                        <input type="text" asp-for="khach.cnmd" class="form-control" />
+                        <input type="text" asp-for="khach!.cnmd" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="gioiTinh">Giới tính</label>
-                        <select class="selectpicker form-control" asp-for="khach.gioiTinh" data-selected-text-format="value"
+                        <select class="selectpicker form-control" asp-for="khach!.gioiTinh" data-selected-text-format="value"
                                 asp-items=@(new SelectList(ViewBag.gioiTinh,"gioiTinh"))>
                         </select>
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="sdt">SĐT</label>
-                        <input type="text" asp-for="khach.sdt" class="form-control" />
+                        <input type="text" asp-for="khach!.sdt" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="quocTich">Quốc tịch</label>
-                        <input type="text" asp-for="khach.quocTich" class="form-control" />
+                        <input type="text" asp-for="khach!.quocTich" class="form-control" />
                     </div>
                     <div class="col col-xl-12 text-center">
                         <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Thêm Khách Hàng</button>
@@ -78,7 +78,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.khachHangs)
+                @foreach (var item in Model.khachHangs!)
                 {
                 <tr>
                     <td>@item.tenKh</td>

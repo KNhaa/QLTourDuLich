@@ -15,27 +15,27 @@
                 <div class="row">
                     <div class="form-group col-lg-12">
                         <label>Mã Tour</label>
-                        <input type="text" value="@Model.tour.maTour" class="form-control" disabled />
+                        <input type="text" value="@Model.tour!.maTour" class="form-control" disabled />
                     </div>
                     <div class="form-group col-lg-12">
                         <label>Tên Tour</label>
-                        <input type="text" value="@Model.tour.tenTour" class="form-control" />
+                        <input type="text" value="@Model.tour!.tenTour" class="form-control" />
                     </div>
                     <div class="form-group col-lg-12">
                         <label>Tên Khách Sạn</label>
-                        <input type="text" value="@Model.tour.khachSan" class="form-control" />
+                        <input type="text" value="@Model.tour!.khachSan" class="form-control" />
                     </div>
                     <div class="form-group col-lg-12">
                         <label>Đặc Điểm</label>
-                        <input type="text" value="@Model.tour.dacDiem" class="form-control" />
+                        <input type="text" value="@Model.tour!.dacDiem" class="form-control" />
                     </div>
                     <div class="form-group col-lg-12">
                         <label>Loại Hình</label>
-                        <input type="text" value="@Model.tour.LoaiHinhDuLich.tenLoaiHinh" class="form-control" />
+                        <input type="text" value="@Model.tour!.LoaiHinhDuLich.tenLoaiHinh" class="form-control" />
                     </div>
                     <div class="form-group col-lg-12">
                         <label>Nội Dung</label>
-                        <textarea class="form-control" asp-for="tour.noiDungTour" value="@Model.tour.noiDungTour" cols="10"
+                        <textarea class="form-control" asp-for="@Model.tour!.noiDungTour" value="@Model.tour!.noiDungTour" cols="10"
                                   rows="5"></textarea>
                     </div>
                     <div class="form-group col-lg-12">
@@ -61,7 +61,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.tour.GiaTours)
+                    @foreach (var item in Model.tour!.GiaTours)
                     {
                         <tr>
                             <td> @item.ngayKhoiHanh</td>
@@ -131,7 +131,7 @@
                 <form asp-controller="Tours" asp-action="ThemDiaDiem" method="post">
                     <div class="col col-xl-6 form-group" hidden>
                         <label for="tenTour">Tên Tour</label>
-                        <input type="text" asp-for="tour.maTour" class="form-control" hi />
+                        <input type="text" asp-for="tour!.maTour" class="form-control" hi />
                     </div>
                     <div class="form-group">
 
@@ -165,24 +165,24 @@
                     <div class="row">
                         <div class="col col-xl-6 form-group" hidden>
                             <label for="tenTour">Tên Tour</label>
-                            <input type="text" asp-for="tour.maTour" class="form-control" hi />
+                            <input type="text" asp-for="tour!.maTour" class="form-control" hi />
                         </div>
                         <div class="col col-lg-6">
                             <div class="form-group">
                                 <label for="ngayKhoiHanh">Ngày Khởi Hành</label>
-                                <input type="date" asp-for="giaTour.ngayKhoiHanh" class="form-control" />
+                                <input type="date" asp-for="giaTour!.ngayKhoiHanh" class="form-control" />
                             </div>
                         </div>
                         <div class="col col-lg-6">
                             <div class="form-group">
                                 <label for="ngayKetThuc">Ngày Kết Thúc</label>
-                                <input type="date" asp-for="giaTour.ngayKetThuc" class="form-control" />
+                                <input type="date" asp-for="giaTour!.ngayKetThuc" class="form-control" />
                             </div>
                         </div>
                         <div class="col col-lg-12">
                             <div class="form-group">
                                 <label for="giaTien">Giá Tiền</label>
-                                <input type="number" asp-for="giaTour.thanhTien" class="form-control" />
+                                <input type="number" asp-for="giaTour!.thanhTien" class="form-control" />
                             </div>
                         </div>
                     </div>

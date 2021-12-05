@@ -4,7 +4,7 @@
 }
 
 @model KhachHangViewModel
-@using PagedList;
+
 <h1>Cập nhật Thông Tin Khách Hàng </h1>
 <div class="row">
     <div class="card" style="height:fit-content;">
@@ -13,27 +13,27 @@
             <div class="row">
                 <div class="col col-xl-4 form-group">
                     <label for="tenKh">Tên khách hàng</label>
-                    <input type="text" asp-for="khach.tenKh" class="form-control" />
+                    <input type="text" asp-for="khach!.tenKh" class="form-control" />
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="diaChi">Địa chỉ</label>
-                    <input type="text" asp-for="khach.diaChi" class="form-control" />
+                    <input type="text" asp-for="khach!.diaChi" class="form-control" />
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="cnmd">CMND</label>
-                    <input type="text" asp-for="khach.cnmd" class="form-control" />
+                    <input type="text" asp-for="khach!.cnmd" class="form-control" />
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="cnmd">Giới tính</label>
-                    <input type="text" asp-for="khach.gioiTinh" class="form-control" />
+                    <input type="text" asp-for="khach!.gioiTinh" class="form-control" />
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="sdt">SĐT</label>
-                    <input type="text" asp-for="khach.sdt" class="form-control" />
+                    <input type="text" asp-for="khach!.sdt" class="form-control" />
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="quocTich">Quốc tịch</label>
-                    <input type="text" asp-for="khach.quocTich" class="form-control" />
+                    <input type="text" asp-for="khach!.quocTich" class="form-control" />
                 </div>
                 <div class="container">
                     <div class="col-md-4 offset-md-4 text-center ">

@@ -2,7 +2,7 @@
 using DAL_DataAccessLayer.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,10 +74,11 @@ namespace WEBAplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TourViewModel vm)
         {
+            vm.tour.trangThai = true;
             if (ModelState.IsValid)
             {
                 Console.WriteLine("Hello");
-                vm.tour.trangThai = true;
+              
                 _busTour.Create(vm.tour);
                 return RedirectToAction(nameof(Index));
             }
