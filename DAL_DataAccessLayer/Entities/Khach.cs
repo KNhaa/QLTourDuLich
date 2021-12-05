@@ -11,12 +11,17 @@ namespace DAL_DataAccessLayer.Entities
         //[StringLength(10)]
         public int maKh { get; set; }
 
-        [Required] //not null
+       [Required(ErrorMessage = "Tên khách hàng không được bỏ trống")]
         public string tenKh { get; set; }
+      
         public string diaChi { get; set; }
+       
         public string cnmd { get; set; }
+      
         public string gioiTinh { get; set; }
+       
         public string sdt { get; set; }
+       
         public string quocTich { get; set; }
         public virtual ICollection<ChiTiet> ChiTiets { get; set; }
     }

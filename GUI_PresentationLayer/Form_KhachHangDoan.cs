@@ -19,7 +19,7 @@ namespace GUI_PresentationLayer
     {
         public static int maDoan = 0;
        public  int maKH = Form_DSKhachHang.IdKH; // lấy mã bên kh
-        public BUSKhachHangDoan _busKhachHangDoan;
+        public BUSKhachHangDoan _busKhachHangDoan = null;
         public Form_KhachHangDoan()
         {
             
@@ -30,7 +30,12 @@ namespace GUI_PresentationLayer
         }
         public  void getListDoans (int maKH) // lấy ds đoàn theo mã khách hàng
         {
-            dataGVKhachDoan.DataSource = _busKhachHangDoan.getAllDoans(maKH);
+           
+            if( _busKhachHangDoan!= null)
+            {
+                dataGVKhachDoan.DataSource = _busKhachHangDoan.getAllDoans(maKH);
+            }
+           
         }
         public void addBinding()
         {
@@ -80,6 +85,16 @@ namespace GUI_PresentationLayer
 
             _busKhachHangDoan.themDoan( dtNgayKhoiHanh.Value, dtNgayKetThuc.Value, maDoan, maKH);
             MessageBox.Show("Thêm thành công!");
+
+        }
+
+        private void dtNgayKhoiHanh_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtNgayKetThuc_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

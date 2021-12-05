@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Details";
+}
+@using DAL_DataAccessLayer.Entities;
+@model KhachHangViewModel
+@using PagedList;
+@using X.PagedList.Mvc.Core;
+<h1>Chi Tiết Khách Hàng</h1>
+<div class="row">
+    <div class="col col-xl-10 pt-xl-5">
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead bg-success text-center" style="color:aliceblue;">
+                <tr>
+                    <th>Ngày khỏi hàng</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Doanh thu</th>
+
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.doans)
+                {
+                    <tr>
+                        <td>@item.ngayKhoiHanh</td>
+                        <td>@item.ngayKetThuc</td>
+                        <td>@item.doanhThu</td>
+                        @*i xóa: nhấn vào nút xóa nó chuyển đến controller KhachHang sau đó vào cái hàm DeleteKhachDoan*@
+                        <td style="width:fit-content;">
+                            <a href='@Url.Action("DeleteKhachDoan","KhachHang",new {id=item.maDoan })'>
+                                <input type='button' class="btn btn-danger" value='Xóa' />
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div id="container" style="margin-left: 20px">
+            <p></p>
+            <p></p>
+            <div class="pagination" style="margin-left: 400px">
+                Page @(Model.doans.PageCount < Model.doans.PageNumber ? 0 : Model.doans.PageNumber)
+                of @Model.doans.PageCount
+                <span class="clearfix"> @Html.PagedListPager(Model.doans, page => Url.Action("Details", new { page }))</span>
+            </div>
+        </div>
+    </div>
+</div>

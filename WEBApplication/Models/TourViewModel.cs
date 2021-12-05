@@ -9,6 +9,7 @@ namespace WEBAplication.Models
         public Tour tour { get; set; }
         public int MaDiaDiem { get; set; }
         public string searchString { get; set; }
+       
 
         public GiaTour giaTour { get; set; }
 

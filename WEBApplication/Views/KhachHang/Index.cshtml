@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model KhachHangViewModel
+@using PagedList;
+
+@using X.PagedList.Mvc.Core;
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<h1 class="text-center">DANH SÁCH KHÁCH HÀNG</h1>
+<div class="row">
+    <div class="col col-xl-4 pt-xl-5">
+        <div class="card">
+            <form method="get" class="card-body text-center">
+                <div class="row">
+                    <div class="form-group col-xl-9">
+                        <input class="form-control" asp-for="searchString" placeholder="Thông tin khách hàng cần tìm" />
+                    </div>
+                    <div class="col-xl-3">
+                        <button class="btn btn-xl-4 btn-primary">Tìm kiếm</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <hr />
+        <div class="card" style="height:fit-content;">
+            <h3 class="card-title text-center">Thêm Thông Tin Khách Hàng</h3>
+            <form asp-action="Create" method="post" asp-controller="KhachHang" class="card-body">
+                <div class="row">
+                    <div class="col col-xl-6 form-group">
+                        <label for="tenKh">Tên khách hàng</label>
+                        <input type="text" asp-for="khach.tenKh" class="form-control" />
+                    </div>
+                    <div class="col col-xl-6 form-group">
+                        <label for="diaChi">Địa chỉ </label>
+                        <input type="text" asp-for="khach.diaChi" class="form-control" />
+                    </div>
+                    <div class="col col-xl-6 form-group">
+                        <label for="cnmd">CMND</label>
+                        <input type="text" asp-for="khach.cnmd" class="form-control" />
+                    </div>
+                    <div class="col col-xl-6 form-group">
+                        <label for="gioiTinh">Giới tính</label>
+                        <select class="selectpicker form-control" asp-for="khach.gioiTinh" data-selected-text-format="value"
+                                asp-items=@(new SelectList(ViewBag.gioiTinh,"gioiTinh"))>
+                        </select>
+                    </div>
+                    <div class="col col-xl-6 form-group">
+                        <label for="sdt">SĐT</label>
+                        <input type="text" asp-for="khach.sdt" class="form-control" />
+                    </div>
+                    <div class="col col-xl-6 form-group">
+                        <label for="quocTich">Quốc tịch</label>
+                        <input type="text" asp-for="khach.quocTich" class="form-control" />
+                    </div>
+                    <div class="col col-xl-12 text-center">
+                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Thêm Khách Hàng</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="col col-xl-8 pt-xl-5">
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead bg-success text-center" style="color:aliceblue;">
+                <tr>
+                    <th>Tên</th>
+                    <th>Địa chỉ</th>
+                    <th>CMND</th>
+                    <th>Giới tính</th>
+                    <th>SĐT</th>
+                    <th>Quốc tịch</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.khachHangs)
+                {
+                <tr>
+                    <td>@item.tenKh</td>
+                    <td>@item.diaChi</td>
+                    <td>@item.cnmd</td>
+                    <td>@item.gioiTinh</td>
+                    <td>@item.sdt</td>
+                    <td>@item.quocTich</td>
+                    <td style="width:fit-content;">
+                        <a href='@Url.Action("Details", "KhachHang",new { id=item.maKh })'>
+                            <input type='button' class="btn btn-xl btn-warning" value='Chi tiết' />
+
+                            <a href='@Url.Action("Delete","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
+                             gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
+                                <input type='button' class="btn btn-xl btn-danger" value='Xóa' />
+                            </a>
+                            <br />
+                            <a href='@Url.Action("Edit","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
+                             gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
+                                <input type='button' class="btn btn-danger" value='Cập nhật' />
+                            </a>
+                </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <div id="container" style="margin-left: 10px">
+            <p></p>
+            <p></p>
+            <div class="pagination" style="margin-left: 400px">
+                Page @(Model.khachHangs.PageCount < Model.khachHangs.PageNumber ? 0 : Model.khachHangs.PageNumber)
+                of @Model.khachHangs.PageCount
+                <span class="clearfix"> @Html.PagedListPager(Model.khachHangs, page => Url.Action("Index", new { page }))</span>
+            </div>
+        </div>
+    </div>
+</div>
+

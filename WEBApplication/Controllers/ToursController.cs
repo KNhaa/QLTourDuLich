@@ -50,9 +50,6 @@ namespace WEBAplication.Controllers
                 };
                 return View(model);
             }
-
-          
-            
         }
 
         // GET: TourController/Details/5
@@ -130,8 +127,10 @@ namespace WEBAplication.Controllers
         [HttpPost]
         public ActionResult ThemDiaDiem(TourViewModel vm)
         {
+
             ViewBag.DSDiaDiem = _busDiaDiem.GetAll();
             var tour = _busTour.GetTour(vm.tour.maTour);
+
             var maxIndex = 0;
             if (tour.ThamQuans.Count != 0   )
             {
@@ -197,15 +196,13 @@ namespace WEBAplication.Controllers
 
         public ActionResult DeleteGiaTour(int id, int maGiaTour)
         {
+
             var tour = _busTour.GetTour(id);
+
             var Obj = tour.GiaTours.Where(item => item.maGiaTour == maGiaTour && item.maTour==id).FirstOrDefault();
-            Console.WriteLine(Obj.maGiaTour);
-            Console.WriteLine(tour.GiaTours.Count);
             tour.GiaTours.Remove(Obj);
             _busGiaTour.Delete(Obj.maGiaTour);
             _busTour.Update(tour);
-          
-           
             return RedirectToAction("Details", new { id = tour.maTour });
         }
 
@@ -215,6 +212,7 @@ namespace WEBAplication.Controllers
             tour.GiaTours.Add(vm.giaTour);
             _busTour.Update(tour);
             return RedirectToAction("Details", new { id = tour.maTour });
+
         }
     }
 }
