@@ -189,6 +189,7 @@ namespace GUI_PresentationLayer
             this.dtNgayKhoiHanh.Name = "dtNgayKhoiHanh";
             this.dtNgayKhoiHanh.Size = new System.Drawing.Size(334, 31);
             this.dtNgayKhoiHanh.TabIndex = 5;
+            this.dtNgayKhoiHanh.ValueChanged += new System.EventHandler(this.dtNgayKhoiHanh_ValueChanged);
             // 
             // dtNgayKetThuc
             // 
@@ -197,6 +198,7 @@ namespace GUI_PresentationLayer
             this.dtNgayKetThuc.Name = "dtNgayKetThuc";
             this.dtNgayKetThuc.Size = new System.Drawing.Size(334, 31);
             this.dtNgayKetThuc.TabIndex = 6;
+            this.dtNgayKetThuc.ValueChanged += new System.EventHandler(this.dtNgayKetThuc_ValueChanged);
             // 
             // Form_KhachHangDoan
             // 

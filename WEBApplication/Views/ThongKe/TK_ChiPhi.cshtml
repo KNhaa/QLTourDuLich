@@ -1,0 +1,82 @@
+﻿
+@{
+
+    ViewData["Title"] = "TK Chi Phí";
+}
+@using X.PagedList.Mvc.Core
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@model WEBApplication.Models.ThongKeModel;
+
+<h1 class="text-center">THỐNG KÊ CHI PHÍ</h1>
+
+<div class="row">
+<!------------ Bảng bên trái------------------>
+<div class="col col-xl-4 pt-xl-5">
+        <div class="card">
+            <form method="get" class="card-body">
+                <div class="row">
+                    <div class="form-group col-xl-9">                                                 
+                        <label>Ngày khởi hành</label>
+                        <input type="date" class="form-control" asp-for="startDateTKCP" id="startDateTKCP"/>                        
+                    </div>
+                    <div class="form-group col-xl-9">                                                 
+                        <label>Ngày kết thúc</label>
+                        <input type="date" class="form-control" asp-for="endDateTKCP" id="endDateTKCP"/>                      
+                    </div>
+                    <div class="form-group col-xl-9">
+                        <label>TOUR</label>
+                        <br/> 
+                        <select class="selectpicker form-select" asp-for="idTour"
+                                asp-items=@(new SelectList(ViewBag.DSTours,"maTour","tenTour"))>
+                                <item value=null>------------</item>
+                        </select>
+                    </div>                                                                                  
+                    <div class="col-xl-9 text-center">
+                        <button class="btn btn-lg btn-block btn-primary" type="submit" id="btnTKCP" style="color:aliceblue;">
+                            THỐNG KÊ
+                        </button>
+                    </div>
+                </div>               
+            </form>
+            
+        </div>
+    </div>
+    
+<!------------ Bảng bên phải------------------>
+    <div class="col col-xl-8 pt-xl-5">
+            <h2></h2>
+            <table class="table table-bordered table-striped">
+            <thead class="thead bg-success text-center" style="color:aliceblue;">
+                <tr>
+                    <th>Mã tour</th>
+                    <th>Tên tour</th>
+                    <th>Tên loại chi phí</th>
+                    <th>Chi phí</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var ketQuaTKCP in Model.listKetQuaTKCP) 
+                {
+                <tr>
+                    <td>@ketQuaTKCP.maTour</td>
+                    <td>@ketQuaTKCP.tenTour</td>
+                    <td>@ketQuaTKCP.tenLoaiChiPhi</td>
+                    <td>@ketQuaTKCP.tongChiPhi</td>                  
+                </tr>             
+                }
+            </tbody>
+            </table>            
+            <div id="container" style="margin-left: 10px">
+                <p></p>
+                <p></p>
+                <div class="pagination" style="margin-left: 400px">
+                    Page @(Model.listKetQuaTKCP.PageCount < Model.listKetQuaTKCP.PageNumber ? 0 : Model.listKetQuaTKCP.PageNumber)
+                    of @Model.listKetQuaTKCP.PageCount
+                    <span class="clearfix"> @Html.PagedListPager(Model.listKetQuaTKCP, page => Url.Action("TK_ChiPhi", new { page }))</span>
+                </div>
+            </div>
+            
+            
+    </div>
+</div>
+

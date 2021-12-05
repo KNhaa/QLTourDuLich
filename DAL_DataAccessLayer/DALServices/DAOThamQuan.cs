@@ -10,7 +10,7 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAOThamQuan
     {
-        public static ICollection<ThamQuan> GetDSThamQuan(Tour tour)
+        public ICollection<ThamQuan> GetDSThamQuan(Tour tour)
         {
             using (QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -18,7 +18,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static void UpdateThamQuan(Tour tour)
+        public void UpdateThamQuan(Tour tour)
         {
             using (QuanLiTourDbContext context = new QuanLiTourDbContext())
             {

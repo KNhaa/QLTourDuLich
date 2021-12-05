@@ -10,17 +10,24 @@ namespace BUS_BussinessLayer.BUSServices
 {
     public class BUSDiaDiem
     {
-        public static ICollection<DiaDiem> GetAll()
+        DAODiaDiem _daoDiaDiem;
+
+        public BUSDiaDiem()
         {
-            return DAODiaDiem.GetAll();
+            _daoDiaDiem = new DAODiaDiem();
         }
-        public static DiaDiem GetItem(int Id)
+
+        public ICollection<DiaDiem> GetAll()
         {
-            return DAODiaDiem.GetById(Id);
+            return _daoDiaDiem.GetAll();
         }
-        public static void Create(DiaDiem diaDiem)
+        public DiaDiem GetItem(int Id)
         {
-            DAODiaDiem.Create(diaDiem);
+            return _daoDiaDiem.GetById(Id);
+        }
+        public void Create(DiaDiem diaDiem)
+        {
+            _daoDiaDiem.Create(diaDiem);
         }
     }
 }

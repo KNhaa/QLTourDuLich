@@ -11,30 +11,37 @@ namespace BUS_BussinessLayer.BUSServices
 {
     public class BUSTour
     {
-        public static  ICollection<Tour> GetTours()
+        DAOTour _daoTour;
+        DAOThamQuan _daoThamQuan;
+        public BUSTour()
         {
-            return DAOTour.GetTours().ToList();
+            _daoTour = new DAOTour();
+            _daoThamQuan = new DAOThamQuan();
+        }
+        public   ICollection<Tour> GetTours()
+        {
+            return _daoTour.GetTours().ToList();
         }
 
-        public static Tour GetTour(int ID)
+        public  Tour GetTour(int ID)
         {
-            return DAOTour.GetTour(ID);
+            return _daoTour.GetTour(ID);
         }
 
-        public static void Create(Tour tour)
+        public  void Create(Tour tour)
         {
-            DAOTour.Create(tour);
+            _daoTour.Create(tour);
         }
 
-        public static void Update(Tour tour)
+        public  void Update(Tour tour)
         {
-            DAOTour.Update(tour);
+            _daoTour.Update(tour);
             
         }
 
-        public static void UpdateData(Tour tour)
+        public  void UpdateData(Tour tour)
         {
-            var DSThamQuan = DAOThamQuan.GetDSThamQuan(tour);
+            var DSThamQuan = _daoThamQuan.GetDSThamQuan(tour);
             foreach (var item in tour.ThamQuans)
             {
                 if (DSThamQuan.Any(x => x.maDiaDiem == item.maDiaDiem))

@@ -13,7 +13,9 @@ namespace WEBApplication.Controllers
 {
     public class KhachHangController : Controller
     {
-        public static int idKhach;
+        public static int idKhach =0;
+        BUSKhachHang _busKhachHang = new BUSKhachHang();
+        BUSKhachHangDoan _bus_KhachDoan = new BUSKhachHangDoan();
         // GET: KhachHangController
         public ActionResult Index(string? searchString, int? page)
 
@@ -29,13 +31,13 @@ namespace WEBApplication.Controllers
             {
                 var model = new KhachHangViewModel()
                 {
-                    khachHangs = BUSKhachHang.getListKhachHang().ToPagedList(pageNumber, pageSize)
+                    khachHangs =_busKhachHang.getListKhachHang().ToPagedList(pageNumber, pageSize)
                 };
                 return View(model);
             }
             else
             {
-                var item = BUSKhachHang.searchKhachHang(searchString);
+                var item =_busKhachHang.searchKhachHang(searchString);
                 var model = new KhachHangViewModel()
                 {
                     khachHangs= item.ToPagedList(pageNumber, pageSize),
@@ -52,7 +54,7 @@ namespace WEBApplication.Controllers
             int pageNumber = (page ?? 1);
                 var model = new KhachHangViewModel()
                 {
-                    doans = BUSKhachHangDoan.getAllDoans(id).ToPagedList(pageNumber, pageSize)
+                    doans = _bus_KhachDoan.getAllDoans(id).ToPagedList(pageNumber, pageSize)
                 };
                 return View("Details",model);
         }
@@ -73,7 +75,7 @@ namespace WEBApplication.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    BUSKhachHang.themKhachHang(kh.khach.tenKh, kh.khach.diaChi, kh.khach.cnmd, kh.khach.gioiTinh, kh.khach.sdt, kh.khach.quocTich);
+                   _busKhachHang.themKhachHang(kh.khach.tenKh, kh.khach.diaChi, kh.khach.cnmd, kh.khach.gioiTinh, kh.khach.sdt, kh.khach.quocTich);
                     return RedirectToAction(nameof(Index));
                 }
                 return RedirectToAction(nameof(Index));
@@ -89,19 +91,24 @@ namespace WEBApplication.Controllers
         {
             try
             {
-                Khach kh = new Khach();
-                idKhach = id;
-                kh.maKh = id;
-                kh.tenKh = tenKh;
-                kh.diaChi = diaChi;
-                kh.cnmd = cnmd;
-                kh.gioiTinh = gioiTinh;
-                kh.sdt = sdt;
-                kh.quocTich = quocTich;
-                var model = new KhachHangViewModel() {
-                    khach = kh
-                };
-                return View("Edit",model);
+              
+                    Khach kh = new Khach();
+                    idKhach = id;
+                    kh.maKh = id;
+                    kh.tenKh = tenKh;
+                    kh.diaChi = diaChi;
+                    kh.cnmd = cnmd;
+                    kh.gioiTinh = gioiTinh;
+                    kh.sdt = sdt;
+                    kh.quocTich = quocTich;
+                    var model = new KhachHangViewModel()
+                    {
+                        khach = kh
+                    };
+                  
+                
+                return View("Edit", model);
+
             }
             catch
             {
@@ -117,9 +124,9 @@ namespace WEBApplication.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    BUSKhachHang.updateKhachHang(idKhach, kh.khach.tenKh, kh.khach.diaChi, kh.khach.cnmd, kh.khach.gioiTinh, kh.khach.sdt, kh.khach.quocTich);
+                    
+                    _busKhachHang.updateKhachHang(idKhach, kh.khach.tenKh, kh.khach.diaChi, kh.khach.cnmd, kh.khach.gioiTinh, kh.khach.sdt, kh.khach.quocTich);
                 }
-                  
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -129,7 +136,7 @@ namespace WEBApplication.Controllers
         }
         public ActionResult DeleteKhachDoan(int id)
         {
-           BUSKhachHangDoan.deleteDoanVaChiTiet(id);
+          _bus_KhachDoan.deleteDoanVaChiTiet(id);
             return RedirectToAction(nameof(Details));
         }
         // GET: KhachHangController/Delete/5
@@ -137,7 +144,7 @@ namespace WEBApplication.Controllers
         public ActionResult Delete(int id , String tenKh, String diaChi, String cnmd, String gioiTinh, String sdt, String quocTich)
         {
 
-            BUSKhachHang.deleteKhachHang(id, tenKh, diaChi, cnmd, gioiTinh, sdt, quocTich);
+           _busKhachHang.deleteKhachHang(id, tenKh, diaChi, cnmd, gioiTinh, sdt, quocTich);
             return RedirectToAction(nameof(Index));
         }
 

@@ -17,29 +17,29 @@ namespace BUS_BussinessLayer.BUSServices
             DAOdoan = new DAODoan();
         }
 
-        public static ICollection<Doan> GetDoan()
+        public ICollection<Doan> GetDoan()
         {
-            return DAODoan.GetDoan().ToList();
+            return DAOdoan.GetDoan().ToList();
         }
 
-        public static void Create(Doan doan)
+        public void Create(Doan doan)
         {
-            DAODoan.Create(doan);
+            DAOdoan.Create(doan);
         }
 
-        public static void Update(Doan doan)
+        public void Update(Doan doan)
         {
-            DAODoan.Update(doan);
+            DAOdoan.Update(doan);
         }
 
-        public static void Delete(Doan doan)
+        public void Delete(Doan doan)
         {
-            DAODoan.Delete(doan);
+            DAOdoan.Delete(doan);
         }
 
-        public static ICollection<Tour> GetTour()
+        public ICollection<Tour> GetTour()
         {
-            return DAODoan.GetTour().ToList();
+            return DAOdoan.GetTour().ToList();
         }
     }
 }

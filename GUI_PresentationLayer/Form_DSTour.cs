@@ -18,12 +18,16 @@ namespace GUI_PresentationLayer
         int currentIndex = 0;
         List<Tour> Tours;
         List<LoaiHinhDuLich> DSLoaiHinh;
+        BUSTour _busTour;
+        BUSLoaiHinhDuLich _busLoaiHinhDuLich;
         public Form_DSTour()
         {
-           
+            
             InitializeComponent();
-            Tours = BUSTour.GetTours().ToList();
-            DSLoaiHinh = BUSLoaiHinhDuLich.GetAll().ToList();
+            _busTour = new BUSTour();
+            _busLoaiHinhDuLich = new BUSLoaiHinhDuLich();
+            Tours = _busTour.GetTours().ToList();
+            DSLoaiHinh = _busLoaiHinhDuLich.GetAll().ToList();
         }
 
         private void Form_DSTour_Load(object sender, EventArgs e)
@@ -110,8 +114,8 @@ namespace GUI_PresentationLayer
             }
             else
             {
-                BUSTour.Create(tour);
-                Tours = BUSTour.GetTours().ToList();
+                _busTour.Create(tour);
+                Tours = _busTour.GetTours().ToList();
                 dataGridView1.DataSource = Tours;
                 dataGridView1.Update();
                 dataGridView1.Refresh();

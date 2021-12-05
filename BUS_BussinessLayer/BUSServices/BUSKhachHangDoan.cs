@@ -11,21 +11,22 @@ namespace BUS_BussinessLayer.BUSServices
 {
   public  class BUSKhachHangDoan
     {
+        DAOKhachHangDoan _khachHangDoan = null;
         public BUSKhachHangDoan()
         {
-           
+            _khachHangDoan = new DAOKhachHangDoan();
         }
-        public static List<Doan> getAllDoans(int maKH)
+        public List<Doan> getAllDoans(int maKH)
         {
-            return DAOKhachHangDoan.getAllDoans(maKH);
+            return _khachHangDoan.getAllDoans(maKH);
         }
-        public static void deleteDoanVaChiTiet(int maDoan)
+        public void deleteDoanVaChiTiet(int maDoan)
         {
-            DAOKhachHangDoan.deleteDoanVaChiTiet(maDoan);
+            _khachHangDoan.deleteDoanVaChiTiet(maDoan);
         }
-        public static void themDoan(DateTime ngayKhoiHanh, DateTime ngayKetThuc, int maDoan, int maKhach)
+        public void themDoan(DateTime ngayKhoiHanh, DateTime ngayKetThuc, int maDoan, int maKhach)
         {
-            DAOKhachHangDoan.themDoan(ngayKhoiHanh, ngayKetThuc, maDoan, maKhach);
+            _khachHangDoan.themDoan(ngayKhoiHanh, ngayKetThuc, maDoan, maKhach);
         }
     }
 }

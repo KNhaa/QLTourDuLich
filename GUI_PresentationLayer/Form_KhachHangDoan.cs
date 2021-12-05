@@ -19,16 +19,23 @@ namespace GUI_PresentationLayer
     {
         public static int maDoan = 0;
        public  int maKH = Form_DSKhachHang.IdKH; // lấy mã bên kh
+        public BUSKhachHangDoan _busKhachHangDoan = null;
         public Form_KhachHangDoan()
         {
             
             InitializeComponent();
             getListDoans(maKH);
+            _busKhachHangDoan = new BUSKhachHangDoan();
 
         }
         public  void getListDoans (int maKH) // lấy ds đoàn theo mã khách hàng
         {
-            dataGVKhachDoan.DataSource = BUSKhachHangDoan.getAllDoans(maKH);
+           
+            if( _busKhachHangDoan!= null)
+            {
+                dataGVKhachDoan.DataSource = _busKhachHangDoan.getAllDoans(maKH);
+            }
+           
         }
         public void addBinding()
         {
@@ -61,7 +68,7 @@ namespace GUI_PresentationLayer
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Delete ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                BUSKhachHangDoan.deleteDoanVaChiTiet(maDoan);
+                _busKhachHangDoan.deleteDoanVaChiTiet(maDoan);
                 // load lại thông tin đoàn theo id khách hàng khi click vào khách hàng
                 getListDoans(maKH);
                 resetAllDataPicker();
@@ -76,8 +83,18 @@ namespace GUI_PresentationLayer
         private void btnThem_Click(object sender, EventArgs e)
         {
 
-            BUSKhachHangDoan.themDoan( dtNgayKhoiHanh.Value, dtNgayKetThuc.Value, maDoan, maKH);
+            _busKhachHangDoan.themDoan( dtNgayKhoiHanh.Value, dtNgayKetThuc.Value, maDoan, maKH);
             MessageBox.Show("Thêm thành công!");
+
+        }
+
+        private void dtNgayKhoiHanh_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtNgayKetThuc_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }

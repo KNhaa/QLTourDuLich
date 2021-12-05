@@ -1,0 +1,88 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Thong ke Tour";
+}
+@using X.PagedList.Mvc.Core;
+
+@*<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
+
+<h1 class="text-center">THỐNG KÊ TOUR</h1>
+
+<div class="col col-xl-6 form-group" style="width: 200px;  ">
+    <label for="loaiHinh">Mã tour</label>
+    @*<select class="selectpicker form-control" data-selected-text-format="value">*@
+    <select class="form-control" data-selected-text-format="value">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+    </select>
+</div>
+<div class="col col-xl-6 form-group">
+    <label for="loaiHinh">Từ ngày</label>
+    <input type="date" class="form-control" style=" width:300px; " />
+</div>
+<div class="col col-xl-6 form-group" style="float: right; margin-top: -90px;">
+    <label for="loaiHinh">Đến ngày</label>
+    <input type="date" class="form-control" style=" width:300px" />
+</div>
+
+<div class="col col-xl-6 form-group">
+    <label for="loaiHinh">Tổng doanh số: </label>
+    <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" />
+</div>
+<div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 470px">
+    <span style="display: inline">
+        <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;">Tìm kiếm</button>
+    </span>
+</div>
+<div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 320px">
+    <span style="display: inline">
+        <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;">Làm mới</button>
+    </span>
+</div>
+<div class="col col-xl-6 form-group">
+    <label for="loaiHinh">Tổng số đoàn: </label>
+    <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" />
+</div>
+
+
+<div class="col col-xl-8 pt-xl-5">
+    <table class="table table-bordered table-striped">
+        <thead class="thead bg-success text-center" style="color:aliceblue; ">
+            <tr>
+                <th>Mã tour</th>
+                <th>Tên tour</th>
+                <th>Mã đoàn</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày ngày kết thúc</th>
+                <th>Giá tour</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div id="container" style="margin-left: 20px">
+        <p></p>
+        <p></p>
+        <div class="pagination" style="margin-left: 300px">
+            Page ...
+            of ...
+            <span class="clearfix"> 1 </span>
+        </div>
+    </div>
+</div>
+
+
+
+
+

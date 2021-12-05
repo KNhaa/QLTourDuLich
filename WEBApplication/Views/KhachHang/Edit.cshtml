@@ -4,42 +4,44 @@
 }
 
 @model KhachHangViewModel
-@using PagedList;
-<h1>Edit</h1>
+
+<h1>Cập nhật Thông Tin Khách Hàng </h1>
 <div class="row">
     <div class="card" style="height:fit-content;">
-        <h3 class="card-title text-center">Update Thông Tin Khách Hàng</h3>
+        <h2 class="card-title text-center">Cập nhật Thông Tin Khách Hàng</h2>
         <form asp-action="EditKhach" method="post" asp-controller="KhachHang" class="card-body">
             <div class="row">
-                <div class="col col-xl-6 form-group">
+                <div class="col col-xl-4 form-group">
                     <label for="tenKh">Tên khách hàng</label>
-                    <input type="text" asp-for="khach.tenKh" class="form-control" />
+                    <input type="text" asp-for="khach!.tenKh" class="form-control" />
                 </div>
-                <div class="col col-xl-6 form-group">
-                    <label for="diaChi">Tên Khách Sạn</label>
-                    <input type="text" asp-for="khach.diaChi" class="form-control" />
+                <div class="col col-xl-4 form-group">
+                    <label for="diaChi">Địa chỉ</label>
+                    <input type="text" asp-for="khach!.diaChi" class="form-control" />
                 </div>
-                <div class="col col-xl-6 form-group">
-                    <label for="cnmd">Đặc Điểm</label>
-                    <input type="text" asp-for="khach.cnmd" class="form-control" />
+                <div class="col col-xl-4 form-group">
+                    <label for="cnmd">CMND</label>
+                    <input type="text" asp-for="khach!.cnmd" class="form-control" />
                 </div>
-                <div class="col col-xl-6 form-group">
+                <div class="col col-xl-4 form-group">
                     <label for="cnmd">Giới tính</label>
-                    <input type="text" asp-for="khach.gioiTinh" class="form-control" />
+                    <input type="text" asp-for="khach!.gioiTinh" class="form-control" />
                 </div>
-                <div class="col col-xl-6 form-group">
-                    <label for="sdt">Đặc Điểm</label>
-                    <input type="text" asp-for="khach.sdt" class="form-control" />
+                <div class="col col-xl-4 form-group">
+                    <label for="sdt">SĐT</label>
+                    <input type="text" asp-for="khach!.sdt" class="form-control" />
                 </div>
-                <div class="col col-xl-6 form-group">
-                    <label for="quocTich">Đặc Điểm</label>
-                    <input type="text" asp-for="khach.quocTich" class="form-control" />
+                <div class="col col-xl-4 form-group">
+                    <label for="quocTich">Quốc tịch</label>
+                    <input type="text" asp-for="khach!.quocTich" class="form-control" />
                 </div>
-                <div class="col col-xl-12 text-center">
-                    <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Cập nhật</button>
+                <div class="container">
+                    <div class="col-md-4 offset-md-4 text-center ">
+                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;" >Cập Nhật</button>
+                    </div>
+                    </div>
                 </div>
-            </div>
-        </form>
+</form>
     </div>
 </div>
 

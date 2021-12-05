@@ -10,8 +10,8 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAOChiTietDoan
     {
-        public static QuanLiTourDbContext context = new QuanLiTourDbContext();
-        public static ChiTietDoan GetChiTietDoan(Doan doan)
+        public QuanLiTourDbContext context = new QuanLiTourDbContext();
+        public ChiTietDoan GetChiTietDoan(Doan doan)
         {
             int slKhach = (from sl in context.PhanBos
                             where sl.maDoan == doan.maDoan
@@ -28,7 +28,7 @@ namespace DAL_DataAccessLayer.DALServices
             return ctDoan;
         }
 
-        public static List<newDiaDiem> GetDiaDiem(Doan doan)
+        public List<newDiaDiem> GetDiaDiem(Doan doan)
         {
             var dsDiaDiem = (from d in context.Doans
                             join t in context.Tours on d.maTour equals t.maTour
@@ -43,7 +43,7 @@ namespace DAL_DataAccessLayer.DALServices
             return dsDiaDiem.ToList();
         }
 
-        public static List<Khach> GetDsKhach(Doan doan)
+        public List<Khach> GetDsKhach(Doan doan)
         {
             using (QuanLiTourDbContext context = new QuanLiTourDbContext())
             {
@@ -57,13 +57,20 @@ namespace DAL_DataAccessLayer.DALServices
         }
 
         //them khach vao doan
-        public static void addKhach(ChiTiet ct)
+        public void addKhach(ChiTiet ct)
         {
             context.Add(ct);
             context.SaveChanges();
         }
 
-        public static List<newChiPhi> GetDsChiPhi(Doan doan)
+        public void delKhach(ChiTiet ct)
+        {
+            ChiTiet chitiet = context.ChiTiets.Single(chitiet => chitiet.maKh == ct.maKh && chitiet.maDoan == ct.maDoan);
+            context.ChiTiets.Remove(chitiet);
+            context.SaveChanges();
+        }
+
+        public List<newChiPhi> GetDsChiPhi(Doan doan)
         {
             var dsChiPhi = (from lcp in context.LoaiChiPhis
                             join cp in context.ChiPhis on lcp.maLoaiCP equals cp.maLoaiCP
@@ -78,18 +85,25 @@ namespace DAL_DataAccessLayer.DALServices
             return dsChiPhi.ToList();
         }
 
-        public static ICollection<LoaiChiPhi> GetLoaiChiPhi()
+        public ICollection<LoaiChiPhi> GetLoaiChiPhi()
         {
             return context.LoaiChiPhis.ToList();
         }
 
-        public static void addChiPhi(ChiPhi cp)
+        public void addChiPhi(ChiPhi cp)
         {
             context.Add(cp);
             context.SaveChanges();
         }
 
-        public static List<newNhanVien> GetDsNhanVien(Doan doan)
+        public void delChiPhi(ChiPhi cp)
+        {
+            ChiPhi chiphi = context.ChiPhis.Single(chiphi => chiphi.maDoan == cp.maDoan && chiphi.maChiPhi == cp.maChiPhi);
+            context.ChiPhis.Remove(chiphi);
+            context.SaveChanges();
+        }
+
+        public List<newNhanVien> GetDsNhanVien(Doan doan)
         {
             var dsNhanVien = (from nv in context.NhanViens
                                 join pb in context.PhanBos on nv.maNv equals pb.maNv
@@ -97,26 +111,34 @@ namespace DAL_DataAccessLayer.DALServices
                                 where d.maDoan == doan.maDoan
                                 select new newNhanVien
                                 {
+                                    maNV = nv.maNv,
                                     tenNV = nv.tenNv,
                                     nhiemVu = pb.nhiemVu
                                 });
             return dsNhanVien.ToList();
         }
 
-        public static ICollection<NhanVien> GetNhanVien()
+        public ICollection<NhanVien> GetNhanVien()
         {
             return context.NhanViens.ToList();
         }
 
-        public static void addNhanVienDoan(PhanBo pb)
+        public void addNhanVienDoan(PhanBo pb)
         {
             context.Add(pb);
             context.SaveChanges();
         }
 
-        public static void addNhanVien(NhanVien nv)
+        public void addNhanVien(NhanVien nv)
         {
             context.Add(nv);
+            context.SaveChanges();
+        }
+
+        public void delNhanVien(PhanBo pb)
+        {
+            PhanBo phanbo = context.PhanBos.Single(nv => nv.maDoan == pb.maDoan && nv.maNv == pb.maNv);
+            context.PhanBos.Remove(phanbo);
             context.SaveChanges();
         }
 
@@ -142,6 +164,7 @@ namespace DAL_DataAccessLayer.DALServices
         //tao moi nha vien theo doan
         public class newNhanVien
         {
+            public int maNV { get; set; }
             public String tenNV { get; set; }
             public String nhiemVu { get; set; }
         }

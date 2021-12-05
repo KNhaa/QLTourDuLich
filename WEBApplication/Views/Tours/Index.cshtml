@@ -2,7 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 @model TourViewModel
-@using PagedList;
 
 @using X.PagedList.Mvc.Core;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
@@ -25,29 +24,29 @@
         <hr />
         <div class="card" style="height:fit-content;">
             <h3  class="card-title text-center">Thêm Thông Tin Tour Du Lịch</h3>
-            <form asp-action="Create" method="post" asp-controller="Tours" class="card-body">
+            <form asp-controller="Tours" asp-action="Create" method="post"  class="card-body">
                 <div class="row">
                     <div class="col col-xl-6 form-group">
                         <label for="tenTour">Tên Tour</label>
-                        <input type="text" asp-for="tour.tenTour" class="form-control" />
+                        <input type="text" asp-for="@Model.tour!.tenTour" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="tenKhachSan">Tên Khách Sạn</label>
-                        <input type="text" asp-for="tour.khachSan" class="form-control" />
+                        <input type="text" asp-for="@Model.tour!.khachSan" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="dacDiem">Đặc Điểm</label>
-                        <input type="text" asp-for="tour.dacDiem" class="form-control" />
+                        <input type="text" asp-for="@Model.tour!.dacDiem" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="loaiHinh">Loại Hình Du Lịch</label>
-                        <select class="selectpicker form-control" asp-for="tour.maLoaiHinh" data-selected-text-format="value"
+                        <select class="selectpicker form-control" asp-for="@Model.tour!.maLoaiHinh" data-selected-text-format="value"
                                 asp-items=@(new SelectList(ViewBag.DSLoaiHinh,"maLoaiHinh","tenLoaiHinh"))>
                         </select>
                     </div>
                     <div class="col col-xl-12 form-group">
                         <label for="noiDung">Nội Dung</label>
-                        <textarea class="form-control" asp-for="tour.noiDungTour" cols="10"
+                        <textarea class="form-control" asp-for="@Model.tour!.noiDungTour" cols="10"
                                   rows="5"></textarea>
                     </div>
                     <div class="col col-xl-12 text-center">
@@ -74,7 +73,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Tours)
+                @foreach (var item in Model.Tours!)
                 {
                     <tr>
                         <td>@item.tenTour</td>

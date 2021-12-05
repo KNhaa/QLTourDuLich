@@ -11,21 +11,21 @@ namespace DAL_DataAccessLayer.DALServices
 {
     public class DAODoan
     {
-        public static QuanLiTourDbContext context = new QuanLiTourDbContext();
+        public QuanLiTourDbContext context = new QuanLiTourDbContext();
         public DAODoan() { }
 
-        public static ICollection<Doan> GetDoan()
+        public ICollection<Doan> GetDoan()
         {
             return context.Doans.ToList();
         }
 
-        public static void Create(Doan doan)
+        public void Create(Doan doan)
         {
             context.Add(doan);
             context.SaveChanges();
         }
 
-        public static void Update(Doan doan)
+        public void Update(Doan doan)
         {
             Doan doanUp = context.Doans.Single(doanUp => doanUp.maDoan == doan.maDoan);
             doanUp.ngayKhoiHanh = doan.ngayKhoiHanh;
@@ -35,7 +35,7 @@ namespace DAL_DataAccessLayer.DALServices
             context.SaveChanges();
         }
 
-        public static void Delete(Doan doan)
+        public void Delete(Doan doan)
         {
             List<ChiPhi> listChiphi = context.ChiPhis.Where(cp => cp.maDoan == doan.maDoan).ToList();
             context.ChiPhis.RemoveRange(listChiphi);
@@ -50,7 +50,7 @@ namespace DAL_DataAccessLayer.DALServices
             context.SaveChanges();
         }
 
-        public static ICollection<Tour> GetTour()
+        public ICollection<Tour> GetTour()
         {
             return context.Tours.ToList();
         }

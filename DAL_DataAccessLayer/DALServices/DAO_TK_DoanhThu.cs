@@ -11,7 +11,7 @@ namespace DAL_DataAccessLayer.DALServices
     public class DAO_TK_DoanhThu
     {
         public DAO_TK_DoanhThu() { }
-        public static ICollection<Doan> GetDoans()
+        public ICollection<Doan> GetDoans()
         {
             using var dbcontext = new QuanLiTourDbContext();
             {
@@ -20,7 +20,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static ICollection<Doan> GetDoansFrom(DateTime tungay, DateTime denngay)
+        public ICollection<Doan> GetDoansFrom(DateTime tungay, DateTime denngay)
         {
             using var dbcontext = new QuanLiTourDbContext();
             {
@@ -31,7 +31,7 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
-        public static ICollection<Doan> tkMaDoan(DateTime tungay, DateTime denngay,string madoan)
+        public ICollection<Doan> tkMaDoan(DateTime tungay, DateTime denngay,string madoan)
         {
             using var dbcontext = new QuanLiTourDbContext();
             {
