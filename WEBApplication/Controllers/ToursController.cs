@@ -76,6 +76,7 @@ namespace WEBAplication.Controllers
         {
             if (ModelState.IsValid)
             {
+                Console.WriteLine("Hello");
                 vm.tour.trangThai = true;
                 _busTour.Create(vm.tour);
                 return RedirectToAction(nameof(Index));
@@ -136,7 +137,7 @@ namespace WEBAplication.Controllers
             {
                   maxIndex = tour.ThamQuans.Where(item => item.thuTuThamQuan == tour.ThamQuans.Max(item => item.thuTuThamQuan)).FirstOrDefault().thuTuThamQuan;
             }
-           
+          
             if(!tour.ThamQuans.Any(item => item.maDiaDiem == vm.MaDiaDiem))
             {
                 tour.ThamQuans.Add(new ThamQuan { maDiaDiem = vm.MaDiaDiem,thuTuThamQuan = maxIndex + 1 });
