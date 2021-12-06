@@ -6,51 +6,65 @@
     ViewData["Title"] = "Thong ke Tour";
 }
 @using X.PagedList.Mvc.Core;
+@model WEBApplication.Models.ThongKeModel;
 
-@*<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
 
 <h1 class="text-center">THỐNG KÊ TOUR</h1>
+<form method="get">
+    <div class="col col-xl-6 form-group" style="width: 200px;  ">
+        <label for="loaiHinh">Mã tour</label>
 
-<div class="col col-xl-6 form-group" style="width: 200px;  ">
-    <label for="loaiHinh">Mã tour</label>
-    @*<select class="selectpicker form-control" data-selected-text-format="value">*@
-    <select class="form-control" data-selected-text-format="value">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-    </select>
-</div>
-<div class="col col-xl-6 form-group">
-    <label for="loaiHinh">Từ ngày</label>
-    <input type="date" class="form-control" style=" width:300px; " />
-</div>
-<div class="col col-xl-6 form-group" style="float: right; margin-top: -90px;">
-    <label for="loaiHinh">Đến ngày</label>
-    <input type="date" class="form-control" style=" width:300px" />
-</div>
+        <select class="form-control" data-selected-text-format="value" id="maTour"
+                asp-for="idTour_TKT"
+                asp-items=@(new SelectList(Model.kq_TK_Tour.Select(c => c.maTourTK).Distinct().ToList()))
+                >
+            <option value="null">Nothing selected</option>
+        </select>
+    </div>
 
-<div class="col col-xl-6 form-group">
-    <label for="loaiHinh">Tổng doanh số: </label>
-    <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" />
-</div>
-<div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 470px">
-    <span style="display: inline">
-        <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;">Tìm kiếm</button>
-    </span>
-</div>
-<div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 320px">
-    <span style="display: inline">
-        <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;">Làm mới</button>
-    </span>
-</div>
+
+    <div class="col col-xl-6 form-group">
+        <label for="loaiHinh">Từ ngày</label>
+        <input type="date" class="form-control" style=" width:300px; " asp-for="startDateTKTour" id="startDateTKT" />
+    </div>
+    <div class="col col-xl-6 form-group" style="float: right; margin-top: -90px;">
+        <label for="loaiHinh"  >Đến ngày</label>
+
+        <input type="date" class="form-control" style=" width:300px" asp-for="endDateTKTour" id="endDateTKT"  />
+    </div>
+    <div class="col col-xl-6 form-group">
+        <label for="loaiHinh">Tổng doanh số: </label>
+        <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" value="@Model.kq_TK_Tour.Sum(x=> x.giaTourTK)" />
+    </div>
+
+
+    <div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 470px">
+        <span style="display: inline">
+            <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;" type="submit">Tìm kiếm</button>
+        </span>
+    </div>
+    <div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 320px">
+        <span style="display: inline">
+            <button class="btn btn-lg btn-block btn-success" type="submit" style="font-size: 15px; " onclick="document.getElementById('startDateTKT').value = '';  document.getElementById('maTour').value = ''
+                                document.getElementById('endDateTKT').valueAsDate = new Date();">
+                Làm mới
+            </button>
+        </span>
+    </div>
+
+
+
+
+</form>
 <div class="col col-xl-6 form-group">
     <label for="loaiHinh">Tổng số đoàn: </label>
-    <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" />
+    <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" value="@Model.kq_TK_Tour.Select(x => x.maDoanTK).Distinct().Count().ToString()" />
 </div>
-
 
 <div class="col col-xl-8 pt-xl-5">
     <table class="table table-bordered table-striped">
         <thead class="thead bg-success text-center" style="color:aliceblue; ">
+
             <tr>
                 <th>Mã tour</th>
                 <th>Tên tour</th>
@@ -62,22 +76,26 @@
         </thead>
         <tbody>
 
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-
+            @foreach (var T in Model.kq_TK_Tour)
+            {
+                <tr>
+                    <td>@T.maTourTK</td>
+                    <td>@T.tenTourTK</td>
+                    <td>@T.maDoanTK</td>
+                    <td>@T.ngayKhoiHanhTK</td>
+                    <td>@T.ngayKetThucTK</td>
+                    <td>@T.giaTourTK</td>
+                </tr>
+            }
         </tbody>
     </table>
-    <div id="container" style="margin-left: 20px">
+    <div id="container" style="margin-left: 10px">
         <p></p>
         <p></p>
-        <div class="pagination" style="margin-left: 300px">
-            Page ...
-            of ...
-            <span class="clearfix"> 1 </span>
+        <div class="pagination" style="margin-left: 400px">
+            Page @(Model.kq_TK_Tour.PageCount < Model.kq_TK_Tour.PageNumber ? 0 : Model.kq_TK_Tour.PageNumber)
+            of @Model.kq_TK_Tour.PageCount
+            <span class="clearfix"> @Html.PagedListPager(Model.kq_TK_Tour, page => Url.Action("TK_Tour", new { page }))</span>
         </div>
     </div>
 </div>

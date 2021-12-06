@@ -199,9 +199,9 @@ namespace GUI_PresentationLayer
 
             dtgvTK_Tour.DataSource = Tours;
 
-            //tao combo-box ma doan
-            var ketqua = from doan in Tours
-                         select doan.maDoanTK;
+            //tao combo-box ma tour
+            var ketqua = (from doan in Tours
+                         select doan.maTourTK).Distinct().ToList();
 
             List<string> myList = new List<string>();
             myList.Add(" ");
@@ -218,8 +218,10 @@ namespace GUI_PresentationLayer
             label14.Text = doitien((float)sum);
 
             //tinh tong so doan
-            var sumDoan = Tours.Select(c => c.maDoanTK).Count();
+            var sumDoan = Tours.Select(c => c.maDoanTK).Distinct().Count();
             label13.Text = sumDoan.ToString();
+
+           
 
 
         }
@@ -241,7 +243,7 @@ namespace GUI_PresentationLayer
                 label14.Text = doitien((float)sum);
 
                 //tinh tong so doan
-                var sumDoan = ketqua.Select(c => c.maDoanTK).Count();
+                var sumDoan = ketqua.Select(c => c.maDoanTK).Distinct().Count();
                 label13.Text = sumDoan.ToString();
 
             }
@@ -260,7 +262,7 @@ namespace GUI_PresentationLayer
                 label14.Text = doitien((float)sum);
 
                 //tinh tong so doan
-                var sumDoan = ketqua.Select(c => c.maDoanTK).Count();
+                var sumDoan = ketqua.Select(c => c.maDoanTK).Distinct().Count();
                 label13.Text = sumDoan.ToString();
 
             }
@@ -279,7 +281,7 @@ namespace GUI_PresentationLayer
             label14.Text = doitien((float)sum);
 
             //tinh tong so doan
-            var sumDoan = Tours.Select(c => c.maDoanTK).Count();
+            var sumDoan = Tours.Select(c => c.maDoanTK).Distinct().Count();
             label13.Text = sumDoan.ToString();
 
         }

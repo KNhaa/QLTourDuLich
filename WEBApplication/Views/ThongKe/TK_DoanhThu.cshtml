@@ -6,46 +6,64 @@
     ViewData["Title"] = "Thong ke doanh thu";
 }
 @using X.PagedList.Mvc.Core;
+@model WEBApplication.Models.ThongKeModel;
+@*<script>
+   
+        window.onload = function () {
 
-@*<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />*@
+            document.getElementById("startDateTKDT").innerHTML = "";
+            document.getElementById("endDateTKDT").innerHTML = "";
+        }
+</script>*@
 
 <h1 class="text-center">THỐNG KÊ DOANH THU</h1>
 
-<div class="col col-xl-6 form-group" style="width: 200px;  ">
-    <label for="loaiHinh">Mã đoàn</label>
-    @*<select class="selectpicker form-control" data-selected-text-format="value">*@
-    <select class="form-control" data-selected-text-format="value">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-    </select>
-</div>
-<div class="col col-xl-6 form-group">
-    <label for="loaiHinh">Từ ngày</label>
-    <input type="date" class="form-control" style=" width:300px; " />
-</div>
-<div class="col col-xl-6 form-group" style="float: right; margin-top: -90px;">
-    <label for="loaiHinh">Đến ngày</label>
-    <input type="date" class="form-control" style=" width:300px" />
-</div>
+<form method="get">
+    <div class="col col-xl-6 form-group" style="width: 200px;  ">
+        <label for="loaiHinh">Mã đoàn</label>
 
-<div class="col col-xl-6 form-group">
-    <label for="loaiHinh">Tổng doanh thu: </label>
-    <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" />
-</div>
-<div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 470px">
-    <span style="display: inline">
-        <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;">Tìm kiếm</button>
-    </span>
-</div>
-<div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 320px">
-    <span style="display: inline">
-        <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;">Làm mới</button>
-    </span>
-</div>
+        <select class="form-control" data-selected-text-format="value" id="maDoan"
+                asp-for="idDoan"
+                asp-items=@(new SelectList(ViewBag.DSDoan,"maDoan","maDoan"))>
+            <option value="null">Nothing selected</option>
+        </select>
+
+    </div>
+    <div class="col col-xl-6 form-group">
+        <label for="loaiHinh">Từ ngày</label>
+        <input type="date" class="form-control" style=" width:300px; " asp-for="startDateTKDT" id="startDateTKDT" />
+    </div>
+    <div class="col col-xl-6 form-group" style="float: right; margin-top: -90px;">
+        <label for="loaiHinh">Đến ngày</label>
+        <input type="date" class="form-control" style=" width:300px" asp-for="endDateTKDT" id="endDateTKDT" />
+    </div>
+
+    <div class="col col-xl-6 form-group">
+
+        <label for="loaiHinh">Tổng doanh thu: </label>
+
+        <input type="text" class="form-control" style=" width:300px ; " readonly="readonly" value="@Model.kq_TK_DoanhThu.Sum(x=> x.doanhThu)"  />
+
+    </div>
+    <div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 470px">
+        <span style="display: inline">
+            <button class="btn btn-lg btn-block btn-success" style="font-size: 15px;" type="submit" id="btnTKCP">Tìm kiếm</button>
+        </span>
+    </div>
 
 
-<div class="col col-xl-8 pt-xl-5"  >
-    <table class="table table-bordered table-striped" >
+    <div class="col col-xl-6 form-group" style="width: 150px; float: right; margin-block-start: -70px; margin-right: 320px">
+        <span style="display: inline">
+            <button class="btn btn-lg btn-block btn-success" type="submit" style="font-size: 15px; " onclick="document.getElementById('startDateTKDT').value = ''; document.getElementById('endDateTKDT').value = '';
+            document.getElementById('maDoan').value =''">Làm mới</button>
+        </span>
+    </div>
+</form>
+
+
+
+<div class="col col-xl-8 pt-xl-5">
+    <table class="table table-bordered table-striped">
         <thead class="thead bg-success text-center" style="color:aliceblue; ">
             <tr>
                 <th>Mã đoàn</th>
@@ -56,23 +74,25 @@
             </tr>
         </thead>
         <tbody>
-
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            @foreach (var Doan in Model.kq_TK_DoanhThu)
+            {
+                <tr>
+                    <td>@Doan.maDoan</td>
+                    <td>@Doan.ngayKhoiHanh</td>
+                    <td>@Doan.ngayKetThuc</td>
+                    <td>@Doan.doanhThu</td>
+                </tr>
+            }
 
         </tbody>
     </table>
-    <div id="container" style="margin-left: 20px">
+    <div id="container" style="margin-left: 10px">
         <p></p>
         <p></p>
-        <div class="pagination" style="margin-left: 300px">
-            Page ...
-            of ...
-            <span class="clearfix"> 1 </span>
+        <div class="pagination" style="margin-left: 400px">
+            Page @(Model.kq_TK_DoanhThu.PageCount < Model.kq_TK_DoanhThu.PageNumber ? 0 : Model.kq_TK_DoanhThu.PageNumber)
+            of @Model.kq_TK_DoanhThu.PageCount
+            <span class="clearfix"> @Html.PagedListPager(Model.kq_TK_DoanhThu, page => Url.Action("TK_DoanhThu", new { page }))</span>
         </div>
     </div>
 </div>
