@@ -42,5 +42,16 @@ namespace DAL_DataAccessLayer.DALServices
             }
         }
 
+        //======WEB======
+       
+        //public class TK_DoanhThu
+        //{
+        //    public int maDoan { get; set; }
+        //    public DateTime ngayKhoiHanh { get; set; }
+        //    public DateTime ngayKetThuc { get; set; }
+        //    public float doanhThu { get; set; }
+
+        //}
+
     }
 }

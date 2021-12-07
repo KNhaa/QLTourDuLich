@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using X.PagedList;
 using BUS_BussinessLayer.BUSServices;
 using DAL_DataAccessLayer.DALServices;
+using DAL_DataAccessLayer.Entities;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WEBApplication.Controllers
 {
@@ -61,12 +63,62 @@ namespace WEBApplication.Controllers
             
            
         }
-        public IActionResult TK_DoanhThu()
-        {
-            return View();
+        //====================THỐNG KÊ DOANH THU=========================================================
 
-        }
+         BUS_TK_DoanhThu busTKDT = new BUS_TK_DoanhThu();
+       
+         public IActionResult TK_DoanhThu(string? startDateTKDT, string? endDateTKDT, int? idDoan, int? page)
+         {
+             ViewBag.DSDoan = busTKDT.GetDoans().ToList();
+             ViewBag.total = 0;
+             
+            int pageSize = 10;
+             int pageNumber = (page ?? 1);
+             if (!String.IsNullOrEmpty(startDateTKDT) && !String.IsNullOrEmpty(endDateTKDT))
+             {
+                 DateTime dateStart = Convert.ToDateTime(startDateTKDT);
+                 DateTime dateEnd = Convert.ToDateTime(endDateTKDT);
+                 if (idDoan == null)
+                 {
+                    //thống kê doanh thu của tất cả các đoàn trong khoảng thời gian                  
+                    var model = new Models.ThongKeModel()
+                    {
 
+                        kq_TK_DoanhThu = busTKDT.GetDoansFrom(dateStart, dateEnd).ToPagedList(pageNumber, pageSize),
+                        //sum= busTKDT.GetDoansFrom(dateStart, dateEnd).Select(c => c.doanhThu).Sum()
+
+                };
+                    
+                     return View(model);
+                 }
+                 else
+                 {
+                     //thống kê doanh thu của 1 đoàn trong khoảng thời gian
+                     var model = new Models.ThongKeModel()
+                     {
+
+                         kq_TK_DoanhThu = busTKDT.tkMaDoan(dateStart, dateEnd,idDoan.ToString()).ToPagedList(pageNumber, pageSize)
+                         
+
+                     };
+                    
+                     return View(model);
+                 }
+             }
+             else
+             {
+                //thống kê doanh thu từ trước tới nay
+                var model = new Models.ThongKeModel()
+                {
+
+                    kq_TK_DoanhThu = busTKDT.GetDoans().ToPagedList(pageNumber, pageSize),
+                    //sum = busTKDT.GetDoans().Select(c => c.doanhThu).Sum()
+
+                };
+                return View(model);
+             }
+         }
+        
 
         //====================THỐNG KẾ SỐ LẦN ĐI TOUR CỦA NHÂN VIÊN=======================================
         public IActionResult TK_NhanVien(string? startDateTKNV, string? endDateTKNV, int? page)
@@ -96,10 +148,62 @@ namespace WEBApplication.Controllers
             }
 
         }
-        public IActionResult TK_Tour()
-        {
-            return View();
+        //====================Thống kê doanh số TOUR dựa trên mã TOUR==================
+        
+        BUS_TK_Tour busTKTour = new BUS_TK_Tour();
 
+        public IActionResult TK_Tour(string? startDateTKTour, string? endDateTKTour, int? idTour_TKT, int? page)
+        {
+            ViewBag.DSTour = busTKTour.GetTours().ToList();
+            ViewBag.total = 0;
+
+            //ViewBag.MaTour = new SelectList(busTKTour.GetTours().Distinct(), "maTourTK", "maTourTk").ToList();
+
+            int pageSize = 10;
+            int pageNumber = (page ?? 1);
+            if (!String.IsNullOrEmpty(startDateTKTour) && !String.IsNullOrEmpty(endDateTKTour))
+            {
+                DateTime dateStart = Convert.ToDateTime(startDateTKTour);
+                DateTime dateEnd = Convert.ToDateTime(endDateTKTour);
+                if (idTour_TKT == null)
+                {
+                    //thống kê tour trong khoảng thời gian                  
+                    var model = new Models.ThongKeModel()
+                    {
+
+                        kq_TK_Tour = busTKTour.GetToursFrom(dateStart, dateEnd).ToPagedList(pageNumber, pageSize)
+
+
+                    };
+
+                    return View(model);
+                }
+                else
+                {
+                    //thống kê tour của 1 đoàn trong khoảng thời gian
+                    var model = new Models.ThongKeModel()
+                    {
+
+                        kq_TK_Tour = busTKTour.tkMaTour(dateStart, dateEnd, idTour_TKT.ToString()).ToPagedList(pageNumber, pageSize)
+
+
+                    };
+
+                    return View(model);
+                }
+            }
+            else
+            {
+                //thống kê tour từ trước tới nay
+                var model = new Models.ThongKeModel()
+                {
+                   
+                    kq_TK_Tour = busTKTour.GetTours().ToPagedList(pageNumber, pageSize)
+                    
+
+                };
+                return View(model);
+            }
         }
 
     }
