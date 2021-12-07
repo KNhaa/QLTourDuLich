@@ -56,6 +56,7 @@ namespace DAL_DataAccessLayer.DALServices
             {
                 
                 context.Attach(tour);
+                context.Entry(tour).State = EntityState.Modified;
                 context.SaveChanges();
                
             }

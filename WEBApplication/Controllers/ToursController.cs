@@ -56,6 +56,7 @@ namespace WEBAplication.Controllers
         public ActionResult Details(int id)
         {
             ViewBag.DSDiaDiem = _busDiaDiem.GetAll();
+            ViewBag.DSLoaiHinh = _loaiHinhDuLich.GetAll();
             var tour = new TourViewModel()
             {
                 tour = _busTour.GetTour(id)
@@ -74,7 +75,7 @@ namespace WEBAplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(TourViewModel vm)
         {
-            vm.tour.trangThai = true;
+            vm.tour!.trangThai = true;
             if (ModelState.IsValid)
             {
                 Console.WriteLine("Hello");
@@ -93,45 +94,42 @@ namespace WEBAplication.Controllers
 
         // POST: TourController/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(TourViewModel vm)
         {
-            try
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(Index));
+                var tour = vm.tour;
+                tour.trangThai = true;
+                _busTour.Update(tour);
+                return RedirectToAction("Details", new { id = tour!.maTour });
             }
-            catch
+            else
             {
-                return View();
+                Console.WriteLine("Hello");
             }
+          
+            return RedirectToAction("Details", new { id = vm.tour!.maTour });
         }
 
         // GET: TourController/Delete/5
+
+  
+        
+        // POST: TourController/Delete/5
+ 
         public ActionResult Delete(int id)
         {
-            return View();
-        }
-
-        // POST: TourController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var tour = _busTour.GetTour(id);
+            tour!.trangThai = false;
+            _busTour.Update(tour);
+            return RedirectToAction(nameof(Index));
         }
         [HttpPost]
         public ActionResult ThemDiaDiem(TourViewModel vm)
         {
 
             ViewBag.DSDiaDiem = _busDiaDiem.GetAll();
-            var tour = _busTour.GetTour(vm.tour.maTour);
+            var tour = _busTour.GetTour(vm.tour!.maTour);
 
             var maxIndex = 0;
             if (tour.ThamQuans.Count != 0   )
@@ -156,8 +154,8 @@ namespace WEBAplication.Controllers
             {
                 var Obj = tour.ThamQuans.Where(item => item.thuTuThamQuan == thuTu).FirstOrDefault();
                 var beforeObj = tour.ThamQuans.Where(item => item.thuTuThamQuan == thuTu-1).FirstOrDefault();
-                beforeObj.thuTuThamQuan = thuTu;
-                Obj.thuTuThamQuan = thuTu - 1;
+                beforeObj!.thuTuThamQuan = thuTu;
+                Obj!.thuTuThamQuan = thuTu - 1;
                 _busTour.UpdateData(tour);
                 
             }
@@ -172,8 +170,8 @@ namespace WEBAplication.Controllers
             {
                 var Obj = tour.ThamQuans.Where(item => item.thuTuThamQuan == thuTu).FirstOrDefault();
                 var afterObj = tour.ThamQuans.Where(item => item.thuTuThamQuan == thuTu + 1).FirstOrDefault();
-                afterObj.thuTuThamQuan = thuTu;
-                Obj.thuTuThamQuan = thuTu + 1;
+                afterObj!.thuTuThamQuan = thuTu;
+                Obj!.thuTuThamQuan = thuTu + 1;
                 _busTour.UpdateData(tour);
             }
             return RedirectToAction("Details", new {id=tour.maTour}); 
@@ -203,14 +201,14 @@ namespace WEBAplication.Controllers
 
             var Obj = tour.GiaTours.Where(item => item.maGiaTour == maGiaTour && item.maTour==id).FirstOrDefault();
             tour.GiaTours.Remove(Obj);
-            _busGiaTour.Delete(Obj.maGiaTour);
+            _busGiaTour.Delete(Obj!.maGiaTour);
             _busTour.Update(tour);
             return RedirectToAction("Details", new { id = tour.maTour });
         }
 
         public ActionResult ThemGiaTour(TourViewModel vm)
         {
-            var tour = _busTour.GetTour(vm.tour.maTour);
+            var tour = _busTour.GetTour(vm.tour!.maTour);
             tour.GiaTours.Add(vm.giaTour);
             _busTour.Update(tour);
             return RedirectToAction("Details", new { id = tour.maTour });

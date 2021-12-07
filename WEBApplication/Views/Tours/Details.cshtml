@@ -9,43 +9,45 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
 <div style="margin-top:60px;">
     <div class="row" style="display:flex;">
-        <div class="col col-xl-3">
-            <h3 class="text-center">Thông tin tour</h3>
-            <form class="table table-striped">
-                <div class="row">
-                    <div class="form-group col-lg-12">
-                        <label>Mã Tour</label>
-                        <input type="text" value="@Model.tour!.maTour" class="form-control" disabled />
+        <div class="card col-xl-3">
+            <h3 class="card-title text-center">Thông tin tour</h3>
+            <div class="card-body">
+                <form class="table table-striped" asp-controller="Tours" asp-action="Edit" method="post">
+                    <div class="row">
+                        <div class="form-group col-lg-12">
+                            <label>Mã Tour</label>
+                            <input type="text" value="@Model.tour!.maTour" asp-for="@Model.tour!.maTour" class="form-control" readonly />
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label>Tên Tour</label>
+                            <input type="text" value="@Model.tour!.tenTour" asp-for="@Model.tour!.tenTour" class="form-control" />
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label>Tên Khách Sạn</label>
+                            <input type="text" value="@Model.tour!.khachSan" asp-for="@Model.tour!.khachSan" class="form-control" />
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label>Đặc Điểm</label>
+                            <input type="text" value="@Model.tour!.dacDiem" asp-for="@Model.tour!.dacDiem" class="form-control" />
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <select class="selectpicker form-control" asp-for="@Model.tour!.maLoaiHinh" data-selected-text-format="value"
+                                    asp-items=@(new SelectList(ViewBag.DSLoaiHinh,"maLoaiHinh","tenLoaiHinh"))>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <label>Nội Dung</label>
+                            <textarea class="form-control" asp-for="@Model.tour!.noiDungTour"  value="@Model.tour!.noiDungTour" cols="10"
+                                      rows="5"></textarea>
+                        </div>
+                        <div class="form-group col-lg-12">
+                            <button class="btn btn-lg btn-block btn-warning">Cập Nhật</button>
+                        </div>
+
                     </div>
-                    <div class="form-group col-lg-12">
-                        <label>Tên Tour</label>
-                        <input type="text" value="@Model.tour!.tenTour" class="form-control" />
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <label>Tên Khách Sạn</label>
-                        <input type="text" value="@Model.tour!.khachSan" class="form-control" />
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <label>Đặc Điểm</label>
-                        <input type="text" value="@Model.tour!.dacDiem" class="form-control" />
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <label>Loại Hình</label>
-                        <input type="text" value="@Model.tour!.LoaiHinhDuLich.tenLoaiHinh" class="form-control" />
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <label>Nội Dung</label>
-                        <textarea class="form-control" asp-for="@Model.tour!.noiDungTour" value="@Model.tour!.noiDungTour" cols="10"
-                                  rows="5"></textarea>
-                    </div>
-                    <div class="form-group col-lg-12">
-                        <button class="btn btn-lg btn-block btn-warning">Cập Nhật</button>
-                    </div>
-                    
-                </div>
-               
-               
-            </form>
+                </form>
+            </div>
+            
         </div>
 
         <div class="col col-xl-9">
@@ -66,7 +68,9 @@
                         <tr>
                             <td> @item.ngayKhoiHanh</td>
                             <td>@item.ngayKetThuc</td>
-                            <td>@item.thanhTien</td>
+                            <td>
+                                @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.thanhTien);
+                            </td>
                             <td style="width:  5%">
                                 <a href='@Url.Action("DeleteGiaTour", "Tours",new { id=Model.tour.maTour, maGiaTour = item.maGiaTour})'>
                                     <input type='button' class="btn btn-danger" value="Xóa" />
