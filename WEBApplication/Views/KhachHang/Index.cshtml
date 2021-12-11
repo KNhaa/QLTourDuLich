@@ -91,13 +91,11 @@
                         <a href='@Url.Action("Details", "KhachHang",new { id=item.maKh })'>
                             <input type='button' class="btn btn-xl btn-warning" value='Chi tiết' />
 
-                            <a href='@Url.Action("Delete","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
-                             gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
+                            <a href='@Url.Action("Delete","KhachHang",new {id=item.maKh})'>
                                 <input type='button' class="btn btn-xl btn-danger" value='Xóa' />
                             </a>
                             <br />
-                            <a href='@Url.Action("Edit","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
-                             gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
+                            <a href='@Url.Action("Edit","KhachHang",new {id=item.maKh,Model.khach })'>
                                 <input type='button' class="btn btn-danger" value='Cập nhật' />
                             </a>
                 </td>

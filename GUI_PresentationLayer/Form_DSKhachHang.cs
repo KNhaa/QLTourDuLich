@@ -16,6 +16,7 @@ namespace GUI_PresentationLayer
     {
         public static int IdKH = 0;  // lưu lại id khách hàng khi click vào dòng
         BUSKhachHang _busKhachHang = null;
+        Khach kh = new Khach();
         public  Form_DSKhachHang()
         {
            
@@ -98,7 +99,15 @@ namespace GUI_PresentationLayer
             }
             else
             {
-                _busKhachHang.themKhachHang(txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
+                kh.tenKh = txtHoTen.Text;
+                kh.diaChi = txtDiaChi.Text;
+                kh.cnmd = txtCMND.Text;
+                kh.gioiTinh = cbGioiTinh.SelectedItem.ToString();
+                kh.sdt = txtSDT.Text;
+                kh.quocTich = txtQuocTich.Text;
+                _busKhachHang.themKhachHang(kh);
+              
+                
                 // hiển thị lại ds sau khi thêm lên dataGridview
                 getListKhachHang();
                 // reset lại tất cả textbox về null sau khi thêm xong
@@ -170,7 +179,14 @@ namespace GUI_PresentationLayer
             }
             else
             {
-                _busKhachHang.updateKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.SelectedItem.ToString(), txtSDT.Text, txtQuocTich.Text);
+                kh.maKh = IdKH;
+                kh.tenKh = txtHoTen.Text;
+                kh.diaChi = txtDiaChi.Text;
+                kh.cnmd = txtCMND.Text;
+                kh.gioiTinh = cbGioiTinh.SelectedItem.ToString();
+                kh.sdt = txtSDT.Text;
+                kh.quocTich = txtQuocTich.Text;
+                _busKhachHang.updateKhachHang(kh);
                 getListKhachHang();
                 resetAllTextBoxs();
                 MessageBox.Show( "Cập nhật thành công!");
@@ -194,7 +210,14 @@ namespace GUI_PresentationLayer
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa ?", "Delete ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                _busKhachHang.deleteKhachHang(IdKH, txtHoTen.Text, txtDiaChi.Text, txtCMND.Text, cbGioiTinh.Text, txtSDT.Text, txtQuocTich.Text);
+                kh.maKh = IdKH;
+                kh.tenKh = txtHoTen.Text;
+                kh.diaChi = txtDiaChi.Text;
+                kh.cnmd = txtCMND.Text;
+                kh.gioiTinh = cbGioiTinh.SelectedItem.ToString();
+                kh.sdt = txtSDT.Text;
+                kh.quocTich = txtQuocTich.Text;
+                _busKhachHang.deleteKhachHang(kh);
                 getListKhachHang();
                 resetAllTextBoxs();
                 MessageBox.Show("Xóa thành công!");

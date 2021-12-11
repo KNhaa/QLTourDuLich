@@ -18,7 +18,8 @@ namespace BUS_BussinessLayer.BUSServices
         }
         public List<Doan> getAllDoans(int maKH)
         {
-            return _khachHangDoan.getAllDoans(maKH);
+            List<Doan> listDoan = _khachHangDoan.getAllDoans(maKH);
+            return listDoan;
         }
         public void deleteDoanVaChiTiet(int maDoan)
         {
