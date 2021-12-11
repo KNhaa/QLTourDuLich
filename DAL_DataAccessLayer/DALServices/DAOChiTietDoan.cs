@@ -13,7 +13,7 @@ namespace DAL_DataAccessLayer.DALServices
         public QuanLiTourDbContext context = new QuanLiTourDbContext();
         public ChiTietDoan GetChiTietDoan(Doan doan)
         {
-            int slKhach = (from sl in context.PhanBos
+            int slKhach = (from sl in context.ChiTiets
                             where sl.maDoan == doan.maDoan
                             select sl).Count();
             Tour tour = context.Tours.Single(tenTour => tenTour.maTour == doan.maTour);
