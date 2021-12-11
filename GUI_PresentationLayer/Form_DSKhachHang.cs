@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BUS_BussinessLayer.BUSServices;
 using DAL_DataAccessLayer;
 using DAL_DataAccessLayer.Entities;
+using System.Text.RegularExpressions;
 namespace GUI_PresentationLayer
 {
     public  partial class Form_DSKhachHang : Form
@@ -19,13 +20,10 @@ namespace GUI_PresentationLayer
         Khach kh = new Khach();
         public  Form_DSKhachHang()
         {
-           
             InitializeComponent();
             _busKhachHang = new BUSKhachHang();
             getListKhachHang();          
             resetAllTextBoxs();
-          
-           
         }
         // load data lên cho dataGridView
         public void getListKhachHang()
@@ -34,8 +32,6 @@ namespace GUI_PresentationLayer
             {
                 dataGVKhachHang.DataSource = _busKhachHang.getListKhachHang();
             }
-          
-
         }
         // khi nhấn vào từng dòng nó sẽ hiện lên trên textbox
         public void addBinding()
@@ -67,6 +63,9 @@ namespace GUI_PresentationLayer
         }
         public void themKhachHang()
         {
+            Regex sdt = new Regex(@"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$");//@"^(0\d{9,10})$"
+            Regex cmnd = new Regex(@"^(1\d{9,10})$");//
+
             if (String.IsNullOrEmpty(txtHoTen.Text))
             {
                 MessageBox.Show("Vui lòng nhập họ tên!");
@@ -77,9 +76,10 @@ namespace GUI_PresentationLayer
                 MessageBox.Show("Vui lòng nhập địa chỉ!");
                 txtDiaChi.Focus();
             }
-            else if (String.IsNullOrEmpty(txtCMND.Text))
+            else if (String.IsNullOrEmpty(txtCMND.Text) || !cmnd.IsMatch(txtCMND.Text))
             {
-                MessageBox.Show("Vui lòng nhập CMND!");
+
+                MessageBox.Show("Chứng minh nhân dân gồm 10 số bắt đầu từ 1");
                 txtCMND.Focus();
             }
             else if (String.IsNullOrEmpty(cbGioiTinh.Text))
@@ -87,9 +87,9 @@ namespace GUI_PresentationLayer
                 MessageBox.Show("Vui lòng nhập giới tính!");
 
             }
-            else if (String.IsNullOrEmpty(txtSDT.Text))
+            else if (String.IsNullOrEmpty(txtSDT.Text) || !sdt.IsMatch(txtSDT.Text))
             {
-                MessageBox.Show("Vui lòng nhập số điện thoại!");
+                MessageBox.Show("Số điện thoại gồm 10 chữ số(0-9)");
                 txtSDT.Focus();
             }
             else if (String.IsNullOrEmpty(txtQuocTich.Text))
@@ -153,7 +153,9 @@ namespace GUI_PresentationLayer
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if(String.IsNullOrEmpty(txtHoTen.Text))
+            Regex sdt = new Regex(@"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$");//@"^(0\d{9,10})$"
+            Regex cmnd = new Regex(@"^(1\d{9,10})$");//
+            if (String.IsNullOrEmpty(txtHoTen.Text))
             {
                 MessageBox.Show("Vui lòng nhập họ tên!");
                 txtHoTen.Focus();
@@ -161,18 +163,24 @@ namespace GUI_PresentationLayer
             {
                 MessageBox.Show("Vui lòng nhập địa chỉ!");
                 txtDiaChi.Focus();
-            }else if (String.IsNullOrEmpty(txtCMND.Text))
+            }
+            else if (String.IsNullOrEmpty(txtCMND.Text) || !cmnd.IsMatch(txtCMND.Text))
             {
-                MessageBox.Show("Vui lòng nhập CMND!");
+
+                MessageBox.Show("Chứng minh nhân dân gồm 10 số bắt đầu từ 1");
                 txtCMND.Focus();
-            }else if  (String.IsNullOrEmpty(cbGioiTinh.Text))
+            }
+            else if  (String.IsNullOrEmpty(cbGioiTinh.Text))
             {
                 MessageBox.Show("Vui lòng nhập giới tính!");
 
-            }else if (String.IsNullOrEmpty(txtSDT.Text)){
-                MessageBox.Show("Vui lòng nhập số điện thoại!");
+            }
+            else if (String.IsNullOrEmpty(txtSDT.Text) || !sdt.IsMatch(txtSDT.Text))
+            {
+                MessageBox.Show("Số điện thoại gồm 10 chữ số(0-9)");
                 txtSDT.Focus();
-            }else if(String.IsNullOrEmpty(txtQuocTich.Text))
+            }
+            else if(String.IsNullOrEmpty(txtQuocTich.Text))
             {
                 MessageBox.Show("Vui lòng nhập quốc tịch!");
                 txtQuocTich.Focus();
@@ -229,7 +237,6 @@ namespace GUI_PresentationLayer
         {
             String keyWord = txtTimKiem.Text.Trim();
           dataGVKhachHang.DataSource = _busKhachHang.searchKhachHang(keyWord);
-
         }
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)

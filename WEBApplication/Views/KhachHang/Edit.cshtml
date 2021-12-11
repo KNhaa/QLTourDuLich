@@ -9,39 +9,88 @@
 <div class="row">
     <div class="card" style="height:fit-content;">
         <h2 class="card-title text-center">Cập nhật Thông Tin Khách Hàng</h2>
-        <form asp-action="EditKhach" method="post" asp-controller="KhachHang" class="card-body">
+        <form asp-action="EditKhach" method="post" asp-controller="KhachHang" class="card-body" id="edit">
             <div class="row">
                 <div class="col col-xl-4 form-group">
                     <label for="tenKh">Tên khách hàng</label>
-                    <input type="text" asp-for="khach!.tenKh" class="form-control" />
+                    <input type="text" asp-for="khach!.tenKh" class="form-control" id="ten"/>
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="diaChi">Địa chỉ</label>
-                    <input type="text" asp-for="khach!.diaChi" class="form-control" />
+                    <input type="text" asp-for="khach!.diaChi" class="form-control" id="diachi" />
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="cnmd">CMND</label>
-                    <input type="text" asp-for="khach!.cnmd" class="form-control" />
+                    <input type="text" asp-for="khach!.cnmd" class="form-control" id="cmnd" />
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="cnmd">Giới tính</label>
-                    <input type="text" asp-for="khach!.gioiTinh" class="form-control" />
+                    <input type="text" asp-for="khach!.gioiTinh" class="form-control" id="gioitinh"/>
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="sdt">SĐT</label>
-                    <input type="text" asp-for="khach!.sdt" class="form-control" />
+                    <input type="text" asp-for="khach!.sdt" class="form-control" id="sdt"/>
                 </div>
                 <div class="col col-xl-4 form-group">
                     <label for="quocTich">Quốc tịch</label>
-                    <input type="text" asp-for="khach!.quocTich" class="form-control" />
+                    <input type="text" asp-for="khach!.quocTich" class="form-control" id="quoctich"/>
                 </div>
                 <div class="container">
                     <div class="col-md-4 offset-md-4 text-center ">
-                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;" >Cập Nhật</button>
-                    </div>
+                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Cập Nhật</button>
                     </div>
                 </div>
-</form>
+            </div>
+        </form>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#edit').submit(function () {
+            var sdt = $('#sdt').val();
+            var cmnd = $('#cmnd').val();
+            var ten = $('#ten').val();
+            var diachi = $('#diachi').val();
+            var quoctich = $('#quoctich').val();
+            var gioitinh = $('#gioitinh').val();
+            if (!ten.trim()) {
+                alert('Vui lòng nhập tên!');
+                return false;
+            }
+
+            if (!diachi.trim()) {
+                alert('Vui lòng nhập địa chỉ!');
+                return false;
+            }
+            if (!cmnd.trim()) {
+                alert('Vui lòng nhập CMND!');
+                return false;
+            }
+            if (isNaN(cmnd) == true) {
+                alert("CMND phải là số .");
+                return (false);
+            }
+            if (!gioitinh.trim()) {
+                alert('Vui lòng nhập giới tính!');
+                return false;
+            }
+
+            if (!sdt.trim()) {
+                alert('Vui lòng nhập SĐT!');
+                return false;
+            }
+
+            if (isNaN(sdt) == true) {
+                alert("Số điện thoại phải là số.");
+                return (false);
+            }
+            if (!quoctich.trim()) {
+                alert('Vui lòng nhập quốc tịch!');
+                return false;
+            }
+        });
+    });
+</script>
+
 

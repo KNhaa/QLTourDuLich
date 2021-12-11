@@ -13,18 +13,15 @@ namespace WEBApplication.Controllers
 {
     public class KhachHangController : Controller
     {
-        public static int idKhach =0;
+        public static int idKhach = 0;
         BUSKhachHang _busKhachHang = new BUSKhachHang();
-        
         BUSKhachHangDoan _bus_KhachDoan = new BUSKhachHangDoan();
         // GET: KhachHangController
         public ActionResult Index(string? searchString, int? page)
-
         {
             List<String> gioiTinhs = new List<string>();
             gioiTinhs.Add("Nam");
             gioiTinhs.Add("Nữ");
-
             ViewBag.gioiTinh = gioiTinhs;
             int pageSize = 10;
             int pageNumber = (page ?? 1);
@@ -45,7 +42,6 @@ namespace WEBApplication.Controllers
                 };
                 return View(model);
             }
-          
         }
 
         // GET: KhachHangController/Details/5
@@ -64,9 +60,6 @@ namespace WEBApplication.Controllers
         {
             return View();
         }
-
-       
-       
         // POST: KhachHangController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -150,10 +143,8 @@ namespace WEBApplication.Controllers
             {
                 _busKhachHang.deleteKhachHang(kh);
             }
-          
             return RedirectToAction(nameof(Index));
         }
-
         // POST: KhachHangController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
