@@ -5,6 +5,7 @@
 }
 @using DAL_DataAccessLayer.Entities;
 @model WEBApplication.Models.DoanViewModel
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
 <div style="margin-top:20px;">
@@ -43,7 +44,7 @@
         </div>
         <div class="col col-xl-9">
             <div id="content">
-                <ul id="tab" class="nav nav-tabs" data-tabbs="tabs">
+                <ul id="tabDetails" class="nav nav-tabs" data-tabbs="tabs">
                     <li class="active">
                         <a href="#tab1" data-toggle="tab">Địa Điểm</a>
                     </li>
@@ -101,8 +102,8 @@
                                             <td>@item.gioiTinh</td>
                                             <td>@item.sdt</td>
                                             <td style="width:fit-content;">
-                                                <a href="@Url.Action("DeleteKhach", "Doan", new { idKhach = item.maKh, idDoan = Model.ctDoan!.maDoan})">
-                                                    <input type="button" onclick="return confirm('Ban co chac muon xoa khong')" class="btn btn-danger" value="Xóa" />
+                                                <a href="@Url.Action("deleteKhach", "Doan", new { idKhach = item.maKh, idDoan = Model.ctDoan!.maDoan})">
+                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
                                                 </a>
                                             </td>
                                         </tr>
@@ -113,7 +114,7 @@
                     </div>
                     <div class="tab-pane " id="tab3">
                         <div class="row" style="margin:20px 0 0 0">
-                            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalGiaTour">Thêm Chi Phí</button>
+                            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalAddCP">Thêm Chi Phí</button>
                             <table class="table table-bordered">
                                 <thead class="thread bg-success" style="color:aliceblue">
                                     <tr>
@@ -131,8 +132,8 @@
                                             <td>@item.soTien</td>
                                             <td>@item.tenLoaiCP</td>
                                             <td style="width:fit-content;">
-                                                <a href="">
-                                                    <input type="button" class="btn btn-danger" value="Xóa" />
+                                                <a href="@Url.Action("deleteCP", "Doan", new { idCP = item.chiPhi, idDoan = Model.ctDoan!.maDoan})">
+                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
                                                 </a>
                                             </td>
                                         </tr>
@@ -143,7 +144,7 @@
                     </div>
                     <div class="tab-pane " id="tab4">
                         <div class="row" style="margin:20px 0 0 0">
-                            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalGiaTour">Thêm Nhân Viên</button>
+                            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalAddNV">Thêm Nhân Viên</button>
                             <table class="table table-bordered">
                                 <thead class="thread bg-success" style="color:aliceblue">
                                     <tr>
@@ -161,8 +162,8 @@
                                             <td>@item.tenNV</td>
                                             <td>@item.nhiemVu</td>
                                             <td style="width:fit-content;">
-                                                <a href="">
-                                                    <input type="button" class="btn btn-danger" value="Xóa" />
+                                                <a href="@Url.Action("deleteNV", "Doan", new { idNV = item.maNV, idDoan = Model.ctDoan!.maDoan})">
+                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
                                                 </a>
                                             </td>
                                         </tr>
@@ -215,19 +216,52 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-controller="Doan" asp-action="" method="post" id="addKhach">
+                <form asp-controller="Doan" asp-action="addCP" method="post" id="addCP">
                     <div class="col col-xl-12 form-group" hidden>
                         <input type="text" asp-for="@Model.ctDoan!.maDoan" class="form-control" />
                     </div>
                     <div class="col col-xl-12 form-group">
                         <label>Số Tiền</label>
-                        <input type="text" asp-for="@Model.chiPhi.soTien" class="form-control" id="soTien"/>
+                        <input type="number" asp-for="@Model.chiPhi.soTien" class="form-control" id="soTien" />
+                        <label id="errorCP" style="color:red" hidden></label>
                     </div>
                     <div class="col col-xl-12 form-group">
-                        <label>Tên Khách</label>
-                        <select class="selectpicker form-control" asp-for="@Model.Khach!.maKh" data-selected-text-format="value"
-                                asp-items=@(new SelectList(ViewBag.khachHang,"maKh","tenKh"))>
+                        <label>Tên Loại Chi Phí</label>
+                        <select class="selectpicker form-control" asp-for="@Model.chiPhi!.maLoaiCP" data-selected-text-format="value"
+                                asp-items=@(new SelectList(ViewBag.loaiChiPhi, "maLoaiCP", "tenLoaiCP"))>
                         </select>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit" id="submit">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal add nhan vien-->
+<div class="modal fade" id="modalAddNV" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Nhân Viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&tilde;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Doan" asp-action="addNV" method="post" id="addKhach">
+                    <div class="col col-xl-12 form-group" hidden>
+                        <input type="text" asp-for="@Model.ctDoan!.maDoan" class="form-control" />
+                    </div>
+                    <div class="col col-xl-12 form-group">
+                        <label>Tên Nhân Viên</label>
+                        <select class="selectpicker form-control" asp-for="@Model.phanBo!.maNv" data-selected-text-format="value"
+                                asp-items=@(new SelectList(ViewBag.nhanVien,"maNv","tenNv"))>
+                        </select>
+                    </div>
+                    <div class="col col-xl-12 form-group">
+                        <label>Nhiệm Vụ</label>
+                        <input type="text" asp-for="@Model.phanBo!.nhiemVu" class="form-control" />
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button class="btn btn-primary" type="submit">Save changes</button>
@@ -236,3 +270,12 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var t = '@HttpContextAccessor.HttpContext.Request.Query["tab"]';
+        if (t.length) {
+            $('#tabDetails a[href="#' + t + '"]').tab('show');
+        }
+    });
+</script>

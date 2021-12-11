@@ -50,7 +50,6 @@ namespace WEBApplication.Controllers
 
         //POST: DoanController/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Create(DoanViewModel d)
         {
             DateTime ngKhHanh = Convert.ToDateTime(d.doans.ngayKhoiHanh);
@@ -61,11 +60,7 @@ namespace WEBApplication.Controllers
             }
             else 
             {
-                if (ModelState.IsValid)
-                {
-                    _busDoan.Create(d.doans);
-                    return RedirectToAction(nameof(Index));
-                }
+                _busDoan.Create(d.doans);
                 return RedirectToAction(nameof(Index));
             } 
         }
@@ -85,15 +80,10 @@ namespace WEBApplication.Controllers
 
         //POST: DoanController/edit/id
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult UpdateDoan(DoanViewModel d)
         {
-            if (ModelState.IsValid)
-            {
-                _busDoan.Update(d.doans);
-                return RedirectToAction(nameof(Index));
-            }
-            return RedirectToAction("edit", new {id=d.doans.maDoan });
+            _busDoan.Update(d.doans);
+            return RedirectToAction(nameof(Index));
         }
 
         //POST: DoanController/Delete/id
@@ -128,10 +118,17 @@ namespace WEBApplication.Controllers
                 khach.tenKh = khach.maKh + ". " + khach.tenKh;
             }
             ViewBag.khachHang = model.dsKhach;
+            ViewBag.loaiChiPhi = model.loaiChiPhi;
+            foreach (NhanVien nv in model.dsNhanVien)
+            {
+                nv.tenNv = nv.maNv + ". " + nv.tenNv;
+            }
+            ViewBag.nhanVien = model.dsNhanVien;
             return View(model);
         }
 
         //POST: DoanController/Details/addKhach
+        [HttpPost]
         public ActionResult addKhach(DoanViewModel d)
         {
             var Doan = _busDoan.GetDoan();
@@ -144,22 +141,65 @@ namespace WEBApplication.Controllers
                 ct.maKh = d.Khach.maKh;
                 ct.maDoan = d.ctDoan.maDoan;
                 _busCT.addKhach(ct);
-                return RedirectToAction("Details", new { id = d.ctDoan.maDoan });
+                return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab2" });
             } else
             {
                 ViewBag.addKhachError = 1;
-                return RedirectToAction("Details", new { id = d.ctDoan.maDoan });
+                return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab2" });
             }
         }
 
-        //POST: DoanController/Delete/id
-        public ActionResult DeleteKhach(int idKhach, int idDoan)
+        //POST: DoanController/deleteKhach/id
+        public ActionResult deleteKhach(int idKhach, int idDoan)
         {
             ChiTiet ct = new ChiTiet();
             ct.maKh = idKhach;
             ct.maDoan = idDoan;
             _busCT.delKhach(ct);
-            return RedirectToAction("Details", new { id = idDoan });
+            return RedirectToAction("Details", new { id = idDoan, tab = "tab2" });
+        }
+
+        //POST: DoanController/Details/addChiPhi
+        [HttpPost]
+        public ActionResult addCP(DoanViewModel d)
+        {
+            ChiPhi cp = new ChiPhi();
+            cp.maDoan = d.ctDoan.maDoan;
+            cp.soTien = d.chiPhi.soTien;
+            cp.maLoaiCP = d.chiPhi.maLoaiCP;
+            _busCT.addChiPhi(cp);
+            return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab3" });
+        }
+
+        //POST: DoanController/Details/deleteCP/id
+        public ActionResult deleteCP(int idCP, int idDoan)
+        {
+            ChiPhi cp = new ChiPhi();
+            cp.maDoan = idDoan;
+            cp.maChiPhi = idCP;
+            _busCT.delChiPhi(cp);
+            return RedirectToAction("Details", new { id = idDoan, tab = "tab3" });
+        }
+        //POST: DoanController/Details/addNhanVien
+        [HttpPost]
+        public ActionResult addNV(DoanViewModel d)
+        {
+            PhanBo pb = new PhanBo();
+            pb.maDoan = d.ctDoan.maDoan;
+            pb.maNv = d.phanBo.maNv;
+            pb.nhiemVu = d.phanBo.nhiemVu;
+            _busCT.addNhanVienDoan(pb);
+            return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab4" });
+        }
+
+        //POST: DoanController/Details/deleteNV/id
+        public ActionResult deleteNV(int idNV, int idDoan)
+        {
+            PhanBo pb = new PhanBo();
+            pb.maDoan = idDoan;
+            pb.maNv = idNV;
+            _busCT.delNhanVien(pb);
+            return RedirectToAction("Details", new { id = idDoan, tab = "tab4" });
         }
     }
 }
