@@ -3,8 +3,6 @@
     ViewData["Title"] = "Home Page";
 }
 @model KhachHangViewModel
-
-
 @using X.PagedList.Mvc.Core;
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
@@ -26,33 +24,33 @@
         <hr />
         <div class="card" style="height:fit-content;">
             <h3 class="card-title text-center">Thêm Thông Tin Khách Hàng</h3>
-            <form asp-action="Create" method="post" asp-controller="KhachHang" class="card-body">
+            <form asp-action="Create" method="post" asp-controller="KhachHang" class="card-body" id="add">
                 <div class="row">
                     <div class="col col-xl-6 form-group">
                         <label for="tenKh">Tên khách hàng</label>
-                        <input type="text" asp-for="khach!.tenKh" class="form-control" />
+                        <input type="text" asp-for="khach!.tenKh" class="form-control" id="ten"/>
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="diaChi">Địa chỉ </label>
-                        <input type="text" asp-for="khach!.diaChi" class="form-control" />
+                        <input type="text" asp-for="khach!.diaChi" class="form-control" id="diachi"/>
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="cnmd">CMND</label>
-                        <input type="text" asp-for="khach!.cnmd" class="form-control" />
+                        <input type="text" asp-for="khach!.cnmd" class="form-control" id="cmnd" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="gioiTinh">Giới tính</label>
                         <select class="selectpicker form-control" asp-for="khach!.gioiTinh" data-selected-text-format="value"
-                                asp-items=@(new SelectList(ViewBag.gioiTinh,"gioiTinh"))>
+                                asp-items=@(new SelectList(ViewBag.gioiTinh,"gioiTinh")) >
                         </select>
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="sdt">SĐT</label>
-                        <input type="text" asp-for="khach!.sdt" class="form-control" />
+                        <input type="text" asp-for="khach!.sdt" class="form-control" id="sdt"/>
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="quocTich">Quốc tịch</label>
-                        <input type="text" asp-for="khach!.quocTich" class="form-control" />
+                        <input type="text" asp-for="khach!.quocTich" class="form-control" id="quoctich"/>
                     </div>
                     <div class="col col-xl-12 text-center">
                         <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Thêm Khách Hàng</button>
@@ -80,28 +78,26 @@
             <tbody>
                 @foreach (var item in Model.khachHangs!)
                 {
-                <tr>
-                    <td>@item.tenKh</td>
-                    <td>@item.diaChi</td>
-                    <td>@item.cnmd</td>
-                    <td>@item.gioiTinh</td>
-                    <td>@item.sdt</td>
-                    <td>@item.quocTich</td>
-                    <td style="width:fit-content;">
-                        <a href='@Url.Action("Details", "KhachHang",new { id=item.maKh })'>
-                            <input type='button' class="btn btn-xl btn-warning" value='Chi tiết' />
+                    <tr>
+                        <td>@item.tenKh</td>
+                        <td>@item.diaChi</td>
+                        <td>@item.cnmd</td>
+                        <td>@item.gioiTinh</td>
+                        <td>@item.sdt</td>
+                        <td>@item.quocTich</td>
+                        <td style="width:fit-content;">
+                            <a href='@Url.Action("Details", "KhachHang",new { id=item.maKh })'>
+                                <input type='button' class="btn btn-xl btn-warning" value='Chi tiết' />
 
-                            <a href='@Url.Action("Delete","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
-                             gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
-                                <input type='button' class="btn btn-xl btn-danger" value='Xóa' />
-                            </a>
-                            <br />
-                            <a href='@Url.Action("Edit","KhachHang",new {id=item.maKh,tenkh=item.tenKh,diaChi=item.diaChi,cnmd=item.cnmd,
-                             gioiTinh=item.gioiTinh,sdt=item.sdt,quocTich=item.quocTich })'>
-                                <input type='button' class="btn btn-danger" value='Cập nhật' />
-                            </a>
-                </td>
-                </tr>
+                                <a href='@Url.Action("Delete","KhachHang",new {id=item.maKh})'>
+                                    <input type='button' class="btn btn-xl btn-danger" value='Xóa' />
+                                </a>
+                                <br />
+                                <a href='@Url.Action("Edit","KhachHang",new {id=item.maKh,Model.khach })'>
+                                    <input type='button' class="btn btn-danger" value='Cập nhật' />
+                                </a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
@@ -116,4 +112,50 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#add').submit(function () {
+            var sdt = $('#sdt').val();
+            var cmnd = $('#cmnd').val();
+            var ten = $('#ten').val();
+            var diachi = $('#diachi').val();
+            var quoctich = $('#quoctich').val();
+          
+            if (!ten.trim()) {
+                alert('Vui lòng nhập tên!');
+                return false;
+            }
+
+            if (!diachi.trim()) {
+                alert('Vui lòng nhập địa chỉ!');
+                return false;
+            }
+            if (!cmnd.trim()) {
+                alert('Vui lòng nhập CMND!');
+                return false;
+            }
+            if (isNaN(cmnd) == true) {
+                alert("CMND phải là số .");
+                return (false);
+            }
+            if (!sdt.trim()) {
+                alert('Vui lòng nhập SĐT!');
+                return false;
+            }
+
+            if (isNaN(sdt) == true) {
+                alert("Số điện thoại phải là số.");
+                return (false);
+            }
+            if (!quoctich.trim()) {
+                alert('Vui lòng nhập quốc tịch!');
+                return false;
+            }
+           
+           
+           
+        });
+    });
+</script>
 

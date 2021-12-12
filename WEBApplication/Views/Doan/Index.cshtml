@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model WEBApplication.Models.DoanViewModel
+@using X.PagedList.Mvc.Core;
+
+<link href="~/Content/Pagedlist.css" rel="stylesheet" type="text/css" />
+<head>
+    <title>Danh Sách Đoàn</title>
+</head>
+<body>
+    <h1 class="text-center">DANH SÁCH ĐOÀN</h1>
+    <div class="row">
+        <div class="col col-xl-4 pt-xl-5">
+            <div class="card">
+                <form method="get" class="card-body text-center">
+                    <div class="row">
+                        <div class="form-group col-xl-9">
+                            <input id="searchText" class="form-control" asp-for="searchString" placeholder="Thông tin tour cần tìm" />
+                        </div>
+                        <div class="col-xl-3">
+                            <button class="btn btn-xl btn-primary" id="searchBut">Tìm kiếm</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <hr />
+            <div class="card" style="height:fit-content;">
+                <h3 class="card-title text-center">Thêm Thông Tin Đoàn Du Lịch</h3>
+                <form asp-action="Create" method="post" asp-controller="Doan" class="card-body" id="add">
+                    <div class="row">
+                        <div class="col col-xl-6 form-group">
+                            <label for="tenKhachSan">Ngày Khởi Hành</label>
+                            <input type="date" asp-for="@Model.doans!.ngayKhoiHanh" class="form-control" id="startDate" />
+                        </div>
+                        <div class="col col-xl-6 form-group">
+                            <label for="dacDiem">Ngày Kết Thúc</label>
+                            <input type="date" asp-for="@Model.doans!.ngayKetThuc" class="form-control" id="endDate" />
+                        </div>
+                        <div class="col col-xl-6 form-group">
+                            <label for="maTour">Mã Tour</label>
+                            <select id="maTour" class="selectpicker form-control" asp-for="@Model.doans!.maTour" data-selected-text-format="value"
+                                    asp-items=@(new SelectList(ViewBag.dsTour, "maTour","maTour"))>
+                            </select>
+                        </div>
+                        <div class="col col-xl-6 form-group">
+                            <label for="noiDung">Doanh Thu</label>
+                            <input type="number" asp-for="@Model.doans!.doanhThu" class="form-control" id="dthu" />
+                        </div>
+                        <div class="col col-xl-12 text-center">
+                            <button class="btn btn-lg btn-block btn-success" id="addorsave" type="submit" style="color:aliceblue;">Thêm Đoàn</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+
+        <div class="col col-xl-8 pt-xl-5">
+
+            <table class="table table-bordered table-striped">
+                <thead class="thead bg-success text-center" style="color:aliceblue;">
+                    <tr>
+                        <th>Tên Đoàn</th>
+                        <th>Ngày Khởi Hành</th>
+                        <th>Ngày Kết Thúc</th>
+                        <th>Doanh Thu</th>
+                        <th>Mã Tour</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Doan.Count == 0)
+                    {
+                        <script>
+                            window.onload = function () {
+                                alert("KHÔNG CÓ THÔNG TIN ĐOÀN CẦN TÌM");
+                            };
+                        </script>
+                    }
+                    else
+                    {
+                        foreach (var item in Model.Doan!)
+                        {
+                            <tr>
+                                <td>@item.maDoan</td>
+                                <td>@item.ngayKhoiHanh</td>
+                                <td>@item.ngayKetThuc</td>
+                                <td>@item.doanhThu</td>
+                                <td>@item.maTour</td>
+                                <td style="width:fit-content;">
+
+                                    <a href='@Url.Action("Details", "Doan",new { id=item.maDoan})'>
+                                        <input type='button' class="btn btn-xl btn-warning" value='Chi tiết' />
+                                    </a>
+                                    <a href="@Url.Action("edit", "Doan", new { id = item.maDoan})">
+                                        <input id="edit" asp-action="Update" type='button' class="edit btn btn-xl btn-secondary" style="color:white" value='Sửa' />
+                                    </a>
+                                    <a href="@Url.Action("DeleteDoan", "Doan", new { id = item.maDoan })">
+                                        <input type='button' class="btn btn-danger" value='Xóa' onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" />
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+            <div id="container" style="margin-left: 20px">
+                <p></p>
+                <p></p>
+                <div class="pagination" style="margin-left: 400px">
+                    Page @(Model.Doan.PageCount < Model.Doan.PageNumber ? 0 : Model.Doan.PageNumber)
+                    of @Model.Doan.PageCount
+                    <span class="clearfix"> @Html.PagedListPager(Model.Doan, page => Url.Action("Index", new { page }))</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#add').submit(function () {
+            var startDate = new Date($('#startDate').val());
+            var endDate = new Date($('#endDate').val());
+            var nowDate = new Date();
+
+            if (startDate < nowDate) {
+                alert("NGÀY KHỞI HÀNH PHẢI LỚN HƠN NGÀY HIỆN TẠI");
+                return (false);
+            }
+            if (endDate <= startDate) {
+                alert("NGÀY KẾT THÚC PHẢI LỚN HƠN NGÀY KHỞI HÀNH");
+                return (false);
+            }
+        });
+    });
+
+</script>

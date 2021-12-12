@@ -1,0 +1,281 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using DAL_DataAccessLayer.Entities;
+@model WEBApplication.Models.DoanViewModel
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+<div style="margin-top:20px;">
+    <h2 class="text-center">Chi Tiết Đoàn</h2>
+    <div class="row" style="display:flex;">
+        <div class="col col-xl-3">
+            <form class="table table-striped">
+                <div class="row">
+                    <div class="form-group col-lg-12"></div>
+                    <div class="form-group col-lg-12">
+                        <label>Mã Đoàn</label>
+                        <input type="text" asp-for="@Model.ctDoan!.maDoan" class="form-control" disabled />
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Ngày Khởi Hành</label>
+                        <input type="text" asp-for="@Model.ctDoan!.ngKhoiHanh" class="form-control" disabled />
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Ngày Kết Thúc</label>
+                        <input type="text" asp-for="@Model.ctDoan!.ngKetThuc" class="form-control" disabled />
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Tên Tour</label>
+                        <input type="text" asp-for="@Model.ctDoan!.tenTour" class="form-control" disabled />
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Số Lượng Khách</label>
+                        <input type="text" asp-for="@Model.ctDoan!.sLKhach" class="form-control" disabled />
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Doanh Thu</label>
+                        <input type="text" asp-for="@Model.ctDoan!.dThu" class="form-control" disabled />
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col col-xl-9">
+            <div id="content">
+                <ul id="tabDetails" class="nav nav-tabs" data-tabbs="tabs">
+                    <li class="active">
+                        <a href="#tab1" data-toggle="tab">Địa Điểm</a>
+                    </li>
+                    <li>
+                        <a href="#tab2" data-toggle="tab">Khách</a>
+                    </li>
+                    <li>
+                        <a href="#tab3" data-toggle="tab">Chi Phí</a>
+                    </li>
+                    <li>
+                        <a href="#tab4" data-toggle="tab">Nhân Viên</a>
+                    </li>
+                </ul>
+                <div id="my-tab" class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <div class="row" style="margin:20px 0 0 0">
+                            <table class="table table-bordered">
+                                <thead class="thread bg-success" style="color:aliceblue">
+                                    <tr>
+                                        <th>Địa Điểm</th>
+                                        <th>Thứ Tự</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.dsDiaDiemDoan)
+                                    {
+                                        <tr>
+                                            <td>@item.diaDiem</td>
+                                            <td>@item.TTdiaDiem</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="tab2">
+                        <div class="row" style="margin:20px 0 0 0">
+                            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalAddKhach">Thêm Khách</button>
+                            <table class="table table-bordered">
+                                <thead class="thread bg-success" style="color:aliceblue">
+                                    <tr>
+                                        <th>Họ Tên</th>
+                                        <th>CMND</th>
+                                        <th>Giới Tính</th>
+                                        <th>SĐT</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.dsKhachDoan)
+                                    {
+                                        <tr>
+                                            <td>@item.tenKh</td>
+                                            <td>@item.cnmd</td>
+                                            <td>@item.gioiTinh</td>
+                                            <td>@item.sdt</td>
+                                            <td style="width:fit-content;">
+                                                <a href="@Url.Action("deleteKhach", "Doan", new { idKhach = item.maKh, idDoan = Model.ctDoan!.maDoan})">
+                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="tab3">
+                        <div class="row" style="margin:20px 0 0 0">
+                            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalAddCP">Thêm Chi Phí</button>
+                            <table class="table table-bordered">
+                                <thead class="thread bg-success" style="color:aliceblue">
+                                    <tr>
+                                        <th>Chi Phí</th>
+                                        <th>Số Tiền</th>
+                                        <th>Loại Chi Phí</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.dsChiPhiDoan)
+                                    {
+                                        <tr>
+                                            <td>@item.chiPhi</td>
+                                            <td>@item.soTien</td>
+                                            <td>@item.tenLoaiCP</td>
+                                            <td style="width:fit-content;">
+                                                <a href="@Url.Action("deleteCP", "Doan", new { idCP = item.chiPhi, idDoan = Model.ctDoan!.maDoan})">
+                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane " id="tab4">
+                        <div class="row" style="margin:20px 0 0 0">
+                            <button class="btn btn-xl btn-success" data-toggle="modal" data-target="#modalAddNV">Thêm Nhân Viên</button>
+                            <table class="table table-bordered">
+                                <thead class="thread bg-success" style="color:aliceblue">
+                                    <tr>
+                                        <th>Mã Nhân Viên</th>
+                                        <th>Tên Nhân Viên</th>
+                                        <th>Nhiệm Vụ</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.dsNhanVienDoan)
+                                    {
+                                        <tr>
+                                            <td>@item.maNV</td>
+                                            <td>@item.tenNV</td>
+                                            <td>@item.nhiemVu</td>
+                                            <td style="width:fit-content;">
+                                                <a href="@Url.Action("deleteNV", "Doan", new { idNV = item.maNV, idDoan = Model.ctDoan!.maDoan})">
+                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal add khach-->
+<div class="modal fade" id="modalAddKhach" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Khách</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&tilde;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Doan" asp-action="addKhach" method="post" id="addKhach">
+                    <div class="col col-xl-12 form-group" hidden>
+                        <input type="text" asp-for="@Model.ctDoan!.maDoan" class="form-control" />
+                    </div>
+                    <div class="col col-xl-12 form-group">
+                        <label>Tên Khách</label>
+                        <select class="selectpicker form-control" asp-for="@Model.Khach!.maKh" data-selected-text-format="value"
+                                asp-items=@(new SelectList(ViewBag.khachHang,"maKh","tenKh"))>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal add chi phi-->
+<div class="modal fade" id="modalAddCP" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Chi Phí</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&tilde;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Doan" asp-action="addCP" method="post" id="addCP">
+                    <div class="col col-xl-12 form-group" hidden>
+                        <input type="text" asp-for="@Model.ctDoan!.maDoan" class="form-control" />
+                    </div>
+                    <div class="col col-xl-12 form-group">
+                        <label>Số Tiền</label>
+                        <input type="number" asp-for="@Model.chiPhi.soTien" class="form-control" id="soTien" />
+                        <label id="errorCP" style="color:red" hidden></label>
+                    </div>
+                    <div class="col col-xl-12 form-group">
+                        <label>Tên Loại Chi Phí</label>
+                        <select class="selectpicker form-control" asp-for="@Model.chiPhi!.maLoaiCP" data-selected-text-format="value"
+                                asp-items=@(new SelectList(ViewBag.loaiChiPhi, "maLoaiCP", "tenLoaiCP"))>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit" id="submit">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Modal add nhan vien-->
+<div class="modal fade" id="modalAddNV" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Nhân Viên</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&tilde;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Doan" asp-action="addNV" method="post" id="addKhach">
+                    <div class="col col-xl-12 form-group" hidden>
+                        <input type="text" asp-for="@Model.ctDoan!.maDoan" class="form-control" />
+                    </div>
+                    <div class="col col-xl-12 form-group">
+                        <label>Tên Nhân Viên</label>
+                        <select class="selectpicker form-control" asp-for="@Model.phanBo!.maNv" data-selected-text-format="value"
+                                asp-items=@(new SelectList(ViewBag.nhanVien,"maNv","tenNv"))>
+                        </select>
+                    </div>
+                    <div class="col col-xl-12 form-group">
+                        <label>Nhiệm Vụ</label>
+                        <input type="text" asp-for="@Model.phanBo!.nhiemVu" class="form-control" />
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" type="submit">Save changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        var t = '@HttpContextAccessor.HttpContext.Request.Query["tab"]';
+        if (t.length) {
+            $('#tabDetails a[href="#' + t + '"]').tab('show');
+        }
+    });
+</script>

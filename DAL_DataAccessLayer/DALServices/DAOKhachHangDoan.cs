@@ -13,25 +13,28 @@ namespace DAL_DataAccessLayer
     {
         public static QuanLiTourDbContext dbContext = new QuanLiTourDbContext();
         public static Doan _doan = null;
+        List<Doan> listDoans = null;
       public  DAOKhachHangDoan()
         {
             _doan= new Doan();
+            listDoans = new List<Doan>();
         }
         public List<Doan> getAllDoans(int maKH)
         {
-            List<Doan> listDoans = new List<Doan>();
-            var doans =( from d in dbContext.Doans
-                        join ct in dbContext.ChiTiets on d.maDoan equals ct.maDoan
-                        join kh in dbContext.Khachs on ct.maKh equals kh.maKh
-                        where (d.maDoan == ct.maDoan) && (ct.maKh == kh.maKh) && (kh.maKh == maKH)
+            
+            var doans =( from k in dbContext.Khachs
+                        join ct in dbContext.ChiTiets on k.maKh equals ct.maKh
+                        join d in dbContext.Doans on ct.maDoan equals d.maDoan
+                        where (d.maDoan == ct.maDoan) && (ct.maKh == k.maKh) && (k.maKh == maKH)
                         select new { MaDoan = d.maDoan,NgayKH = d.ngayKhoiHanh,NgayKT= d.ngayKetThuc,DoanhThu = d.doanhThu }).ToList(); 
             foreach( var doan in doans)
             {
-                _doan.maDoan = doan.MaDoan;
-                _doan.ngayKhoiHanh = doan.NgayKH;
-                _doan.ngayKetThuc = doan.NgayKT;
-                _doan.doanhThu = doan.DoanhThu;
-                listDoans.Add(_doan);
+                Doan d = new Doan();
+                d.maDoan = doan.MaDoan;
+                d.ngayKhoiHanh = doan.NgayKH;
+                d.ngayKetThuc = doan.NgayKT;
+                d.doanhThu = doan.DoanhThu;
+                listDoans.Add(d);
             }
             return listDoans;
         }

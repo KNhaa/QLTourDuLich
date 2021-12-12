@@ -52,23 +52,24 @@ namespace DAL_DataAccessLayer.DALServices
         }
 
         //them khach hang
-        public void themKhachHang(String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void themKhachHang(Khach kh)
         {
-            Khach khach = new Khach() { tenKh = tenKH, diaChi = diaChi, cnmd = cMND, gioiTinh = gioiTinh, sdt = SDT, quocTich = quocTich};
+           
+            Khach khach = new Khach() { tenKh = kh.tenKh, diaChi = kh.diaChi, cnmd = kh.cnmd, gioiTinh = kh.gioiTinh, sdt = kh.sdt, quocTich = kh.quocTich};
             dbContext.Add(khach);
          dbContext.SaveChanges();
         }
         // update khách hàng
-        public void updateKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void updateKhachHang(Khach kh)
         {
 
-            khach.maKh = idKH;
-            khach.tenKh = tenKH;
-            khach.diaChi = diaChi;
-            khach.cnmd = cMND;
-            khach.gioiTinh = gioiTinh;
-            khach.sdt = SDT;
-            khach.quocTich = quocTich;
+            khach.maKh = kh.maKh;
+            khach.tenKh = kh.tenKh;
+            khach.diaChi = kh.diaChi;
+            khach.cnmd = kh.cnmd;
+            khach.gioiTinh = kh.gioiTinh;
+            khach.sdt = kh.sdt;
+            khach.quocTich = kh.quocTich;
             // lay thông tin khách hàng cần update theo id(Phải lấy được idKH thì mới update đc)
             var khUpdate = dbContext.Khachs.SingleOrDefault
                     (x => x.maKh == khach.maKh);
@@ -85,16 +86,16 @@ namespace DAL_DataAccessLayer.DALServices
             dbContext.SaveChanges();
         }
         // xóa khách hàng
-        public void deletKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void deletKhachHang(Khach kh)
         {
 
-            khach.maKh = idKH;
-            khach.tenKh = tenKH;
-            khach.diaChi = diaChi;
-            khach.cnmd = cMND;
-            khach.gioiTinh = gioiTinh;
-            khach.sdt = SDT;
-            khach.quocTich = quocTich;
+            khach.maKh = kh.maKh;
+            khach.tenKh = kh.tenKh;
+            khach.diaChi = kh.diaChi;
+            khach.cnmd = kh.cnmd;
+            khach.gioiTinh = kh.gioiTinh;
+            khach.sdt = kh.sdt;
+            khach.quocTich = kh.quocTich;
             // lay thông tin khách hàng cần update theo id(Phải lấy được idKH thì mới update đc)
             var khDelete = dbContext.Khachs.SingleOrDefault
                     (x => x.maKh == khach.maKh);
@@ -136,6 +137,18 @@ namespace DAL_DataAccessLayer.DALServices
             }
             return listKhachs;
            
-            } 
+            }
+        public Khach getKhach(int id)
+        {
+            using (QuanLiTourDbContext context = new QuanLiTourDbContext())
+            {
+                var khachHang = context.Khachs.Where(x => x.maKh == id).FirstOrDefault();
+
+                return khachHang;
+            }
+        }
+    
     }
+
+
 }

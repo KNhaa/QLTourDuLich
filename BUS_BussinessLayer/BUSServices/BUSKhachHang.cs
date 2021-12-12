@@ -20,22 +20,26 @@ namespace BUS_BussinessLayer.BUSServices
             return _daoKhachHang.getListKhachHang();
         }
         // day la function them khach hang
-        public void themKhachHang(String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void themKhachHang(Khach kh)
         {
-            _daoKhachHang.themKhachHang(tenKH,  diaChi,  cMND, gioiTinh,  SDT, quocTich);
+            _daoKhachHang.themKhachHang(kh);
         }
-        public void updateKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void updateKhachHang(Khach kh)
         {
 
-            _daoKhachHang.updateKhachHang( idKH, tenKH , diaChi , cMND , gioiTinh, SDT, quocTich);
+            _daoKhachHang.updateKhachHang(kh);
         }
-        public void deleteKhachHang(int idKH, String tenKH, String diaChi, String cMND, String gioiTinh, String SDT, String quocTich)
+        public void deleteKhachHang(Khach kh)
         {
-            _daoKhachHang.deletKhachHang(idKH, tenKH, diaChi, cMND, gioiTinh, SDT, quocTich);
+            _daoKhachHang.deletKhachHang(kh);
         }
         public List<Khach> searchKhachHang(String keyword)
         {
             return _daoKhachHang.searchKhachHang(keyword);
+        }
+        public Khach getKhach(int id)
+        {
+            return _daoKhachHang.getKhach(id);
         }
     }
 }
