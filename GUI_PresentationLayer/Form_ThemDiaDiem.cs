@@ -136,23 +136,24 @@ namespace GUI_PresentationLayer
                 if (dataGridView1.RowCount != 0)
                 {
                     var col = dataGridView1.Rows[currentIndex].Cells["col_TenDiaDiem"].Value.ToString();
-                    //var list = dictionary.OrderBy(item=>item.Value).Select(item => item).ToList();
-                    //var maxValue = dictionary.OrderBy(item => item.Value == dictionary.Values.Max()).FirstOrDefault().Value;
-                    //var itemValue = dictionary[col];
-                    //foreach(var item in list)
-                    //{
-                    //    if (itemValue == item.Value)
-                    //    {
-                    //        list.Remove(item);
-                    //    }
-                       
-                    //}
-                    
-                    dictionary.Remove(col);
-                    currentIndex = -1;
-                    UpdateData();
-                    LoadData();
-                    
+                    dictionary.OrderBy(item=>item.Value);
+                    var maxValue = dictionary.OrderBy(item => item.Value == dictionary.Values.Max()).FirstOrDefault().Value;
+                    if (MessageBox.Show("Bạn có chắc chắn cập nhật tour này ?", "Cập nhật ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        dictionary.Remove(col);
+                        MessageBox.Show("Xóa thành công");
+                        int i = 0;
+                        foreach(var item in dictionary)
+                        {
+                            i++;
+                            dictionary[item.Key] = i;
+                        }
+                        
+                        currentIndex = -1;
+                        UpdateData();
+                        LoadData();
+                    }
+          
                 }
                 else
                 {

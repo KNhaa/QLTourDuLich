@@ -53,11 +53,12 @@ namespace GUI_PresentationLayer
         {
             dataGridView1.CurrentRow.Selected = true;
             currentIndex = dataGridView1.CurrentRow.Index;
-            // gọi xuống bus để lấy thông tin tour
             var tour = Tours[currentIndex];
-            // khởi tạo form chi tiết và truyền vào tuor vừa tìm được
-            Form_ChiTietTour formChiTietTour = new Form_ChiTietTour(tour);
-            formChiTietTour.Show();
+            tb__TenTour.Text=tour.tenTour;
+            tb_TenKhachSan.Text=tour.khachSan;
+            tb_DacDiem.Text = tour.dacDiem;
+            cb_LoaiHinh.SelectedItem=tour.LoaiHinhDuLich.tenLoaiHinh;
+            tb_NoiDung.Text = tour.noiDungTour;
         }   
 
 
@@ -126,12 +127,83 @@ namespace GUI_PresentationLayer
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            dataGridView1.CurrentRow.Selected = true;
+            currentIndex = dataGridView1.CurrentRow.Index;
+            // gọi xuống bus để lấy thông tin tour
+            var tour = Tours[currentIndex];
+            // khởi tạo form chi tiết và truyền vào tuor vừa tìm được
+            Form_ChiTietTour formChiTietTour = new Form_ChiTietTour(tour);
+            formChiTietTour.Show();
         }
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var tenTour = tb__TenTour.Text;
+            var tenKhachSan = tb_TenKhachSan.Text;
+            var dacDiem = tb_DacDiem.Text;
+            var loaiHinh = DSLoaiHinh[cb_LoaiHinh.SelectedIndex].maLoaiHinh;
+            var noiDung = tb_NoiDung.Text;
+            dataGridView1.CurrentRow.Selected = true;
+            currentIndex = dataGridView1.CurrentRow.Index;
+            var tour = Tours[currentIndex];
+            tour.tenTour = tenTour;
+            tour.khachSan = tenKhachSan;
+            tour.dacDiem = dacDiem;
+            tour.maLoaiHinh = loaiHinh;
+            tour.noiDungTour = noiDung;
+            tour.LoaiHinhDuLich.maLoaiHinh = DSLoaiHinh[cb_LoaiHinh.SelectedIndex].maLoaiHinh;
+            MessageBox.Show(tour.LoaiHinhDuLich.maLoaiHinh.ToString());
+            tour.trangThai = true;
+            ValidationContext context = new ValidationContext(tour, null, null);
+            IList<ValidationResult> errors = new List<ValidationResult>();
+
+            StringBuilder stringBuilder = new StringBuilder();
+            if (!Validator.TryValidateObject(tour, context, errors, true))
+            {
+                foreach (ValidationResult result in errors)
+                    stringBuilder.Append(result + "\n");
+                MessageBox.Show(stringBuilder.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (MessageBox.Show("Bạn có chắc chắn cập nhật tour này ?", "Cập nhật ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    _busTour.Update(tour);
+                    Tours = _busTour.GetTours().ToList();
+                    dataGridView1.DataSource = Tours;
+                    dataGridView1.Update();
+                    dataGridView1.Refresh();
+                    MessageBox.Show("Cập nhật thành công");
+                }
+            }
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.CurrentRow.Selected = true;
+            currentIndex = dataGridView1.CurrentRow.Index;
+            var tour = Tours[currentIndex];
+            tour.trangThai = false;
+            if (MessageBox.Show("Bạn có chắc chắn xóa tour này ?", "Cập nhật ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                _busTour.Update(tour);
+                Tours = _busTour.GetTours().ToList();
+                dataGridView1.DataSource = Tours;
+                dataGridView1.Update();
+                dataGridView1.Refresh();
+                MessageBox.Show("Xóa thành công");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Refresh();
         }
     }
 }

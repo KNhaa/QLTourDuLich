@@ -3,6 +3,7 @@ using DAL_DataAccessLayer.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -40,8 +41,10 @@ namespace GUI_PresentationLayer
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
+          
             var ngayKhoiHanh = dateTimePicker1.Value;
             var ngayKetThuc = dateTimePicker2.Value;
+            
             try
             {
                 var thanhTien = decimal.Parse(tb_Gia.Text);
@@ -52,13 +55,33 @@ namespace GUI_PresentationLayer
                     thanhTien = thanhTien,
                     maTour = _tour.maTour
                 };
-                _tour.GiaTours.Add(giaTour);
-                _busGiaTour.Create(giaTour);
-                DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
-                dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
-                _form.Refresh();
-                data_GiaTour.DataSource = dataGridView.DataSource;
-                data_GiaTour.Refresh();
+                ValidationContext context = new ValidationContext(giaTour, null, null);
+                IList<ValidationResult> errors = new List<ValidationResult>();
+                StringBuilder stringBuilder = new StringBuilder();
+                if (!Validator.TryValidateObject(giaTour, context, errors, true))
+                {
+                    foreach (ValidationResult result in errors)
+                        stringBuilder.Append(result + "\n");
+                  
+                    MessageBox.Show(stringBuilder.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else if (DateTime.Compare(giaTour.ngayKhoiHanh, giaTour.ngayKetThuc) > 0)
+                {
+                    stringBuilder.Append("Ngày khởi hành không được lớn hơn ngày kết thúc");
+                    MessageBox.Show(stringBuilder.ToString(), "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    _tour.GiaTours.Add(giaTour);
+                    _busGiaTour.Create(giaTour);
+                    MessageBox.Show("Thêm giá tour thành công");
+                    DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
+                    dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
+                    _form.Refresh();
+                    data_GiaTour.DataSource = dataGridView.DataSource;
+                    data_GiaTour.Refresh();
+                }
+              
             }
             catch (Exception ex)
             {
@@ -98,15 +121,18 @@ namespace GUI_PresentationLayer
                     data_GiaTour.CurrentRow.Selected = true;
                     currentIndex = data_GiaTour.CurrentRow.Index;
                     var giaTour = _tour.GiaTours.ToArray()[currentIndex];
-                    if (giaTour != null)
+                    if (MessageBox.Show("Bạn có chắc chắn xóa giá tour này ?", "Xóa ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        _busGiaTour.Delete(giaTour.maGiaTour);
-                        _tour.GiaTours.Remove(giaTour);
-                        DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
-                        dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
-                        _form.Refresh();
-                        data_GiaTour.DataSource = dataGridView.DataSource;
-                        data_GiaTour.Refresh();
+                        if (giaTour != null)
+                        {
+                            _busGiaTour.Delete(giaTour.maGiaTour);
+                            _tour.GiaTours.Remove(giaTour);
+                            DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
+                            dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
+                            _form.Refresh();
+                            data_GiaTour.DataSource = dataGridView.DataSource;
+                            data_GiaTour.Refresh();
+                        }
                     }
                 }
             }
@@ -133,11 +159,25 @@ namespace GUI_PresentationLayer
                 data_GiaTour.CurrentRow.Selected = true;
                 currentIndex = data_GiaTour.CurrentRow.Index;
                 var giaTour = _tour.GiaTours.ToArray()[currentIndex];
-                _busGiaTour.Update(giaTour);
-                DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
-                dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
-                _form.Refresh();
-                data_GiaTour.DataSource = dataGridView.DataSource;
+                giaTour.ngayKhoiHanh = dateTimePicker1.Value;
+                giaTour.ngayKetThuc = dateTimePicker2.Value;
+                try
+                {
+                    var thanhTien = decimal.Parse(tb_Gia.Text);
+                    giaTour.thanhTien = thanhTien;
+                }catch(Exception ex)
+                {
+
+                }
+                if (MessageBox.Show("Bạn có chắc chắn cập giá tour này ?", "Cập nhật ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    _busGiaTour.Update(giaTour);
+                    DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
+                    dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);
+                    _form.Refresh();
+                    data_GiaTour.DataSource = dataGridView.DataSource;
+                }
+                
             }
         }
     }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL_DataAccessLayer.Migrations
 {
     [DbContext(typeof(QuanLiTourDbContext))]
-    [Migration("20211127014005_Init")]
+    [Migration("20211212013251_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
