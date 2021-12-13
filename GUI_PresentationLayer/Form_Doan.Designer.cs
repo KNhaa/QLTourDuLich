@@ -29,8 +29,8 @@ namespace GUI_PresentationLayer
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.lbMatour = new System.Windows.Forms.Label();
             this.lbNgkhoihanh = new System.Windows.Forms.Label();
@@ -56,51 +56,53 @@ namespace GUI_PresentationLayer
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(427, 23);
+            this.label1.Location = new System.Drawing.Point(374, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 41);
+            this.label1.Size = new System.Drawing.Size(81, 32);
             this.label1.TabIndex = 0;
             this.label1.Text = "ĐOÀN";
             // 
             // lbMatour
             // 
             this.lbMatour.AutoSize = true;
-            this.lbMatour.Location = new System.Drawing.Point(120, 213);
+            this.lbMatour.Location = new System.Drawing.Point(39, 137);
             this.lbMatour.Name = "lbMatour";
-            this.lbMatour.Size = new System.Drawing.Size(68, 20);
+            this.lbMatour.Size = new System.Drawing.Size(55, 15);
             this.lbMatour.TabIndex = 6;
             this.lbMatour.Text = "Mã tour :";
             // 
             // lbNgkhoihanh
             // 
             this.lbNgkhoihanh.AutoSize = true;
-            this.lbNgkhoihanh.Location = new System.Drawing.Point(120, 148);
+            this.lbNgkhoihanh.Location = new System.Drawing.Point(39, 85);
             this.lbNgkhoihanh.Name = "lbNgkhoihanh";
-            this.lbNgkhoihanh.Size = new System.Drawing.Size(119, 20);
+            this.lbNgkhoihanh.Size = new System.Drawing.Size(97, 15);
             this.lbNgkhoihanh.TabIndex = 7;
             this.lbNgkhoihanh.Text = "Ngày khởi hành :";
             // 
             // lbNgketthuc
             // 
             this.lbNgketthuc.AutoSize = true;
-            this.lbNgketthuc.Location = new System.Drawing.Point(511, 148);
+            this.lbNgketthuc.Location = new System.Drawing.Point(428, 85);
             this.lbNgketthuc.Name = "lbNgketthuc";
-            this.lbNgketthuc.Size = new System.Drawing.Size(107, 20);
+            this.lbNgketthuc.Size = new System.Drawing.Size(87, 15);
             this.lbNgketthuc.TabIndex = 8;
             this.lbNgketthuc.Text = "Ngày kết thúc :";
             // 
             // dtpNgkhoihanh
             // 
-            this.dtpNgkhoihanh.Location = new System.Drawing.Point(270, 143);
+            this.dtpNgkhoihanh.Location = new System.Drawing.Point(170, 79);
+            this.dtpNgkhoihanh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgkhoihanh.Name = "dtpNgkhoihanh";
-            this.dtpNgkhoihanh.Size = new System.Drawing.Size(198, 27);
+            this.dtpNgkhoihanh.Size = new System.Drawing.Size(211, 23);
             this.dtpNgkhoihanh.TabIndex = 2;
             // 
             // dtpNgketthuc
             // 
-            this.dtpNgketthuc.Location = new System.Drawing.Point(642, 143);
+            this.dtpNgketthuc.Location = new System.Drawing.Point(541, 79);
+            this.dtpNgketthuc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgketthuc.Name = "dtpNgketthuc";
-            this.dtpNgketthuc.Size = new System.Drawing.Size(200, 27);
+            this.dtpNgketthuc.Size = new System.Drawing.Size(210, 23);
             this.dtpNgketthuc.TabIndex = 3;
             // 
             // cbMatour
@@ -109,16 +111,18 @@ namespace GUI_PresentationLayer
             this.cbMatour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbMatour.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMatour.FormattingEnabled = true;
-            this.cbMatour.Location = new System.Drawing.Point(270, 210);
+            this.cbMatour.Location = new System.Drawing.Point(170, 134);
+            this.cbMatour.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMatour.Name = "cbMatour";
-            this.cbMatour.Size = new System.Drawing.Size(151, 28);
+            this.cbMatour.Size = new System.Drawing.Size(211, 23);
             this.cbMatour.TabIndex = 1;
             // 
             // btnThem
             // 
-            this.btnThem.Location = new System.Drawing.Point(225, 285);
+            this.btnThem.Location = new System.Drawing.Point(39, 214);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(94, 38);
+            this.btnThem.Size = new System.Drawing.Size(82, 28);
             this.btnThem.TabIndex = 4;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
@@ -126,9 +130,10 @@ namespace GUI_PresentationLayer
             // 
             // btnSua
             // 
-            this.btnSua.Location = new System.Drawing.Point(427, 285);
+            this.btnSua.Location = new System.Drawing.Point(170, 214);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(94, 38);
+            this.btnSua.Size = new System.Drawing.Size(82, 28);
             this.btnSua.TabIndex = 5;
             this.btnSua.Text = "Cập nhật";
             this.btnSua.UseVisualStyleBackColor = true;
@@ -136,9 +141,10 @@ namespace GUI_PresentationLayer
             // 
             // btnXoa
             // 
-            this.btnXoa.Location = new System.Drawing.Point(626, 285);
+            this.btnXoa.Location = new System.Drawing.Point(299, 214);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(94, 38);
+            this.btnXoa.Size = new System.Drawing.Size(82, 28);
             this.btnXoa.TabIndex = 6;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
@@ -146,9 +152,10 @@ namespace GUI_PresentationLayer
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(565, 80);
+            this.btnSearch.Location = new System.Drawing.Point(727, 213);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 35);
+            this.btnSearch.Size = new System.Drawing.Size(82, 28);
             this.btnSearch.TabIndex = 16;
             this.btnSearch.TabStop = false;
             this.btnSearch.Text = "Tìm kiếm";
@@ -161,9 +168,10 @@ namespace GUI_PresentationLayer
             this.cbxDoansearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxDoansearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDoansearch.FormattingEnabled = true;
-            this.cbxDoansearch.Location = new System.Drawing.Point(270, 84);
+            this.cbxDoansearch.Location = new System.Drawing.Point(465, 218);
+            this.cbxDoansearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbxDoansearch.Name = "cbxDoansearch";
-            this.cbxDoansearch.Size = new System.Drawing.Size(274, 28);
+            this.cbxDoansearch.Size = new System.Drawing.Size(240, 23);
             this.cbxDoansearch.TabIndex = 17;
             this.cbxDoansearch.TabStop = false;
             // 
@@ -178,11 +186,12 @@ namespace GUI_PresentationLayer
             this.col_Ngketthuc,
             this.col_Doanhthu,
             this.col_Matour});
-            this.dgvDsdoan.Location = new System.Drawing.Point(33, 347);
+            this.dgvDsdoan.Location = new System.Drawing.Point(29, 260);
+            this.dgvDsdoan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDsdoan.Name = "dgvDsdoan";
             this.dgvDsdoan.RowHeadersWidth = 51;
             this.dgvDsdoan.RowTemplate.Height = 29;
-            this.dgvDsdoan.Size = new System.Drawing.Size(891, 322);
+            this.dgvDsdoan.Size = new System.Drawing.Size(780, 242);
             this.dgvDsdoan.TabIndex = 1;
             this.dgvDsdoan.TabStop = false;
             this.dgvDsdoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDsdoan_CellClick);
@@ -202,9 +211,9 @@ namespace GUI_PresentationLayer
             // col_Ngkhoihanh
             // 
             this.col_Ngkhoihanh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.col_Ngkhoihanh.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.col_Ngkhoihanh.DefaultCellStyle = dataGridViewCellStyle1;
             this.col_Ngkhoihanh.FillWeight = 100.7838F;
             this.col_Ngkhoihanh.HeaderText = "Ngày khởi hành";
             this.col_Ngkhoihanh.MinimumWidth = 6;
@@ -216,9 +225,9 @@ namespace GUI_PresentationLayer
             // col_Ngketthuc
             // 
             this.col_Ngketthuc.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            this.col_Ngketthuc.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.col_Ngketthuc.DefaultCellStyle = dataGridViewCellStyle2;
             this.col_Ngketthuc.FillWeight = 110.5589F;
             this.col_Ngketthuc.HeaderText = "Ngày kết thúc";
             this.col_Ngketthuc.MinimumWidth = 6;
@@ -249,9 +258,10 @@ namespace GUI_PresentationLayer
             // 
             // Form_Doan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(957, 701);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(837, 526);
             this.Controls.Add(this.cbxDoansearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnXoa);
@@ -265,7 +275,6 @@ namespace GUI_PresentationLayer
             this.Controls.Add(this.lbMatour);
             this.Controls.Add(this.dgvDsdoan);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form_Doan";
             this.Load += new System.EventHandler(this.DSDoan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDsdoan)).EndInit();

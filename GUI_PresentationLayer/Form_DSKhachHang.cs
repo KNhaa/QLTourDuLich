@@ -248,5 +248,10 @@ namespace GUI_PresentationLayer
         {
             getListKhachHang();
         }
+
+        private void cbGioiTinh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
