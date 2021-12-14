@@ -110,8 +110,8 @@ namespace WEBApplication.Controllers
                 //thống kê doanh thu từ trước tới nay
                 var model = new Models.ThongKeModel()
                 {
-
-                    kq_TK_DoanhThu = busTKDT.GetDoans().ToPagedList(pageNumber, pageSize),
+                     
+                     kq_TK_DoanhThu = busTKDT.GetDoans(DateTime.Now.Date).ToPagedList(pageNumber, pageSize),
                     //sum = busTKDT.GetDoans().Select(c => c.doanhThu).Sum()
 
                 };
@@ -154,7 +154,8 @@ namespace WEBApplication.Controllers
 
         public IActionResult TK_Tour(string? startDateTKTour, string? endDateTKTour, int? idTour_TKT, int? page)
         {
-            ViewBag.DSTour = busTKTour.GetTours().ToList();
+           
+            ViewBag.DSTour = busTKTour.GetTours(DateTime.Now.Date).ToList();
             ViewBag.total = 0;
 
             //ViewBag.MaTour = new SelectList(busTKTour.GetTours().Distinct(), "maTourTK", "maTourTk").ToList();
@@ -198,7 +199,7 @@ namespace WEBApplication.Controllers
                 var model = new Models.ThongKeModel()
                 {
                    
-                    kq_TK_Tour = busTKTour.GetTours().ToPagedList(pageNumber, pageSize)
+                    kq_TK_Tour = busTKTour.GetTours(DateTime.Now.Date).ToPagedList(pageNumber, pageSize)
                     
 
                 };
