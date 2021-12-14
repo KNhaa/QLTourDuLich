@@ -29,5 +29,11 @@ namespace BUS_BussinessLayer.BUSServices
         {
             return DAO_TK_Tour.tkMaTour(tungay, denngay, matour).ToList();
         }
+
+        //--- bo sung
+        public ICollection<T> GetTours(DateTime denngay)
+        {
+            return DAO_TK_Tour.GetTours(denngay).ToList();
+        }
     }
 }

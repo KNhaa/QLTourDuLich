@@ -69,6 +69,27 @@ namespace DAL_DataAccessLayer.DALServices
                         }).ToList();
             }
         }
+        //--- bo sung
+        public ICollection<T> GetTours(DateTime denngay)
+        {
+            using var dbcontext = new QuanLiTourDbContext();
+            {
+                return (from t in dbcontext.Tours
+                        join d in dbcontext.Doans on t.maTour equals d.maTour
+                        join gt in dbcontext.GiaTours on t.maTour equals gt.maTour
+                        where gt.ngayKetThuc <= denngay
+                        select new T
+                        {
+                            maTourTK = t.maTour,
+                            tenTourTK = t.tenTour,
+                            maDoanTK = d.maDoan,
+                            ngayKhoiHanhTK = gt.ngayKhoiHanh,
+                            ngayKetThucTK = gt.ngayKetThuc,
+                            giaTourTK = gt.thanhTien
+                        }).ToList();
+            }
+
+        }
 
         public class T
         {

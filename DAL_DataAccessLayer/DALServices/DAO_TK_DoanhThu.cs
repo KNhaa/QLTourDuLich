@@ -41,9 +41,19 @@ namespace DAL_DataAccessLayer.DALServices
 
             }
         }
+        //bo sung
+        public ICollection<Doan> GetDoans(DateTime denngay)
+        {
+            using var dbcontext = new QuanLiTourDbContext();
+            {
+                return (from Doan in dbcontext.Doans
+                        where Doan.ngayKetThuc <= denngay 
+                        select Doan).ToList();
+            }
+        }
 
         //======WEB======
-       
+
         //public class TK_DoanhThu
         //{
         //    public int maDoan { get; set; }

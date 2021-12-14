@@ -82,6 +82,7 @@ namespace GUI_PresentationLayer
 
 
         }
+        //-----------------------THONG KE DOANH THU---------------------------------------
         private void tabDoanhThu_Click()
         {
             
@@ -100,7 +101,13 @@ namespace GUI_PresentationLayer
             {
                 dataGridViewTK.Columns[index].DataPropertyName = propertyName.ToArray().GetValue(index).ToString();
             }
-            dataGridViewTK.DataSource = Doans;
+            /* dataGridViewTK.DataSource = Doans;
+             label8.ResetText();*/
+
+            var denngay = dateTimePicker2.Value.Date;
+            var rs = busTKDT.GetDoans(denngay).ToList();
+
+            dataGridViewTK.DataSource = rs;
             label8.ResetText();
 
             //tinh tong doanh thu
@@ -175,7 +182,8 @@ namespace GUI_PresentationLayer
             var chuyendoi = String.Format(info, "{0:c}", sum);
             return chuyendoi;
         }
-      
+
+        //-----------------------THONG KE TOUR----------------------------------------------
         private void tabTour_Click()
         {
             
@@ -197,7 +205,13 @@ namespace GUI_PresentationLayer
                 dtgvTK_Tour.Columns[index].DataPropertyName = propertyName.ToArray().GetValue(index).ToString();
             }
 
-            dtgvTK_Tour.DataSource = Tours;
+            //dtgvTK_Tour.DataSource = Tours;
+
+            var denngay = dateTimePicker4.Value.Date;
+            var rs = busTKT.GetTours(denngay).ToList();
+
+            dtgvTK_Tour.DataSource = rs;
+            dtgvTK_Tour.Refresh();
 
             //tao combo-box ma tour
             var ketqua = (from doan in Tours
@@ -220,9 +234,6 @@ namespace GUI_PresentationLayer
             //tinh tong so doan
             var sumDoan = Tours.Select(c => c.maDoanTK).Distinct().Count();
             label13.Text = sumDoan.ToString();
-
-           
-
 
         }
 

@@ -20,6 +20,11 @@ namespace BUS_BussinessLayer.BUSServices
         {
             return DAO_TK_DT.GetDoans().ToList();
         }
+        //so sung
+        public ICollection<Doan> GetDoans(DateTime denngay)
+        {
+            return DAO_TK_DT.GetDoans(denngay).ToList();
+        }
 
         public ICollection<Doan> GetDoansFrom(DateTime tungay, DateTime denngay)
         {
