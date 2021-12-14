@@ -41,7 +41,6 @@ namespace GUI_PresentationLayer
 
             dgvDsdoan.DataSource = doans;
             cbMatour.DataSource = tours.Select(tour => tour.maTour).ToList();
-            cbxDoansearch.DataSource = doans.Select(doan => doan.maDoan).ToList();
         }
 
         private void dgvDsdoan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -65,10 +64,32 @@ namespace GUI_PresentationLayer
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            var  searchID = (int)cbxDoansearch.SelectedValue;
-            var doan = doans.Where(doans => doans.maDoan == searchID).Select(doans => doans).ToList();
-            dgvDsdoan.DataSource = doan;
-            dgvDsdoan.Refresh();
+            if (String.IsNullOrEmpty(txtSearch.Text))
+            {
+                dgvDsdoan.DataSource = doans;
+                dgvDsdoan.Refresh();
+            }
+            else
+            {
+                try
+                {
+                    var search = int.Parse(txtSearch.Text);
+                    var doan = doans.Where(doans => doans.maDoan == search).Select(doans => doans).ToList();
+                    if(doan.Count == 0)
+                    {
+                        MessageBox.Show("Không có thông tin đoàn cần tìm", "Thông báo");
+                    } else
+                    {
+                        dgvDsdoan.DataSource = doan;
+                        dgvDsdoan.Refresh();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Không có thông tin đoàn cần tìm", "Thông báo");
+                }
+            }
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -115,9 +136,6 @@ namespace GUI_PresentationLayer
                 _busDoan.Update(doan);
                 doans = _busDoan.GetDoan().ToList();
                 dgvDsdoan.DataSource = doans;
-                cbxDoansearch.DataSource = doans.Select(doan => doan.maDoan).ToList();
-                cbxDoansearch.Update();
-                cbxDoansearch.Refresh();
                 dgvDsdoan.Update();
                 dgvDsdoan.Refresh();
             }

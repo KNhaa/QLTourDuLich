@@ -39,12 +39,26 @@ namespace WEBApplication.Controllers
             }
             else
             {
-                var item = _busDoan.GetDoan().Where(doans => doans.maDoan.Equals(searchString)).Select(doans => doans).ToList();
-                var model = new DoanViewModel()
+                try
                 {
-                    Doan = item.ToPagedList(pageNumber, pageSize)
-                };
-                return View(model);
+                    var search = int.Parse(searchString);
+                    var item = _busDoan.GetDoan().Where(doans => doans.maDoan == search).Select(doans => doans).ToList();
+                    var model = new DoanViewModel()
+                    {
+                        Doan = item.ToPagedList(pageNumber, pageSize)
+                    };
+                    return View(model);
+                }
+                catch
+                {
+                    var item = _busDoan.GetDoan().Where(doans => doans.maDoan.Equals(searchString)).Select(doans => doans).ToList();
+                    var model = new DoanViewModel()
+                    {
+                        Doan = item.ToPagedList(pageNumber, pageSize)
+                    };
+                    return View(model);
+                }
+                
             }
         }
 
