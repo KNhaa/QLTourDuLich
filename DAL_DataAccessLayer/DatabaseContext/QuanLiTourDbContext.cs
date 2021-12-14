@@ -13,7 +13,7 @@ namespace DAL_DataAccessLayer.DatabaseContext
     {
        protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Data Source=.\TINO ;Initial Catalog=EFExample; Integrated Security=True");
+            options.UseSqlServer(@"Data Source=localhost ;Initial Catalog=EFExample; Integrated Security=True");
 
            
         }
