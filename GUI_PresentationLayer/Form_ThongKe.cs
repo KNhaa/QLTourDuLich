@@ -411,7 +411,15 @@ namespace GUI_PresentationLayer
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
         }
 
-      
+        private void dtgvTK_Tour_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabTour_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

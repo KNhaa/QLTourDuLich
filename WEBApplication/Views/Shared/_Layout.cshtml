@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WEBAplication</title>
+    <title>Quản lý tour du lịch</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" type="text/css" href="~/css/design.css" />
@@ -14,13 +14,13 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WEBAplication</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">QUẢN LÝ TOUR DU LỊCH</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                    <ul class="navbar-nav flex-grow-1 p-3 m-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
@@ -28,25 +28,20 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Tours" asp-action="Index">Tour</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="KhachHang" asp-action="Index">Khách Hàng</a>
-                        </li>
-
-                        <div class="dropdown">
-                            <button class="dropbtn">Thống kê</button>
-                            <div class="dropdown-content">
-                                <a asp-area="" asp-controller="ThongKe" asp-action="TK_ChiPhi">Chi phí</a>
-                                <a asp-area="" asp-controller="ThongKe" asp-action="TK_DoanhThu">Doanh thu</a>
-                                <a asp-area="" asp-controller="ThongKe" asp-action="TK_NhanVien">Nhân Viên</a>
-                                <a asp-area="" asp-controller="ThongKe" asp-action="TK_Tour">Tour</a>
-                            </div>
-                        </div> 
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Doan" asp-action="Index">Đoàn</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="KhachHang" asp-action="Index">Khách Hàng</a>
                         </li>
-
+                        <li class="dropdown nav-item">
+                            <button class="dropbtn">Thống kê</button>
+                            <div class="dropdown-content">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ThongKe" asp-action="TK_ChiPhi">Chi phí</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ThongKe" asp-action="TK_DoanhThu">Doanh thu</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ThongKe" asp-action="TK_NhanVien">Nhân Viên</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="ThongKe" asp-action="TK_Tour">Tour</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
