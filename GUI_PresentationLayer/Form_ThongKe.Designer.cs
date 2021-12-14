@@ -68,6 +68,13 @@ namespace GUI_PresentationLayer
             this.label3 = new System.Windows.Forms.Label();
             this.tabTour = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
+            this.dtgvTK_Tour = new System.Windows.Forms.DataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -89,22 +96,15 @@ namespace GUI_PresentationLayer
             this.datePickerStartTKNV = new System.Windows.Forms.DateTimePicker();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtgvTK_Tour = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabChiPhi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKChiPhi)).BeginInit();
             this.tabDoanhThu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTK)).BeginInit();
             this.tabTour.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTK_Tour)).BeginInit();
             this.tabNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKNV)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvTK_Tour)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,7 +118,7 @@ namespace GUI_PresentationLayer
             this.tabControl1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(816, 665);
+            this.tabControl1.Size = new System.Drawing.Size(816, 554);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
@@ -138,7 +138,7 @@ namespace GUI_PresentationLayer
             this.tabChiPhi.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.tabChiPhi.Name = "tabChiPhi";
             this.tabChiPhi.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            this.tabChiPhi.Size = new System.Drawing.Size(808, 631);
+            this.tabChiPhi.Size = new System.Drawing.Size(808, 520);
             this.tabChiPhi.TabIndex = 0;
             this.tabChiPhi.Text = "Chi Phí";
             this.tabChiPhi.UseVisualStyleBackColor = true;
@@ -298,7 +298,7 @@ namespace GUI_PresentationLayer
             this.tabDoanhThu.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.tabDoanhThu.Name = "tabDoanhThu";
             this.tabDoanhThu.Padding = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            this.tabDoanhThu.Size = new System.Drawing.Size(1319, 631);
+            this.tabDoanhThu.Size = new System.Drawing.Size(808, 520);
             this.tabDoanhThu.TabIndex = 1;
             this.tabDoanhThu.Text = "Doanh Thu";
             this.tabDoanhThu.UseVisualStyleBackColor = true;
@@ -332,7 +332,7 @@ namespace GUI_PresentationLayer
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label8.Location = new System.Drawing.Point(666, 781);
+            this.label8.Location = new System.Drawing.Point(26, 425);
             this.label8.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(57, 21);
@@ -358,12 +358,12 @@ namespace GUI_PresentationLayer
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridViewTK.Location = new System.Drawing.Point(2, 236);
+            this.dataGridViewTK.Location = new System.Drawing.Point(22, 222);
             this.dataGridViewTK.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.dataGridViewTK.Name = "dataGridViewTK";
             this.dataGridViewTK.RowHeadersWidth = 100;
             this.dataGridViewTK.RowTemplate.Height = 33;
-            this.dataGridViewTK.Size = new System.Drawing.Size(765, 260);
+            this.dataGridViewTK.Size = new System.Drawing.Size(765, 200);
             this.dataGridViewTK.TabIndex = 6;
             // 
             // Column1
@@ -472,7 +472,7 @@ namespace GUI_PresentationLayer
             this.tabTour.Location = new System.Drawing.Point(4, 30);
             this.tabTour.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.tabTour.Name = "tabTour";
-            this.tabTour.Size = new System.Drawing.Size(808, 631);
+            this.tabTour.Size = new System.Drawing.Size(808, 520);
             this.tabTour.TabIndex = 2;
             this.tabTour.Text = "Tour";
             this.tabTour.UseVisualStyleBackColor = true;
@@ -489,6 +489,90 @@ namespace GUI_PresentationLayer
             this.button3.Text = "Làm mới";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // dtgvTK_Tour
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvTK_Tour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtgvTK_Tour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvTK_Tour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgvTK_Tour.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dtgvTK_Tour.Location = new System.Drawing.Point(16, 223);
+            this.dtgvTK_Tour.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
+            this.dtgvTK_Tour.Name = "dtgvTK_Tour";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgvTK_Tour.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dtgvTK_Tour.RowHeadersWidth = 60;
+            this.dtgvTK_Tour.RowTemplate.Height = 33;
+            this.dtgvTK_Tour.Size = new System.Drawing.Size(782, 165);
+            this.dtgvTK_Tour.TabIndex = 7;
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Mã tour";
+            this.Column5.MinimumWidth = 8;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 70;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Tên tour";
+            this.Column6.MinimumWidth = 8;
+            this.Column6.Name = "Column6";
+            this.Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Mã đoàn";
+            this.Column7.MinimumWidth = 8;
+            this.Column7.Name = "Column7";
+            this.Column7.Width = 70;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Ngày bắt đầu";
+            this.Column8.MinimumWidth = 8;
+            this.Column8.Name = "Column8";
+            this.Column8.Width = 125;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Ngày kết thúc";
+            this.Column9.MinimumWidth = 8;
+            this.Column9.Name = "Column9";
+            this.Column9.Width = 125;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "Giá tour";
+            this.Column10.MinimumWidth = 8;
+            this.Column10.Name = "Column10";
+            this.Column10.Width = 175;
             // 
             // button2
             // 
@@ -507,7 +591,7 @@ namespace GUI_PresentationLayer
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label14.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label14.Location = new System.Drawing.Point(762, 769);
+            this.label14.Location = new System.Drawing.Point(624, 432);
             this.label14.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(66, 21);
@@ -519,7 +603,7 @@ namespace GUI_PresentationLayer
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label13.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label13.Location = new System.Drawing.Point(323, 769);
+            this.label13.Location = new System.Drawing.Point(192, 432);
             this.label13.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(66, 21);
@@ -530,7 +614,7 @@ namespace GUI_PresentationLayer
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(491, 759);
+            this.label12.Location = new System.Drawing.Point(440, 423);
             this.label12.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(166, 30);
@@ -541,7 +625,7 @@ namespace GUI_PresentationLayer
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(95, 759);
+            this.label11.Location = new System.Drawing.Point(26, 425);
             this.label11.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(153, 30);
@@ -616,7 +700,7 @@ namespace GUI_PresentationLayer
             this.tabNhanVien.Location = new System.Drawing.Point(4, 30);
             this.tabNhanVien.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
             this.tabNhanVien.Name = "tabNhanVien";
-            this.tabNhanVien.Size = new System.Drawing.Size(1319, 631);
+            this.tabNhanVien.Size = new System.Drawing.Size(808, 520);
             this.tabNhanVien.TabIndex = 3;
             this.tabNhanVien.Text = "Nhân Viên";
             this.tabNhanVien.UseVisualStyleBackColor = true;
@@ -705,96 +789,12 @@ namespace GUI_PresentationLayer
             this.label19.Text = "Ngày khởi hành";
             this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
-            // Column10
-            // 
-            this.Column10.HeaderText = "Giá tour";
-            this.Column10.MinimumWidth = 8;
-            this.Column10.Name = "Column10";
-            this.Column10.Width = 175;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Ngày kết thúc";
-            this.Column9.MinimumWidth = 8;
-            this.Column9.Name = "Column9";
-            this.Column9.Width = 125;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Ngày bắt đầu";
-            this.Column8.MinimumWidth = 8;
-            this.Column8.Name = "Column8";
-            this.Column8.Width = 125;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Mã đoàn";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            this.Column7.Width = 70;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Tên tour";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            this.Column6.Width = 150;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Mã tour";
-            this.Column5.MinimumWidth = 8;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 70;
-            // 
-            // dtgvTK_Tour
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvTK_Tour.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dtgvTK_Tour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvTK_Tour.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgvTK_Tour.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dtgvTK_Tour.Location = new System.Drawing.Point(25, 221);
-            this.dtgvTK_Tour.Margin = new System.Windows.Forms.Padding(1, 3, 1, 3);
-            this.dtgvTK_Tour.Name = "dtgvTK_Tour";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgvTK_Tour.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dtgvTK_Tour.RowHeadersWidth = 60;
-            this.dtgvTK_Tour.RowTemplate.Height = 33;
-            this.dtgvTK_Tour.Size = new System.Drawing.Size(782, 290);
-            this.dtgvTK_Tour.TabIndex = 7;
-            // 
             // Form_ThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.ClientSize = new System.Drawing.Size(1539, 827);
+            this.ClientSize = new System.Drawing.Size(845, 581);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -810,10 +810,10 @@ namespace GUI_PresentationLayer
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTK)).EndInit();
             this.tabTour.ResumeLayout(false);
             this.tabTour.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvTK_Tour)).EndInit();
             this.tabNhanVien.ResumeLayout(false);
             this.tabNhanVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKNV)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvTK_Tour)).EndInit();
             this.ResumeLayout(false);
 
         }
