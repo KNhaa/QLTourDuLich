@@ -431,6 +431,11 @@ namespace GUI_PresentationLayer
         {
 
         }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
