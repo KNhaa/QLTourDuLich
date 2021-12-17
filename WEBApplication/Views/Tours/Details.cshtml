@@ -20,15 +20,15 @@
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Tên Tour</label>
-                            <input type="text" value="@Model.tour!.tenTour" asp-for="@Model.tour!.tenTour" class="form-control" />
+                            <input id="tenTour2" type="text" value="@Model.tour!.tenTour" asp-for="@Model.tour!.tenTour" class="form-control" />
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Tên Khách Sạn</label>
-                            <input type="text" value="@Model.tour!.khachSan" asp-for="@Model.tour!.khachSan" class="form-control" />
+                            <input id="tenKhachSan2"  type="text" value="@Model.tour!.khachSan" asp-for="@Model.tour!.khachSan" class="form-control" />
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Đặc Điểm</label>
-                            <input type="text" value="@Model.tour!.dacDiem" asp-for="@Model.tour!.dacDiem" class="form-control" />
+                            <input id="dacDiem2" type="text" value="@Model.tour!.dacDiem" asp-for="@Model.tour!.dacDiem" class="form-control" />
                         </div>
                         <div class="form-group col-lg-12">
                             <select class="selectpicker form-control" asp-for="@Model.tour!.maLoaiHinh" data-selected-text-format="value"
@@ -37,17 +37,17 @@
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Nội Dung</label>
-                            <textarea class="form-control" asp-for="@Model.tour!.noiDungTour"  value="@Model.tour!.noiDungTour" cols="10"
+                            <textarea id="noiDung2" class="form-control" asp-for="@Model.tour!.noiDungTour" value="@Model.tour!.noiDungTour" cols="10"
                                       rows="5"></textarea>
                         </div>
                         <div class="form-group col-lg-12">
-                            <button class="btn btn-lg btn-block btn-warning">Cập Nhật</button>
+                            <button class="btn btn-lg btn-block btn-warning" type="submit" onclick="return ValidateUpdateTour();">Cập Nhật</button>
                         </div>
 
                     </div>
                 </form>
             </div>
-            
+
         </div>
 
         <div class="col col-xl-9">
@@ -58,7 +58,7 @@
                         <th>Ngày Khởi Hành</th>
                         <th>Ngày Kết Thúc</th>
                         <th> Giá Tiền</th>
-                       
+
                         <th></th>
                     </tr>
                 </thead>
@@ -75,7 +75,7 @@
                                 <a href='@Url.Action("DeleteGiaTour", "Tours",new { id=Model.tour.maTour, maGiaTour = item.maGiaTour})'>
                                     <input type='button' class="btn btn-danger" value="Xóa" />
                                 </a>
-                            
+
                         </tr>
                     }
                 </tbody>
@@ -95,22 +95,22 @@
                     {
                         <tr>
                             <td> @item.DiaDiem.tenDiaDiem</td>
-                           
+
                             <td> @item.thuTuThamQuan</td>
                             <td style="width:  26%">
-                               
+
                                 <a href='@Url.Action("Up", "Tours",new { id=Model.tour.maTour, thuTu=item.thuTuThamQuan})'>
                                     <input type='button' class="btn btn-primary" value="Di chuyển lên" />
                                 </a>
                                 <a href='@Url.Action("Down", "Tours",new { id=Model.tour.maTour, thuTu=item.thuTuThamQuan})'>
                                     <input type='button' class="btn btn-warning" value="Di chuyển xuống" />
                                 </a>
-                              
+
                                 <a href='@Url.Action("DeleteDiaChi", "Tours",new { id=Model.tour.maTour, maDiaDiem = item.maDiaDiem})'>
                                     <input type='button' class="btn btn-danger" value="Xóa" />
                                 </a>
 
-                            
+
                         </tr>
                     }
                 </tbody>
@@ -146,7 +146,7 @@
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button class="btn btn-primary" type="submit">Save changes</button>
                 </form>
-               
+
             </div>
 
         </div>
@@ -173,31 +173,31 @@
                         </div>
                         <div class="col col-lg-6">
                             <div class="form-group">
-                                <label for="ngayKhoiHanh">Ngày Khởi Hành</label>
+                                <label id="ngayKhoiHanh" for="ngayKhoiHanh">Ngày Khởi Hành</label>
                                 <input type="date" asp-for="giaTour!.ngayKhoiHanh" class="form-control" />
                             </div>
                         </div>
                         <div class="col col-lg-6">
                             <div class="form-group">
                                 <label for="ngayKetThuc">Ngày Kết Thúc</label>
-                                <input type="date" asp-for="giaTour!.ngayKetThuc" class="form-control" />
+                                <input id="ngayKetThuc" type="date" asp-for="giaTour!.ngayKetThuc" class="form-control" />
                             </div>
                         </div>
                         <div class="col col-lg-12">
                             <div class="form-group">
                                 <label for="giaTien">Giá Tiền</label>
-                                <input type="number" asp-for="giaTour!.thanhTien" class="form-control" />
+                                <input id="giaTour" type="number" asp-for="giaTour!.thanhTien" class="form-control" />
                             </div>
                         </div>
                     </div>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button class="btn btn-primary" type="submit">Save changes</button>
+                    <button class="btn btn-primary" type="submit" onclick="return ValidateNewTourPrice();">Save changes</button>
                 </form>
-                
+
             </div>
 
         </div>
-      
+
     </div>
 </div>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -209,4 +209,66 @@
             format: 'dd-mm-yy'
         });
     });
+    function ValidateUpdateTour() {
+        var tenTour = $('#tenTour2').val();
+        var tenKhachSan = $('#tenKhachSan2').val();
+        var dacDiem = $('#dacDiem2').val();
+        var noiDung = $('#noiDung2').val();
+        if (tenTour == "" || tenTour == null) {
+            alert("Tên Tour không được bỏ trống");
+            return false;
+        } else {
+            if (tenKhachSan == "" || tenKhachSan == null) {
+                alert("Tên Khách Sạn không được bỏ trống");
+                return false;
+            } else {
+                if (dacDiem == "" || dacDiem == null) {
+                    alert("Đặc điểm không được bỏ trống");
+                    return false;
+                } else {
+                    if (noiDung == "" || noiDung == null) {
+                        alert("Nội dung không được bỏ trống");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+
+    function ValidateNewTourPrice() {
+        var ngayKhoiHanh = $('#ngayKhoiHanh').val();
+        var ngayKetThuc = $('#ngayKetThuc').val();
+     
+        var giaTour = $('#giaTour').val();
+        if (ngayKhoiHanh == "") {
+            alert("Ngày khởi hành không được bỏ trống");
+            return false;
+        } else {
+            if (ngayKetThuc == "") {
+                alert("Ngày kết thúc không được bỏ trống");
+                return false;
+            } else {
+                var start = new Date(ngayKhoiHanh);
+                var end = new Date(ngayKetThuc);
+                var diff = ngayKetThuc - ngayKhoiHanh;
+                if (diff < 0) {
+                    alert("Ngày khởi hành phải lớn hơn ngày kết thúc");
+                    return false;
+                } else {
+                    if (!isNaN(giaTour)) {
+                        alert("Giá tour phải nhập vào giá");
+                        return false;
+                    } else {
+                        if (giaTour < 1000) {
+                            alert("Giá tour không hợp lệ");
+                        } else {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+    }
 </script>

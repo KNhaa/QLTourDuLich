@@ -28,15 +28,15 @@
                 <div class="row">
                     <div class="col col-xl-6 form-group">
                         <label for="tenTour">Tên Tour</label>
-                        <input type="text" asp-for="@Model.tour!.tenTour" class="form-control" />
+                        <input id="tenTour" type="text" asp-for="@Model.tour!.tenTour" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="tenKhachSan">Tên Khách Sạn</label>
-                        <input type="text" asp-for="@Model.tour!.khachSan" class="form-control" />
+                        <input id="tenKhachSan" type="text" asp-for="@Model.tour!.khachSan" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="dacDiem">Đặc Điểm</label>
-                        <input type="text" asp-for="@Model.tour!.dacDiem" class="form-control" />
+                        <input id="dacDiem" type="text" asp-for="@Model.tour!.dacDiem" class="form-control" />
                     </div>
                     <div class="col col-xl-6 form-group">
                         <label for="loaiHinh">Loại Hình Du Lịch</label>
@@ -46,11 +46,11 @@
                     </div>
                     <div class="col col-xl-12 form-group">
                         <label for="noiDung">Nội Dung</label>
-                        <textarea class="form-control" asp-for="@Model.tour!.noiDungTour" cols="10"
+                        <textarea id="noiDung" class="form-control" asp-for="@Model.tour!.noiDungTour" cols="10"
                                   rows="5"></textarea>
                     </div>
                     <div class="col col-xl-12 text-center">
-                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;">Thêm Tour</button>
+                        <button class="btn btn-lg btn-block btn-success" type="submit" style="color:aliceblue;" onclick="return ValidateNewTour();">Thêm Tour</button>
 
                     </div>
                 </div>
@@ -105,3 +105,34 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    function ValidateNewTour() {
+        var tenTour = $('#tenTour').val();
+        var tenKhachSan = $('#tenKhachSan').val();
+        var dacDiem = $('#dacDiem').val();
+        var noiDung = $('#noiDung').val();
+        if (tenTour == "" || tenTour == null) {
+            alert("Tên Tour không được bỏ trống");
+            return false;
+        } else {
+            if (tenKhachSan == "" || tenKhachSan == null) {
+                alert("Tên Khách Sạn không được bỏ trống");
+                return false;
+            } else {
+                if (dacDiem == "" || dacDiem == null) {
+                    alert("Đặc điểm không được bỏ trống");
+                    return false;
+                } else {
+                    if (noiDung == "" || noiDung == null) {
+                        alert("Nội dung không được bỏ trống");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+</script>

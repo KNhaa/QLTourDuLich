@@ -154,8 +154,8 @@ namespace WEBApplication.Controllers
 
         public IActionResult TK_Tour(string? startDateTKTour, string? endDateTKTour, int? idTour_TKT, int? page)
         {
-           
-            ViewBag.DSTour = busTKTour.GetTours(DateTime.Now.Date).ToList();
+
+            ViewBag.DSTour = busTour.GetTours();
             ViewBag.total = 0;
 
             //ViewBag.MaTour = new SelectList(busTKTour.GetTours().Distinct(), "maTourTK", "maTourTk").ToList();
@@ -200,9 +200,10 @@ namespace WEBApplication.Controllers
                 {
                    
                     kq_TK_Tour = busTKTour.GetTours(DateTime.Now.Date).ToPagedList(pageNumber, pageSize)
-                    
+                  
 
                 };
+                Console.WriteLine(model.kq_TK_Tour.Count);
                 return View(model);
             }
         }
