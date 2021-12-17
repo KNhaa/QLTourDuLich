@@ -64,7 +64,7 @@ namespace GUI_PresentationLayer
         public void themKhachHang()
         {
             Regex sdt = new Regex(@"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$");//@"^(0\d{9,10})$"
-            Regex cmnd = new Regex(@"^(1\d{9,10})$");//
+            Regex cmnd = new Regex(@"^(\d{9,10})$");//
 
             if (String.IsNullOrEmpty(txtHoTen.Text))
             {
@@ -79,7 +79,7 @@ namespace GUI_PresentationLayer
             else if (String.IsNullOrEmpty(txtCMND.Text) || !cmnd.IsMatch(txtCMND.Text))
             {
 
-                MessageBox.Show("Chứng minh nhân dân gồm 10 số bắt đầu từ 1");
+                MessageBox.Show("Chứng minh nhân dân gồm 9-10 ");
                 txtCMND.Focus();
             }
             else if (String.IsNullOrEmpty(cbGioiTinh.Text))
@@ -89,7 +89,7 @@ namespace GUI_PresentationLayer
             }
             else if (String.IsNullOrEmpty(txtSDT.Text) || !sdt.IsMatch(txtSDT.Text))
             {
-                MessageBox.Show("Số điện thoại gồm 10 chữ số(0-9)");
+                MessageBox.Show("Số điện thoại gồm 10 chữ số(bắt đầu 09, 086,088,089)");
                 txtSDT.Focus();
             }
             else if (String.IsNullOrEmpty(txtQuocTich.Text))
@@ -154,7 +154,7 @@ namespace GUI_PresentationLayer
         private void btnEdit_Click(object sender, EventArgs e)
         {
             Regex sdt = new Regex(@"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$");//@"^(0\d{9,10})$"
-            Regex cmnd = new Regex(@"^(1\d{9,10})$");//
+            Regex cmnd = new Regex(@"^(\d{9,10})$");//
             if (String.IsNullOrEmpty(txtHoTen.Text))
             {
                 MessageBox.Show("Vui lòng nhập họ tên!");
@@ -167,7 +167,7 @@ namespace GUI_PresentationLayer
             else if (String.IsNullOrEmpty(txtCMND.Text) || !cmnd.IsMatch(txtCMND.Text))
             {
 
-                MessageBox.Show("Chứng minh nhân dân gồm 10 số bắt đầu từ 1");
+                MessageBox.Show("Chứng minh nhân dân gồm 9-10");
                 txtCMND.Focus();
             }
             else if  (String.IsNullOrEmpty(cbGioiTinh.Text))
@@ -177,7 +177,7 @@ namespace GUI_PresentationLayer
             }
             else if (String.IsNullOrEmpty(txtSDT.Text) || !sdt.IsMatch(txtSDT.Text))
             {
-                MessageBox.Show("Số điện thoại gồm 10 chữ số(0-9)");
+                MessageBox.Show("Số điện thoại gồm 10 chữ số(bắt đầu 09, 086,088,089)");
                 txtSDT.Focus();
             }
             else if(String.IsNullOrEmpty(txtQuocTich.Text))
@@ -222,7 +222,15 @@ namespace GUI_PresentationLayer
                 kh.tenKh = txtHoTen.Text;
                 kh.diaChi = txtDiaChi.Text;
                 kh.cnmd = txtCMND.Text;
-                kh.gioiTinh = cbGioiTinh.SelectedItem.ToString();
+                // cb giới tính không null thì lấy dywx liệu
+              if(  ! String.IsNullOrEmpty(cbGioiTinh.Text))
+                {
+                    kh.gioiTinh = cbGioiTinh.SelectedItem.ToString();
+                }
+                else // có có dữ liệu thì gán null
+                {
+                    kh.gioiTinh = "";
+                }
                 kh.sdt = txtSDT.Text;
                 kh.quocTich = txtQuocTich.Text;
                 _busKhachHang.deleteKhachHang(kh);
@@ -236,6 +244,7 @@ namespace GUI_PresentationLayer
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             String keyWord = txtTimKiem.Text.Trim();
+            
           dataGVKhachHang.DataSource = _busKhachHang.searchKhachHang(keyWord);
         }
 

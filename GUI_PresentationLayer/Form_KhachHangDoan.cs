@@ -22,15 +22,12 @@ namespace GUI_PresentationLayer
         public BUSKhachHangDoan _busKhachHangDoan = null;
         public Form_KhachHangDoan()
         {
-            
             InitializeComponent();
             getListDoans(maKH);
             _busKhachHangDoan = new BUSKhachHangDoan();
-
         }
         public  void getListDoans (int maKH) // lấy ds đoàn theo mã khách hàng
         {
-           
             if( _busKhachHangDoan!= null)
             {
                 dataGVKhachDoan.DataSource = _busKhachHangDoan.getAllDoans(maKH);
@@ -77,7 +74,7 @@ namespace GUI_PresentationLayer
         }
         private void dataGVKhachDoan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            addBinding();
+          
         }
 
         private void btnThem_Click(object sender, EventArgs e)
