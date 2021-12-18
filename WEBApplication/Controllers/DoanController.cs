@@ -145,6 +145,10 @@ namespace WEBApplication.Controllers
         [HttpPost]
         public ActionResult addKhach(DoanViewModel d)
         {
+            if(d.Khach.maKh == 0)
+            {
+                return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab2" });
+            }
             var Doan = _busDoan.GetDoan();
             var doan = Doan.Single(doans => doans.maDoan == d.ctDoan.maDoan);
             var dsKhach = _busCT.GetDsKhach(doan);
@@ -177,6 +181,10 @@ namespace WEBApplication.Controllers
         [HttpPost]
         public ActionResult addCP(DoanViewModel d)
         {
+            if(d.chiPhi.maLoaiCP == 0)
+            {
+                return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab3" });
+            }
             ChiPhi cp = new ChiPhi();
             cp.maDoan = d.ctDoan.maDoan;
             cp.soTien = d.chiPhi.soTien;
@@ -198,6 +206,10 @@ namespace WEBApplication.Controllers
         [HttpPost]
         public ActionResult addNV(DoanViewModel d)
         {
+            if(d.phanBo.maNv == 0)
+            {
+                return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab4" });
+            }
             PhanBo pb = new PhanBo();
             pb.maDoan = d.ctDoan.maDoan;
             pb.maNv = d.phanBo.maNv;
