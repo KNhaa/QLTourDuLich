@@ -41,5 +41,6 @@ namespace BUS_BussinessLayer.BUSServices
         {
             return DAOdoan.GetTour().ToList();
         }
+        
     }
 }

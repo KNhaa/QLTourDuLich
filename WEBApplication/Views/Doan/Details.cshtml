@@ -36,6 +36,10 @@
                         <input type="text" asp-for="@Model.ctDoan!.sLKhach" class="form-control" disabled />
                     </div>
                     <div class="form-group col-lg-12">
+                        <label>Giá</label>
+                        <input type="text" asp-for="@Model.ctDoan!.giaTour" class="form-control" disabled />
+                    </div>
+                    <div class="form-group col-lg-12">
                         <label>Doanh Thu</label>
                         <input type="text" asp-for="@Model.ctDoan!.dThu" class="form-control" disabled />
                     </div>
@@ -191,6 +195,7 @@
                 <form asp-controller="Doan" asp-action="addKhach" method="post" id="addKhach">
                     <div class="col col-xl-12 form-group" hidden>
                         <input type="text" asp-for="@Model.ctDoan!.maDoan" class="form-control" />
+                        <input type="text" asp-for="@Model.ctDoan!.giaTour" class="form-control" />
                     </div>
                     <div class="col col-xl-12 form-group">
                         <label>Tên Khách</label>

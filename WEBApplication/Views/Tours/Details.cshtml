@@ -159,7 +159,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Thêm Địa Điểm</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Thêm Giá Tour</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -173,8 +173,8 @@
                         </div>
                         <div class="col col-lg-6">
                             <div class="form-group">
-                                <label id="ngayKhoiHanh" for="ngayKhoiHanh">Ngày Khởi Hành</label>
-                                <input type="date" asp-for="giaTour!.ngayKhoiHanh" class="form-control" />
+                                <label  for="ngayKhoiHanh">Ngày Khởi Hành</label>
+                                <input id="ngayKhoiHanh" type="date" asp-for="giaTour!.ngayKhoiHanh" class="form-control" />
                             </div>
                         </div>
                         <div class="col col-lg-6">
@@ -240,13 +240,12 @@
     function ValidateNewTourPrice() {
         var ngayKhoiHanh = $('#ngayKhoiHanh').val();
         var ngayKetThuc = $('#ngayKetThuc').val();
-     
         var giaTour = $('#giaTour').val();
-        if (ngayKhoiHanh == "") {
+        if (ngayKhoiHanh == "" || ngayKhoiHanh == null) {
             alert("Ngày khởi hành không được bỏ trống");
             return false;
         } else {
-            if (ngayKetThuc == "") {
+            if (ngayKetThuc == "" || ngayKetThuc == null) {
                 alert("Ngày kết thúc không được bỏ trống");
                 return false;
             } else {
@@ -257,10 +256,6 @@
                     alert("Ngày khởi hành phải lớn hơn ngày kết thúc");
                     return false;
                 } else {
-                    if (!isNaN(giaTour)) {
-                        alert("Giá tour phải nhập vào giá");
-                        return false;
-                    } else {
                         if (giaTour < 1000) {
                             alert("Giá tour không hợp lệ");
                         } else {

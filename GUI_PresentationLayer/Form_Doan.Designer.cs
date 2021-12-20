@@ -43,12 +43,12 @@ namespace GUI_PresentationLayer
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dgvDsdoan = new System.Windows.Forms.DataGridView();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             this.col_Madoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Ngkhoihanh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Ngketthuc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Doanhthu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Matour = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDsdoan)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,6 +176,13 @@ namespace GUI_PresentationLayer
             this.dgvDsdoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDsdoan_CellClick);
             this.dgvDsdoan.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDsdoan_CellDoubleClick);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(572, 289);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(253, 27);
+            this.txtSearch.TabIndex = 17;
+            // 
             // col_Madoan
             // 
             this.col_Madoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -235,13 +242,6 @@ namespace GUI_PresentationLayer
             this.col_Matour.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.col_Matour.Width = 130;
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(572, 289);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(253, 27);
-            this.txtSearch.TabIndex = 17;
-            // 
             // Form_Doan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -284,11 +284,11 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.DataGridView dgvDsdoan;
+        private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Madoan;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Ngkhoihanh;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Ngketthuc;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Doanhthu;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Matour;
-        private System.Windows.Forms.TextBox txtSearch;
     }
 }

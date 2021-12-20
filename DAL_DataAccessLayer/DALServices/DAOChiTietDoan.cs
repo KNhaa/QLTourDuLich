@@ -13,18 +13,29 @@ namespace DAL_DataAccessLayer.DALServices
         public QuanLiTourDbContext context = new QuanLiTourDbContext();
         public ChiTietDoan GetChiTietDoan(Doan doan)
         {
+            List<GiaTour> giaTour = (from gt in context.GiaTours
+                                    where gt.maTour == doan.maTour
+                                    select gt).ToList();
             int slKhach = (from sl in context.ChiTiets
                             where sl.maDoan == doan.maDoan
                             select sl).Count();
             Tour tour = context.Tours.Single(tenTour => tenTour.maTour == doan.maTour);
             ChiTietDoan ctDoan = new ChiTietDoan();
                 ctDoan.maDoan = doan.maDoan;
+                ctDoan.maTour = doan.maTour;
                 ctDoan.tenTour = tour.tenTour;
                 ctDoan.ngKhoiHanh = doan.ngayKhoiHanh;
                 ctDoan.ngKetThuc = doan.ngayKetThuc;
+                var gia = giaTour.SingleOrDefault(g => ctDoan.ngKhoiHanh >= g.ngayKhoiHanh && ctDoan.ngKhoiHanh < g.ngayKetThuc);
+                if(gia == null)
+                {
+                    ctDoan.giaTour = 0;
+                } else
+                {
+                    ctDoan.giaTour = gia.thanhTien;
+                }
                 ctDoan.sLKhach = slKhach;
                 ctDoan.dThu = doan.doanhThu;
-                ctDoan.noiDung = tour.noiDungTour;
             return ctDoan;
         }
 
@@ -146,12 +157,13 @@ namespace DAL_DataAccessLayer.DALServices
         public class ChiTietDoan
         {
             public int maDoan { get; set; }
+            public int maTour { get; set; }
             public String tenTour { get; set; }
             public int sLKhach { get; set; }
             public DateTime ngKhoiHanh { get; set; }
             public DateTime ngKetThuc { get; set; }
             public float dThu { get; set; }
-            public String noiDung { get; set; }
+            public decimal giaTour { get; set; }
         }
         
         // tao moi dia diem theo doan

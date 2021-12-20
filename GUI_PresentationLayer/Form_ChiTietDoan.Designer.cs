@@ -36,7 +36,6 @@ namespace GUI_PresentationLayer
             this.lnNgketthuc = new System.Windows.Forms.Label();
             this.lbDoanhthu = new System.Windows.Forms.Label();
             this.lbSlkhach = new System.Windows.Forms.Label();
-            this.lbNoidung = new System.Windows.Forms.Label();
             this.tabThongTin = new System.Windows.Forms.TabControl();
             this.tabDiaDiem = new System.Windows.Forms.TabPage();
             this.dgvDiaDiem = new System.Windows.Forms.DataGridView();
@@ -74,16 +73,17 @@ namespace GUI_PresentationLayer
             this.cbxNhanvien = new System.Windows.Forms.ComboBox();
             this.lbThemnhanvien = new System.Windows.Forms.Label();
             this.dgvNhanVien = new System.Windows.Forms.DataGridView();
-            this.lbtMadoan = new System.Windows.Forms.Label();
-            this.lbtNgketthuc = new System.Windows.Forms.Label();
-            this.lbtNgkhoihanh = new System.Windows.Forms.Label();
-            this.lbtNoidung = new System.Windows.Forms.Label();
-            this.lbtDoanhthu = new System.Windows.Forms.Label();
-            this.lbtSoluongkhach = new System.Windows.Forms.Label();
-            this.lbtTenTour = new System.Windows.Forms.Label();
             this.col_maNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Tennhanvien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_Nhiemvu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbtMadoan = new System.Windows.Forms.Label();
+            this.lbtNgketthuc = new System.Windows.Forms.Label();
+            this.lbtNgkhoihanh = new System.Windows.Forms.Label();
+            this.lbtDoanhthu = new System.Windows.Forms.Label();
+            this.lbtSoluongkhach = new System.Windows.Forms.Label();
+            this.lbtTenTour = new System.Windows.Forms.Label();
+            this.lbtGia = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabThongTin.SuspendLayout();
             this.tabDiaDiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiaDiem)).BeginInit();
@@ -158,15 +158,6 @@ namespace GUI_PresentationLayer
             this.lbSlkhach.Size = new System.Drawing.Size(118, 20);
             this.lbSlkhach.TabIndex = 6;
             this.lbSlkhach.Text = "Số lượng khách :";
-            // 
-            // lbNoidung
-            // 
-            this.lbNoidung.AutoSize = true;
-            this.lbNoidung.Location = new System.Drawing.Point(643, 173);
-            this.lbNoidung.Name = "lbNoidung";
-            this.lbNoidung.Size = new System.Drawing.Size(78, 20);
-            this.lbNoidung.TabIndex = 7;
-            this.lbNoidung.Text = "Nội dung :";
             // 
             // tabThongTin
             // 
@@ -558,6 +549,30 @@ namespace GUI_PresentationLayer
             this.dgvNhanVien.Size = new System.Drawing.Size(990, 273);
             this.dgvNhanVien.TabIndex = 0;
             // 
+            // col_maNhanVien
+            // 
+            this.col_maNhanVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col_maNhanVien.HeaderText = "Mã nhân viên";
+            this.col_maNhanVien.MinimumWidth = 6;
+            this.col_maNhanVien.Name = "col_maNhanVien";
+            this.col_maNhanVien.Width = 150;
+            // 
+            // col_Tennhanvien
+            // 
+            this.col_Tennhanvien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col_Tennhanvien.HeaderText = "Tên nhân viên";
+            this.col_Tennhanvien.MinimumWidth = 6;
+            this.col_Tennhanvien.Name = "col_Tennhanvien";
+            this.col_Tennhanvien.ReadOnly = true;
+            this.col_Tennhanvien.Width = 300;
+            // 
+            // col_Nhiemvu
+            // 
+            this.col_Nhiemvu.HeaderText = "Nhiệm vụ";
+            this.col_Nhiemvu.MinimumWidth = 6;
+            this.col_Nhiemvu.Name = "col_Nhiemvu";
+            this.col_Nhiemvu.ReadOnly = true;
+            // 
             // lbtMadoan
             // 
             this.lbtMadoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -581,14 +596,6 @@ namespace GUI_PresentationLayer
             this.lbtNgkhoihanh.Name = "lbtNgkhoihanh";
             this.lbtNgkhoihanh.Size = new System.Drawing.Size(140, 20);
             this.lbtNgkhoihanh.TabIndex = 20;
-            // 
-            // lbtNoidung
-            // 
-            this.lbtNoidung.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbtNoidung.Location = new System.Drawing.Point(767, 172);
-            this.lbtNoidung.Name = "lbtNoidung";
-            this.lbtNoidung.Size = new System.Drawing.Size(248, 91);
-            this.lbtNoidung.TabIndex = 21;
             // 
             // lbtDoanhthu
             // 
@@ -614,44 +621,37 @@ namespace GUI_PresentationLayer
             this.lbtTenTour.Size = new System.Drawing.Size(400, 20);
             this.lbtTenTour.TabIndex = 24;
             // 
-            // col_maNhanVien
+            // lbtGia
             // 
-            this.col_maNhanVien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col_maNhanVien.HeaderText = "Mã nhân viên";
-            this.col_maNhanVien.MinimumWidth = 6;
-            this.col_maNhanVien.Name = "col_maNhanVien";
-            this.col_maNhanVien.Width = 150;
+            this.lbtGia.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbtGia.Location = new System.Drawing.Point(767, 172);
+            this.lbtGia.Name = "lbtGia";
+            this.lbtGia.Size = new System.Drawing.Size(140, 20);
+            this.lbtGia.TabIndex = 26;
             // 
-            // col_Tennhanvien
+            // label2
             // 
-            this.col_Tennhanvien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col_Tennhanvien.HeaderText = "Tên nhân viên";
-            this.col_Tennhanvien.MinimumWidth = 6;
-            this.col_Tennhanvien.Name = "col_Tennhanvien";
-            this.col_Tennhanvien.ReadOnly = true;
-            this.col_Tennhanvien.Width = 300;
-            // 
-            // col_Nhiemvu
-            // 
-            this.col_Nhiemvu.HeaderText = "Nhiệm vụ";
-            this.col_Nhiemvu.MinimumWidth = 6;
-            this.col_Nhiemvu.Name = "col_Nhiemvu";
-            this.col_Nhiemvu.ReadOnly = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(643, 173);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 20);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Giá :";
             // 
             // Form_ChiTietDoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1082, 703);
+            this.Controls.Add(this.lbtGia);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lbtTenTour);
             this.Controls.Add(this.lbtSoluongkhach);
             this.Controls.Add(this.lbtDoanhthu);
-            this.Controls.Add(this.lbtNoidung);
             this.Controls.Add(this.lbtNgkhoihanh);
             this.Controls.Add(this.lbtNgketthuc);
             this.Controls.Add(this.lbtMadoan);
             this.Controls.Add(this.tabThongTin);
-            this.Controls.Add(this.lbNoidung);
             this.Controls.Add(this.lbSlkhach);
             this.Controls.Add(this.lbDoanhthu);
             this.Controls.Add(this.lnNgketthuc);
@@ -693,7 +693,6 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.Label lnNgketthuc;
         private System.Windows.Forms.Label lbDoanhthu;
         private System.Windows.Forms.Label lbSlkhach;
-        private System.Windows.Forms.Label lbNoidung;
         private System.Windows.Forms.TabControl tabThongTin;
         private System.Windows.Forms.TabPage tabDiaDiem;
         private System.Windows.Forms.DataGridView dgvDiaDiem;
@@ -716,7 +715,6 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.Label lbtMadoan;
         private System.Windows.Forms.Label lbtNgketthuc;
         private System.Windows.Forms.Label lbtNgkhoihanh;
-        private System.Windows.Forms.Label lbtNoidung;
         private System.Windows.Forms.Label lbtDoanhthu;
         private System.Windows.Forms.Label lbtSoluongkhach;
         private System.Windows.Forms.Label lbtTenTour;
@@ -741,5 +739,7 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn col_maNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Tennhanvien;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Nhiemvu;
+        private System.Windows.Forms.Label lbtGia;
+        private System.Windows.Forms.Label label2;
     }
 }

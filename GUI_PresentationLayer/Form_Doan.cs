@@ -19,6 +19,7 @@ namespace GUI_PresentationLayer
         List<Doan>  doans;
         List<Tour> tours;
         BUSDoan _busDoan;
+
         public Form_Doan()
         {
             InitializeComponent();
@@ -38,6 +39,7 @@ namespace GUI_PresentationLayer
             {
                 dgvDsdoan.Columns[index].DataPropertyName = lName.ToArray().GetValue(index).ToString();
             }
+
 
             dgvDsdoan.DataSource = doans;
             cbMatour.DataSource = tours.Select(tour => tour.maTour).ToList();
@@ -120,7 +122,7 @@ namespace GUI_PresentationLayer
             var newDThu = 0;
             DateTime newKhHanh = dtpNgkhoihanh.Value.Date;
             DateTime newKThuc = dtpNgketthuc.Value.Date;
-            if ((newKhHanh < DateTime.Now) || (newKThuc < newKhHanh))
+            if ((newKThuc < newKhHanh))
             {
                 MessageBox.Show("ngày tháng không hợp lệ!!\n- ngày khởi hành phải lớn hơn ngày hiện tại\n- ngày kết thúc phải lớn hơn ngày khởi hành");
             }

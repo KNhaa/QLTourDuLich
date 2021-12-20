@@ -25,6 +25,7 @@ namespace GUI_PresentationLayer
         List<NhanVien> dsNhanVien;
         BUSChiTietDoan _busChiTietDoan;
         BUSKhachHang _busKhachHang;
+        BUSDoan _busDoan;
         public Form_ChiTietDoan()
         {
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace GUI_PresentationLayer
             this.doan = doan;
             _busChiTietDoan = new BUSChiTietDoan();
             _busKhachHang = new BUSKhachHang();
+            _busDoan = new BUSDoan();
             ctDoan = _busChiTietDoan.GetChiTietDoan(doan);
             loaiCP = _busChiTietDoan.GetLoaiChiPhi().ToList();
            
@@ -49,7 +51,7 @@ namespace GUI_PresentationLayer
             lbtTenTour.Text = ctDoan.tenTour;
             lbtSoluongkhach.Text = ctDoan.sLKhach.ToString();
             lbtDoanhthu.Text = ctDoan.dThu.ToString();
-            lbtNoidung.Text = ctDoan.noiDung;
+            lbtGia.Text = ctDoan.giaTour.ToString();
             tabDiaDiam_Show();
         }
 
@@ -92,7 +94,6 @@ namespace GUI_PresentationLayer
             khachOfDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
             dgvKhach.AutoGenerateColumns = false;
             dgvKhach.ColumnCount = 5;
-
             List<String> lName = new List<string> { "tenKh", "diaChi", "cnmd", "gioiTinh", "sdt" };
             for (int index = 0; index < dgvKhach.ColumnCount; index++)
             {
@@ -180,6 +181,10 @@ namespace GUI_PresentationLayer
                     ct.maDoan = doan.maDoan;
                     ct.maKh = kh.maKh;
                     _busChiTietDoan.addKhach(ct);
+                    khachOfDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
+                    doan.doanhThu = (float)(khachOfDoan.Count * ctDoan.giaTour);
+                    _busDoan.Update(doan);
+                    lbtDoanhthu.Text = doan.doanhThu.ToString();
                     tabKhach_Show();
                 }
                 else
@@ -261,6 +266,9 @@ namespace GUI_PresentationLayer
                 ct.maKh = khach.maKh;
                 _busChiTietDoan.delKhach(ct);
                 khachOfDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
+                doan.doanhThu = (float)(khachOfDoan.Count * ctDoan.giaTour);
+                _busDoan.Update(doan);
+                lbtDoanhthu.Text = doan.doanhThu.ToString();
                 dgvKhach.DataSource = khachOfDoan;
                 dgvKhach.Update();
                 dgvKhach.Refresh();

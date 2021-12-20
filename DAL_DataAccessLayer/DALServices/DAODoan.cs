@@ -54,5 +54,7 @@ namespace DAL_DataAccessLayer.DALServices
         {
             return context.Tours.ToList();
         }
+
+        
     }
 }

@@ -159,6 +159,8 @@ namespace WEBApplication.Controllers
                 ct.maKh = d.Khach.maKh;
                 ct.maDoan = d.ctDoan.maDoan;
                 _busCT.addKhach(ct);
+                doan.doanhThu = (float)(dsKhach.Count * d.ctDoan.giaTour);
+                _busDoan.Update(doan);
                 return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab2" });
             } else
             {
@@ -174,6 +176,12 @@ namespace WEBApplication.Controllers
             ct.maKh = idKhach;
             ct.maDoan = idDoan;
             _busCT.delKhach(ct);
+            var Doan = _busDoan.GetDoan();
+            var doan = Doan.Single(doans => doans.maDoan == idDoan);
+            var ctDoan = _busCT.GetChiTietDoan(doan);
+            var dsKhach = _busCT.GetDsKhach(doan);
+            doan.doanhThu = (float)(dsKhach.Count * ctDoan.giaTour);
+            _busDoan.Update(doan);
             return RedirectToAction("Details", new { id = idDoan, tab = "tab2" });
         }
 

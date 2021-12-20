@@ -20,12 +20,16 @@ namespace GUI_PresentationLayer
         Tour _tour;
         BUSTour _busTour;
         BUSGiaTour _busGiaTour;
+        BUSDoan _busDoan;
+        BUSChiTietDoan _busChiTietDoan;
         public Form_ThemGia(Form_ChiTietTour form)
         {
             InitializeComponent();
             _form = form;
             _busTour = new BUSTour();
             _busGiaTour = new BUSGiaTour();
+            _busDoan = new BUSDoan();
+            _busChiTietDoan = new BUSChiTietDoan();
             _tour = _busTour.GetTour(_form._tour.maTour);
         }
 
@@ -74,6 +78,17 @@ namespace GUI_PresentationLayer
                 {
                     _tour.GiaTours.Add(giaTour);
                     _busGiaTour.Create(giaTour);
+                    var doans = _busDoan.GetDoan().ToList();
+                    var doan = doans.Where(d => d.maTour == giaTour.maTour && (d.ngayKhoiHanh >= giaTour.ngayKhoiHanh && d.ngayKhoiHanh < giaTour.ngayKetThuc)).ToList();
+                    if(doan.Count != 0)
+                    {
+                        foreach(Doan d in doan)
+                        {
+                            var slKhach = _busChiTietDoan.GetDsKhach(d).Count;
+                            d.doanhThu = (float)(slKhach * giaTour.thanhTien);
+                            _busDoan.Update(d);
+                        }
+                    }
                     MessageBox.Show("Thêm giá tour thành công");
                     DataGridView dataGridView = (DataGridView)_form.Controls["data_GiaTour"];
                     dataGridView.DataSource = _busGiaTour.GetByTourId(_tour.maTour);

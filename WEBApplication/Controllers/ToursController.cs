@@ -20,12 +20,16 @@ namespace WEBAplication.Controllers
         BUSDiaDiem _busDiaDiem;
         BUSLoaiHinhDuLich _loaiHinhDuLich;
         BUSGiaTour _busGiaTour;
+        BUSDoan _busDoan;
+        BUSChiTietDoan _busChiTietDoan;
         public ToursController()
         {
             _busTour = new BUSTour();
             _busDiaDiem = new BUSDiaDiem();
             _loaiHinhDuLich = new BUSLoaiHinhDuLich();
             _busGiaTour = new BUSGiaTour();
+            _busDoan = new BUSDoan();
+            _busChiTietDoan = new BUSChiTietDoan();
         }
         public ActionResult Index(string? searchString, int? page)
         {
@@ -211,6 +215,17 @@ namespace WEBAplication.Controllers
             var tour = _busTour.GetTour(vm.tour!.maTour);
             tour.GiaTours.Add(vm.giaTour);
             _busTour.Update(tour);
+            var doans = _busDoan.GetDoan().ToList();
+            var doan = doans.Where(d => d.maTour == vm.giaTour.maTour && (d.ngayKhoiHanh >= vm.giaTour.ngayKhoiHanh && d.ngayKhoiHanh < vm.giaTour.ngayKetThuc)).ToList();
+            if (doan.Count != 0)
+            {
+                foreach (Doan d in doan)
+                {
+                    var slKhach = _busChiTietDoan.GetDsKhach(d).Count;
+                    d.doanhThu = (float)(slKhach * vm.giaTour.thanhTien);
+                    _busDoan.Update(d);
+                }
+            }
             return RedirectToAction("Details", new { id = tour.maTour });
 
         }

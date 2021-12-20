@@ -125,13 +125,16 @@
             var startDate = new Date($('#startDate').val());
             var endDate = new Date($('#endDate').val());
             var nowDate = new Date();
-
+            if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+                alert("Vui lòng chọn ngày tháng đầy đủ");
+                return (false);
+            }
             if (startDate < nowDate) {
-                alert("NGÀY KHỞI HÀNH PHẢI LỚN HƠN NGÀY HIỆN TẠI");
+                alert("Ngày khởi hành phải lớn hơn ngày hiện tại");
                 return (false);
             }
             if (endDate <= startDate) {
-                alert("NGÀY KẾT THÚC PHẢI LỚN HƠN NGÀY KHỞI HÀNH");
+                alert("Ngày kết thúc phải lớn hơn ngày khởi hành");
                 return (false);
             }
         });
