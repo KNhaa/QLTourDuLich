@@ -12,70 +12,7 @@ namespace DAL_DataAccessLayer.DALServices
     public class DAO_TK_Tour
     {
         public DAO_TK_Tour(){}
-      /*  public ICollection<T> GetTours()
-        {
-            using var dbcontext = new QuanLiTourDbContext();
-            {
-             return   (from t in dbcontext.Tours
-                               join d in dbcontext.Doans on t.maTour equals d.maTour
-                              join gt in dbcontext.GiaTours on t.maTour equals gt.maTour
-                               select new T
-                               {
-                                   maTourTK = t.maTour,
-                                   tenTourTK = t.tenTour,
-                                   maDoanTK = d.maDoan,
-                                   ngayKhoiHanhTK = gt.ngayKhoiHanh,
-                                   ngayKetThucTK = gt.ngayKetThuc,
-                                   giaTourTK = gt.thanhTien
-                               }).ToList();
-            }
-           
-        } */
-      /*  public ICollection<T> GetToursFrom(DateTime tungay, DateTime denngay)
-        {
-            using var dbcontext = new QuanLiTourDbContext();
-            {
-                return (from t in dbcontext.Tours
-                        join d in dbcontext.Doans on t.maTour equals d.maTour
-                        join gt in dbcontext.GiaTours on t.maTour equals gt.maTour
-                        where gt.ngayKhoiHanh >= tungay && gt.ngayKetThuc <=denngay
-                        // bo sung 
-                        && d.ngayKhoiHanh >= gt.ngayKhoiHanh && d.ngayKhoiHanh <= gt.ngayKetThuc
-                        select new T
-                        {
-                            maTourTK = t.maTour,
-                            tenTourTK = t.tenTour,
-                            maDoanTK = d.maDoan,
-                            ngayKhoiHanhTK = gt.ngayKhoiHanh,
-                            ngayKetThucTK = gt.ngayKetThuc,
-                            giaTourTK = gt.thanhTien
-                        }).ToList();
-            }
-        }*/
-
-        //public ICollection<T> tkMaTour (DateTime tungay, DateTime denngay, string matour)
-        //{
-        //    using var dbcontext = new QuanLiTourDbContext();
-        //    {
-        //        return (from t in dbcontext.Tours
-        //                join d in dbcontext.Doans on t.maTour equals d.maTour
-        //                join gt in dbcontext.GiaTours on t.maTour equals gt.maTour
-        //                where 
-        //                // bo sung 
-        //                 d.ngayKhoiHanh >= gt.ngayKhoiHanh && d.ngayKhoiHanh <= gt.ngayKetThuc
-        //                 //
-        //                && gt.ngayKhoiHanh >= tungay && gt.ngayKetThuc <= denngay && t.maTour.ToString() == matour
-        //                select new T
-        //                {
-        //                    maTourTK = t.maTour,
-        //                    tenTourTK = t.tenTour,
-        //                    maDoanTK = d.maDoan,
-        //                    ngayKhoiHanhTK = gt.ngayKhoiHanh,
-        //                    ngayKetThucTK = gt.ngayKetThuc,
-        //                    giaTourTK = gt.thanhTien
-        //                }).ToList();
-        //    }
-        //}
+      
         //--- bo sung
         public ICollection<T> GetTours(DateTime denngay)
         {
@@ -97,15 +34,6 @@ namespace DAL_DataAccessLayer.DALServices
 
                         select new T
                         {
-
-                            /*maTourTK = t.maTour,
-                            tenTourTK = t.tenTour,
-                            maDoanTK = d.maDoan,
-                            //maDoanTK = slkhachhang.Key,
-                            ngayKhoiHanhTK = gt.ngayKhoiHanh,
-                            ngayKetThucTK = gt.ngayKetThuc,
-                            giaTourTK = gt.thanhTien,
-                            SLkhach= slkhachhang.Count()*/
 
                             maTourTK = slkhachhang.Key.maTour,
                             tenTourTK = slkhachhang.Key.tenTour,
