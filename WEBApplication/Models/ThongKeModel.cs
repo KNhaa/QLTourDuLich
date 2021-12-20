@@ -44,7 +44,6 @@ namespace WEBApplication.Models
 
         // ============THỐNG KÊ TOUR===============
         public int idTour_TKT { get; set; }
-
         public IPagedList<T> kq_TK_Tour{ get; set; }
         public string startDateTKTour { get; set; }
         public string endDateTKTour { get; set; }

@@ -32,7 +32,7 @@ namespace GUI_PresentationLayer
             _busTour = new BUSTour();
             listTour = _busTour.GetTours().ToList(); //dùng để thống kê chi phí
             Doans = busTKDT.GetDoans().ToList();
-            Tours = busTKT.GetTours().ToList();
+            //Tours = busTKT.GetTours().ToList();
             
         }
 
@@ -193,11 +193,11 @@ namespace GUI_PresentationLayer
             //không cho nó tự generate
             dtgvTK_Tour.AutoGenerateColumns = false;
 
-            //gắn cứng cho số cột của table là 6
-            dtgvTK_Tour.ColumnCount = 6;
+            //gắn cứng cho số cột của table là 8
+            dtgvTK_Tour.ColumnCount = 8;
 
             //danh sách các thuộc tính cần hiển thị trên table
-            List<String> propertyName = new List<string> { "maTourTK", "tenTourTK", "maDoanTK", "ngayKhoiHanhTK", "ngayKetThucTK", "giaTourTK" };
+            List<String> propertyName = new List<string> { "maTourTK", "tenTourTK", "maDoanTK", "ngayKhoiHanhTK", "ngayKetThucTK", "giaTourTK", "SLkhach", "doanhThu" };
 
             //thay đổi header
             for (int index = 0; index < dtgvTK_Tour.ColumnCount; index++)
@@ -214,7 +214,7 @@ namespace GUI_PresentationLayer
             dtgvTK_Tour.Refresh();
 
             //tao combo-box ma tour
-            var ketqua = (from doan in Tours
+            var ketqua = (from doan in rs
                          select doan.maTourTK).Distinct().ToList();
 
             List<string> myList = new List<string>();
@@ -228,12 +228,13 @@ namespace GUI_PresentationLayer
             label14.ResetText();
 
             //tinh tong doanh so
-            var sum = Tours.Select(c => c.giaTourTK).Sum();
+            var sum = rs.Select(c => c.doanhThu).Sum();
             label14.Text = doitien((float)sum);
 
             //tinh tong so doan
-            var sumDoan = Tours.Select(c => c.maDoanTK).Distinct().Count();
+            var sumDoan = rs.Select(c => c.maDoanTK).Distinct().Count();
             label13.Text = sumDoan.ToString();
+
 
         }
 
@@ -250,7 +251,7 @@ namespace GUI_PresentationLayer
                 dtgvTK_Tour.Refresh();
 
                 //tinh tong doanh so
-                var sum = ketqua.Select(c => c.giaTourTK).Sum();
+                var sum = ketqua.Select(c => c.doanhThu).Sum();
                 label14.Text = doitien((float)sum);
 
                 //tinh tong so doan
@@ -269,7 +270,7 @@ namespace GUI_PresentationLayer
                 dtgvTK_Tour.Refresh();
 
                 //tinh tong doanh so
-                var sum = ketqua.Select(c => c.giaTourTK).Sum();
+                var sum = ketqua.Select(c => c.doanhThu).Sum();
                 label14.Text = doitien((float)sum);
 
                 //tinh tong so doan
@@ -282,25 +283,26 @@ namespace GUI_PresentationLayer
         //nut reset trong tab Tour
         private void button3_Click(object sender, EventArgs e)
         {
+            //var denngay = dateTimePicker4.Value.Date;
+            dateTimePicker3.ResetText();
+            dateTimePicker4.ResetText();
+            var rs = busTKT.GetTours(DateTime.Now).ToList();
             comboBox1.Text = " ";
-            dtgvTK_Tour.DataSource = Tours;
+            dtgvTK_Tour.DataSource = rs;
             label13.ResetText();
             label14.ResetText();
 
+
             //tinh tong doanh so
-            var sum = Tours.Select(c => c.giaTourTK).Sum();
+            var sum = rs.Select(c => c.doanhThu).Sum();
             label14.Text = doitien((float)sum);
 
             //tinh tong so doan
-            var sumDoan = Tours.Select(c => c.maDoanTK).Distinct().Count();
+            var sumDoan = rs.Select(c => c.maDoanTK).Distinct().Count();
             label13.Text = sumDoan.ToString();
 
         }
 
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
 
        
         //===================================THỐNG KÊ CHI PHÍ - NHÂN VIÊN===========================================
@@ -436,6 +438,8 @@ namespace GUI_PresentationLayer
         {
 
         }
+
+       
     }
     
 }

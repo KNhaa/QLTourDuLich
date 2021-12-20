@@ -17,10 +17,10 @@ namespace BUS_BussinessLayer.BUSServices
         {
             DAO_TK_Tour = new DAO_TK_Tour();
         }
-        public ICollection<T> GetTours()
+      /*  public ICollection<T> GetTours()
         {
             return DAO_TK_Tour.GetTours().ToList();
-        }
+        }*/
         public ICollection<T> GetToursFrom(DateTime tungay, DateTime denngay)
         {
             return DAO_TK_Tour.GetToursFrom(tungay, denngay).ToList();

@@ -29,7 +29,7 @@
                             </select>
                         </div>
                         <div class="col-lg-6 form-group">
-                            <label for="loaiHinh">Từ ngày</label>
+                            <label for="loaiHinh">Giá tour từ ngày</label>
                             <input type="date" class="form-control" asp-for="startDateTKTour" id="startDateTKT" />
                         </div>
                         <div class="col-xl-6 form-group">
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col col-xl-6 form-group">
                             <label for="loaiHinh">Tổng doanh số: </label>
-                            <input type="text" class="form-control" readonly="readonly" value="@Model.kq_TK_Tour.Sum(x=> x.giaTourTK)" />
+                            <input type="text" class="form-control" readonly="readonly" value="@Model.kq_TK_Tour.Sum(x=> x.doanhThu)" />
                         </div>
 
 
@@ -84,6 +84,8 @@
                         <th>Ngày bắt đầu</th>
                         <th>Ngày ngày kết thúc</th>
                         <th>Giá tour</th>
+                        <th>SL khách</th>
+                        <th>Doanh thu</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,6 +99,8 @@
                             <td>@T.ngayKhoiHanhTK</td>
                             <td>@T.ngayKetThucTK</td>
                             <td>@T.giaTourTK</td>
+                            <td>@T.SLkhach</td>
+                            <td>@T.doanhThu</td>
                         </tr>
                     }
                 </tbody>
