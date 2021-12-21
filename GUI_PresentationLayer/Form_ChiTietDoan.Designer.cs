@@ -84,6 +84,8 @@ namespace GUI_PresentationLayer
             this.lbtTenTour = new System.Windows.Forms.Label();
             this.lbtGia = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.lbTong = new System.Windows.Forms.Label();
+            this.lbtTongCP = new System.Windows.Forms.Label();
             this.tabThongTin.SuspendLayout();
             this.tabDiaDiem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiaDiem)).BeginInit();
@@ -343,6 +345,8 @@ namespace GUI_PresentationLayer
             // 
             // tabChiPhi
             // 
+            this.tabChiPhi.Controls.Add(this.lbtTongCP);
+            this.tabChiPhi.Controls.Add(this.lbTong);
             this.tabChiPhi.Controls.Add(this.btnXoaCP);
             this.tabChiPhi.Controls.Add(this.lbLoaiCP);
             this.tabChiPhi.Controls.Add(this.txtSoTien);
@@ -426,7 +430,7 @@ namespace GUI_PresentationLayer
             this.dgvChiPhi.Name = "dgvChiPhi";
             this.dgvChiPhi.RowHeadersWidth = 51;
             this.dgvChiPhi.RowTemplate.Height = 29;
-            this.dgvChiPhi.Size = new System.Drawing.Size(990, 273);
+            this.dgvChiPhi.Size = new System.Drawing.Size(990, 234);
             this.dgvChiPhi.TabIndex = 0;
             // 
             // col_Chiphi
@@ -638,6 +642,24 @@ namespace GUI_PresentationLayer
             this.label2.TabIndex = 25;
             this.label2.Text = "Giá :";
             // 
+            // lbTong
+            // 
+            this.lbTong.AutoSize = true;
+            this.lbTong.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbTong.Location = new System.Drawing.Point(611, 258);
+            this.lbTong.Name = "lbTong";
+            this.lbTong.Size = new System.Drawing.Size(107, 20);
+            this.lbTong.TabIndex = 12;
+            this.lbTong.Text = "Tổng chi phí : ";
+            // 
+            // lbtTongCP
+            // 
+            this.lbtTongCP.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lbtTongCP.Location = new System.Drawing.Point(753, 257);
+            this.lbtTongCP.Name = "lbtTongCP";
+            this.lbtTongCP.Size = new System.Drawing.Size(207, 20);
+            this.lbtTongCP.TabIndex = 27;
+            // 
             // Form_ChiTietDoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -741,5 +763,7 @@ namespace GUI_PresentationLayer
         private System.Windows.Forms.DataGridViewTextBoxColumn col_Nhiemvu;
         private System.Windows.Forms.Label lbtGia;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbtTongCP;
+        private System.Windows.Forms.Label lbTong;
     }
 }

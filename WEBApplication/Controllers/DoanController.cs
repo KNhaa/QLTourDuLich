@@ -17,12 +17,14 @@ namespace WEBApplication.Controllers
         BUSDoan _busDoan;
         BUSChiTietDoan _busCT;
         BUSKhachHang _busKH;
+        BUSGiaTour _busGiaTour;
 
         public DoanController()
         {
             _busDoan = new BUSDoan();
             _busCT = new BUSChiTietDoan();
             _busKH = new BUSKhachHang();
+            _busGiaTour = new BUSGiaTour();
         }
         public IActionResult Index(string? searchString, int? page)
         {
@@ -96,6 +98,17 @@ namespace WEBApplication.Controllers
         [HttpPost]
         public ActionResult UpdateDoan(DoanViewModel d)
         {
+            var gias = _busGiaTour.GetByTourId(d.doans.maTour);
+            var gia = gias.SingleOrDefault(g => d.doans.ngayKhoiHanh >= g.ngayKhoiHanh && d.doans.ngayKhoiHanh < g.ngayKetThuc);
+            if (gia == null)
+            {
+                d.doans.doanhThu = 0;
+            }
+            else
+            {
+                var khachDoan = _busCT.GetDsKhach(d.doans).ToList();
+                d.doans.doanhThu = (float)(khachDoan.Count * gia.thanhTien);
+            }
             _busDoan.Update(d.doans);
             return RedirectToAction(nameof(Index));
         }
@@ -133,6 +146,7 @@ namespace WEBApplication.Controllers
             }
             ViewBag.khachHang = model.dsKhach;
             ViewBag.loaiChiPhi = model.loaiChiPhi;
+            ViewBag.tongTien = model.dsChiPhiDoan.Select(cp => cp.soTien).Sum();
             foreach (NhanVien nv in model.dsNhanVien)
             {
                 nv.tenNv = nv.maNv + ". " + nv.tenNv;
@@ -159,6 +173,7 @@ namespace WEBApplication.Controllers
                 ct.maKh = d.Khach.maKh;
                 ct.maDoan = d.ctDoan.maDoan;
                 _busCT.addKhach(ct);
+                dsKhach = _busCT.GetDsKhach(doan);
                 doan.doanhThu = (float)(dsKhach.Count * d.ctDoan.giaTour);
                 _busDoan.Update(doan);
                 return RedirectToAction("Details", new { id = d.ctDoan.maDoan, tab = "tab2" });

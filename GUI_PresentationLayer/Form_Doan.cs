@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DAL_DataAccessLayer.DALServices.DAODoan;
 
 namespace GUI_PresentationLayer
 {
@@ -17,16 +18,21 @@ namespace GUI_PresentationLayer
     {
         int indexDgv = 0;
         List<Doan>  doans;
+        List<nDoan> ndoans;
         List<Tour> tours;
         BUSDoan _busDoan;
+        BUSGiaTour _busGiaTour;
+        BUSChiTietDoan _busChiTietDoan;
 
         public Form_Doan()
         {
             InitializeComponent();
             _busDoan = new BUSDoan();
+            _busGiaTour = new BUSGiaTour();
+            _busChiTietDoan = new BUSChiTietDoan();
             doans = _busDoan.GetDoan().ToList();
+            ndoans = _busDoan.GetNDoans().ToList();
             tours = _busDoan.GetTour().ToList();
-
         }
 
         private void DSDoan_Load(object sender, EventArgs e)
@@ -34,29 +40,30 @@ namespace GUI_PresentationLayer
             dgvDsdoan.AutoGenerateColumns = false;
             dgvDsdoan.ColumnCount = 5;
 
-            List<String> lName = new List<string> { "maDoan", "ngayKhoiHanh", "ngayKetThuc", "doanhThu", "maTour" };
+            List<String> lName = new List<string> { "maDoan", "ngayKhoiHanh", "ngayKetThuc", "doanhThu", "tenTour" };
             for (int index = 0; index < dgvDsdoan.ColumnCount; index++)
             {
                 dgvDsdoan.Columns[index].DataPropertyName = lName.ToArray().GetValue(index).ToString();
             }
 
 
-            dgvDsdoan.DataSource = doans;
-            cbMatour.DataSource = tours.Select(tour => tour.maTour).ToList();
+            dgvDsdoan.DataSource = ndoans;
+            cbMatour.DataSource = tours.Select(tour => tour.tenTour).ToList();
         }
 
         private void dgvDsdoan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvDsdoan.CurrentRow.Selected = true;
             indexDgv = dgvDsdoan.CurrentRow.Index;
-            var doan = doans[indexDgv];
+            var doan = ndoans[indexDgv];
             dtpNgkhoihanh.Value = doan.ngayKhoiHanh;
             dtpNgketthuc.Value = doan.ngayKetThuc;
-            cbMatour.SelectedItem = doan.maTour;
+            cbMatour.SelectedItem = doan.tenTour;
         }
 
         private void dgvDsdoan_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            doans = _busDoan.GetDoan().ToList();
             dgvDsdoan.CurrentRow.Selected = true;
             indexDgv = dgvDsdoan.CurrentRow.Index;
             var doan = doans[indexDgv];
@@ -106,13 +113,14 @@ namespace GUI_PresentationLayer
             else
             {
                 Doan doan = new Doan();
-                doan.maTour = (int)cbMatour.SelectedValue;
+                Tour t = tours[cbMatour.SelectedIndex];
+                doan.maTour = t.maTour;
                 doan.ngayKhoiHanh = newKhHanh;
                 doan.ngayKetThuc = newKThuc;
                 doan.doanhThu = newDThu;
                 _busDoan.Create(doan);
-                doans = _busDoan.GetDoan().ToList();
-                dgvDsdoan.DataSource = doans;
+                ndoans = _busDoan.GetNDoans().ToList();
+                dgvDsdoan.DataSource = ndoans;
                 dgvDsdoan.Update();
                 dgvDsdoan.Refresh();
             }
@@ -134,10 +142,22 @@ namespace GUI_PresentationLayer
                 doan.ngayKhoiHanh = dtpNgkhoihanh.Value;
                 doan.ngayKetThuc = dtpNgketthuc.Value;
                 doan.doanhThu = newDThu;
-                doan.maTour = (int)cbMatour.SelectedItem;
+                Tour t = tours[cbMatour.SelectedIndex];
+                doan.maTour = t.maTour;
+                var gias = _busGiaTour.GetByTourId(t.maTour);
+                var gia = gias.SingleOrDefault(g => doan.ngayKhoiHanh >= g.ngayKhoiHanh && doan.ngayKhoiHanh < g.ngayKetThuc);
+                if (gia == null)
+                {
+                    doan.doanhThu = 0;
+                }
+                else
+                {
+                    var khachDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
+                    doan.doanhThu = (float)(khachDoan.Count * gia.thanhTien);
+                }
                 _busDoan.Update(doan);
-                doans = _busDoan.GetDoan().ToList();
-                dgvDsdoan.DataSource = doans;
+                ndoans = _busDoan.GetNDoans().ToList();
+                dgvDsdoan.DataSource = ndoans;
                 dgvDsdoan.Update();
                 dgvDsdoan.Refresh();
             }

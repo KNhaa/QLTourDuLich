@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DAL_DataAccessLayer.DALServices.DAOChiTietDoan;
+using System.Globalization;
 
 namespace GUI_PresentationLayer
 {
@@ -50,8 +51,8 @@ namespace GUI_PresentationLayer
             lbtNgketthuc.Text = ctDoan.ngKetThuc.ToString();
             lbtTenTour.Text = ctDoan.tenTour;
             lbtSoluongkhach.Text = ctDoan.sLKhach.ToString();
-            lbtDoanhthu.Text = ctDoan.dThu.ToString();
-            lbtGia.Text = ctDoan.giaTour.ToString();
+            lbtDoanhthu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", ctDoan.doanhThu);
+            lbtGia.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", ctDoan.giaTour);
             tabDiaDiam_Show();
         }
 
@@ -118,7 +119,7 @@ namespace GUI_PresentationLayer
             dgvChiPhi.AutoGenerateColumns = false;
             dgvChiPhi.ColumnCount = 3;
 
-            List<String> lName = new List<string> { "chiPhi", "soTien", "tenLoaiCP" };
+            List<String> lName = new List<string> { "chiPhi", "soTienFormat", "tenLoaiCP" };
             for (int index = 0; index < dgvChiPhi.ColumnCount; index++)
             {
                 dgvChiPhi.Columns[index].DataPropertyName = lName.ToArray().GetValue(index).ToString();
@@ -131,6 +132,8 @@ namespace GUI_PresentationLayer
                 lcp.Add(cp.tenLoaiCP);
             }
             cbxLoaiChiphi.DataSource = lcp;
+            var tongTien = dsChiPhi.Select(cp => cp.soTien).Sum();
+            lbtTongCP.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", tongTien);
         }
 
         private void tabNhanVien_Show()
@@ -184,7 +187,7 @@ namespace GUI_PresentationLayer
                     khachOfDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
                     doan.doanhThu = (float)(khachOfDoan.Count * ctDoan.giaTour);
                     _busDoan.Update(doan);
-                    lbtDoanhthu.Text = doan.doanhThu.ToString();
+                    lbtDoanhthu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", doan.doanhThu);
                     tabKhach_Show();
                 }
                 else
@@ -202,22 +205,29 @@ namespace GUI_PresentationLayer
                 {
                     MessageBox.Show("Loại chi phí trống.", "Cảnh báo");
                 }
-                else
+                else 
                 {
                     decimal soTien = Decimal.Parse(txtSoTien.Text);
-                    int index = (int)cbxLoaiChiphi.SelectedIndex;
-                    ChiPhi cp = new ChiPhi();
-                    LoaiChiPhi lcp = loaiCP[index];
-                    cp.soTien = soTien;
-                    cp.maDoan = doan.maDoan;
-                    cp.maLoaiCP = lcp.maLoaiCP;
-                    _busChiTietDoan.addChiPhi(cp);
-                    tabChiPhi_Show();
+                    if(soTien < 1000)
+                    {
+                        MessageBox.Show("Số tiền không hợp lệ", "Cảnh báo");
+                    }
+                    else
+                    {
+                        int index = (int)cbxLoaiChiphi.SelectedIndex;
+                        ChiPhi cp = new ChiPhi();
+                        LoaiChiPhi lcp = loaiCP[index];
+                        cp.soTien = soTien;
+                        cp.maDoan = doan.maDoan;
+                        cp.maLoaiCP = lcp.maLoaiCP;
+                        _busChiTietDoan.addChiPhi(cp);
+                        tabChiPhi_Show();
+                    }
                 }
             }
             catch
             {
-                MessageBox.Show("Số tiền phải là kiểu decimal.", "Cảnh báo");
+                MessageBox.Show("Số tiền không hợp lệ", "Cảnh báo");
             }
         }
 
@@ -268,10 +278,8 @@ namespace GUI_PresentationLayer
                 khachOfDoan = _busChiTietDoan.GetDsKhach(doan).ToList();
                 doan.doanhThu = (float)(khachOfDoan.Count * ctDoan.giaTour);
                 _busDoan.Update(doan);
-                lbtDoanhthu.Text = doan.doanhThu.ToString();
-                dgvKhach.DataSource = khachOfDoan;
-                dgvKhach.Update();
-                dgvKhach.Refresh();
+                lbtDoanhthu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", doan.doanhThu);
+                tabKhach_Show();
             }
         }
 
@@ -287,9 +295,7 @@ namespace GUI_PresentationLayer
                 cp.maChiPhi = chiphi.chiPhi;
                 _busChiTietDoan.delChiPhi(cp);
                 dsChiPhi = _busChiTietDoan.GetDsChiPhi(doan).ToList();
-                dgvChiPhi.DataSource = dsChiPhi;
-                dgvChiPhi.Update();
-                dgvChiPhi.Refresh();
+                tabChiPhi_Show();
             }
         }
 
@@ -305,9 +311,7 @@ namespace GUI_PresentationLayer
                 pb.maDoan = doan.maDoan;
                 _busChiTietDoan.delNhanVien(pb);
                 nvOfDoan = _busChiTietDoan.GetDsNhanVien(doan).ToList();
-                dgvNhanVien.DataSource = nvOfDoan;
-                dgvNhanVien.Update();
-                dgvNhanVien.Refresh();
+                tabNhanVien_Show();
             }
         }
 

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DAL_DataAccessLayer.DALServices.DAODoan;
 
 namespace BUS_BussinessLayer.BUSServices
 {
@@ -20,6 +21,11 @@ namespace BUS_BussinessLayer.BUSServices
         public ICollection<Doan> GetDoan()
         {
             return DAOdoan.GetDoan().ToList();
+        }
+
+        public List<nDoan> GetNDoans()
+        {
+            return DAOdoan.GetNDoans().ToList();
         }
 
         public void Create(Doan doan)

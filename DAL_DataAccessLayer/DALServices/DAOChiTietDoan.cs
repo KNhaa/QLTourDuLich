@@ -3,8 +3,7 @@ using DAL_DataAccessLayer.DatabaseContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace DAL_DataAccessLayer.DALServices
 {
@@ -35,7 +34,7 @@ namespace DAL_DataAccessLayer.DALServices
                     ctDoan.giaTour = gia.thanhTien;
                 }
                 ctDoan.sLKhach = slKhach;
-                ctDoan.dThu = doan.doanhThu;
+                ctDoan.doanhThu = doan.doanhThu;
             return ctDoan;
         }
 
@@ -91,6 +90,7 @@ namespace DAL_DataAccessLayer.DALServices
                             {
                                 chiPhi = cp.maChiPhi,
                                 soTien = cp.soTien,
+                                soTienFormat = string.Format(new CultureInfo("vi-VN"), "{0:#,##0.00}", cp.soTien),
                                 tenLoaiCP = lcp.tenLoaiCP
                             });
             return dsChiPhi.ToList();
@@ -162,7 +162,7 @@ namespace DAL_DataAccessLayer.DALServices
             public int sLKhach { get; set; }
             public DateTime ngKhoiHanh { get; set; }
             public DateTime ngKetThuc { get; set; }
-            public float dThu { get; set; }
+            public float doanhThu { get; set; }
             public decimal giaTour { get; set; }
         }
         
@@ -186,6 +186,7 @@ namespace DAL_DataAccessLayer.DALServices
         {
             public int chiPhi { get; set; }
             public decimal soTien { get; set; }
+            public String soTienFormat { get; set; }
             public String tenLoaiCP { get; set; }
         }
     }

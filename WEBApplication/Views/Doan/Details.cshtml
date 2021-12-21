@@ -37,11 +37,11 @@
                     </div>
                     <div class="form-group col-lg-12">
                         <label>Giá</label>
-                        <input type="text" asp-for="@Model.ctDoan!.giaTour" class="form-control" disabled />
+                        <input type="text" asp-for="@Model.ctDoan!.giaTour" class="form-control" value="@string.Format("{0:C}", Model.ctDoan!.giaTour)" disabled />
                     </div>
                     <div class="form-group col-lg-12">
                         <label>Doanh Thu</label>
-                        <input type="text" asp-for="@Model.ctDoan!.dThu" class="form-control" disabled />
+                        <input type="text" asp-for="@Model.ctDoan!.doanhThu" class="form-control" value="@string.Format("{0:C}", Model.ctDoan!.doanhThu)" disabled />
                     </div>
                 </div>
             </form>
@@ -107,7 +107,7 @@
                                             <td>@item.sdt</td>
                                             <td style="width:fit-content;">
                                                 <a href="@Url.Action("deleteKhach", "Doan", new { idKhach = item.maKh, idDoan = Model.ctDoan!.maDoan})">
-                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
+                                                    <input type="button" onclick="return confirm('Bạn có chắc muốn xóa không')" class="btn btn-danger" value="Xóa" />
                                                 </a>
                                             </td>
                                         </tr>
@@ -133,15 +133,21 @@
                                     {
                                         <tr>
                                             <td>@item.chiPhi</td>
-                                            <td>@item.soTien</td>
+                                            <td>@string.Format("{0:C}", item.soTien)</td>
                                             <td>@item.tenLoaiCP</td>
                                             <td style="width:fit-content;">
                                                 <a href="@Url.Action("deleteCP", "Doan", new { idCP = item.chiPhi, idDoan = Model.ctDoan!.maDoan})">
-                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
+                                                    <input type="button" onclick="return confirm('Bạn có chắc muốn xóa không')" class="btn btn-danger" value="Xóa" />
                                                 </a>
                                             </td>
                                         </tr>
                                     }
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Tổng Tiền</td>
+                                        <td>@string.Format("{0:C}", ViewBag.tongTien)</td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -167,7 +173,7 @@
                                             <td>@item.nhiemVu</td>
                                             <td style="width:fit-content;">
                                                 <a href="@Url.Action("deleteNV", "Doan", new { idNV = item.maNV, idDoan = Model.ctDoan!.maDoan})">
-                                                    <input type="button" onclick="return confirm('BẠN CÓ CHẮC MUỐN XÓA KHÔNG')" class="btn btn-danger" value="Xóa" />
+                                                    <input type="button" onclick="return confirm('Bạn có chắc muốn xóa không')" class="btn btn-danger" value="Xóa" />
                                                 </a>
                                             </td>
                                         </tr>
